@@ -14,13 +14,23 @@ except Exception:
 MAPPINGS_DIR = Path('mappings')
 
 
-def load_mapping(ftype: str, year: int) -> Dict:
+def load_mapping(ftype: str, year: int, meta: Dict[str, object] | None = None) -> Dict:
     name = None
     # Prefer exact year mapping, else generic by type
-    candidates = [
-        f"{ftype.lower()}_{year}.json",
-        f"{ftype.lower()}.json",
-    ]
+    if ftype == 'LTC' and meta:
+        variant = meta.get('ltc_variant')
+        if isinstance(variant, str):
+            candidates = [
+                f"{variant}_{year}.json",
+                f"{variant}.json",
+            ]
+        else:
+            candidates = [f"ltc_{year}.json", f"ltc.json"]
+    else:
+        candidates = [
+            f"{ftype.lower()}_{year}.json",
+            f"{ftype.lower()}.json",
+        ]
     for c in candidates:
         p = MAPPINGS_DIR / c
         if p.exists():
@@ -181,13 +191,14 @@ def main():
             base = Path('data') / str(year) / ftype
             if not base.exists():
                 continue
-            # Load mapping for this type/year if available
-            try:
-                mapping = load_mapping(ftype, year)
-            except SystemExit as e:
-                # Skip if no mapping for this combo
-                print(f"{e}. Skipping {ftype} {year}.")
-                continue
+            # Load default mapping once (non-LTC); LTC mapping depends on per-facility meta
+            mapping_default = None
+            if ftype != 'LTC':
+                try:
+                    mapping_default = load_mapping(ftype, year, None)
+                except SystemExit as e:
+                    print(f"{e}. Skipping {ftype} {year}.")
+                    continue
 
             for fac_dir in sorted(base.iterdir()):
                 if not fac_dir.is_dir():
@@ -198,6 +209,16 @@ def main():
                 doc = json.loads(data_path.read_text(encoding='utf-8'))
                 fields = doc.get('fields', {})
                 meta = doc.get('meta', {})
+                # Load mapping for LTC per facility
+                if ftype == 'LTC':
+                    try:
+                        mapping = load_mapping(ftype, year, meta)
+                    except SystemExit as e:
+                        # No mapping for this LTC variant; skip
+                        print(f"{e}. Skipping {fac_dir}.")
+                        continue
+                else:
+                    mapping = mapping_default
 
                 # Determine schema path
                 schema_spec = mapping.get('schema')
@@ -208,6 +229,11 @@ def main():
                     schema_path = pick_hospital_schema_variant(meta, schema_spec)
                 else:
                     schema_path = Path(schema_spec)
+                # Prefer prebuilt ingestion schema file if requested
+                if args.ingestion:
+                    ing_variant = Path('schemas/json_ingestion') / Path(schema_path).name
+                    if ing_variant.exists():
+                        schema_path = ing_variant
                 schema = json.loads(Path(schema_path).read_text(encoding='utf-8'))
                 schema_props = schema.get('properties', {})
 

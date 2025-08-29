@@ -1,0 +1,39 @@
+{
+  "schema": "schemas/json/ltc5.schema.json",
+  "direct": {
+    "facility_name": "facility_name",
+    "facility_address": "address_line1",
+    "facility_city": "address_city",
+    "facility_zip_code": "address_zip",
+    "fein_number": "fein",
+
+    "regagent": "reg_agent_name",
+    "regagentaddress": "reg_agent_address",
+    "regagentcity": "reg_agent_city_state_zip",
+    "regagenttelephone": "reg_agent_phone",
+
+    "adminfte": "fte_admin",
+    "physfte": "fte_physicians",
+    "dirnursfte": "fte_don",
+    "regnursfte": "fte_rn",
+    "lpn_fte": "fte_lpn",
+    "certaidefte": "fte_cert_aides",
+    "otherhealthfte": "fte_other_health",
+    "othnonhealthfte": "fte_other_nonhealth",
+    "hoursworkweek": "workweek_hours",
+
+    "startingresidents": "census_jan1",
+    "residentadmit": "admissions_initial",
+    "residentdischarge": "discharges_permanent",
+
+    "iddlicbeds": "beds_licensed_idd",
+    "iddbedssetup": "beds_setup_idd",
+    "iddbedspeaksetup": "beds_peak_setup_idd",
+    "iddbedpeakocc": "beds_peak_occupied_idd",
+    "iddbedsoccupied": "beds_occupied_idd"
+  },
+  "const": {
+    "address_state": "IL"
+  }
+}
+

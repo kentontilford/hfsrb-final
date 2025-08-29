@@ -9,6 +9,7 @@ def run(cmd: list[str]):
 def main():
     # 1) Generate schemas
     run([sys.executable, 'scripts/generate_schemas.py'])
+    run([sys.executable, 'scripts/generate_ingestion_schemas.py'])
 
     # 2) Ensure data tree + facility dirs
     run([sys.executable, 'scripts/setup_data_dirs.py'])
@@ -19,6 +20,7 @@ def main():
     # 4) Normalize 2023 hospital IDs; set AHQ variant
     run([sys.executable, 'scripts/normalize_hospital_ids.py'])
     run([sys.executable, 'scripts/set_hospital_variant.py'])
+    run([sys.executable, 'scripts/set_ltc_variant.py'])
 
     # 5) Apply mappings with ingestion validation
     combos = [
@@ -33,4 +35,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
