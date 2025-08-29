@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Dict, Tuple
+from typing import Dict, Tuple, List, Optional
 
 try:
     import jsonschema  # for optional validation
@@ -46,7 +46,7 @@ def pick_hospital_schema_variant(meta: Dict, mapping_schema: str) -> Path:
 
 def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str, dict]) -> Tuple[Dict, Dict]:
     out: Dict = {}
-    used = {}
+    used: Dict[str, str] = {}
     direct = mapping.get('direct', {})
     # Direct 1:1 mapping
     for src, dst in direct.items():
@@ -58,6 +58,59 @@ def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str,
     for k, v in mapping.get('const', {}).items():
         if k in schema_props:
             out[k] = v
+
+    # Derived sums
+    def parse_int(val: Optional[str]) -> Optional[int]:
+        if val is None:
+            return None
+        s = str(val).strip()
+        if s == '':
+            return None
+        import re as _re
+        s = _re.sub(r'[^0-9\-]', '', s)
+        try:
+            return int(s)
+        except Exception:
+            return None
+
+    for dst, src_list in mapping.get('sum', {}).items():
+        total = 0
+        seen = False
+        for src in src_list:
+            if src in fields:
+                seen = True
+                n = parse_int(fields.get(src))
+                if n is not None:
+                    total += n
+                    used[src] = dst
+        if seen and dst in schema_props:
+            out[dst] = total
+
+    # Arrays from numbered groups
+    for arr in mapping.get('arrays', []):
+        dest = arr.get('dest')
+        count = int(arr.get('count', 0))
+        item_spec: Dict[str, str] = arr.get('item', {})
+        require_keys: List[str] = arr.get('require', [])
+        items: List[Dict[str, str]] = []
+        for i in range(1, count + 1):
+            obj: Dict[str, str] = {}
+            present = False
+            for dst_key, src_tpl in item_spec.items():
+                src_key = src_tpl.replace('{n}', str(i))
+                val = fields.get(src_key)
+                if val is not None and str(val).strip() != '':
+                    obj[dst_key] = val
+                    present = True
+                    used[src_key] = f"{dest}[].{dst_key}"
+            if not present:
+                continue
+            # Check required keys have values
+            if require_keys and not all(obj.get(k) for k in require_keys):
+                continue
+            items.append(obj)
+        if items and dest:
+            out[dest] = items
 
     return out, used
 
@@ -138,4 +191,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

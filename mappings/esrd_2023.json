@@ -89,5 +89,27 @@
     "unknown_ethnicity_patients": "eth_unknown",
 
     "total_patients_treated": "patients_unduplicated"
-  }
+  },
+  "arrays": [
+    {
+      "dest": "building_owners",
+      "count": 3,
+      "require": ["name"],
+      "item": {
+        "name": "property_owner_{n}",
+        "address": "property_owner_{n}_address",
+        "city_state_zip": "property_owner_{n}_city"
+      }
+    },
+    {
+      "dest": "related_entities",
+      "count": 5,
+      "require": ["name"],
+      "item": {
+        "name": "related_entity_{n}",
+        "relationship": "related_entity_{n}_relationship",
+        "interest": "related_entity_{n}_interest"
+      }
+    }
+  ]
 }

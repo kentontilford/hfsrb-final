@@ -7,6 +7,8 @@
     "astczipcode": "address_zip",
     "fein_number": "fein",
     "astc_id": "astc_license",
+    "astcownertype": "ownership_type",
+    "astcownerspec": "ownership_other",
 
     "astcbegindate": "fy_start",
     "astcenddate": "fy_end",
@@ -29,7 +31,42 @@
     "astchourssun": "hours_sun",
 
     "astcexamrooms": "rooms_exam",
-    "astcoperatingrooms": "rooms_or_class_c"
-  }
+    "astcoperatingrooms": "rooms_or_class_c",
+    "astcregisteredagent": "reg_agent_name",
+    "astcregaddress": "reg_agent_address",
+    "astcregcitystzip": "reg_agent_city_state_zip",
+    "astcregtelephone": "reg_agent_phone"
+  },
+  "sum": {
+    "patients_age_total": [
+      "astcmale0_14", "astcmale15_44", "astcmale45_64", "astcmale65_74", "astcmale75plus",
+      "astcfemale0_14", "astcfemale15_44", "astcfemale45_64", "astcfemale65_74", "astcfemale75plus"
+    ],
+    "patients_payment_total": [
+      "astcmalemedicaid", "astcmalemedicare", "astcmaleothpub", "astcmaleprvins", "astcmaleprivatepay", "astcmalecharcare",
+      "astcfemalemedicaid", "astcfemalemedicare", "astcfemaleothpub", "astcfemaleprvins", "astcfemaleprivatepay", "astcfemalecharcare"
+    ]
+  },
+  "arrays": [
+    {
+      "dest": "owners",
+      "count": 24,
+      "require": ["name"],
+      "item": {
+        "name": "astcowner{n}",
+        "address": "astcowneraddress{n}",
+        "city_state_zip": "astcownercitystzip{n}",
+        "phone": "astcownerphone{n}"
+      }
+    },
+    {
+      "dest": "mgmt_contractors",
+      "count": 3,
+      "require": ["name"],
+      "item": {
+        "name": "astccontract{n}",
+        "address": "astccontractaddress{n}"
+      }
+    }
+  ]
 }
-
