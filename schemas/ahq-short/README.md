@@ -141,6 +141,65 @@ Annual Hospital Questionnaire short form for hospitals with fewer than 100 beds.
 | certification.name | Certifying Official Name | cert_name | string | yes |  |  |  | p.15 |  |
 | certification.title | Certifying Official Title | cert_title | string | yes |  |  |  | p.15 |  |
 | certification.date | Certification Date | cert_date | date | yes |  | mm/dd/yyyy |  | p.15 |  |
+| surgery.or_class_c.general.rooms_ip | OR Rooms IP — General Surgery | or_rooms_ip_general_surgery | integer | no |  |  | rooms | p.5 | |
+| surgery.or_class_c.general.rooms_op | OR Rooms OP — General Surgery | or_rooms_op_general_surgery | integer | no |  |  | rooms | p.5 | |
+| surgery.or_class_c.general.rooms_combined | OR Rooms Combined — General Surgery | or_rooms_combined_general_surgery | integer | no |  |  | rooms | p.5 | |
+| surgery.or_class_c.general.cases_ip | Surgical Cases IP — General Surgery | or_cases_ip_general_surgery | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.general.cases_op | Surgical Cases OP — General Surgery | or_cases_op_general_surgery | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.general.hours_ip | Surgical Hours IP — General Surgery | or_hours_ip_general_surgery | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.general.hours_op | Surgical Hours OP — General Surgery | or_hours_op_general_surgery | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.general.hours_total | Surgical Hours Total — General Surgery | or_hours_total_general_surgery | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.ophthalmology.rooms_ip | OR Rooms IP — Ophthalmology | or_rooms_ip_ophthalmology | integer | no |  |  | rooms | p.5 | |
+| surgery.or_class_c.ophthalmology.rooms_op | OR Rooms OP — Ophthalmology | or_rooms_op_ophthalmology | integer | no |  |  | rooms | p.5 | |
+| surgery.or_class_c.ophthalmology.rooms_combined | OR Rooms Combined — Ophthalmology | or_rooms_combined_ophthalmology | integer | no |  |  | rooms | p.5 | |
+| surgery.or_class_c.ophthalmology.cases_ip | Surgical Cases IP — Ophthalmology | or_cases_ip_ophthalmology | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.ophthalmology.cases_op | Surgical Cases OP — Ophthalmology | or_cases_op_ophthalmology | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.ophthalmology.hours_ip | Surgical Hours IP — Ophthalmology | or_hours_ip_ophthalmology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.ophthalmology.hours_op | Surgical Hours OP — Ophthalmology | or_hours_op_ophthalmology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.ophthalmology.hours_total | Surgical Hours Total — Ophthalmology | or_hours_total_ophthalmology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.gastroenterology.cases_ip | Surgical Cases IP — Gastroenterology | or_cases_ip_gastroenterology | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.gastroenterology.cases_op | Surgical Cases OP — Gastroenterology | or_cases_op_gastroenterology | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.gastroenterology.hours_ip | Surgical Hours IP — Gastroenterology | or_hours_ip_gastroenterology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.gastroenterology.hours_op | Surgical Hours OP — Gastroenterology | or_hours_op_gastroenterology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.gastroenterology.hours_total | Surgical Hours Total — Gastroenterology | or_hours_total_gastroenterology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.neurology.cases_ip | Surgical Cases IP — Neurology | or_cases_ip_neurology | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.neurology.cases_op | Surgical Cases OP — Neurology | or_cases_op_neurology | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.neurology.hours_ip | Surgical Hours IP — Neurology | or_hours_ip_neurology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.neurology.hours_op | Surgical Hours OP — Neurology | or_hours_op_neurology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.neurology.hours_total | Surgical Hours Total — Neurology | or_hours_total_neurology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.obgyn.cases_ip | Surgical Cases IP — Obstetrics/Gynecology | or_cases_ip_obstetrics_gynecology | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.obgyn.cases_op | Surgical Cases OP — Obstetrics/Gynecology | or_cases_op_obstetrics_gynecology | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.obgyn.hours_ip | Surgical Hours IP — Obstetrics/Gynecology | or_hours_ip_obstetrics_gynecology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.obgyn.hours_op | Surgical Hours OP — Obstetrics/Gynecology | or_hours_op_obstetrics_gynecology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.obgyn.hours_total | Surgical Hours Total — Obstetrics/Gynecology | or_hours_total_obstetrics_gynecology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.orthopedic.cases_ip | Surgical Cases IP — Orthopedic | or_cases_ip_orthopedic | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.orthopedic.cases_op | Surgical Cases OP — Orthopedic | or_cases_op_orthopedic | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.orthopedic.hours_ip | Surgical Hours IP — Orthopedic | or_hours_ip_orthopedic | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.orthopedic.hours_op | Surgical Hours OP — Orthopedic | or_hours_op_orthopedic | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.orthopedic.hours_total | Surgical Hours Total — Orthopedic | or_hours_total_orthopedic | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.urology.cases_ip | Surgical Cases IP — Urology | or_cases_ip_urology | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.urology.cases_op | Surgical Cases OP — Urology | or_cases_op_urology | integer | no |  |  | cases | p.5 | |
+| surgery.or_class_c.urology.hours_ip | Surgical Hours IP — Urology | or_hours_ip_urology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.urology.hours_op | Surgical Hours OP — Urology | or_hours_op_urology | integer | no |  |  | hours | p.5 | |
+| surgery.or_class_c.urology.hours_total | Surgical Hours Total — Urology | or_hours_total_urology | integer | no |  |  | hours | p.5 | |
+| surgery.class_b.gastro_intestinal.rooms_ip | Class B Rooms IP — Gastro-Intestinal | procB_rooms_ip_gastro_intestinal | integer | no |  |  | rooms | p.6 | |
+| surgery.class_b.gastro_intestinal.rooms_op | Class B Rooms OP — Gastro-Intestinal | procB_rooms_op_gastro_intestinal | integer | no |  |  | rooms | p.6 | |
+| surgery.class_b.gastro_intestinal.rooms_combined | Class B Rooms Combined — Gastro-Intestinal | procB_rooms_combined_gastro_intestinal | integer | no |  |  | rooms | p.6 | |
+| surgery.class_b.gastro_intestinal.rooms_total | Class B Rooms Total — Gastro-Intestinal | procB_rooms_total_gastro_intestinal | integer | no |  |  | rooms | p.6 | |
+| surgery.class_b.gastro_intestinal.cases_ip | Class B Cases IP — Gastro-Intestinal | procB_cases_ip_gastro_intestinal | integer | no |  |  | cases | p.6 | |
+| surgery.class_b.gastro_intestinal.cases_op | Class B Cases OP — Gastro-Intestinal | procB_cases_op_gastro_intestinal | integer | no |  |  | cases | p.6 | |
+| surgery.class_b.gastro_intestinal.hours_ip | Class B Hours IP — Gastro-Intestinal | procB_hours_ip_gastro_intestinal | integer | no |  |  | hours | p.6 | |
+| surgery.class_b.gastro_intestinal.hours_op | Class B Hours OP — Gastro-Intestinal | procB_hours_op_gastro_intestinal | integer | no |  |  | hours | p.6 | |
+| surgery.class_b.gastro_intestinal.hours_total | Class B Hours Total — Gastro-Intestinal | procB_hours_total_gastro_intestinal | integer | no |  |  | hours | p.6 | |
+| surgery.class_b.laser_eye.rooms_ip | Class B Rooms IP — Laser Eye | procB_rooms_ip_laser_eye | integer | no |  |  | rooms | p.6 | |
+| surgery.class_b.laser_eye.rooms_op | Class B Rooms OP — Laser Eye | procB_rooms_op_laser_eye | integer | no |  |  | rooms | p.6 | |
+| surgery.class_b.laser_eye.rooms_combined | Class B Rooms Combined — Laser Eye | procB_rooms_combined_laser_eye | integer | no |  |  | rooms | p.6 | |
+| surgery.class_b.laser_eye.rooms_total | Class B Rooms Total — Laser Eye | procB_rooms_total_laser_eye | integer | no |  |  | rooms | p.6 | |
+| surgery.class_b.laser_eye.cases_ip | Class B Cases IP — Laser Eye | procB_cases_ip_laser_eye | integer | no |  |  | cases | p.6 | |
+| surgery.class_b.laser_eye.cases_op | Class B Cases OP — Laser Eye | procB_cases_op_laser_eye | integer | no |  |  | cases | p.6 | |
+| surgery.class_b.laser_eye.hours_ip | Class B Hours IP — Laser Eye | procB_hours_ip_laser_eye | integer | no |  |  | hours | p.6 | |
+| surgery.class_b.laser_eye.hours_op | Class B Hours OP — Laser Eye | procB_hours_op_laser_eye | integer | no |  |  | hours | p.6 | |
+| surgery.class_b.laser_eye.hours_total | Class B Hours Total — Laser Eye | procB_hours_total_laser_eye | integer | no |  |  | hours | p.6 | |
 
 ## Enumerations
 
