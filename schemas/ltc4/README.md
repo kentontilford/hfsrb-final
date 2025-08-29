@@ -40,9 +40,23 @@ Annual survey for LTC facilities with 16 or fewer intermediate DD beds. Capture 
 | beds.occupied_dec31.intermediate_dd | Beds Occupied — Intermediate DD (12/31/2023) | beds_occupied_idd | integer | yes |  |  | beds | Sec I p.4 |  |
 | patient_days.total_2023.intermediate_dd | TOTAL PATIENT DAYS OF CARE 2023 — Intermediate DD | days_total_idd | integer | yes |  |  | days | Sec I p.4 |  |
 | residents.dec31.by_age_sex.* | Residents by Age/Sex — as of Dec 31 | residents_age_sex_* | integer | yes |  |  | patients | Sec I p.4 | Age bands as listed |
-| residents.dec31.by_race.* | Residents by Racial Group — as of Dec 31 | residents_race_* | integer | yes |  |  | patients | Sec I p.5 |  |
-| residents.dec31.by_ethnicity.* | Residents by Ethnicity — as of Dec 31 | residents_eth_* | integer | yes |  |  | patients | Sec I p.5 |  |
-| residents.dec31.by_payment.* | Residents by Primary Payment — as of Dec 31 | residents_pay_* | integer | yes | ltc_payment |  | patients | Sec I p.5 | Includes Charity Care |
+| residents.dec31.by_race.white | Residents — White | residents_race_white | integer | no |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_race.black_african_american | Residents — Black/African American | residents_race_black_african_american | integer | no |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_race.asian | Residents — Asian | residents_race_asian | integer | no |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_race.american_indian_alaska_native | Residents — American Indian/Alaska Native | residents_race_american_indian | integer | no |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_race.native_hawaiian_pacific_islander | Residents — Native Hawaiian/Pacific Islander | residents_race_native_hawaiian_pacific_islander | integer | no |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_race.unknown | Residents — Unknown Race | residents_race_unknown | integer | no |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_race.total | Residents — Total by Race | residents_race_total | integer | auto |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_ethnicity.hispanic_latino | Residents — Hispanic/Latino | residents_eth_hispanic_latino | integer | no |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_ethnicity.not_hispanic | Residents — Not Hispanic/Latino | residents_eth_non_hispanic | integer | no |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_ethnicity.unknown | Residents — Ethnicity Unknown | residents_eth_unknown | integer | no |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_ethnicity.total | Residents — Total by Ethnicity | residents_eth_total | integer | auto |  |  | patients | Sec I p.5 | |
+| residents.dec31.by_payment.medicare | Residents — Medicare | residents_pay_medicare | integer | no | ltc_payment |  | patients | Sec I p.5 | |
+| residents.dec31.by_payment.medicaid | Residents — Medicaid | residents_pay_medicaid | integer | no | ltc_payment |  | patients | Sec I p.5 | |
+| residents.dec31.by_payment.other_public | Residents — Other Public Program | residents_pay_other_public | integer | no | ltc_payment |  | patients | Sec I p.5 | |
+| residents.dec31.by_payment.private_insurance | Residents — Private Insurance | residents_pay_private_insurance | integer | no | ltc_payment |  | patients | Sec I p.5 | |
+| residents.dec31.by_payment.private_payment | Residents — Private Payment | residents_pay_private_payment | integer | no | ltc_payment |  | patients | Sec I p.5 | |
+| residents.dec31.by_payment.charity_care | Residents — Charity Care | residents_pay_charity_care | integer | no | ltc_payment |  | patients | Sec I p.5 | |
 | finance.* | Fiscal year, capex, revenues, charity cost | finance_* |  |  |  |  |  | Sec II p.7-8 | Same structure as LTC2 |
 | immunization.* | Influenza/pneumonia policies and counts | immun_* |  |  |  |  |  | Sec III p.9 | Same as LTC2 |
 

@@ -197,13 +197,32 @@ def _strip_required(schema: Dict) -> Dict:
     return schema
 
 
-def validate_payload(payload: Dict, schema_path: Path, ingestion: bool = False) -> None:
+def _relax_numeric_types(schema: Dict) -> Dict:
+    # Replace integer/number with anyOf [original, string]
+    if isinstance(schema, dict):
+        t = schema.get('type')
+        if t in ('integer', 'number'):
+            schema.pop('type', None)
+            schema['anyOf'] = [
+                {'type': t},
+                {'type': 'string'}
+            ]
+        for k, v in list(schema.items()):
+            schema[k] = _relax_numeric_types(v)
+    elif isinstance(schema, list):
+        return [_relax_numeric_types(x) for x in schema]
+    return schema
+
+
+def validate_payload(payload: Dict, schema_path: Path, ingestion: bool = False, lenient_types: bool = False) -> None:
     if not jsonschema:
         print("jsonschema not installed; skipping validation.")
         return
     schema = json.loads(Path(schema_path).read_text(encoding='utf-8'))
     if ingestion:
         schema = _strip_required(schema)
+    if lenient_types:
+        schema = _relax_numeric_types(schema)
     jsonschema.validate(instance=payload, schema=schema)
 
 
@@ -213,6 +232,7 @@ def main():
     ap.add_argument('--type', choices=['Hospital', 'ASTC', 'ESRD', 'LTC'], help='Specific facility type to process')
     ap.add_argument('--validate', action='store_true', help='Validate payloads against JSON Schema (requires jsonschema)')
     ap.add_argument('--ingestion', action='store_true', help='In ingestion mode, drop required constraints before validating')
+    ap.add_argument('--lenient-types', action='store_true', help='Relax numeric types to also accept numeric-like strings during validation')
     args = ap.parse_args()
 
     years = [args.year] if args.year else list(range(2008, 2025))
@@ -281,7 +301,7 @@ def main():
 
                 if args.validate:
                     try:
-                        validate_payload(payload, schema_path, ingestion=args.ingestion)
+                        validate_payload(payload, schema_path, ingestion=args.ingestion, lenient_types=args.lenient_types)
                     except Exception as e:
                         print(f"Validation failed for {fac_dir}: {e}")
                     else:
