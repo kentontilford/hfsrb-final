@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Editors/OS
+.DS_Store
+.idea/
+.vscode/
+
+# Env
+.env
+
+# Node (if used later)
+node_modules/
+
+# GitHub Actions local cache (if any)
+.cache/
+
