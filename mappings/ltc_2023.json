@@ -23,9 +23,107 @@
     "rev_medicare": "net_revenue_medicare",
     "rev_medicaid": "net_revenue_medicaid",
     "rev_othpublic": "net_revenue_other_public",
-    "totalnetrevenue": "net_revenue_total"
+    "totalnetrevenue": "net_revenue_total",
+
+    "gennurprivroomrate": "private_room_rate",
+    "gennursharroomrate": "shared_room_rate",
+    "hoursworkweek": "typical_work_week_hours",
+
+    "regagent": "registered_agent_name",
+    "regagentaddress": "registered_agent_street",
+    "regagentcity": "registered_agent_city",
+    "regagenttelephone": "registered_agent_phone",
+
+    "nursmaltotal": "male_total",
+    "nursfemtotal": "female_total",
+    "nurstotalres": "total_residents",
+
+    "gennurmaleund18": "male_under_18",
+    "gennurmale1844": "male_18_44",
+    "gannurmale4559": "male_45_59",
+    "gennurmale6064": "male_60_64",
+    "gennurmale6574": "male_65_74",
+    "gennurmale7584": "male_75_84",
+    "gennurmale85ov": "male_85_plus",
+
+    "gennurfemund18": "female_under_18",
+    "gennurfem1844": "female_18_44",
+    "gennurfem4559": "female_45_59",
+    "gennurfem6064": "female_60_64",
+    "gennurfem6574": "female_65_74",
+    "gennurfem7584": "female_75_84",
+    "gennurfem85ov": "female_85_plus",
+
+    "gennurwhite": "race_white",
+    "gennurblack": "race_black_african_american",
+    "gennurasian": "race_asian",
+    "gennuramind": "race_american_indian",
+    "gennurhawaii": "race_native_hawaiian_pacific_islander",
+    "gennurraceunk": "race_unknown",
+    "nurstotrac": "race_total",
+
+    "gennurhisp": "ethnicity_hispanic_latino",
+    "gennurnonhisp": "ethnicity_non_hispanic",
+    "gennurethunk": "ethnicity_unknown",
+    "nurstoteth": "ethnicity_total",
+
+    "genmedicare": "patient_count_medicare",
+    "genmedicaredays": "patient_days_medicare",
+    "genmedicaid": "patient_count_medicaid",
+    "genmedicaiddays": "patient_days_medicaid",
+    "geninsurance": "patient_count_private_insurance",
+    "genprivinsdays": "patient_days_private_insurance",
+    "genprivatepay": "patient_count_private_payment",
+    "genprivpaydays": "patient_days_private_payment",
+    "genothpub": "patient_count_other_public",
+    "genotherdays": "patient_days_other_public",
+    "gencharity": "patient_count_charity_care",
+    "genchardays": "patient_days_charity_care",
+
+    "actualcostcharitycare": "charity_care_actual_cost",
+
+    "alzheimers": "diag_alzheimers",
+    "blooddisorders": "diag_blood_disorders",
+    "circulatorydisorder": "diag_circulatory",
+    "digestivedisorder": "diag_digestive",
+    "endocrinemeta": "diag_endocrine_metabolic",
+    "genitourinarydis": "diag_genitourinary",
+    "injurypoison": "diag_injury_poisoning",
+    "mentalillness": "diag_mental_illness",
+    "musculoskeletal": "diag_musculoskeletal",
+    "neoplasms": "diag_neoplasms",
+    "nervousdisorder": "diag_nervous_system_disorders",
+    "nonmedicalplacement": "diag_non_medical",
+    "othermedcondition": "diag_other_medical",
+    "respiratorydisorder": "diag_respiratory",
+    "skin": "diag_skin",
+    "diagtotal": "diag_total_residents"
   },
   "const": {
     "facility_state": "IL"
-  }
+  },
+  "sum": {
+    "patient_count_total": [
+      "genmedicare", "genmedicaid", "genothpub", "geninsurance", "genprivatepay", "gencharity"
+    ],
+    "patient_days_total": [
+      "genmedicaredays", "genmedicaiddays", "genotherdays", "genprivinsdays", "genprivpaydays", "genchardays"
+    ],
+    "total_staff_fte": [
+      "adminfte", "physfte", "dirnursfte", "regnursfte", "lpn_fte", "otherhealthfte", "othnonhealthfte"
+    ]
+  },
+  "arrays": [
+    {
+      "dest": "capital_projects",
+      "count": 11,
+      "require": ["description"],
+      "item": {
+        "description": "description_of_projectexpenditurerow{n}",
+        "amount_obligated": "amount_obligatedrow{n}",
+        "method_of_financing": "method_of_financingrow{n}",
+        "con_project_number": "con_project_number_if_applicablerow{n}"
+      }
+    }
+  ]
 }
