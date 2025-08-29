@@ -144,11 +144,24 @@ def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str,
     return out, used
 
 
-def validate_payload(payload: Dict, schema_path: Path) -> None:
+def _strip_required(schema: Dict) -> Dict:
+    if isinstance(schema, dict):
+        schema.pop('required', None)
+        for k, v in list(schema.items()):
+            schema[k] = _strip_required(v)
+    elif isinstance(schema, list):
+        for i in range(len(schema)):
+            schema[i] = _strip_required(schema[i])
+    return schema
+
+
+def validate_payload(payload: Dict, schema_path: Path, ingestion: bool = False) -> None:
     if not jsonschema:
         print("jsonschema not installed; skipping validation.")
         return
     schema = json.loads(Path(schema_path).read_text(encoding='utf-8'))
+    if ingestion:
+        schema = _strip_required(schema)
     jsonschema.validate(instance=payload, schema=schema)
 
 
@@ -157,6 +170,7 @@ def main():
     ap.add_argument('--year', type=int, choices=range(2008, 2025), help='Specific year to process')
     ap.add_argument('--type', choices=['Hospital', 'ASTC', 'ESRD', 'LTC'], help='Specific facility type to process')
     ap.add_argument('--validate', action='store_true', help='Validate payloads against JSON Schema (requires jsonschema)')
+    ap.add_argument('--ingestion', action='store_true', help='In ingestion mode, drop required constraints before validating')
     args = ap.parse_args()
 
     years = [args.year] if args.year else list(range(2008, 2025))
@@ -209,7 +223,7 @@ def main():
 
                 if args.validate:
                     try:
-                        validate_payload(payload, schema_path)
+                        validate_payload(payload, schema_path, ingestion=args.ingestion)
                     except Exception as e:
                         print(f"Validation failed for {fac_dir}: {e}")
                     else:

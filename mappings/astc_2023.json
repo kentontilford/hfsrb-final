@@ -72,6 +72,9 @@
     "patients_payment_total": [
       "astcmalemedicaid", "astcmalemedicare", "astcmaleothpub", "astcmaleprvins", "astcmaleprivatepay", "astcmalecharcare",
       "astcfemalemedicaid", "astcfemalemedicare", "astcfemaleothpub", "astcfemaleprvins", "astcfemaleprivatepay", "astcfemalecharcare"
+    ],
+    "hours_total": [
+      "astchoursmon","astchourstue","astchourswed","astchoursthu","astchoursfri","astchourssat","astchourssun"
     ]
   },
   "arrays": [

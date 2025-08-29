@@ -263,4 +263,8 @@
     "pain_op_hours": "procB_hours_op_pain_management",
     "pain_total_hours": "procB_hours_total_pain_management"
   }
+  ,
+  "meta": {
+    "hospital_id": "facility_id"
+  }
 }

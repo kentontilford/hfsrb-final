@@ -187,5 +187,19 @@
     "lsr_iphrs": "procB_hours_ip_laser_eye",
     "lsr_ophrs": "procB_hours_op_laser_eye",
     "lsr_tothrs": "procB_hours_total_laser_eye"
+    ,
+    "cysto_iproom": "procB_rooms_ip_cystoscopy",
+    "cysto_oproom": "procB_rooms_op_cystoscopy",
+    "cysto_cmroom": "procB_rooms_combined_cystoscopy",
+    "cysto_totroom": "procB_rooms_total_cystoscopy",
+    "cysto_ipnum": "procB_cases_ip_cystoscopy",
+    "cysto_opnum": "procB_cases_op_cystoscopy",
+    "cysto_iphrs": "procB_hours_ip_cystoscopy",
+    "cysto_ophrs": "procB_hours_op_cystoscopy",
+    "cysto_tothrs": "procB_hours_total_cystoscopy"
+  }
+  ,
+  "meta": {
+    "hospital_id": "facility_id"
   }
 }
