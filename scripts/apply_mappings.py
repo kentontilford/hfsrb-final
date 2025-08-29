@@ -96,6 +96,12 @@ def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str,
             out[dst] = coerce_value(fields[src], schema_props.get(dst))
             used[src] = dst
 
+    # Direct totals fallback (if present and not already set)
+    for src, dst in mapping.get('direct_totals', {}).items():
+        if src in fields and dst in schema_props and dst not in out:
+            out[dst] = coerce_value(fields[src], schema_props.get(dst))
+            used[src] = dst
+
     # Constants
     for k, v in mapping.get('const', {}).items():
         if k in schema_props:

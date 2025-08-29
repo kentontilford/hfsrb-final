@@ -39,5 +39,26 @@
   },
   "const": {
     "address_state": "IL"
+  },
+  "direct_totals": {
+    "TotAsian": "residents_race_asian",
+    "TotAmInd": "residents_race_american_indian",
+    "TotBlkAfr": "residents_race_black_african_american",
+    "TotHawPI": "residents_race_native_hawaiian_pacific_islander",
+    "TotWhite": "residents_race_white",
+    "TotRaceUnk": "residents_race_unknown",
+    "TotRac": "residents_race_total",
+
+    "TotHispLat": "residents_eth_hispanic_latino",
+    "TotNonHisp": "residents_eth_non_hispanic",
+    "TotEthUnk": "residents_eth_unknown",
+    "TotEth": "residents_eth_total",
+
+    "TotMcre": "residents_pay_medicare",
+    "TotMdcd": "residents_pay_medicaid",
+    "TotOthPub": "residents_pay_other_public",
+    "TotPrvIns": "residents_pay_private_insurance",
+    "TotPrvPay": "residents_pay_private_payment",
+    "TotChar": "residents_pay_charity_care"
   }
 }

@@ -32,3 +32,12 @@ validate-ingestion: mappings
 
 all: schemas data csv normalize mappings
 
+validate-strict: schemas
+	$(PY) scripts/apply_mappings.py --year 2024 --type Hospital --validate
+	$(PY) scripts/apply_mappings.py --year 2023 --type Hospital --validate
+	$(PY) scripts/apply_mappings.py --year 2023 --type ESRD --validate
+	$(PY) scripts/apply_mappings.py --year 2023 --type ASTC --validate
+	$(PY) scripts/apply_mappings.py --year 2023 --type LTC --validate
+
+report-missing:
+	$(PY) scripts/report_missing_identity.py
