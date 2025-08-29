@@ -75,6 +75,19 @@
     "net_revenue_private_pay": "rev_private_pay",
     "total_revenue": "rev_total",
 
-    "source_of_financial_data": "finance_source"
+    "source_of_financial_data": "finance_source",
+
+    "american_indian_patients": "race_ai_an",
+    "asian_patients": "race_asian",
+    "black_african_patients": "race_black",
+    "hawaiian_pacific_patients": "race_nh_pi",
+    "white_patients": "race_white",
+    "unknown_race_patients": "race_unknown",
+
+    "hispanic_latino_patients": "eth_hispanic",
+    "non_hispanic_latino_patients": "eth_not_hispanic",
+    "unknown_ethnicity_patients": "eth_unknown",
+
+    "total_patients_treated": "patients_unduplicated"
   }
 }
