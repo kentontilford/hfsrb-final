@@ -1,0 +1,27 @@
+{
+  "schema": "schemas/json/ltc-1.schema.json",
+  "direct": {
+    "facility_name": "facility_name",
+    "facility_address": "facility_address",
+    "facility_city": "facility_city",
+    "facility_zip_code": "facility_zip",
+    "fein_number": "facility_fein",
+
+    "startingresidents": "ltc_patients_jan1_2023",
+    "endingresidents": "ltc_patients_dec31_2023",
+    "residentadmit": "ltc_admissions_2023",
+    "residentdischarge": "ltc_discharges_2023",
+
+    "genlicbeds": "licensed_beds",
+    "genbedssetup": "beds_set_up_dec31_2023",
+    "genbedsoccupied": "beds_occupied_dec31_2023",
+    "genbedspeaksetup": "highest_beds_set_up",
+    "genbedpeakocc": "highest_beds_occupied",
+
+    "financialdatasource": "financial_data_source"
+  },
+  "const": {
+    "facility_state": "IL"
+  }
+}
+

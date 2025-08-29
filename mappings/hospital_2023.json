@@ -1,0 +1,65 @@
+{
+  "schema": "schemas/json/ahq-long.schema.json|schemas/json/ahq-short.schema.json",
+  "direct": {
+    "hname": "facility_name",
+    "hstreet": "address_line1",
+    "hcity": "address_city",
+    "hzip": "address_zip",
+    "fein_number": "fein",
+    "operator": "operator_entity",
+    "plantowner": "plant_owner",
+    "chna_report_link": "chna_url",
+
+    "pedadm": "peds_admissions",
+    "pedipd": "peds_days",
+    "ped_oct1": "peds_beds_oct1",
+    "pedbss": "peds_peak_beds",
+    "pedpeak": "peds_peak_census",
+    "ped_ob_day": "peds_observation_days",
+
+    "icupatdir": "icu_direct",
+    "icupattran": "icu_transferred",
+    "icupats": "icu_total",
+    "icuipd": "icu_days",
+    "icu_oct1": "icu_beds_oct1",
+    "icubss": "icu_peak_beds",
+    "icupeak": "icu_peak_census",
+    "icu_ob_day": "icu_observation_days",
+
+    "mstotadms": "med_surg_admissions",
+    "mstotipd": "med_surg_days_total",
+    "ms_oct1": "med_surg_beds_oct1",
+    "msgbss": "med_surg_peak_beds",
+    "mstotpeak": "med_surg_peak_census",
+    "ms_ob_day": "med_surg_observation_days",
+    "ms014pd": "med_surg_days_0_14",
+    "ms1544pd": "med_surg_days_15_44",
+    "ms4564ipd": "med_surg_days_45_64",
+    "ms6574ipd": "med_surg_days_65_74",
+    "ms75upipd": "med_surg_days_75_plus",
+
+    "cgynadm": "gyn_admissions",
+    "cgynipd": "gyn_days",
+    "obadm": "ob_admissions",
+    "obipd": "ob_days",
+    "totobgadm": "obgyn_admissions_total",
+    "totobgipd": "obgyn_days_total",
+    "obg_oct1": "obgyn_beds_oct1",
+    "totobgbss": "obgyn_peak_beds",
+    "totobgpeak": "obgyn_peak_census",
+    "obg_ob_day": "obgyn_observation_days",
+
+    "ntliiiadm": "nicu_admissions",
+    "ntliiiipd": "nicu_days",
+
+    "ltcpats": "ltc_admissions",
+    "ltcipd": "ltc_days",
+
+    "total_admissions": "total_admissions",
+    "total_inpatient_days": "total_inpatient_days",
+    "total_bed_set_up_oct_1": "total_beds_oct1",
+    "dedobsbeds": "obs_unit_beds",
+    "dedobsdays": "obs_unit_days"
+  }
+}
+

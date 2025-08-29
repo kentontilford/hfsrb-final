@@ -1,0 +1,83 @@
+{
+  "schema": "schemas/json/ahq-long.schema.json|schemas/json/ahq-short.schema.json",
+  "direct": {
+    "hospital_name": "facility_name",
+    "hospital_address": "address_line1",
+    "hospital_city": "address_city",
+    "zip": "address_zip",
+    "fein_number": "fein",
+    "operator": "operator_entity",
+    "plant_owner": "plant_owner",
+    "chna_report_link": "chna_url",
+
+    "pediatric_admissions": "peds_admissions",
+    "pediatric_patient_days": "peds_days",
+    "pediatric_beds_set_up_10_1_23": "peds_beds_oct1",
+    "pediatric_peak_beds": "peds_peak_beds",
+    "pediatric_peak_daily_census": "peds_peak_census",
+    "pediatric_observation_days": "peds_observation_days",
+
+    "direct_icu_admissions": "icu_direct",
+    "transferred_to_icu_admissions": "icu_transferred",
+    "total_icu_admissions": "icu_total",
+    "total_icu_patient_days": "icu_days",
+    "total_icu_beds_10_1_23": "icu_beds_oct1",
+    "total_icu_peak_beds_set_up": "icu_peak_beds",
+    "total_icu_peak_daily_census": "icu_peak_census",
+    "total_icu_observation_days": "icu_observation_days",
+
+    "ms_total_admissions": "med_surg_admissions",
+    "ms_total_pd": "med_surg_days_total",
+    "ms_beds_10_1_23": "med_surg_beds_oct1",
+    "ms_peak_beds": "med_surg_peak_beds",
+    "ms_peak_daily_census": "med_surg_peak_census",
+    "ms_observation_days": "med_surg_observation_days",
+    "ms_0_14_pd": "med_surg_days_0_14",
+    "ms_15_44_pd": "med_surg_days_15_44",
+    "ms_45_64_pd": "med_surg_days_45_64",
+    "ms_65_74_pd": "med_surg_days_65_74",
+    "ms_75_pd": "med_surg_days_75_plus",
+
+    "clean_gynecology_admissions": "gyn_admissions",
+    "cleangynecology_patient_days": "gyn_days",
+    "obstetrics_admissions": "ob_admissions",
+    "obstetrics_patient_days": "ob_days",
+    "total_ob_gyn_admissions": "obgyn_admissions_total",
+    "total_ob_gyn_patient_days": "obgyn_days_total",
+    "ob_gyn_beds_10_1_23": "obgyn_beds_oct1",
+    "ob_gyn_peak_beds_set_up": "obgyn_peak_beds",
+    "ob_gyn_peak_daily_census": "obgyn_peak_census",
+    "ob_gyn_observation_days": "obgyn_observation_days",
+
+    "nn_icu_admissions": "nicu_admissions",
+    "nn_icu_patient_days": "nicu_days",
+
+    "ltc_admissions": "ltc_admissions",
+    "ltc_patient_days": "ltc_days",
+
+    "total_admissions": "total_admissions",
+    "total_patient_days": "total_inpatient_days",
+    "total_beds_on_10_1_23": "total_beds_oct1",
+    "dedicated_observation_beds": "obs_unit_beds",
+    "dedicated_observation_days": "obs_unit_days",
+
+    "mgmt_emergency_contractor": "mgmt_emergency",
+    "psychiatric_management_contractor": "mgmt_psych",
+    "rehab_management_contractor": "mgmt_rehab",
+
+    "inpatient_medicare": "pay_inp_medicare",
+    "inpatient_medicaid": "pay_inp_medicaid",
+    "inpatient_other_public": "pay_inp_other_public",
+    "inpatient_private_insurance": "pay_inp_private_ins",
+    "inpatient_private_payment": "pay_inp_private_pay",
+    "outpatient_medicare": "pay_out_medicare",
+    "outpatient_medicaid": "pay_out_medicaid",
+    "outpatient_other_public": "pay_out_other_public",
+    "outpatient_private_insurance": "pay_out_private_ins",
+    "outpatient_private_payment": "pay_out_private_pay",
+    "outpatient_visits": "op_visits_on",
+    "outpatient_visits_off_site": "op_visits_off",
+    "total_outpatient_visits": "op_visits_total"
+  }
+}
+
