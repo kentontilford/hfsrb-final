@@ -58,10 +58,42 @@ def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str,
     out: Dict = {}
     used: Dict[str, str] = {}
     direct = mapping.get('direct', {})
+    def coerce_value(val: str, prop: Dict) -> object:
+        if prop is None:
+            return val
+        t = prop.get('type')
+        if t in ('integer', 'number'):
+            s = str(val).strip()
+            # strip commas and spaces
+            import re as _re
+            s2 = _re.sub(r'[^0-9\-\.]', '', s)
+            if s2 == '' or s2 == '.' or s2 == '-':
+                return 0 if t == 'integer' else 0.0
+            try:
+                if '.' in s2:
+                    f = float(s2)
+                    if t == 'integer':
+                        # round to nearest int for ingestion
+                        return int(round(f))
+                    return f
+                else:
+                    return int(s2) if t == 'integer' else float(s2)
+            except Exception:
+                return val
+        if t == 'boolean':
+            s = str(val).strip().lower()
+            if s in ('yes','true','1','on','y'):
+                return True
+            if s in ('no','false','0','off','n'):
+                return False
+            return bool(val)
+        # string or other types: leave as-is
+        return val
+
     # Direct 1:1 mapping
     for src, dst in direct.items():
         if src in fields and dst in schema_props:
-            out[dst] = fields[src]
+            out[dst] = coerce_value(fields[src], schema_props.get(dst))
             used[src] = dst
 
     # Constants
@@ -99,7 +131,7 @@ def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str,
                     total += n
                     used[src] = dst
         if seen and dst in schema_props:
-            out[dst] = total
+            out[dst] = coerce_value(total, schema_props.get(dst))
 
     # Arrays from numbered groups
     for arr in mapping.get('arrays', []):
@@ -148,7 +180,7 @@ def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str,
             sval = sval.upper()
         elif op == 'lower':
             sval = sval.lower()
-        out[dst] = sval
+        out[dst] = coerce_value(sval, schema_props.get(dst))
         used[src] = dst
 
     return out, used

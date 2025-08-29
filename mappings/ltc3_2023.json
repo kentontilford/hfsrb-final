@@ -29,10 +29,13 @@
     "s22licbeds": "beds_licensed_skilled22",
     "s22bedssetup": "beds_setup_skilled22",
     "s22bedspeaksetup": "beds_peak_setup_skilled22",
-    "s22bedpeakocc": "beds_peak_occupied_skilled22"
+    "s22bedpeakocc": "beds_peak_occupied_skilled22",
+    "s22totpatdays": "days_total_skilled22",
+    "s22totrac": "residents_race_*",
+    "s22toteth": "residents_eth_*",
+    "s22totpay": "residents_pay_*"
   },
   "const": {
     "address_state": "IL"
   }
 }
-

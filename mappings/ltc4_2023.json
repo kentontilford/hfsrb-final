@@ -30,10 +30,14 @@
     "iddbedssetup": "beds_setup_idd",
     "iddbedspeaksetup": "beds_peak_setup_idd",
     "iddbedpeakocc": "beds_peak_occupied_idd",
-    "iddbedsoccupied": "beds_occupied_idd"
+    "iddbedsoccupied": "beds_occupied_idd",
+    "iddtotpatdays": "days_total_idd",
+    "iddtotaldays": "days_total_idd",
+    "icfddtotrac": "residents_race_*",
+    "icfddtoteth": "residents_eth_*",
+    "icfddtotpay": "residents_pay_*"
   },
   "const": {
     "address_state": "IL"
   }
 }
-
