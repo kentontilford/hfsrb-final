@@ -44,7 +44,7 @@ def pick_hospital_schema_variant(meta: Dict, mapping_schema: str) -> Path:
     return Path(parts[0])
 
 
-def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str, dict]) -> Tuple[Dict, Dict]:
+def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str, dict], meta: Dict[str, object]) -> Tuple[Dict, Dict]:
     out: Dict = {}
     used: Dict[str, str] = {}
     direct = mapping.get('direct', {})
@@ -58,6 +58,11 @@ def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str,
     for k, v in mapping.get('const', {}).items():
         if k in schema_props:
             out[k] = v
+
+    # Meta passthroughs
+    for dst, meta_key in mapping.get('meta', {}).items():
+        if dst in schema_props and meta_key in meta:
+            out[dst] = meta[meta_key]
 
     # Derived sums
     def parse_int(val: Optional[str]) -> Optional[int]:
@@ -111,6 +116,30 @@ def build_payload(fields: Dict[str, str], mapping: Dict, schema_props: Dict[str,
             items.append(obj)
         if items and dest:
             out[dest] = items
+
+    # Simple transforms
+    for tf in mapping.get('transforms', []):
+        src = tf.get('src')
+        dst = tf.get('dst')
+        op = tf.get('op')
+        if not src or not dst or dst not in schema_props:
+            continue
+        val = fields.get(src)
+        if val is None:
+            continue
+        sval = str(val)
+        if op == 'digits':
+            import re as _re
+            sval = _re.sub(r'\D+', '', sval)
+            pad = tf.get('pad')
+            if isinstance(pad, int) and pad > 0:
+                sval = sval.zfill(pad)
+        elif op == 'upper':
+            sval = sval.upper()
+        elif op == 'lower':
+            sval = sval.lower()
+        out[dst] = sval
+        used[src] = dst
 
     return out, used
 
@@ -168,7 +197,7 @@ def main():
                 schema = json.loads(Path(schema_path).read_text(encoding='utf-8'))
                 schema_props = schema.get('properties', {})
 
-                payload, used = build_payload(fields, mapping, schema_props)
+                payload, used = build_payload(fields, mapping, schema_props, meta)
                 out_doc = {
                     'meta': meta,
                     'payload': payload,

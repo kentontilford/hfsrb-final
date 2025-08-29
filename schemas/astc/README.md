@@ -71,6 +71,28 @@ Annual survey for Illinois ASTCs. Capture facility identifiers, ownership, servi
 | patients.payment_sex[].male | Male | male_count | integer |  |  |  | patients | Sec I p.6 |  |
 | patients.payment_sex[].female | Female | female_count | integer |  |  |  | patients | Sec I p.6 |  |
 | patients.payment_total | TOTAL PATIENTS SERVED (payment/sex) | patients_payment_total | integer | auto |  |  | patients | Sec I p.6 | Auto-calculated; must match Q5 total |
+| patients.age.male.0_14 | Male 0–14 | patients_age_male_0_14 | integer | no |  |  | patients | Sec I p.5 | Convenience field derived from age/sex table |
+| patients.age.male.15_44 | Male 15–44 | patients_age_male_15_44 | integer | no |  |  | patients | Sec I p.5 | |
+| patients.age.male.45_64 | Male 45–64 | patients_age_male_45_64 | integer | no |  |  | patients | Sec I p.5 | |
+| patients.age.male.65_74 | Male 65–74 | patients_age_male_65_74 | integer | no |  |  | patients | Sec I p.5 | |
+| patients.age.male.75_plus | Male 75+ | patients_age_male_75_plus | integer | no |  |  | patients | Sec I p.5 | |
+| patients.age.female.0_14 | Female 0–14 | patients_age_female_0_14 | integer | no |  |  | patients | Sec I p.5 | |
+| patients.age.female.15_44 | Female 15–44 | patients_age_female_15_44 | integer | no |  |  | patients | Sec I p.5 | |
+| patients.age.female.45_64 | Female 45–64 | patients_age_female_45_64 | integer | no |  |  | patients | Sec I p.5 | |
+| patients.age.female.65_74 | Female 65–74 | patients_age_female_65_74 | integer | no |  |  | patients | Sec I p.5 | |
+| patients.age.female.75_plus | Female 75+ | patients_age_female_75_plus | integer | no |  |  | patients | Sec I p.5 | |
+| patients.payment.male.medicaid | Male — Medicaid | patients_payment_male_medicaid | integer | no | payment_source |  | patients | Sec I p.6 | Convenience field derived from payment/sex table |
+| patients.payment.male.medicare | Male — Medicare | patients_payment_male_medicare | integer | no | payment_source |  | patients | Sec I p.6 | |
+| patients.payment.male.other_public | Male — Other Public | patients_payment_male_other_public | integer | no | payment_source |  | patients | Sec I p.6 | |
+| patients.payment.male.private_insurance | Male — Private Insurance | patients_payment_male_private_insurance | integer | no | payment_source |  | patients | Sec I p.6 | |
+| patients.payment.male.private_payment | Male — Private Payment | patients_payment_male_private_payment | integer | no | payment_source |  | patients | Sec I p.6 | |
+| patients.payment.male.charity_care | Male — Charity Care | patients_payment_male_charity_care | integer | no | payment_source |  | patients | Sec I p.6 | |
+| patients.payment.female.medicaid | Female — Medicaid | patients_payment_female_medicaid | integer | no | payment_source |  | patients | Sec I p.6 | |
+| patients.payment.female.medicare | Female — Medicare | patients_payment_female_medicare | integer | no | payment_source |  | patients | Sec I p.6 | |
+| patients.payment.female.other_public | Female — Other Public | patients_payment_female_other_public | integer | no | payment_source |  | patients | Sec I p.6 | |
+| patients.payment.female.private_insurance | Female — Private Insurance | patients_payment_female_private_insurance | integer | no | payment_source |  | patients | Sec I p.6 | |
+| patients.payment.female.private_payment | Female — Private Payment | patients_payment_female_private_payment | integer | no | payment_source |  | patients | Sec I p.6 | |
+| patients.payment.female.charity_care | Female — Charity Care | patients_payment_female_charity_care | integer | no | payment_source |  | patients | Sec I p.6 | |
 | patients.origin | Patients by Place of Origin | patients_origin | array | no |  |  |  | Sec I p.7-11 | Prefer Zip; else County |
 | patients.origin[].zip | Zip Code Area | origin_zip | string | conditional |  | ^\d{5}$ |  | Sec I p.7-11 | Required if county not provided |
 | patients.origin[].county | County Name | origin_county | string | conditional |  |  |  | Sec I p.7-11 | Required if zip not provided |
@@ -184,4 +206,3 @@ Annual survey for Illinois ASTCs. Capture facility identifiers, ownership, servi
 - Use official section headings and page numbers from the questionnaire for traceability.
 - Definitions for Class C and Class B provided in form; included to guide data interpretation.
 - Patient Origin can be supplied via the optional spreadsheet if >300 areas; treat `patients_origin` as an open list.
-

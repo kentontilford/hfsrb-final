@@ -102,6 +102,9 @@
   "const": {
     "facility_state": "IL"
   },
+  "meta": {
+    "report_year": "year"
+  },
   "sum": {
     "patient_count_total": [
       "genmedicare", "genmedicaid", "genothpub", "geninsurance", "genprivatepay", "gencharity"

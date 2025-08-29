@@ -90,6 +90,9 @@
 
     "total_patients_treated": "patients_unduplicated"
   },
+  "transforms": [
+    {"src": "medicare_id", "dst": "medicare_ccn", "op": "digits", "pad": 6}
+  ],
   "arrays": [
     {
       "dest": "building_owners",
