@@ -59,7 +59,22 @@
     "average_treatment_time": "treatment_avg_minutes",
     "number_of_missed_patients": "treatments_missed",
 
-    "charity_care_patients": "pat_charity"
+    "charity_care_patients": "pat_charity",
+
+    "medicare_patients": "pat_medicare",
+    "medicaid_patients": "pat_medicaid",
+    "other_public_patients": "pat_other_public",
+    "private_insurance_patients": "pat_private_insurance",
+    "private_pay_patients": "pat_private_payment",
+    "total_patients_payment": "pat_payment_total",
+
+    "net_revenue_medicare": "rev_medicare",
+    "net_revenue_medicaid": "rev_medicaid",
+    "net_revenue_other_public": "rev_other_public",
+    "net_revenue_private_insur": "rev_private_ins",
+    "net_revenue_private_pay": "rev_private_pay",
+    "total_revenue": "rev_total",
+
+    "source_of_financial_data": "finance_source"
   }
 }
-

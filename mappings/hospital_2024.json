@@ -77,7 +77,26 @@
     "outpatient_private_payment": "pay_out_private_pay",
     "outpatient_visits": "op_visits_on",
     "outpatient_visits_off_site": "op_visits_off",
-    "total_outpatient_visits": "op_visits_total"
+    "total_outpatient_visits": "op_visits_total",
+
+    "asian": "race_inp_asian",
+    "asian_pd": "days_by_race_asian",
+    "native_american": "race_inp_ai_an",
+    "native_american_pd": "days_by_race_ai_an",
+    "black": "race_inp_black",
+    "black_pd": "days_by_race_black",
+    "pi_hawaiian": "race_inp_nh_pi",
+    "pi_hawaiian_pd": "days_by_race_nh_pi",
+    "white": "race_inp_white",
+    "white_pd": "days_by_race_white",
+    "unknown_race": "race_inp_unknown",
+    "unknown_race_pd": "days_by_race_unknown",
+
+    "hispanic_latino": "eth_inp_hispanic",
+    "hispanic_latino_pd": "days_by_eth_hispanic",
+    "not_hispanic": "eth_inp_not_hispanic",
+    "not_hispanic_pd": "days_by_eth_not_hispanic",
+    "ethnicity_unknown": "eth_inp_unknown",
+    "ethnicity_unknown_pd": "days_by_eth_unknown"
   }
 }
-

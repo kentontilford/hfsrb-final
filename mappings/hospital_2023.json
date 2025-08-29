@@ -59,7 +59,40 @@
     "total_inpatient_days": "total_inpatient_days",
     "total_bed_set_up_oct_1": "total_beds_oct1",
     "dedobsbeds": "obs_unit_beds",
-    "dedobsdays": "obs_unit_days"
+    "dedobsdays": "obs_unit_days",
+
+    "inpat_medicare": "pay_inp_medicare",
+    "inpat_medicaid": "pay_inp_medicaid",
+    "inpat_othpublic": "pay_inp_other_public",
+    "inpat_prvinsure": "pay_inp_private_ins",
+    "inpat_prvpayment": "pay_inp_private_pay",
+    "outpat_medicare": "pay_out_medicare",
+    "outpat_medicaid": "pay_out_medicaid",
+    "outpat_othpublic": "pay_out_other_public",
+    "outpat_prvinsure": "pay_out_private_ins",
+    "outpat_prvpayment": "pay_out_private_pay",
+    "opvsho": "op_visits_on",
+    "opfsc": "op_visits_off",
+    "totalopvisits": "op_visits_total",
+
+    "asiannh": "race_inp_asian",
+    "asiannhpd": "days_by_race_asian",
+    "amindnh": "race_inp_ai_an",
+    "amindnhpd": "days_by_race_ai_an",
+    "blacknh": "race_inp_black",
+    "blacknhpd": "days_by_race_black",
+    "hawpinh": "race_inp_nh_pi",
+    "hawpinhpd": "days_by_race_nh_pi",
+    "whitenh": "race_inp_white",
+    "whitenhpd": "days_by_race_white",
+    "unkracenh": "race_inp_unknown",
+    "unkracenhpd": "days_by_race_unknown",
+
+    "hispanic": "eth_inp_hispanic",
+    "hispanpd": "days_by_eth_hispanic",
+    "nothisp": "eth_inp_not_hispanic",
+    "nothisppd": "days_by_eth_not_hispanic",
+    "unketh": "eth_inp_unknown",
+    "unkethpd": "days_by_eth_unknown"
   }
 }
-

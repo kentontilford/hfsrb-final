@@ -18,10 +18,14 @@
     "genbedspeaksetup": "highest_beds_set_up",
     "genbedpeakocc": "highest_beds_occupied",
 
-    "financialdatasource": "financial_data_source"
+    "financialdatasource": "financial_data_source",
+
+    "rev_medicare": "net_revenue_medicare",
+    "rev_medicaid": "net_revenue_medicaid",
+    "rev_othpublic": "net_revenue_other_public",
+    "totalnetrevenue": "net_revenue_total"
   },
   "const": {
     "facility_state": "IL"
   }
 }
-
