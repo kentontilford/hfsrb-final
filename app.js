@@ -86,6 +86,7 @@ async function openDetail(data){
   el('#links').innerHTML = links.join(' ');
   el('#dlcsv').addEventListener('click', ()=> downloadCSV(meta, p));
   el('#dlcharts').addEventListener('click', downloadCharts);
+  const shareBtn = el('#shareLink'); if (shareBtn) shareBtn.addEventListener('click', copyShareLink);
   drawCharts(rec.type, p);
   setParams({year: rec.year, type: rec.type, slug: rec.slug, q: el('#q').value, county: el('#county').value, region: el('#region').value});
 }
