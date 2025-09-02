@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6387",
     "facility_id_normalized": "6387",
-    "facility_name": "Red Bud Regional Hospital"
+    "facility_name": "Red Bud Regional Hospital",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6387",

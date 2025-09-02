@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "447316",
     "facility_id_normalized": "447316",
-    "facility_name": "Manor Court of Peru"
+    "facility_name": "Manor Court of Peru",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "447316",

@@ -1,0 +1,117 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Facility Profile</title><style>
+/* Print-friendly stylesheet for facility profiles */
+@page {
+  size: Letter;
+  margin: 0.6in 0.7in;
+}
+
+:root {
+  --ink: #1b1b1b;
+  --muted: #5a5a5a;
+  --line: #e6e6e6;
+  --accent: #3366cc; /* brand primary */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+}
+
+.subtitle { color: var(--muted); font-size: 12px; }
+
+.pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px 12px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.card h3 {
+  font-size: 12px;
+  margin: 0 0 8px 0;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 6px;
+  column-gap: 10px;
+}
+
+.kv .k { color: var(--muted); }
+.kv .v { font-variant-numeric: tabular-nums; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { text-align: left; color: var(--muted); font-weight: 600; font-size: 11px; }
+td { font-size: 12px; }
+tr:last-child td { border-bottom: 0; }
+
+.foot {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.right { text-align: right; }
+.small { font-size: 11px; }
+
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+.col-8 { grid-column: span 8; }
+.col-12 { grid-column: span 12; }
+
+.muted { color: var(--muted); }
+
+.badges { display: flex; gap: 6px; align-items: center; }
+
+.hr { height: 1px; background: var(--line); margin: 8px 0; }
+
+/* Avoid table row breaks looking odd */
+tr { break-inside: avoid; }
+
+</style></head><body><div class="page"><div class="header">  <div><div class="title">Endeavor Health - Northwest Community Hospital</div>       <div class="subtitle">800 West Central Road • Arlington Heights, IL 60005 • Year 2023</div></div>  <div class="badges"><span class="pill">Hospital</span><span class="pill">ahq-long</span></div></div><div class="grid"><div class="card col-6">  <h3>Identity</h3>  <div class="kv">    <div class="k">Address</div><div class="v">800 West Central Road</div>    <div class="k">City, State ZIP</div><div class="v">Arlington Heights, IL 60005</div>    <div class="k">Facility ID</div><div class="v">0001701</div>    <div class="k">FEIN</div><div class="v">36-2340313</div>  </div></div><div class="card col-6"><h3>Payer Mix (Encounters)</h3><table><thead><tr><th>Payer</th><th class="right">Count</th><th class="right">Percent</th></tr></thead><tbody><tr><td>Inpatient Medicare</td><td class="right mono">12,915</td><td class="right mono">58.9%</td></tr><tr><td>Inpatient Medicaid</td><td class="right mono">2,937</td><td class="right mono">13.4%</td></tr><tr><td>Inpatient Private Insurance</td><td class="right mono">5,653</td><td class="right mono">25.8%</td></tr><tr><td>Inpatient Other Public</td><td class="right mono">0</td><td class="right mono">0.0%</td></tr><tr><td>Inpatient Private Pay</td><td class="right mono">421</td><td class="right mono">1.9%</td></tr></tbody></table></div><div class="card col-6"><h3>Outpatient Activity</h3><table><thead><tr><th>Category</th><th class="right">Count</th></tr></thead><tbody><tr><td>Outpatient Visits (On Campus)</td><td class="right mono">378,766</td></tr><tr><td>Outpatient Visits (Off Campus)</td><td class="right mono">249,716</td></tr><tr><td>Outpatient Visits (Total)</td><td class="right mono">628,482</td></tr></tbody></table></div><div class="card col-4"><h3>Pediatrics</h3><table><thead><tr><th>Metric</th><th class="right">Value</th></tr></thead><tbody><tr><td>Peds Admissions</td><td class="right mono">32</td></tr><tr><td>Peds Patient Days</td><td class="right mono">45</td></tr><tr><td>Peds Beds on 10/1/23</td><td class="right mono">10</td></tr><tr><td>Peds Peak Beds Set Up</td><td class="right mono">10</td></tr><tr><td>Peds Peak Daily Census</td><td class="right mono">2</td></tr><tr><td>Peds Observation Days</td><td class="right mono">0</td></tr></tbody></table></div><div class="card col-4"><h3>Neonatal ICU</h3><table><thead><tr><th>Metric</th><th class="right">Value</th></tr></thead><tbody><tr><td>NICU Admissions</td><td class="right mono">161</td></tr><tr><td>NICU Patient Days</td><td class="right mono">1,273</td></tr></tbody></table></div><div class="card col-6"><h3>Race (Inpatient)</h3><table><thead><tr><th>Race</th><th class="right">Patients</th><th class="right">Percent</th></tr></thead><tbody><tr><td>Inpatient White</td><td class="right mono">17,557</td><td class="right mono">78.7%</td></tr><tr><td>Inpatient Black</td><td class="right mono">777</td><td class="right mono">3.5%</td></tr><tr><td>Inpatient Asian</td><td class="right mono">1,649</td><td class="right mono">7.4%</td></tr><tr><td>Inpatient AI/AN</td><td class="right mono">11</td><td class="right mono">0.0%</td></tr><tr><td>Inpatient NH/PI</td><td class="right mono">19</td><td class="right mono">0.1%</td></tr><tr><td>Inpatient Unknown</td><td class="right mono">2,303</td><td class="right mono">10.3%</td></tr></tbody></table></div><div class="card col-6"><h3>Ethnicity (Inpatient)</h3><table><thead><tr><th>Ethnicity</th><th class="right">Patients</th><th class="right">Percent</th></tr></thead><tbody><tr><td>Inpatient Not Hispanic</td><td class="right mono">20,013</td><td class="right mono">89.7%</td></tr><tr><td>Inpatient Hispanic</td><td class="right mono">2,185</td><td class="right mono">9.8%</td></tr><tr><td>Inpatient Unknown</td><td class="right mono">118</td><td class="right mono">0.5%</td></tr></tbody></table></div></div><script type="application/json" id="chart-data">{"charts": [{"id": "chart-payer", "type": "doughnut", "title": "Payer Mix (Encounters)", "labels": ["Inpatient Medicare", "Inpatient Medicaid", "Inpatient Private Insurance", "Inpatient Other Public", "Inpatient Private Pay"], "data": [12915, 2937, 5653, 0, 421], "metaTotal": 21926}, {"id": "chart-race", "type": "bar", "title": "Race (Inpatient)", "labels": ["Inpatient White", "Inpatient Black", "Inpatient Asian", "Inpatient AI/AN", "Inpatient NH/PI", "Inpatient Unknown"], "data": [17557, 777, 1649, 11, 19, 2303], "percentLabels": true}, {"id": "chart-eth", "type": "bar", "title": "Ethnicity (Inpatient)", "labels": ["Inpatient Not Hispanic", "Inpatient Hispanic", "Inpatient Unknown"], "data": [20013, 2185, 118], "percentLabels": true}, {"id": "chart-unit-adm", "type": "bar", "title": "Admissions by Unit", "labels": ["Peds Admissions", "NICU Admissions"], "data": [32, 161]}]}</script><div class="grid"><div class="card col-6"><h3>Payer Mix (Encounters)</h3><canvas id="chart-payer"></canvas></div><div class="card col-6"><h3>Race (Inpatient)</h3><canvas id="chart-race"></canvas></div><div class="card col-6"><h3>Ethnicity (Inpatient)</h3><canvas id="chart-eth"></canvas></div><div class="card col-6"><h3>Admissions by Unit</h3><canvas id="chart-unit-adm"></canvas></div></div><div class="foot">  <div class="small">Source: HFSRB Annual Facility Survey 2023 · Generated 2025-09-02 12:26</div>  <div class="small mono">0001701 · Hospital</div></div></div></body></html>

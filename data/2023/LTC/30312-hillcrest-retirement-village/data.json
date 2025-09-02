@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "30312",
     "facility_id_normalized": "30312",
-    "facility_name": "Hillcrest Retirement Village"
+    "facility_name": "Hillcrest Retirement Village",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "30312",

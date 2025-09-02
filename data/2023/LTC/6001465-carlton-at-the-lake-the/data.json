@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6001465",
     "facility_id_normalized": "6001465",
-    "facility_name": "CARLTON AT THE LAKE, THE"
+    "facility_name": "CARLTON AT THE LAKE, THE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6001465",

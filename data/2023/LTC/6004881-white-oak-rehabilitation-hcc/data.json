@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6004881",
     "facility_id_normalized": "6004881",
-    "facility_name": "WHITE OAK REHABILITATION HCC"
+    "facility_name": "WHITE OAK REHABILITATION HCC",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6004881",

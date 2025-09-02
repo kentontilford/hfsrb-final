@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6000574",
     "facility_id_normalized": "6000574",
-    "facility_name": "GROVE OF FOX VALLEY,THE"
+    "facility_name": "GROVE OF FOX VALLEY,THE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6000574",

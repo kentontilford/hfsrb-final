@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "55699",
     "facility_id_normalized": "55699",
-    "facility_name": "Frankfort Terrace"
+    "facility_name": "Frankfort Terrace",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "55699",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "56671",
     "facility_id_normalized": "56671",
-    "facility_name": "Richland Nursing and Rehab"
+    "facility_name": "Richland Nursing and Rehab",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "56671",

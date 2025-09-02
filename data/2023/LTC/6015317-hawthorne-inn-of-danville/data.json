@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6015317",
     "facility_id_normalized": "6015317",
-    "facility_name": "Hawthorne Inn of Danville"
+    "facility_name": "Hawthorne Inn of Danville",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6015317",

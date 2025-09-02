@@ -1,0 +1,117 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Facility Profile</title><style>
+/* Print-friendly stylesheet for facility profiles */
+@page {
+  size: Letter;
+  margin: 0.6in 0.7in;
+}
+
+:root {
+  --ink: #1b1b1b;
+  --muted: #5a5a5a;
+  --line: #e6e6e6;
+  --accent: #3366cc; /* brand primary */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+}
+
+.subtitle { color: var(--muted); font-size: 12px; }
+
+.pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px 12px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.card h3 {
+  font-size: 12px;
+  margin: 0 0 8px 0;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 6px;
+  column-gap: 10px;
+}
+
+.kv .k { color: var(--muted); }
+.kv .v { font-variant-numeric: tabular-nums; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { text-align: left; color: var(--muted); font-weight: 600; font-size: 11px; }
+td { font-size: 12px; }
+tr:last-child td { border-bottom: 0; }
+
+.foot {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.right { text-align: right; }
+.small { font-size: 11px; }
+
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+.col-8 { grid-column: span 8; }
+.col-12 { grid-column: span 12; }
+
+.muted { color: var(--muted); }
+
+.badges { display: flex; gap: 6px; align-items: center; }
+
+.hr { height: 1px; background: var(--line); margin: 8px 0; }
+
+/* Avoid table row breaks looking odd */
+tr { break-inside: avoid; }
+
+</style></head><body><div class="page"><div class="header">  <div><div class="title">Southwest surgery center, llc</div>       <div class="subtitle">19110 darvin drive, suite a • Mokena, IL 60448 • Year 2023</div></div>  <div class="badges"><span class="pill">ASTC</span></div></div><div class="grid"><div class="card col-6">  <h3>Identity</h3>  <div class="kv">    <div class="k">Address</div><div class="v">19110 darvin drive, suite a</div>    <div class="k">City, State ZIP</div><div class="v">Mokena, IL 60448</div>    <div class="k">Facility ID</div><div class="v">7003201</div>    <div class="k">FEIN</div><div class="v">36-4369359</div>  </div></div><div class="card col-4"><h3>Rooms</h3><table><thead><tr><th>Room Type</th><th class="right">Count</th></tr></thead><tbody><tr><td>Operating Rooms (Class C)</td><td class="right mono">4</td></tr><tr><td>Exam Rooms</td><td class="right mono">0</td></tr></tbody></table></div><div class="card col-4"><h3>Hours</h3><table><thead><tr><th>Day</th><th class="right">Hours</th></tr></thead><tbody><tr><td>Hours Mon</td><td class="right mono">90</td></tr><tr><td>Tue</td><td class="right mono">90</td></tr><tr><td>Wed</td><td class="right mono">90</td></tr><tr><td>Thu</td><td class="right mono">90</td></tr><tr><td>Fri</td><td class="right mono">90</td></tr><tr><td>Sat</td><td class="right mono">0</td></tr><tr><td>Sun</td><td class="right mono">0</td></tr></tbody></table></div><div class="card col-4"><h3>Staffing</h3><table><thead><tr><th>Role</th><th class="right">FTE</th></tr></thead><tbody><tr><td>Physicians (FTE)</td><td class="right mono">0</td></tr><tr><td>RNs (FTE)</td><td class="right mono">160</td></tr><tr><td>CRNA (FTE)</td><td class="right mono">0</td></tr><tr><td>Director of Nursing (FTE)</td><td class="right mono">10</td></tr><tr><td>Certified Aides (FTE)</td><td class="right mono">0</td></tr><tr><td>Other Health (FTE)</td><td class="right mono">90</td></tr><tr><td>Other Non-Health (FTE)</td><td class="right mono">100</td></tr><tr><td>Admin (FTE)</td><td class="right mono">10</td></tr></tbody></table></div><div class="card col-6"><h3>Patients by Age</h3><table><thead><tr><th>Age Band</th><th class="right">Patients</th></tr></thead><tbody><tr><td>Age 0–14</td><td class="right mono">7</td></tr><tr><td>Age 15–44</td><td class="right mono">567</td></tr><tr><td>Age 45–64</td><td class="right mono">1,542</td></tr><tr><td>Age 65–74</td><td class="right mono">1,624</td></tr><tr><td>Age 75+</td><td class="right mono">1,225</td></tr></tbody></table></div><div class="card col-6"><h3>Payer Mix</h3><table><thead><tr><th>Payer</th><th class="right">Patients</th><th class="right">Percent</th></tr></thead><tbody><tr><td>Medicare</td><td class="right mono">2,652</td><td class="right mono">53.4%</td></tr><tr><td>Medicaid</td><td class="right mono">57</td><td class="right mono">1.1%</td></tr><tr><td>Private Insurance</td><td class="right mono">1,825</td><td class="right mono">36.8%</td></tr><tr><td>Private Pay</td><td class="right mono">431</td><td class="right mono">8.7%</td></tr></tbody></table></div><div class="card col-12"><h3>Owners</h3><table><thead><tr><th>Name</th><th class="right">Contact</th></tr></thead><tbody><tr><td>John kung, MD</td><td class="right mono">7089570505</td></tr><tr><td>Daniel troy, MD</td><td class="right mono">7085995000</td></tr><tr><td>Phillip narcissi, dpm</td><td class="right mono">7084790790</td></tr><tr><td>Elijius lelis, MD</td><td class="right mono">8157293777</td></tr><tr><td>Cary templin, MD</td><td class="right mono">8157444551</td></tr><tr><td>Jason hurbanek, MD</td><td class="right mono">8157444551</td></tr><tr><td>Brian burgess, dpm</td><td class="right mono">8157444551</td></tr><tr><td>Samra hashmi, MD</td><td class="right mono">8157293777</td></tr><tr><td>David lubeck, MD</td><td class="right mono">7084786633</td></tr><tr><td>Sean salehi, MD</td><td class="right mono">7087653999</td></tr><tr><td>James leonard, MD</td><td class="right mono">7082263300</td></tr><tr><td>David garras, MD</td><td class="right mono">7082263300</td></tr><tr><td>Emily mayekar, MD</td><td class="right mono">7084463300</td></tr><tr><td>Richard lim, MD</td><td class="right mono">7082263300</td></tr><tr><td>Jonathan hook, dpm</td><td class="right mono">8475841914</td></tr><tr><td>Matthew colman, MD</td><td class="right mono">7082362600</td></tr><tr><td>Oak ventures llc</td><td class="right mono">8154693452</td></tr><tr><td>Ms spine consulting, llc</td><td class="right mono">7082663300</td></tr><tr><td>Sca mokena, llc</td><td class="right mono">2055452572</td></tr></tbody></table></div></div><script type="application/json" id="chart-data">{"charts": [{"id": "chart-age", "type": "bar", "title": "Age Distribution", "labels": ["Age 0\u201314", "Age 15\u201344", "Age 45\u201364", "Age 65\u201374", "Age 75+"], "data": [7, 567, 1542, 1624, 1225]}, {"id": "chart-payer", "type": "doughnut", "title": "Payer Mix", "labels": ["Medicare", "Medicaid", "Private Insurance", "Private Pay"], "data": [2652, 57, 1825, 431], "metaTotal": 4965}]}</script><div class="grid"><div class="card col-6"><h3>Age Distribution</h3><canvas id="chart-age"></canvas></div><div class="card col-6"><h3>Payer Mix</h3><canvas id="chart-payer"></canvas></div></div><div class="foot">  <div class="small">Source: HFSRB Annual Facility Survey 2023 · Generated 2025-09-02 12:26</div>  <div class="small mono">7003201 · ASTC</div></div></div></body></html>

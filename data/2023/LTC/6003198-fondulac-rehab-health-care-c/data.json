@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6003198",
     "facility_id_normalized": "6003198",
-    "facility_name": "FONDULAC REHAB & HEALTH CARE C"
+    "facility_name": "FONDULAC REHAB & HEALTH CARE C",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6003198",

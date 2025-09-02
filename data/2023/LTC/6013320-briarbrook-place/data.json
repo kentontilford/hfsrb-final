@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6013320",
     "facility_id_normalized": "6013320",
-    "facility_name": "Briarbrook Place"
+    "facility_name": "Briarbrook Place",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6013320",

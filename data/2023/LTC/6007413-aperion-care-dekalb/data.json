@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6007413",
     "facility_id_normalized": "6007413",
-    "facility_name": "APERION CARE DEKALB"
+    "facility_name": "APERION CARE DEKALB",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6007413",

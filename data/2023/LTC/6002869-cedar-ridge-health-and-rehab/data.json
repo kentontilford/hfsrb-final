@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6002869",
     "facility_id_normalized": "6002869",
-    "facility_name": "Cedar Ridge Health and Rehab"
+    "facility_name": "Cedar Ridge Health and Rehab",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6002869",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6016950 ALDEN ESTATES CTS OF HUNTLEY",
     "facility_id_normalized": "6016950 ALDEN ESTATES CTS OF HUNTLEY",
-    "facility_name": "LDEN ESTATES CTS OF HUNTLEY"
+    "facility_name": "LDEN ESTATES CTS OF HUNTLEY",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6016950 ALDEN ESTATES CTS OF HUNTLEY",

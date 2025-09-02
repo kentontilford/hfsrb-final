@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6004592",
     "facility_id_normalized": "6004592",
-    "facility_name": "6004592 HERITAGE HEALTH-HOOPESTON"
+    "facility_name": "6004592 HERITAGE HEALTH-HOOPESTON",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6004592",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6014922",
     "facility_id_normalized": "6014922",
-    "facility_name": "ALDEN ESTATES OF ORLAND PARK"
+    "facility_name": "ALDEN ESTATES OF ORLAND PARK",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6014922",

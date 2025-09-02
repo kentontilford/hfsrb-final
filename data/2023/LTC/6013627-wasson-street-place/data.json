@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6013627",
     "facility_id_normalized": "6013627",
-    "facility_name": "WASSON STREET PLACE"
+    "facility_name": "WASSON STREET PLACE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6013627",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6007876",
     "facility_id_normalized": "6007876",
-    "facility_name": "DOWNERS GROVE REHAB & NURSING"
+    "facility_name": "DOWNERS GROVE REHAB & NURSING",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6007876",

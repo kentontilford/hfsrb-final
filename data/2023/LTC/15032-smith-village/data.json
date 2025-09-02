@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "15032",
     "facility_id_normalized": "15032",
-    "facility_name": "Smith Village"
+    "facility_name": "Smith Village",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "15032",

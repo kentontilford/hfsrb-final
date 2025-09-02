@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6007033",
     "facility_id_normalized": "6007033",
-    "facility_name": "Alden Estates of Naperville, Inc."
+    "facility_name": "Alden Estates of Naperville, Inc.",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6007033",

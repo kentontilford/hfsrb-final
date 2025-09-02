@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "145944",
     "facility_id_normalized": "145944",
-    "facility_name": "Avantara Aurora"
+    "facility_name": "Avantara Aurora",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "145944",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "50427",
     "facility_id_normalized": "50427",
-    "facility_name": "Manor Court of Maryville"
+    "facility_name": "Manor Court of Maryville",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "50427",

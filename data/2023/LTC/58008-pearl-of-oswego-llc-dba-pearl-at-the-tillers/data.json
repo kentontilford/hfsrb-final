@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "58008",
     "facility_id_normalized": "58008",
-    "facility_name": "Pearl of Oswego, LLC dba Pearl at The Tillers"
+    "facility_name": "Pearl of Oswego, LLC dba Pearl at The Tillers",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "58008",

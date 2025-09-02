@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6016273",
     "facility_id_normalized": "6016273",
-    "facility_name": "OAKS HEALTH CARE CENTER,THE"
+    "facility_name": "OAKS HEALTH CARE CENTER,THE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6016273",

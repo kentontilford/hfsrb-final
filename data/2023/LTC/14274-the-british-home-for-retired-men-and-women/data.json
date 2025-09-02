@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "14274",
     "facility_id_normalized": "14274",
-    "facility_name": "The British Home for Retired Men and Women"
+    "facility_name": "The British Home for Retired Men and Women",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "14274",

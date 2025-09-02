@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6005615 LUTHERAN HOME,THE",
     "facility_id_normalized": "6005615 LUTHERAN HOME,THE",
-    "facility_name": "6005615 LUTHERAN HOME,THE"
+    "facility_name": "6005615 LUTHERAN HOME,THE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6005615 LUTHERAN HOME,THE",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "44354",
     "facility_id_normalized": "44354",
-    "facility_name": "Ascension Resurrection Life Center"
+    "facility_name": "Ascension Resurrection Life Center",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "44354",

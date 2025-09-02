@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6008205",
     "facility_id_normalized": "6008205",
-    "facility_name": "ASPEN REHAB & HEALTH CARE"
+    "facility_name": "ASPEN REHAB & HEALTH CARE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6008205",

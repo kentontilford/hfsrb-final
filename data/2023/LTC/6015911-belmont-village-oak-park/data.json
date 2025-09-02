@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6015911",
     "facility_id_normalized": "6015911",
-    "facility_name": "BELMONT VILLAGE OAK PARK"
+    "facility_name": "BELMONT VILLAGE OAK PARK",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6015911",

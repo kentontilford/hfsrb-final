@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "54999",
     "facility_id_normalized": "54999",
-    "facility_name": "The Springs at Monarch Landing"
+    "facility_name": "The Springs at Monarch Landing",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "54999",

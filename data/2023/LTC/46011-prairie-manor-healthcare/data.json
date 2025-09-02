@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "46011",
     "facility_id_normalized": "46011",
-    "facility_name": "PRAIRIE MANOR HEALTHCARE"
+    "facility_name": "PRAIRIE MANOR HEALTHCARE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "46011",

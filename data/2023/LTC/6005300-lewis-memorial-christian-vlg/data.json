@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6005300",
     "facility_id_normalized": "6005300",
-    "facility_name": "LEWIS MEMORIAL CHRISTIAN VLG"
+    "facility_name": "LEWIS MEMORIAL CHRISTIAN VLG",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6005300",

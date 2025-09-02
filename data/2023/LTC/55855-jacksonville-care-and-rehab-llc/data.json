@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "55855",
     "facility_id_normalized": "55855",
-    "facility_name": "Jacksonville Care and Rehab, LLC"
+    "facility_name": "Jacksonville Care and Rehab, LLC",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "55855",

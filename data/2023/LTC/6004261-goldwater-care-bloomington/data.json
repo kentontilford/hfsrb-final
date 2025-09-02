@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6004261",
     "facility_id_normalized": "6004261",
-    "facility_name": "GOLDWATER CARE BLOOMINGTON"
+    "facility_name": "GOLDWATER CARE BLOOMINGTON",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6004261",

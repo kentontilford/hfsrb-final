@@ -1,0 +1,117 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Facility Profile</title><style>
+/* Print-friendly stylesheet for facility profiles */
+@page {
+  size: Letter;
+  margin: 0.6in 0.7in;
+}
+
+:root {
+  --ink: #1b1b1b;
+  --muted: #5a5a5a;
+  --line: #e6e6e6;
+  --accent: #3366cc; /* brand primary */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+}
+
+.subtitle { color: var(--muted); font-size: 12px; }
+
+.pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px 12px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.card h3 {
+  font-size: 12px;
+  margin: 0 0 8px 0;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 6px;
+  column-gap: 10px;
+}
+
+.kv .k { color: var(--muted); }
+.kv .v { font-variant-numeric: tabular-nums; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { text-align: left; color: var(--muted); font-weight: 600; font-size: 11px; }
+td { font-size: 12px; }
+tr:last-child td { border-bottom: 0; }
+
+.foot {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.right { text-align: right; }
+.small { font-size: 11px; }
+
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+.col-8 { grid-column: span 8; }
+.col-12 { grid-column: span 12; }
+
+.muted { color: var(--muted); }
+
+.badges { display: flex; gap: 6px; align-items: center; }
+
+.hr { height: 1px; background: var(--line); margin: 8px 0; }
+
+/* Avoid table row breaks looking odd */
+tr { break-inside: avoid; }
+
+</style></head><body><div class="page"><div class="header">  <div><div class="title">Hshs st. John&#x27;s surgery suites montvale</div>       <div class="subtitle">2020 west iles avenue • Springfield, IL 62704 • Year 2023</div></div>  <div class="badges"><span class="pill">ASTC</span></div></div><div class="grid"><div class="card col-6">  <h3>Identity</h3>  <div class="kv">    <div class="k">Address</div><div class="v">2020 west iles avenue</div>    <div class="k">City, State ZIP</div><div class="v">Springfield, IL 62704</div>    <div class="k">Facility ID</div><div class="v">7003187</div>    <div class="k">FEIN</div><div class="v">370661238</div>  </div></div><div class="card col-4"><h3>Rooms</h3><table><thead><tr><th>Room Type</th><th class="right">Count</th></tr></thead><tbody><tr><td>Operating Rooms (Class C)</td><td class="right mono">2</td></tr><tr><td>Exam Rooms</td><td class="right mono">2</td></tr></tbody></table></div><div class="card col-4"><h3>Hours</h3><table><thead><tr><th>Day</th><th class="right">Hours</th></tr></thead><tbody><tr><td>Hours Mon</td><td class="right mono">90</td></tr><tr><td>Tue</td><td class="right mono">90</td></tr><tr><td>Wed</td><td class="right mono">90</td></tr><tr><td>Thu</td><td class="right mono">90</td></tr><tr><td>Fri</td><td class="right mono">90</td></tr><tr><td>Sat</td><td class="right mono">0</td></tr><tr><td>Sun</td><td class="right mono">0</td></tr></tbody></table></div><div class="card col-4"><h3>Staffing</h3><table><thead><tr><th>Role</th><th class="right">FTE</th></tr></thead><tbody><tr><td>Physicians (FTE)</td><td class="right mono">0</td></tr><tr><td>RNs (FTE)</td><td class="right mono">120</td></tr><tr><td>CRNA (FTE)</td><td class="right mono">0</td></tr><tr><td>Director of Nursing (FTE)</td><td class="right mono">10</td></tr><tr><td>Certified Aides (FTE)</td><td class="right mono">0</td></tr><tr><td>Other Health (FTE)</td><td class="right mono">70</td></tr><tr><td>Other Non-Health (FTE)</td><td class="right mono">10</td></tr><tr><td>Admin (FTE)</td><td class="right mono">0</td></tr></tbody></table></div><div class="card col-6"><h3>Patients by Age</h3><table><thead><tr><th>Age Band</th><th class="right">Patients</th></tr></thead><tbody><tr><td>Age 15–44</td><td class="right mono">42</td></tr><tr><td>Age 45–64</td><td class="right mono">492</td></tr><tr><td>Age 65–74</td><td class="right mono">812</td></tr><tr><td>Age 75+</td><td class="right mono">454</td></tr></tbody></table></div><div class="card col-6"><h3>Payer Mix</h3><table><thead><tr><th>Payer</th><th class="right">Patients</th><th class="right">Percent</th></tr></thead><tbody><tr><td>Medicare</td><td class="right mono">1,194</td><td class="right mono">66.3%</td></tr><tr><td>Medicaid</td><td class="right mono">145</td><td class="right mono">8.1%</td></tr><tr><td>Private Insurance</td><td class="right mono">388</td><td class="right mono">21.6%</td></tr><tr><td>Other Public</td><td class="right mono">64</td><td class="right mono">3.6%</td></tr><tr><td>Private Pay</td><td class="right mono">4</td><td class="right mono">0.2%</td></tr><tr><td>Charity Care</td><td class="right mono">5</td><td class="right mono">0.3%</td></tr></tbody></table></div><div class="card col-12"><h3>Owners</h3><table><thead><tr><th>Name</th><th class="right">Contact</th></tr></thead><tbody><tr><td>Hshs st. John&#x27;s hospital</td><td class="right mono">2175446464</td></tr></tbody></table></div></div><script type="application/json" id="chart-data">{"charts": [{"id": "chart-age", "type": "bar", "title": "Age Distribution", "labels": ["Age 15\u201344", "Age 45\u201364", "Age 65\u201374", "Age 75+"], "data": [42, 492, 812, 454]}, {"id": "chart-payer", "type": "doughnut", "title": "Payer Mix", "labels": ["Medicare", "Medicaid", "Private Insurance", "Other Public", "Private Pay", "Charity Care"], "data": [1194, 145, 388, 64, 4, 5], "metaTotal": 1800}]}</script><div class="grid"><div class="card col-6"><h3>Age Distribution</h3><canvas id="chart-age"></canvas></div><div class="card col-6"><h3>Payer Mix</h3><canvas id="chart-payer"></canvas></div></div><div class="foot">  <div class="small">Source: HFSRB Annual Facility Survey 2023 · Generated 2025-09-02 12:26</div>  <div class="small mono">7003187 · ASTC</div></div></div></body></html>

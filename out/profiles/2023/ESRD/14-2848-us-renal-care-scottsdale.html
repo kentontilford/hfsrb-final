@@ -1,0 +1,117 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Facility Profile</title><style>
+/* Print-friendly stylesheet for facility profiles */
+@page {
+  size: Letter;
+  margin: 0.6in 0.7in;
+}
+
+:root {
+  --ink: #1b1b1b;
+  --muted: #5a5a5a;
+  --line: #e6e6e6;
+  --accent: #3366cc; /* brand primary */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+}
+
+.subtitle { color: var(--muted); font-size: 12px; }
+
+.pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px 12px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.card h3 {
+  font-size: 12px;
+  margin: 0 0 8px 0;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 6px;
+  column-gap: 10px;
+}
+
+.kv .k { color: var(--muted); }
+.kv .v { font-variant-numeric: tabular-nums; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { text-align: left; color: var(--muted); font-weight: 600; font-size: 11px; }
+td { font-size: 12px; }
+tr:last-child td { border-bottom: 0; }
+
+.foot {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.right { text-align: right; }
+.small { font-size: 11px; }
+
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+.col-8 { grid-column: span 8; }
+.col-12 { grid-column: span 12; }
+
+.muted { color: var(--muted); }
+
+.badges { display: flex; gap: 6px; align-items: center; }
+
+.hr { height: 1px; background: var(--line); margin: 8px 0; }
+
+/* Avoid table row breaks looking odd */
+tr { break-inside: avoid; }
+
+</style></head><body><div class="page"><div class="header">  <div><div class="title">US Renal Care Scottsdale</div>       <div class="subtitle">4651 West 79th Street • Chicago, IL 60652 • Year 2023</div></div>  <div class="badges"><span class="pill">ESRD</span></div></div><div class="grid"><div class="card col-6">  <h3>Identity</h3>  <div class="kv">    <div class="k">Address</div><div class="v">4651 West 79th Street</div>    <div class="k">City, State ZIP</div><div class="v">Chicago, IL 60652</div>    <div class="k">Facility ID</div><div class="v">14-2848</div>    <div class="k">FEIN</div><div class="v">45-3040157</div>  </div></div><div class="card col-6"><h3>Stations</h3><table><thead><tr><th>Metric</th><th class="right">Value</th></tr></thead><tbody><tr><td>Authorized Stations (Jan 1)</td><td class="right mono">36</td></tr><tr><td>Certified Stations (Jan 1)</td><td class="right mono">36</td></tr><tr><td>Authorized Stations (Dec 31)</td><td class="right mono">36</td></tr><tr><td>Certified Stations (Dec 31)</td><td class="right mono">36</td></tr><tr><td>Peak Stations Operated</td><td class="right mono">28</td></tr><tr><td>Stations Setup (Oct)</td><td class="right mono">26</td></tr><tr><td>Isolation Stations (Oct)</td><td class="right mono">0</td></tr></tbody></table></div><div class="card col-6"><h3>Hours (Oct 1 Week)</h3><table><thead><tr><th>Day</th><th class="right">Hours</th></tr></thead><tbody><tr><td>Hours Mon</td><td class="right mono">0.0</td></tr><tr><td>Tue</td><td class="right mono">13.0</td></tr><tr><td>Wed</td><td class="right mono">13.0</td></tr><tr><td>Thu</td><td class="right mono">13.0</td></tr><tr><td>Fri</td><td class="right mono">13.0</td></tr><tr><td>Sat</td><td class="right mono">13.0</td></tr><tr><td>Sun</td><td class="right mono">13.0</td></tr></tbody></table></div><div class="card col-6"><h3>Shifts (Oct 1 Week)</h3><table><thead><tr><th>Day</th><th class="right">Shifts</th></tr></thead><tbody><tr><td>Shifts Mon</td><td class="right mono">2</td></tr><tr><td>Tue</td><td class="right mono">2</td></tr><tr><td>Wed</td><td class="right mono">2</td></tr><tr><td>Thu</td><td class="right mono">2</td></tr><tr><td>Fri</td><td class="right mono">2</td></tr><tr><td>Sat</td><td class="right mono">2</td></tr><tr><td>Sun</td><td class="right mono">0</td></tr></tbody></table></div><div class="card col-6"><h3>Patients</h3><table><thead><tr><th>Metric</th><th class="right">Value</th></tr></thead><tbody><tr><td>Unduplicated Patients</td><td class="right mono">115</td></tr><tr><td>Treatments (In-Center)</td><td class="right mono">240</td></tr><tr><td>Missed Treatments</td><td class="right mono">2</td></tr><tr><td>Avg Treatment Time (min)</td><td class="right mono">1146</td></tr></tbody></table></div><div class="card col-6"><h3>Payer Mix (Patients)</h3><table><thead><tr><th>Payer</th><th class="right">Count</th><th class="right">Percent</th></tr></thead><tbody><tr><td>Medicare</td><td class="right mono">40</td><td class="right mono">34.8%</td></tr><tr><td>Medicaid</td><td class="right mono">3</td><td class="right mono">2.6%</td></tr><tr><td>Private Insurance</td><td class="right mono">72</td><td class="right mono">62.6%</td></tr><tr><td>Other Public</td><td class="right mono">0</td><td class="right mono">0.0%</td></tr><tr><td>Private Pay</td><td class="right mono">0</td><td class="right mono">0.0%</td></tr></tbody></table></div><div class="card col-6"><h3>Race</h3><table><thead><tr><th>Race</th><th class="right">Patients</th><th class="right">Percent</th></tr></thead><tbody><tr><td>White</td><td class="right mono">27</td><td class="right mono">23.5%</td></tr><tr><td>Black</td><td class="right mono">59</td><td class="right mono">51.3%</td></tr><tr><td>Asian</td><td class="right mono">0</td><td class="right mono">0.0%</td></tr><tr><td>AI/AN</td><td class="right mono">1</td><td class="right mono">0.9%</td></tr><tr><td>NH/PI</td><td class="right mono">0</td><td class="right mono">0.0%</td></tr><tr><td>Unknown</td><td class="right mono">28</td><td class="right mono">24.3%</td></tr></tbody></table></div><div class="card col-6"><h3>Ethnicity</h3><table><thead><tr><th>Ethnicity</th><th class="right">Patients</th><th class="right">Percent</th></tr></thead><tbody><tr><td>Not Hispanic</td><td class="right mono">87</td><td class="right mono">75.7%</td></tr><tr><td>Hispanic</td><td class="right mono">23</td><td class="right mono">20.0%</td></tr><tr><td>Unknown</td><td class="right mono">5</td><td class="right mono">4.3%</td></tr></tbody></table></div><div class="card col-6"><h3>Staffing</h3><table><thead><tr><th>Role</th><th class="right">FTE</th></tr></thead><tbody><tr><td>Dialysis Technicians (FTE)</td><td class="right mono">10</td></tr><tr><td>Dieticians (FTE)</td><td class="right mono">75</td></tr><tr><td>Social Workers (FTE)</td><td class="right mono">75</td></tr><tr><td>LPN (FTE)</td><td class="right mono">0</td></tr><tr><td>Other Health (FTE)</td><td class="right mono">10</td></tr><tr><td>Other Non-Health (FTE)</td><td class="right mono">10</td></tr><tr><td>Total Employees</td><td class="right mono">55</td></tr></tbody></table></div></div><script type="application/json" id="chart-data">{"charts": [{"id": "chart-payer", "type": "doughnut", "title": "Payer Mix (Patients)", "labels": ["Medicare", "Medicaid", "Private Insurance", "Other Public", "Private Pay"], "data": [40, 3, 72, 0, 0], "metaTotal": 115}, {"id": "chart-race", "type": "bar", "title": "Race", "labels": ["White", "Black", "Asian", "AI/AN", "NH/PI", "Unknown"], "data": [27, 59, 0, 1, 0, 28], "percentLabels": true}, {"id": "chart-eth", "type": "bar", "title": "Ethnicity", "labels": ["Not Hispanic", "Hispanic", "Unknown"], "data": [87, 23, 5], "percentLabels": true}]}</script><div class="grid"><div class="card col-6"><h3>Payer Mix (Patients)</h3><canvas id="chart-payer"></canvas></div><div class="card col-6"><h3>Race</h3><canvas id="chart-race"></canvas></div><div class="card col-6"><h3>Ethnicity</h3><canvas id="chart-eth"></canvas></div></div><div class="foot">  <div class="small">Source: HFSRB Annual Facility Survey 2023 · Generated 2025-09-02 12:26</div>  <div class="small mono">14-2848 · ESRD</div></div></div></body></html>

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "51813",
     "facility_id_normalized": "51813",
-    "facility_name": "Symphony Northwoods"
+    "facility_name": "Symphony Northwoods",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "51813",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6005375",
     "facility_id_normalized": "6005375",
-    "facility_name": "WARREN BARR LIEBERMAN"
+    "facility_name": "WARREN BARR LIEBERMAN",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6005375",

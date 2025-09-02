@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6003842",
     "facility_id_normalized": "6003842",
-    "facility_name": "WILLOW ROSE REHAB & HEALTH"
+    "facility_name": "WILLOW ROSE REHAB & HEALTH",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6003842",

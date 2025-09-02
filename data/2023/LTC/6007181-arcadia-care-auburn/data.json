@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6007181",
     "facility_id_normalized": "6007181",
-    "facility_name": "ARCADIA CARE AUBURN"
+    "facility_name": "ARCADIA CARE AUBURN",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6007181",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6014328",
     "facility_id_normalized": "6014328",
-    "facility_name": "DIMENSIONS LIVING PROSPECT HTS"
+    "facility_name": "DIMENSIONS LIVING PROSPECT HTS",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6014328",

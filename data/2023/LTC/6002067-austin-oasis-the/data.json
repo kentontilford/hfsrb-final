@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6002067",
     "facility_id_normalized": "6002067",
-    "facility_name": "AUSTIN OASIS, THE"
+    "facility_name": "AUSTIN OASIS, THE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6002067",

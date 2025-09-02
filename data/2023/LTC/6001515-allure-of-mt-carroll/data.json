@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6001515",
     "facility_id_normalized": "6001515",
-    "facility_name": "Allure of Mt.Carroll"
+    "facility_name": "Allure of Mt.Carroll",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6001515",

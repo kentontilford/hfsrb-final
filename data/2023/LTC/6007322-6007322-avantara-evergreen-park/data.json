@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6007322",
     "facility_id_normalized": "6007322",
-    "facility_name": "6007322 AVANTARA EVERGREEN PARK"
+    "facility_name": "6007322 AVANTARA EVERGREEN PARK",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6007322",

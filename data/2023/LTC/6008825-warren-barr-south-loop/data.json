@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6008825",
     "facility_id_normalized": "6008825",
-    "facility_name": "WARREN BARR SOUTH LOOP"
+    "facility_name": "WARREN BARR SOUTH LOOP",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6008825",

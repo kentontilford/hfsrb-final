@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6004337",
     "facility_id_normalized": "6004337",
-    "facility_name": "HERITAGE SQUARE"
+    "facility_name": "HERITAGE SQUARE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6004337",

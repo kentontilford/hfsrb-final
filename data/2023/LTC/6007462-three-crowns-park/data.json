@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6007462",
     "facility_id_normalized": "6007462",
-    "facility_name": "THREE CROWNS PARK"
+    "facility_name": "THREE CROWNS PARK",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6007462",

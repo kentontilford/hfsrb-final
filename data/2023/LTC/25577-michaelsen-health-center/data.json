@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "25577",
     "facility_id_normalized": "25577",
-    "facility_name": "Michaelsen Health Center"
+    "facility_name": "Michaelsen Health Center",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "25577",

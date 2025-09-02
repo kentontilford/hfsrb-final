@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6003032",
     "facility_id_normalized": "6003032",
-    "facility_name": "Lifespace Communities, LC d/b/a Oak Trace"
+    "facility_name": "Lifespace Communities, LC d/b/a Oak Trace",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6003032",

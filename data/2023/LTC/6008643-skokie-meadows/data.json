@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6008643",
     "facility_id_normalized": "6008643",
-    "facility_name": "Skokie Meadows"
+    "facility_name": "Skokie Meadows",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6008643",

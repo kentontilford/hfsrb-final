@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "47738",
     "facility_id_normalized": "47738",
-    "facility_name": "Beecher Manor Nsg and Rehab Center"
+    "facility_name": "Beecher Manor Nsg and Rehab Center",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "47738",

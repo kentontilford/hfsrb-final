@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6014674",
     "facility_id_normalized": "6014674",
-    "facility_name": "CALHOUN NSG & REHAB CENTER"
+    "facility_name": "CALHOUN NSG & REHAB CENTER",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6014674",

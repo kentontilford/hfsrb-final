@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "40543",
     "facility_id_normalized": "40543",
-    "facility_name": "Tabor Hills Healthcare Facility, INC"
+    "facility_name": "Tabor Hills Healthcare Facility, INC",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "40543",

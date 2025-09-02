@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6001804",
     "facility_id_normalized": "6001804",
-    "facility_name": "CLARK-LINDSEY VILLAGE"
+    "facility_name": "CLARK-LINDSEY VILLAGE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6001804",

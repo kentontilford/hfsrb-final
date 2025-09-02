@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6010144",
     "facility_id_normalized": "6010144",
-    "facility_name": "THE GROVE OF ELMHURST"
+    "facility_name": "THE GROVE OF ELMHURST",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6010144",

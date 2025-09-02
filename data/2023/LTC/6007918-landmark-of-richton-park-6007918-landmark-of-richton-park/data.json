@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6007918 LANDMARK OF RICHTON PARK",
     "facility_id_normalized": "6007918 LANDMARK OF RICHTON PARK",
-    "facility_name": "6007918 LANDMARK OF RICHTON PARK"
+    "facility_name": "6007918 LANDMARK OF RICHTON PARK",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6007918 LANDMARK OF RICHTON PARK",

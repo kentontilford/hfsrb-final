@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "2208596",
     "facility_id_normalized": "2208596",
-    "facility_name": "Oregon Living and Rehabilitation Center"
+    "facility_name": "Oregon Living and Rehabilitation Center",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "2208596",

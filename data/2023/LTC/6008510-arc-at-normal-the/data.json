@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6008510",
     "facility_id_normalized": "6008510",
-    "facility_name": "ARC AT NORMAL, THE"
+    "facility_name": "ARC AT NORMAL, THE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6008510",

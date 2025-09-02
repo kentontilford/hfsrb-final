@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6015481",
     "facility_id_normalized": "6015481",
-    "facility_name": "IL VETERANS' HOME AT LASALLE"
+    "facility_name": "IL VETERANS' HOME AT LASALLE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6015481",

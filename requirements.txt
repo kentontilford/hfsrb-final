@@ -1,3 +1,0 @@
-jsonschema>=4.0
-pdfminer.six>=20221105
-PyPDF2>=3.0

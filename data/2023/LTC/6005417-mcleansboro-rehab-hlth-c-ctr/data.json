@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6005417",
     "facility_id_normalized": "6005417",
-    "facility_name": "MCLEANSBORO REHAB & HLTH C CTR"
+    "facility_name": "MCLEANSBORO REHAB & HLTH C CTR",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6005417",

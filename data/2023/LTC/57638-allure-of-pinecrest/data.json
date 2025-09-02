@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "57638",
     "facility_id_normalized": "57638",
-    "facility_name": "Allure of Pinecrest"
+    "facility_name": "Allure of Pinecrest",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "57638",

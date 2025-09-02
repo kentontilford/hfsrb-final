@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "47795",
     "facility_id_normalized": "47795",
-    "facility_name": "Taylorville Terrace"
+    "facility_name": "Taylorville Terrace",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "47795",

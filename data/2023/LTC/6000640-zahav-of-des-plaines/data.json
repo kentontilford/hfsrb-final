@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6000640",
     "facility_id_normalized": "6000640",
-    "facility_name": "ZAHAV OF DES PLAINES"
+    "facility_name": "ZAHAV OF DES PLAINES",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6000640",

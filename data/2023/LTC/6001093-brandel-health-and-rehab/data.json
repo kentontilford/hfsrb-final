@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6001093",
     "facility_id_normalized": "6001093",
-    "facility_name": "BRANDEL HEALTH AND REHAB"
+    "facility_name": "BRANDEL HEALTH AND REHAB",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6001093",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "56648",
     "facility_id_normalized": "56648",
-    "facility_name": "Lacon Rehab and Nursing, LLC"
+    "facility_name": "Lacon Rehab and Nursing, LLC",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "56648",

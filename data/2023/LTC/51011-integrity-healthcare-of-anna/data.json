@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "51011",
     "facility_id_normalized": "51011",
-    "facility_name": "Integrity Healthcare of Anna"
+    "facility_name": "Integrity Healthcare of Anna",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "51011",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "8000011",
     "facility_id_normalized": "8000011",
-    "facility_name": "Packard Mental Health Center"
+    "facility_name": "Packard Mental Health Center",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "8000011",

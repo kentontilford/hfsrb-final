@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "8079006",
     "facility_id_normalized": "8079006",
-    "facility_name": "Shapiro Center"
+    "facility_name": "Shapiro Center",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "8079006",

@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "44321",
     "facility_id_normalized": "44321",
-    "facility_name": "DeKalb County Rehab & Nursing Center"
+    "facility_name": "DeKalb County Rehab & Nursing Center",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "44321",

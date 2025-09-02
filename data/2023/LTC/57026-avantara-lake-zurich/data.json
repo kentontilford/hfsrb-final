@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "57026",
     "facility_id_normalized": "57026",
-    "facility_name": "Avantara Lake Zurich"
+    "facility_name": "Avantara Lake Zurich",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "57026",

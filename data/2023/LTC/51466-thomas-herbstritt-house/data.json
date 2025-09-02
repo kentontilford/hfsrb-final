@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "51466",
     "facility_id_normalized": "51466",
-    "facility_name": "Thomas Herbstritt House"
+    "facility_name": "Thomas Herbstritt House",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "51466",

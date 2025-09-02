@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6013684",
     "facility_id_normalized": "6013684",
-    "facility_name": "Harmony Healthcare and Rehabilitation Center, Inc."
+    "facility_name": "Harmony Healthcare and Rehabilitation Center, Inc.",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6013684",

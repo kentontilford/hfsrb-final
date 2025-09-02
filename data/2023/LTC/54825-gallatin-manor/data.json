@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "54825",
     "facility_id_normalized": "54825",
-    "facility_name": "Gallatin Manor"
+    "facility_name": "Gallatin Manor",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "54825",

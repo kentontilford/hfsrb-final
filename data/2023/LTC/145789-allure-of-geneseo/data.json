@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "145789",
     "facility_id_normalized": "145789",
-    "facility_name": "Allure of Geneseo"
+    "facility_name": "Allure of Geneseo",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "145789",

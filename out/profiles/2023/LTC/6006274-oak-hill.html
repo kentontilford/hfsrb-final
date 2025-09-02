@@ -1,0 +1,117 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Facility Profile</title><style>
+/* Print-friendly stylesheet for facility profiles */
+@page {
+  size: Letter;
+  margin: 0.6in 0.7in;
+}
+
+:root {
+  --ink: #1b1b1b;
+  --muted: #5a5a5a;
+  --line: #e6e6e6;
+  --accent: #3366cc; /* brand primary */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+}
+
+.subtitle { color: var(--muted); font-size: 12px; }
+
+.pill {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px 12px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.card h3 {
+  font-size: 12px;
+  margin: 0 0 8px 0;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 6px;
+  column-gap: 10px;
+}
+
+.kv .k { color: var(--muted); }
+.kv .v { font-variant-numeric: tabular-nums; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { text-align: left; color: var(--muted); font-weight: 600; font-size: 11px; }
+td { font-size: 12px; }
+tr:last-child td { border-bottom: 0; }
+
+.foot {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.right { text-align: right; }
+.small { font-size: 11px; }
+
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+.col-8 { grid-column: span 8; }
+.col-12 { grid-column: span 12; }
+
+.muted { color: var(--muted); }
+
+.badges { display: flex; gap: 6px; align-items: center; }
+
+.hr { height: 1px; background: var(--line); margin: 8px 0; }
+
+/* Avoid table row breaks looking odd */
+tr { break-inside: avoid; }
+
+</style></head><body><div class="page"><div class="header">  <div><div class="title">OAK HILL</div>       <div class="subtitle">623 Hamacher Street • Waterloo, IL 62298 • Year 2023</div></div>  <div class="badges"><span class="pill">LTC</span><span class="pill">ltc4</span></div></div><div class="grid"><div class="card col-6">  <h3>Identity</h3>  <div class="kv">    <div class="k">Address</div><div class="v">623 Hamacher Street</div>    <div class="k">City, State ZIP</div><div class="v">Waterloo, IL 62298</div>    <div class="k">Facility ID</div><div class="v">6006274</div>    <div class="k">FEIN</div><div class="v">376006468</div>  </div></div><div class="card col-6"><h3>Beds (IDD)</h3><table><thead><tr><th>Metric</th><th class="right">Value</th></tr></thead><tbody><tr><td>Licensed Beds (IDD)</td><td class="right mono">0</td></tr><tr><td>Beds Set Up (IDD)</td><td class="right mono">0</td></tr><tr><td>Beds Occupied (IDD)</td><td class="right mono">0</td></tr><tr><td>Peak Beds Set Up (IDD)</td><td class="right mono">0</td></tr><tr><td>Peak Beds Occupied (IDD)</td><td class="right mono">0</td></tr><tr><td>Total Patient Days (IDD)</td><td class="right mono">0</td></tr></tbody></table></div><div class="card col-6"><h3>Resident Flow</h3><table><thead><tr><th>Metric</th><th class="right">Count</th></tr></thead><tbody><tr><td>Residents Jan 1</td><td class="right mono">115</td></tr><tr><td>Admissions</td><td class="right mono">231</td></tr><tr><td>Discharges</td><td class="right mono">222</td></tr></tbody></table></div><div class="card col-6"><h3>Rates &amp; Hours</h3><table><thead><tr><th>Metric</th><th class="right">Value</th></tr></thead><tbody><tr><td>Typical Work Week Hours</td><td class="right mono">40</td></tr></tbody></table></div></div><div class="foot">  <div class="small">Source: HFSRB Annual Facility Survey 2023 · Generated 2025-09-02 12:26</div>  <div class="small mono">6006274 · LTC</div></div></div></body></html>

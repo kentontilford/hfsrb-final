@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6008239",
     "facility_id_normalized": "6008239",
-    "facility_name": "REGENCY CARE"
+    "facility_name": "REGENCY CARE",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6008239",

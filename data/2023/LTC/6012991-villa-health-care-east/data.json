@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "6012991",
     "facility_id_normalized": "6012991",
-    "facility_name": "VILLA HEALTH CARE EAST"
+    "facility_name": "VILLA HEALTH CARE EAST",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "6012991",

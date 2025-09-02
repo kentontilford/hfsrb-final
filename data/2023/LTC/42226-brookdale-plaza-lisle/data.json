@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "42226",
     "facility_id_normalized": "42226",
-    "facility_name": "Brookdale Plaza Lisle"
+    "facility_name": "Brookdale Plaza Lisle",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "42226",

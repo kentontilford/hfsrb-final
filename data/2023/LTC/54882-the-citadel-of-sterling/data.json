@@ -5,7 +5,8 @@
     "source_csv": "ltc_survey_2023.csv",
     "facility_id": "54882",
     "facility_id_normalized": "54882",
-    "facility_name": "The Citadel of Sterling"
+    "facility_name": "The Citadel of Sterling",
+    "ltc_variant": "ltc4"
   },
   "fields": {
     "facility_id": "54882",
