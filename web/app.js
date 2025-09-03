@@ -612,6 +612,41 @@ function drawExtra(sel, title, labels, data) {
     }
     surgerySummary('or_', 'Surgical Services — OR Class C');
     surgerySummary('procB_', 'Surgical Services — Class B');
+
+    // Inpatient/Outpatient Services by Specialty (from ipserv_*/opserv_* and hrs_*_* if present)
+    const svc = {};
+    Object.entries(p || {}).forEach(([k,v]) => {
+      if (String(v ?? '').trim() === '') return;
+      if (/^ipserv_/.test(k)) {
+        const sp = k.replace(/^ipserv_/, '');
+        (svc[sp] = svc[sp] || {}).ip = toNum(v);
+      } else if (/^opserv_/.test(k)) {
+        const sp = k.replace(/^opserv_/, '');
+        (svc[sp] = svc[sp] || {}).op = toNum(v);
+      } else if (/^hrs_/.test(k)) {
+        // hrs_<spec>_<i|o|t>
+        const m = /^hrs_([^_]+)_(i|o|t)/.exec(k);
+        if (m) {
+          const sp = m[1]; const which = m[2];
+          const row = (svc[sp] = svc[sp] || {});
+          if (which === 'i') row.hi = toNum(v);
+          else if (which === 'o') row.ho = toNum(v);
+          else row.ht = toNum(v);
+        }
+      }
+    });
+    const spNames = Object.keys(svc);
+    if (spNames.length) {
+      const pretty = s => s.replace(/_/g,' ').toUpperCase();
+      const rows = spNames.sort().map(sp => {
+        const r = svc[sp];
+        const hi = r.hi || 0, ho = r.ho || 0, ht = r.ht || (hi+ho);
+        const ip = r.ip != null ? r.ip : '';
+        const op = r.op != null ? r.op : '';
+        return `<tr><td>${pretty(sp)}</td><td class=\"right\">${fmt(ip)}</td><td class=\"right\">${fmt(op)}</td><td class=\"right\">${fmt(hi)}</td><td class=\"right\">${fmt(ho)}</td><td class=\"right\">${fmt(ht)}</td></tr>`;
+      }).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Services by Specialty</h3><table><thead><tr><th>Specialty</th><th class=\"right\">IP Services</th><th class=\"right\">OP Services</th><th class=\"right\">Hours (IP)</th><th class=\"right\">Hours (OP)</th><th class=\"right\">Hours (Total)</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
   }
 
   if (type === 'LTC') {
