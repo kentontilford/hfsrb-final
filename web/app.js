@@ -555,6 +555,64 @@ function drawExtra(sel, title, labels, data) {
     // Clear any remaining
     drawExtra('#chart-extra3', '', [], []);
   }
+  if (type === 'Hospital') {
+    // Outpatient Activity
+    const outpatient = {
+      'OP Visits — On-campus': p.op_visits_on,
+      'OP Visits — Off-campus': p.op_visits_off,
+      'OP Visits — Total': p.op_visits_total,
+      'Observation Beds (Dedicated)': p.obs_unit_beds,
+      'Observation Days (Dedicated)': p.obs_unit_days,
+    };
+    const outLabs = Object.keys(outpatient).filter(k => String(outpatient[k] ?? '').trim() !== '');
+    if (outLabs.length) {
+      const rows = outLabs.map(k => `<tr><td>${k}</td><td class=\"right\">${fmt(outpatient[k])}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Outpatient Activity</h3><table><thead><tr><th>Field</th><th class=\"right\">Value</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    // Payer Mix — Inpatient (numeric)
+    const payer = {
+      'Inpatients by Payment — Medicare': p.pay_inp_medicare,
+      'Inpatients by Payment — Medicaid': p.pay_inp_medicaid,
+      'Inpatients by Payment — Private Insurance': p.pay_inp_private_ins,
+      'Inpatients by Payment — Other Public': p.pay_inp_other_public,
+      'Inpatients by Payment — Private Payment': p.pay_inp_private_pay,
+    };
+    const payLabs = Object.keys(payer).filter(k => String(payer[k] ?? '').trim() !== '');
+    if (payLabs.length) {
+      const rows = payLabs.map(k => `<tr><td>${k}</td><td class=\"right\">${fmt(payer[k])}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Payer Mix — Inpatient</h3><table><thead><tr><th>Field</th><th class=\"right\">Value</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    // Surgical Services summaries
+    function surgerySummary(prefix, title) {
+      const specs = {};
+      Object.entries(p || {}).forEach(([k,v]) => {
+        if (typeof k !== 'string' || !k.startsWith(prefix)) return;
+        if (String(v ?? '').trim() === '') return;
+        const parts = k.split('_');
+        const metric = parts.slice(0,2).join('_'); // e.g., or_rooms, or_cases, or_hours or procB_rooms, etc.
+        const rest = parts.slice(2);
+        if (rest.length < 2) return; // e.g., metric_sub_spec
+        const sub = rest[0];
+        const spec = rest.slice(1).join('_');
+        (specs[spec] = specs[spec] || {})[`${metric}_${sub}`] = v;
+      });
+      const specNames = Object.keys(specs);
+      if (!specNames.length) return;
+      const rows = specNames.sort().map(sp => {
+        const kv = specs[sp] || {};
+        // Summaries across ip/op/combined/total
+        function sum(keys) { return keys.reduce((a,kk)=>a + (toNum(kv[kk])||0), 0); }
+        const rooms = sum(['or_rooms_ip','or_rooms_op','or_rooms_combined','procB_rooms_ip','procB_rooms_op','procB_rooms_combined']);
+        const cases = sum(['or_cases_ip','or_cases_op','procB_cases_ip','procB_cases_op']);
+        const hours = sum(['or_hours_ip','or_hours_op','or_hours_total','procB_hours_ip','procB_hours_op','procB_hours_total']);
+        const label = sp.replace(/_/g,' ').replace(/nh/g,'NH').replace(/pi/g,'PI');
+        return `<tr><td>${label}</td><td class=\"right\">${fmt(rooms)}</td><td class=\"right\">${fmt(cases)}</td><td class=\"right\">${fmt(hours)}</td></tr>`;
+      }).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>${title}</h3><table><thead><tr><th>Specialty</th><th class=\"right\">Rooms</th><th class=\"right\">Cases</th><th class=\"right\">Hours</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    surgerySummary('or_', 'Surgical Services — OR Class C');
+    surgerySummary('procB_', 'Surgical Services — Class B');
+  }
 
   if (type === 'LTC') {
     // Beds & Occupancy snapshot
