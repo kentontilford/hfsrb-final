@@ -241,7 +241,13 @@ function renderFullscreenBar(ctx) {
   const { year, type, slug, siteBase } = ctx || {};
   const html = [];
   html.push(`<button id="fs-back">⟵ Back to List</button>`);
-  html.push(`<strong style="margin:0 8px">Profile</strong>`);
+  // Compact header (facility name + meta)
+  const name = (ctx && ctx.meta && (ctx.meta.facility_name)) || (ctx && ctx.payload && ctx.payload.facility_name) || '';
+  const city = (ctx && ctx.payload && (ctx.payload.address_city || ctx.payload.facility_city)) || '';
+  const state = (ctx && ctx.payload && (ctx.payload.address_state || ctx.payload.facility_state)) || 'IL';
+  const zip = (ctx && ctx.payload && (ctx.payload.address_zip || ctx.payload.facility_zip)) || '';
+  const sub = [city, state].filter(Boolean).join(', ') + (zip ? ` ${zip}` : '') + (type ? ` • ${type}` : '') + (year ? ` • ${year}` : '');
+  html.push(`<div class="fshead"><div class="fs-title">${name || 'Facility'}</div><div class="fs-sub">${sub}</div></div>`);
   html.push(`<a href="${siteBase || '.'}/out/profiles/${year}/${type}/${slug}.html" target="_blank">Open HTML</a>`);
   html.push(`<a href="${siteBase || '.'}/out/profiles/${year}/${type}/${slug}.pdf" target="_blank">Open PDF</a>`);
   html.push(`<button id="fs-dlcsv">Download CSV</button>`);
