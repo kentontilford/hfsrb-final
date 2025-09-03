@@ -591,6 +591,59 @@ def _render_astc_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
     if any_val:
         parts.append(section_card('Patients by Primary Source of Payment and Sex', table_matrix(['Payment Source', 'Male', 'Female', 'Total'], rows), 'col-12'))
 
+    # Hours by Weekday (Mon..Sun)
+    hours_map = [
+        ('Monday', 'hours_mon'),
+        ('Tuesday', 'hours_tue'),
+        ('Wednesday', 'hours_wed'),
+        ('Thursday', 'hours_thu'),
+        ('Friday', 'hours_fri'),
+        ('Saturday', 'hours_sat'),
+        ('Sunday', 'hours_sun'),
+    ]
+    hrs_rows: List[List[Any]] = []
+    any_hrs = False
+    for lab, key in hours_map:
+        val = payload.get(key, '')
+        if str(val or '').strip() != '':
+            any_hrs = True
+        hrs_rows.append([lab, val])
+        used.add(key)
+    if any_hrs:
+        parts.append(section_card('Operating Hours by Weekday', table_matrix(['Day', 'Hours'], hrs_rows), 'col-12'))
+
+    # Rooms
+    rooms_rows: List[List[Any]] = []
+    for lab, key in [('Exam Rooms', 'rooms_exam'), ('OR Rooms — Class C', 'rooms_or_class_c')]:
+        val = payload.get(key, '')
+        if str(val or '').strip() != '':
+            rooms_rows.append([lab, val])
+            used.add(key)
+    if rooms_rows:
+        parts.append(section_card('Rooms', table_matrix(['Room', 'Count'], rooms_rows), 'col-12'))
+
+    # Staffing FTEs
+    staff_specs_astc = [
+        ('Administrators (FTEs)', 'fte_admin'),
+        ('Registered Nurses (FTEs)', 'fte_rn'),
+        ('CRNA (FTEs)', 'fte_crna'),
+        ('Director of Nursing (FTEs)', 'fte_don'),
+        ('Certified Aides (FTEs)', 'fte_cert_aides'),
+        ('Physicians (FTEs)', 'fte_physicians'),
+        ('Other Health-related (FTEs)', 'fte_other_health'),
+        ('Other Non Health-related (FTEs)', 'fte_other_nonhealth'),
+    ]
+    staff_rows_astc: List[List[Any]] = []
+    any_staff_astc = False
+    for lab, key in staff_specs_astc:
+        val = payload.get(key, '')
+        if str(val or '').strip() != '':
+            any_staff_astc = True
+        staff_rows_astc.append([lab, val])
+        used.add(key)
+    if any_staff_astc:
+        parts.append(section_card('Staffing (FTEs)', table_matrix(['Role', 'FTEs'], staff_rows_astc), 'col-12'))
+
     return ''.join(parts), used
 
 

@@ -665,7 +665,7 @@ function buildDemographicsTables(type, p, raceLabels, raceMap, ethLabels, ethMap
     parts.push(`<div class="card col-12"><h3>Ethnicity Breakdown</h3>${makeRows(ethLabels, ethMap, emptyDays)}</div>`);
   }
   host.innerHTML = parts.join('');
-  // After demographics, append finance tables for specific types
+  // After demographics, append type-specific and finance tables
   appendTypeSpecificTables(type, p);
   appendFinanceTables(type, p);
 }
