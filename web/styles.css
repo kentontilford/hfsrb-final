@@ -23,6 +23,21 @@ th { font-weight: 600; color: #222; }
 table { margin-bottom: 8px; }
 .links a, .links button { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: #f8f9fb; color: #222; text-decoration: none; }
 .links button { cursor: pointer; }
+
+/* Full-screen toolbar */
+.fsbar { display: none; position: sticky; top: 0; z-index: 1001; background: rgba(255,255,255,0.96); backdrop-filter: blur(2px); border-bottom: 1px solid var(--border); padding: 8px 12px; margin: -8px -8px 8px -8px; display: flex; gap: 8px; align-items: center; }
+.detail.fullscreen .fsbar { display: flex; }
+.fsbar button, .fsbar a { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: #f8f9fb; color: #222; text-decoration: none; font-size: 12px; }
+.fsbar .spacer { flex: 1; }
+
+/* Print styles: print only the detail pane, clean look */
+@media print {
+  header, .controls, .results, .links, .fsbar button#fs-exit { display: none !important; }
+  .detail { position: static !important; inset: auto !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
+  body { background: #fff !important; }
+  .card { break-inside: avoid; page-break-inside: avoid; }
+  .detail.fullscreen .fsbar { display: none !important; }
+}
 .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
 .links a, .links button { display: inline-block; margin-right: 8px; margin-bottom: 4px; font-size: 12px; }
 table { border-collapse: collapse; width: 100%; }

@@ -175,6 +175,7 @@ shareBtn.addEventListener('click', copyShareLink);
 // Fullscreen control
 addFullscreenControl();
 if (state.fullscreen) setFullscreen(true);
+renderFullscreenBar({ year: rec.year, type: rec.type, slug: rec.slug, siteBase, meta, payload: p, schemaProps });
 
 // Bind show-all toggle to re-render fields and sync URL
 const showBox2 = el('#showAllFields');
@@ -231,6 +232,35 @@ function setFullscreen(on) {
     d.classList.remove('fullscreen');
     document.body.classList.remove('no-scroll');
   }
+}
+
+function renderFullscreenBar(ctx) {
+  const bar = el('#fsbar');
+  if (!bar) return;
+  // Build toolbar content
+  const { year, type, slug, siteBase } = ctx || {};
+  const html = [];
+  html.push(`<strong style="margin-right:8px">Profile</strong>`);
+  html.push(`<a href="${siteBase || '.'}/out/profiles/${year}/${type}/${slug}.html" target="_blank">Open HTML</a>`);
+  html.push(`<a href="${siteBase || '.'}/out/profiles/${year}/${type}/${slug}.pdf" target="_blank">Open PDF</a>`);
+  html.push(`<button id="fs-dlcsv">Download CSV</button>`);
+  html.push(`<button id="fs-share">Share</button>`);
+  html.push(`<button id="fs-print">Print</button>`);
+  html.push(`<span class="spacer"></span>`);
+  html.push(`<button id="fs-exit">Exit Full Screen</button>`);
+  bar.innerHTML = html.join(' ');
+  bar.hidden = false;
+  // Wire actions
+  const meta = (ctx && ctx.meta) || {};
+  const payload = (ctx && ctx.payload) || {};
+  const props = (ctx && ctx.schemaProps) || {};
+  const dl = el('#fs-dlcsv'); if (dl) dl.addEventListener('click', () => downloadCSV(meta, payload, props));
+  const sh = el('#fs-share'); if (sh) sh.addEventListener('click', copyShareLink);
+  const pr = el('#fs-print'); if (pr) pr.addEventListener('click', () => window.print());
+  const ex = el('#fs-exit'); if (ex) ex.addEventListener('click', () => {
+    state.fullscreen = false; setFullscreen(false);
+    const cur = getParams(); setParams({ ...cur, view: null });
+  });
 }
 
 function drawCharts(type, p) {
