@@ -132,6 +132,19 @@ const schemaSpec = doc.schema || ''; // e.g., "schemas/json/ahq-short.schema.jso
 // Prefer filename so we can fetch from /schemas/json/
   const schemaFile = schemaSpec.split('/').pop();
 
+// Preload schema properties for CSV/export and field rendering
+let schemaProps = {};
+try {
+  if (schemaFile) {
+    const schemaURL = `${IS_WEB_SUBDIR ? '../' : ''}schemas/json/${schemaFile}`;
+    const sres = await fetch(schemaURL);
+    if (sres.ok) {
+      const schema = await sres.json();
+      schemaProps = schema.properties || {};
+    }
+  }
+} catch {}
+
 const d = el('#detail'); d.hidden = false;
 
 el('#meta').innerHTML = `${meta.facility_name || p.facility_name || rec.name}
@@ -147,8 +160,7 @@ links.push(`<button id="dlcharts">Download Charts (PNG)</button>`);
 links.push(`<button id="shareLink">Copy Share Link</button>`);
 el('#links').innerHTML = links.join(' ');
 
-el('#dlcsv').addEventListener('click', () =>
-downloadCSV(meta, p, schemaProps));
+el('#dlcsv').addEventListener('click', () => downloadCSV(meta, p, schemaProps));
 el('#dlcharts').addEventListener('click',
 downloadCharts);
 const shareBtn = el('#shareLink'); if (shareBtn)
@@ -160,20 +172,7 @@ drawCharts(rec.type, p);
 setParams({ year: rec.year, type: rec.type, slug: rec.slug, q: el('#q').value, county: el('#county').value, region: el('#region').value });
   
   // Render “All Fields” with schema descriptions (if available)
-try {
-    let schemaProps = {};
-    if (schemaFile) {
-      const schemaURL = `${IS_WEB_SUBDIR ? '../' : ''}schemas/json/${schemaFile}`;
-      const sres = await fetch(schemaURL);
-      if (sres.ok) {
-        const schema = await sres.json();
-        schemaProps = schema.properties || {};
-      }
-    }
-    renderAllFields(p, schemaProps);
-} catch {
-    renderAllFields(p, {});
-}
+  try { renderAllFields(p, schemaProps); } catch { renderAllFields(p, {}); }
 }
 
 function destroyCharts() {
