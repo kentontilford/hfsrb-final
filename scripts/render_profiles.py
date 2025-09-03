@@ -437,6 +437,33 @@ def _render_astc_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
     used: set[str] = set()
     parts: List[str] = []
 
+    # Patients by Age (Male, Female, Total)
+    age_specs = [
+        ('0-14', 'patients_age_male_0_14', 'patients_age_female_0_14'),
+        ('15-44', 'patients_age_male_15_44', 'patients_age_female_15_44'),
+        ('45-64', 'patients_age_male_45_64', 'patients_age_female_45_64'),
+        ('65-74', 'patients_age_male_65_74', 'patients_age_female_65_74'),
+        ('75+', 'patients_age_male_75_plus', 'patients_age_female_75_plus'),
+    ]
+    age_rows: List[List[Any]] = []
+    any_age = False
+    for label, mk, fk in age_specs:
+        mv = payload.get(mk, '')
+        fv = payload.get(fk, '')
+        if str(mv or '').strip() != '' or str(fv or '').strip() != '':
+            any_age = True
+        # compute total if numeric
+        try:
+            mt = float(str(mv).replace(',', '')) if str(mv or '').strip() != '' else 0
+            ft = float(str(fv).replace(',', '')) if str(fv or '').strip() != '' else 0
+            tv = mt + ft
+        except Exception:
+            tv = ''
+        age_rows.append([label, mv, fv, tv])
+        used.update([mk, fk])
+    if any_age:
+        parts.append(section_card('Patients by Age Group and Sex', table_matrix(['Age Group', 'Male', 'Female', 'Total'], age_rows), 'col-12'))
+
     # Patients by Payment and Sex matrix
     sources = [
         ('Medicaid', 'medicaid'),
@@ -466,6 +493,29 @@ def _render_astc_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
         used.update([m_key, f_key])
     if any_val:
         parts.append(section_card('Patients by Primary Source of Payment and Sex', table_matrix(['Payment Source', 'Male', 'Female', 'Total'], rows), 'col-12'))
+
+    return ''.join(parts), used
+
+
+def _render_ltc_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
+    used: set[str] = set()
+    parts: List[str] = []
+
+    # Beds snapshot (IDD)
+    beds_headers = ['Licensed (IDD)', 'Setup (IDD)', 'Occupied (IDD)', 'Peak Setup (IDD)', 'Peak Occupied (IDD)']
+    beds_keys = ['beds_licensed_idd', 'beds_setup_idd', 'beds_occupied_idd', 'beds_peak_setup_idd', 'beds_peak_occupied_idd']
+    bed_vals = [payload.get(k, '') for k in beds_keys]
+    if any(str(v or '').strip() != '' for v in bed_vals):
+        parts.append(section_card('Beds & Occupancy (IDD)', table_matrix(['Metric'] + beds_headers, [['Beds'] + bed_vals]), 'col-12'))
+        used.update([k for k in beds_keys if k])
+
+    # Resident flow
+    flow_headers = ['Census Jan 1', 'Initial Admissions', 'Discharges (Permanent)', 'Total Days (IDD)']
+    flow_keys = ['census_jan1', 'admissions_initial', 'discharges_permanent', 'days_total_idd']
+    flow_vals = [payload.get(k, '') for k in flow_keys]
+    if any(str(v or '').strip() != '' for v in flow_vals):
+        parts.append(section_card('Resident Flow', table_matrix(['Metric'] + flow_headers, [['Values'] + flow_vals]), 'col-12'))
+        used.update([k for k in flow_keys if k])
 
     return ''.join(parts), used
 
@@ -843,6 +893,8 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
         injected_html, used_keys = _render_esrd_matrices(payload)
     elif schema_name == 'astc':
         injected_html, used_keys = _render_astc_matrices(payload)
+    elif schema_name.startswith('ltc') or schema_name.startswith('ltc-'):
+        injected_html, used_keys = _render_ltc_matrices(payload)
 
     # Add demographics/payer charts block consistent with dashboard
     # Determine display type
