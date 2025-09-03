@@ -408,6 +408,28 @@ def _render_esrd_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
         parts.append(section_card('Weekly Patients (Oct)', table_matrix(['Metric'] + oct_headers, [['Patients'] + pats_vals]), 'col-12'))
         used.update([k for k in pats_keys if k])
 
+    # Staffing (FTEs) matrix
+    staff_rows: List[List[Any]] = []
+    staff_specs = [
+        ('Registered Nurses (FTEs)', 'fte_rn'),
+        ('Dialysis Technicians (FTEs)', 'fte_techs'),
+        ('Dieticians (FTEs)', 'fte_dieticians'),
+        ('Social Workers (FTEs)', 'fte_social_workers'),
+        ('LPNs (FTEs)', 'fte_lpns'),
+        ('Other Health-related Professionals (FTEs)', 'fte_other_health'),
+        ('Other Non Health-related Professionals (FTEs)', 'fte_other_nonhealth'),
+        ('Total FTEs Employed', 'fte_total'),
+    ]
+    any_staff = False
+    for label, key in staff_specs:
+        val = payload.get(key, '')
+        if str(val or '').strip() != '':
+            any_staff = True
+        staff_rows.append([label, val])
+        used.add(key)
+    if any_staff:
+        parts.append(section_card('Staffing (FTEs)', table_matrix(['Role', 'FTEs'], staff_rows), 'col-12'))
+
     return ''.join(parts), used
 
 

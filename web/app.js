@@ -297,17 +297,37 @@ function drawExtra(sel, title, labels, data) {
     const patsKeys = ['patients_oct1','patients_oct2','patients_oct3','patients_oct4','patients_oct5','patients_oct6','patients_oct7'];
     const hoursAvail = hoursKeys.some(k => String(p[k] ?? '').trim() !== '');
     const patsAvail = patsKeys.some(k => String(p[k] ?? '').trim() !== '');
+    let used2 = false, used3 = false;
     if (hoursAvail) {
       const d = hoursKeys.map(k => toNum(p[k]));
       drawExtra('#chart-extra2', 'Hours (Weekly Oct)', wlabels, d);
+      used2 = true;
     } else {
       drawExtra('#chart-extra2', '', [], []);
     }
     if (patsAvail) {
       const d = patsKeys.map(k => toNum(p[k]));
       drawExtra('#chart-extra3', 'Patients (Weekly Oct)', wlabels, d);
+      used3 = true;
     } else {
       drawExtra('#chart-extra3', '', [], []);
+    }
+    // Staffing (FTEs) fallback chart if space available
+    const staff = {
+      'RN': p.fte_rn,
+      'Techs': p.fte_techs,
+      'Dieticians': p.fte_dieticians,
+      'Social Workers': p.fte_social_workers,
+      'LPNs': p.fte_lpns,
+      'Other Health': p.fte_other_health,
+      'Other Non-Health': p.fte_other_nonhealth,
+      'Total FTEs': p.fte_total,
+    };
+    const sLabels = Object.keys(staff).filter(k => String(staff[k] ?? '').trim() !== '');
+    const sData = sLabels.map(k => toNum(staff[k]));
+    if (sLabels.length) {
+      if (!used2) { drawExtra('#chart-extra2', 'Staffing (FTEs)', sLabels, sData); used2 = true; }
+      else if (!used3) { drawExtra('#chart-extra3', 'Staffing (FTEs)', sLabels, sData); used3 = true; }
     }
   }
 
