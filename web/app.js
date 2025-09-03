@@ -228,9 +228,11 @@ function setFullscreen(on) {
   if (on) {
     d.classList.add('fullscreen');
     document.body.classList.add('no-scroll');
+    const bar = el('#fsbar'); if (bar) bar.hidden = false;
   } else {
     d.classList.remove('fullscreen');
     document.body.classList.remove('no-scroll');
+    const bar = el('#fsbar'); if (bar) bar.hidden = true;
   }
 }
 
@@ -256,7 +258,7 @@ function renderFullscreenBar(ctx) {
   html.push(`<span class="spacer"></span>`);
   html.push(`<button id="fs-exit">Exit Full Screen</button>`);
   bar.innerHTML = html.join(' ');
-  bar.hidden = false;
+  bar.hidden = !state.fullscreen;
   // Wire actions
   const meta = (ctx && ctx.meta) || {};
   const payload = (ctx && ctx.payload) || {};
