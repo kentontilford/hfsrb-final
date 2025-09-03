@@ -239,6 +239,7 @@ function setFullscreen(on) {
       document.body.appendChild(overlay);
     }
     overlay.appendChild(d);
+    d.style.width = '100%';
     document.body.classList.add('no-scroll');
     if (bar) bar.hidden = false;
   } else {
@@ -251,6 +252,7 @@ function setFullscreen(on) {
     }
     const overlay = document.getElementById('detailOverlay');
     if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+    d.style.removeProperty('width');
     document.body.classList.remove('no-scroll');
     if (bar) bar.hidden = true;
   }
