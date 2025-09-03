@@ -436,8 +436,17 @@ function drawExtra(sel, title, labels, data) {
     } else {
       drawExtra('#chart-extra2', '', [], []);
     }
-    // Prefer clearing third if unused
-    drawExtra('#chart-extra3', '', [], []);
+    // Finance bar if available
+    const fin = {
+      'Medicare': p.net_revenue_medicare,
+      'Medicaid': p.net_revenue_medicaid,
+      'Other Public': p.net_revenue_other_public,
+      'Private Insurance': p.net_revenue_private_insurance,
+      'Private Payment': p.net_revenue_private_payment,
+    };
+    const flabels = Object.keys(fin).filter(k => String(fin[k] ?? '').trim() !== '');
+    const fdata = flabels.map(k => toNum(fin[k]));
+    if (flabels.length) drawExtra('#chart-extra3', 'Net Revenue by Source', flabels, fdata); else drawExtra('#chart-extra3', '', [], []);
   }
 }
 
@@ -522,6 +531,52 @@ function buildDemographicsTables(type, p, raceLabels, raceMap, ethLabels, ethMap
     parts.push(`<div class="card col-12"><h3>Ethnicity Breakdown</h3>${makeRows(ethLabels, ethMap, emptyDays)}</div>`);
   }
   host.innerHTML = parts.join('');
+  // After demographics, append finance tables for specific types
+  appendFinanceTables(type, p);
+}
+
+// Append Finance tables by type, using known revenue field names
+function appendFinanceTables(type, p) {
+  const host = el('#demo-tables');
+  if (!host) return;
+  function tableFromMap(title, map) {
+    const labels = Object.keys(map).filter(k => String(map[k] ?? '').trim() !== '');
+    if (!labels.length) return '';
+    const rows = labels.map(k => `<tr><td>${k}</td><td class="right">${fmt(map[k])}</td></tr>`).join('');
+    return `<div class="card col-12"><h3>${title}</h3><table><thead><tr><th>Source</th><th class="right">Net Revenue</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  }
+  if (type === 'Hospital') {
+    const ip = {
+      'Medicare': p.inpatient_medicare_revenue,
+      'Medicaid': p.inpatient_medicaid_revenue,
+      'Other Public': p.inpatient_other_public_revenue,
+      'Private Insurance': p.inpatient_private_insurance_revenue,
+      'Private Payment': p.inpatient_private_payment_revenue,
+    };
+    const op = {
+      'Medicare': p.outpatient_medicare_revenue,
+      'Medicaid': p.outpatient_medicaid_revenue,
+      'Other Public': p.outpatient_other_public_revenue,
+      'Private Insurance': p.outpatient_private_insurance_revenue,
+      'Private Payment': p.outpatient_private_payment_revenue,
+    };
+    const ipHTML = tableFromMap('Inpatient Net Revenue by Source', ip);
+    const opHTML = tableFromMap('Outpatient Net Revenue by Source', op);
+    host.insertAdjacentHTML('beforeend', ipHTML + opHTML);
+  }
+  if (type === 'LTC') {
+    const fin = {
+      'Medicare': p.net_revenue_medicare,
+      'Medicaid': p.net_revenue_medicaid,
+      'Other Public': p.net_revenue_other_public,
+      'Private Insurance': p.net_revenue_private_insurance,
+      'Private Payment': p.net_revenue_private_payment,
+    };
+    const total = p.net_revenue_total;
+    const finHTML = tableFromMap('Net Revenue by Primary Source of Payment', fin);
+    const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL</h3><table><tbody><tr><td>Total</td><td class="right">${fmt(total)}</td></tr></tbody></table></div>` : '';
+    host.insertAdjacentHTML('beforeend', finHTML + totHTML);
+  }
 }
 
 function downloadCSV(meta, payload, props) {
