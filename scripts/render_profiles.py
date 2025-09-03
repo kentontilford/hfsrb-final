@@ -500,6 +500,33 @@ def _render_esrd_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
     if any_staff:
         parts.append(section_card('Staffing (FTEs)', table_matrix(['Role', 'FTEs'], staff_rows), 'col-12'))
 
+    # Patient Flow (Year)
+    flow_labels = [
+        ('Patients — Jan 1', 'beginning_patients'),
+        ('Patients — Dec 31', 'ending_patients'),
+        ('Unduplicated Patients Treated', 'total_patients_treated'),
+        ('New Patients', 'number_of_new_patients'),
+        ('Transient Patients', 'number_of_transient_patients'),
+        ('Re-started Dialysis', 'number_patients_re_started'),
+        ('Resumed after Transplant', 'number_post_transplant'),
+        ('Recovered Kidney Function', 'number_recovered'),
+        ('Transplant Recipients Ended', 'number_of_transplant_recipients'),
+        ('Transferred Out', 'number_transferred'),
+        ('Voluntarily Discontinued', 'number_voluntarily_discontinued'),
+        ('Lost to Follow-up', 'number_lost_to_follow_up'),
+        ('Deaths', 'number_of_patients_died'),
+    ]
+    flow_rows: List[List[Any]] = []
+    any_flow = False
+    for lab, key in flow_labels:
+        val = payload.get(key, '')
+        if str(val or '').strip() != '':
+            any_flow = True
+        flow_rows.append([lab, val])
+        used.add(key)
+    if any_flow:
+        parts.append(section_card('Patient Flow (Year)', table_matrix(['Metric', 'Count'], flow_rows), 'col-12'))
+
     return ''.join(parts), used
 
 
@@ -586,6 +613,54 @@ def _render_ltc_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
     if any(str(v or '').strip() != '' for v in flow_vals):
         parts.append(section_card('Resident Flow', table_matrix(['Metric'] + flow_headers, [['Values'] + flow_vals]), 'col-12'))
         used.update([k for k in flow_keys if k])
+
+    # Payer Mix — Counts and Patient Days
+    payer_counts = [
+        ('Medicare', 'patient_count_medicare'),
+        ('Medicaid', 'patient_count_medicaid'),
+        ('Private Insurance', 'patient_count_private_insurance'),
+        ('Private Payment', 'patient_count_private_payment'),
+        ('Other Public', 'patient_count_other_public'),
+        ('Charity Care', 'patient_count_charity_care'),
+    ]
+    payer_days = [
+        ('Medicare', 'patient_days_medicare'),
+        ('Medicaid', 'patient_days_medicaid'),
+        ('Private Insurance', 'patient_days_private_insurance'),
+        ('Private Payment', 'patient_days_private_payment'),
+        ('Other Public', 'patient_days_other_public'),
+        ('Charity Care', 'patient_days_charity_care'),
+    ]
+    cnt_rows: List[List[Any]] = []
+    any_cnt = False
+    for lab, key in payer_counts:
+        val = payload.get(key, '')
+        if str(val or '').strip() != '':
+            any_cnt = True
+        cnt_rows.append([lab, val])
+        used.add(key)
+    if any_cnt:
+        parts.append(section_card('Payers — Resident Counts', table_matrix(['Payer', 'Count'], cnt_rows), 'col-12'))
+    day_rows: List[List[Any]] = []
+    any_days = False
+    for lab, key in payer_days:
+        val = payload.get(key, '')
+        if str(val or '').strip() != '':
+            any_days = True
+        day_rows.append([lab, val])
+        used.add(key)
+    if any_days:
+        parts.append(section_card('Payers — Patient Days', table_matrix(['Payer', 'Days'], day_rows), 'col-12'))
+
+    # Room Rates (if present)
+    rate_rows: List[Tuple[str, Any]] = []
+    for k, lab in [('private_room_rate', 'Private Room Rate'), ('shared_room_rate', 'Shared Room Rate')]:
+        v = payload.get(k)
+        if v is not None and str(v).strip() != '':
+            rate_rows.append((lab, v))
+            used.add(k)
+    if rate_rows:
+        parts.append(_card('Room Rates', rate_rows))
 
     # Finance — Net Revenue by Source
     ltc_fin_map = [

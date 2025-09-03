@@ -666,6 +666,7 @@ function buildDemographicsTables(type, p, raceLabels, raceMap, ethLabels, ethMap
   }
   host.innerHTML = parts.join('');
   // After demographics, append finance tables for specific types
+  appendTypeSpecificTables(type, p);
   appendFinanceTables(type, p);
 }
 
@@ -776,6 +777,67 @@ function appendFinanceTables(type, p) {
     const finHTML = tableFromMap('Net Revenue by Primary Source of Payment', fin);
     const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL</h3><table><tbody><tr><td>Total</td><td class="right">${fmtCurrency(total)}</td></tr></tbody></table></div>` : '';
     host.insertAdjacentHTML('beforeend', finHTML + totHTML);
+  }
+}
+
+function appendTypeSpecificTables(type, p) {
+  const host = el('#demo-tables'); if (!host) return;
+  if (type === 'ESRD') {
+    const flow = {
+      'Patients — Jan 1': p.beginning_patients,
+      'Patients — Dec 31': p.ending_patients,
+      'Unduplicated Patients Treated': p.total_patients_treated,
+      'New Patients': p.number_of_new_patients,
+      'Transient Patients': p.number_of_transient_patients,
+      'Re-started Dialysis': p.number_patients_re_started,
+      'Resumed after Transplant': p.number_post_transplant,
+      'Recovered Kidney Function': p.number_recovered,
+      'Transplant Recipients Ended': p.number_of_transplant_recipients,
+      'Transferred Out': p.number_transferred,
+      'Voluntarily Discontinued': p.number_voluntarily_discontinued,
+      'Lost to Follow-up': p.number_lost_to_follow_up,
+      'Deaths': p.number_of_patients_died,
+    };
+    const labels = Object.keys(flow).filter(k => String(flow[k] ?? '').trim() !== '');
+    if (labels.length) {
+      const rows = labels.map(k => `<tr><td>${k}</td><td class=\"right\">${fmt(flow[k])}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Patient Flow (Year)</h3><table><thead><tr><th>Metric</th><th class=\"right\">Count</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+  }
+  if (type === 'LTC') {
+    const cnt = {
+      'Medicare': p.patient_count_medicare,
+      'Medicaid': p.patient_count_medicaid,
+      'Private Insurance': p.patient_count_private_insurance,
+      'Private Payment': p.patient_count_private_payment,
+      'Other Public': p.patient_count_other_public,
+      'Charity Care': p.patient_count_charity_care,
+    };
+    const cntL = Object.keys(cnt).filter(k => String(cnt[k] ?? '').trim() !== '');
+    if (cntL.length) {
+      const rows = cntL.map(k => `<tr><td>${k}</td><td class=\"right\">${fmt(cnt[k])}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Payers — Resident Counts</h3><table><thead><tr><th>Payer</th><th class=\"right\">Count</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    const days = {
+      'Medicare': p.patient_days_medicare,
+      'Medicaid': p.patient_days_medicaid,
+      'Private Insurance': p.patient_days_private_insurance,
+      'Private Payment': p.patient_days_private_payment,
+      'Other Public': p.patient_days_other_public,
+      'Charity Care': p.patient_days_charity_care,
+    };
+    const dL = Object.keys(days).filter(k => String(days[k] ?? '').trim() !== '');
+    if (dL.length) {
+      const rows = dL.map(k => `<tr><td>${k}</td><td class=\"right\">${fmt(days[k])}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Payers — Patient Days</h3><table><thead><tr><th>Payer</th><th class=\"right\">Days</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    const rates = [];
+    if (String(p.private_room_rate ?? '').trim() !== '') rates.push(['Private Room Rate', p.private_room_rate]);
+    if (String(p.shared_room_rate ?? '').trim() !== '') rates.push(['Shared Room Rate', p.shared_room_rate]);
+    if (rates.length) {
+      const rows = rates.map(([k,v]) => `<tr><td>${k}</td><td class=\"right\">${fmt(v)}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Room Rates</h3><table><thead><tr><th>Type</th><th class=\"right\">Rate</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
   }
 }
 
