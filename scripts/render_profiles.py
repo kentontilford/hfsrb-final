@@ -372,6 +372,33 @@ def _render_hospital_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
     surgery_matrix('or_', 'Surgical Services — OR Class C')
     surgery_matrix('procB_', 'Surgical Services — Class B')
 
+    # Finance — Net Revenue by Source (Inpatient / Outpatient)
+    def finance_rows(prefix: str) -> Tuple[str, List[List[Any]], bool]:
+        mapping = [
+            ('Medicare', f'{prefix}_medicare_revenue'),
+            ('Medicaid', f'{prefix}_medicaid_revenue'),
+            ('Other Public', f'{prefix}_other_public_revenue'),
+            ('Private Insurance', f'{prefix}_private_insurance_revenue'),
+            ('Private Payment', f'{prefix}_private_payment_revenue'),
+        ]
+        rows: List[List[Any]] = []
+        any_val = False
+        for lab, key in mapping:
+            val = payload.get(key, '')
+            if str(val or '').strip() != '':
+                any_val = True
+            rows.append([lab, val])
+            used.add(key)
+        title = 'Inpatient Net Revenue by Source' if prefix == 'inpatient' else 'Outpatient Net Revenue by Source'
+        return (title, rows, any_val)
+
+    t1, r1, ok1 = finance_rows('inpatient')
+    if ok1:
+        parts.append(section_card(t1, table_matrix(['Source', 'Net Revenue'], r1), 'col-12'))
+    t2, r2, ok2 = finance_rows('outpatient')
+    if ok2:
+        parts.append(section_card(t2, table_matrix(['Source', 'Net Revenue'], r2), 'col-12'))
+
     return ''.join(parts), used
 
 
@@ -407,6 +434,29 @@ def _render_esrd_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
     if any(str(v or '').strip() != '' for v in pats_vals):
         parts.append(section_card('Weekly Patients (Oct)', table_matrix(['Metric'] + oct_headers, [['Patients'] + pats_vals]), 'col-12'))
         used.update([k for k in pats_keys if k])
+
+    # Finance — Net Revenue by Source
+    fin_map = [
+        ('Medicare', 'net_revenue_medicare'),
+        ('Medicaid', 'net_revenue_medicaid'),
+        ('Other Public', 'net_revenue_other_public'),
+        ('Private Insurance', 'net_revenue_private_insur'),
+        ('Private Payment', 'net_revenue_private_pay'),
+    ]
+    fin_rows: List[List[Any]] = []
+    any_fin = False
+    for lab, key in fin_map:
+        val = payload.get(key, '')
+        if str(val or '').strip() != '':
+            any_fin = True
+        fin_rows.append([lab, val])
+        used.add(key)
+    total_rev = payload.get('total_revenue', '')
+    if any_fin:
+        parts.append(section_card('Net Revenue by Primary Source of Payment', table_matrix(['Source', 'Net Revenue'], fin_rows), 'col-12'))
+        if str(total_rev or '').strip() != '':
+            parts.append(section_card('Net Revenue — TOTAL', table_matrix(['Metric', 'Amount'], [['TOTAL', total_rev]]), 'col-12'))
+            used.add('total_revenue')
 
     # Staffing (FTEs) matrix
     staff_rows: List[List[Any]] = []
@@ -516,6 +566,29 @@ def _render_ltc_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
     if any(str(v or '').strip() != '' for v in flow_vals):
         parts.append(section_card('Resident Flow', table_matrix(['Metric'] + flow_headers, [['Values'] + flow_vals]), 'col-12'))
         used.update([k for k in flow_keys if k])
+
+    # Finance — Net Revenue by Source
+    ltc_fin_map = [
+        ('Medicare', 'net_revenue_medicare'),
+        ('Medicaid', 'net_revenue_medicaid'),
+        ('Other Public', 'net_revenue_other_public'),
+        ('Private Insurance', 'net_revenue_private_insurance'),
+        ('Private Payment', 'net_revenue_private_payment'),
+    ]
+    ltc_rows: List[List[Any]] = []
+    any_ltc_fin = False
+    for lab, key in ltc_fin_map:
+        val = payload.get(key, '')
+        if str(val or '').strip() != '':
+            any_ltc_fin = True
+        ltc_rows.append([lab, val])
+        used.add(key)
+    total_key = 'net_revenue_total'
+    if any_ltc_fin:
+        parts.append(section_card('Net Revenue by Primary Source of Payment', table_matrix(['Source', 'Net Revenue'], ltc_rows), 'col-12'))
+        if str(payload.get(total_key, '') or '').strip() != '':
+            parts.append(section_card('Net Revenue — TOTAL', table_matrix(['Metric', 'Amount'], [['TOTAL', payload.get(total_key, '')]]), 'col-12'))
+            used.add(total_key)
 
     return ''.join(parts), used
 
@@ -906,6 +979,7 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
     # Build items grouped strictly by data dictionary field_id hierarchy
     # Section = first segment of field_id
     sections: Dict[str, Dict[str, Any]] = {}
+    rendered_keys: set[str] = set(used_keys)
     # Iterate fields in dictionary order to ensure required fields are always shown
     dict_items_sorted = sorted(dict_meta.items(), key=lambda kv: kv[1].get('order', 0)) if dict_meta else []
     for key, info in dict_items_sorted:
@@ -956,6 +1030,7 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
         display_val = sval if sval != '' else '—'
         row_order = info.get('order', 0)
         sec_bucket['rows'].append((row_order, label, display_val))
+        rendered_keys.add(key)
 
     # Ensure address basics appear in Facility if available
     if any([address, city, state, zipc]):
@@ -968,6 +1043,20 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
     for _, sec in ordered_sections:
         rows_sorted = sorted(sec['rows'], key=lambda r: (r[0], str(r[1]).lower()))
         cards_html.append(section_card(sec['label'], table(rows_sorted, ('Field', 'Value')), 'col-12'))
+
+    # Coverage verifier: compute missing dictionary keys not rendered; expose via ?debug=coverage
+    import json as _json
+    dict_keys = set(dict_meta.keys()) if dict_meta else set()
+    missing = sorted([k for k in dict_keys if k not in rendered_keys])
+    extra = sorted([k for k in rendered_keys if k not in dict_keys])
+    cov_blob = _json.dumps({'total_dict': len(dict_keys), 'rendered': len(rendered_keys), 'missing': missing, 'extra': extra}, ensure_ascii=False)
+    coverage_card = (
+        '<div class="card col-12" id="coverage-card" style="display:none">'
+        '  <h3>Coverage Report</h3>'
+        '  <pre id="coverage-json" style="white-space:pre-wrap"></pre>'
+        '</div>'
+        '<script>(function(){ try { const data = ' + cov_blob + '; const u=new URL(window.location.href); if(u.searchParams.get("debug")===' + "'coverage'" + '){ const el=document.getElementById("coverage-json"); if(el){ el.textContent=JSON.stringify(data,null,2); document.getElementById("coverage-card").style.display="block"; } } } catch(e){} })();</script>'
+    )
 
     # Build props map from dictionary metadata for client-side re-rendering
     import json as _json
@@ -1012,7 +1101,7 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
         + head_html(f"{name} — Profile")
         + '<body>'
         + header
-        + f'<main class="grid">' + injected_html + controls + '<div id="all-sections">' + ''.join(cards_html) + '</div>' + client_js + '</main>'
+        + f'<main class="grid">' + injected_html + controls + '<div id="all-sections">' + ''.join(cards_html) + '</div>' + coverage_card + client_js + '</main>'
         + '</body></html>'
     )
 
