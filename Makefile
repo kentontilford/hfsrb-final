@@ -65,6 +65,7 @@ publish: dashboard-data profiles-all
 	@mkdir -p out/site/schemas/json && cp -r schemas/json/*.schema.json out/site/schemas/json/
 	@mkdir -p out/site/out
 	@if [ -d out/profiles ]; then cp -r out/profiles out/site/out/; fi
+	@if [ -f CNAME ]; then cp CNAME out/site/; fi
 	@echo "Site prepared under out/site (include data/ and out/profiles if present)."
 
 profiles:
@@ -102,6 +103,7 @@ publish-pdf: dashboard-data profiles-puppeteer-all
 	@mkdir -p out/site/schemas/json && cp -r schemas/json/*.schema.json out/site/schemas/json/
 	@mkdir -p out/site/out
 	@if [ -d out/profiles ]; then cp -r out/profiles out/site/out/; fi
+	@if [ -f CNAME ]; then cp CNAME out/site/; fi
 	@echo "Site prepared under out/site with PDFs (if generated)."
 
 site-pdf: publish-pdf

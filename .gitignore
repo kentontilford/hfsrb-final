@@ -19,3 +19,5 @@ node_modules/
 # GitHub Actions local cache (if any)
 .cache/
 
+# Build output
+out/
