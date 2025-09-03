@@ -240,7 +240,8 @@ function renderFullscreenBar(ctx) {
   // Build toolbar content
   const { year, type, slug, siteBase } = ctx || {};
   const html = [];
-  html.push(`<strong style="margin-right:8px">Profile</strong>`);
+  html.push(`<button id="fs-back">⟵ Back to List</button>`);
+  html.push(`<strong style="margin:0 8px">Profile</strong>`);
   html.push(`<a href="${siteBase || '.'}/out/profiles/${year}/${type}/${slug}.html" target="_blank">Open HTML</a>`);
   html.push(`<a href="${siteBase || '.'}/out/profiles/${year}/${type}/${slug}.pdf" target="_blank">Open PDF</a>`);
   html.push(`<button id="fs-dlcsv">Download CSV</button>`);
@@ -254,6 +255,12 @@ function renderFullscreenBar(ctx) {
   const meta = (ctx && ctx.meta) || {};
   const payload = (ctx && ctx.payload) || {};
   const props = (ctx && ctx.schemaProps) || {};
+  const back = el('#fs-back'); if (back) back.addEventListener('click', () => {
+    state.fullscreen = false; setFullscreen(false);
+    const d = el('#detail'); if (d) d.hidden = true;
+    const cur = getParams(); delete cur.slug; delete cur.view; setParams(cur);
+    const list = el('#list'); if (list) list.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
   const dl = el('#fs-dlcsv'); if (dl) dl.addEventListener('click', () => downloadCSV(meta, payload, props));
   const sh = el('#fs-share'); if (sh) sh.addEventListener('click', copyShareLink);
   const pr = el('#fs-print'); if (pr) pr.addEventListener('click', () => window.print());

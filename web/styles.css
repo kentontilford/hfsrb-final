@@ -32,10 +32,12 @@ table { margin-bottom: 8px; }
 
 /* Print styles: print only the detail pane, clean look */
 @media print {
-  header, .controls, .results, .links, .fsbar button#fs-exit { display: none !important; }
+  header, .controls, .results, .links, .fsbar button#fs-exit, .fsbar button#fs-back { display: none !important; }
   .detail { position: static !important; inset: auto !important; padding: 0 !important; border: none !important; box-shadow: none !important; }
   body { background: #fff !important; }
   .card { break-inside: avoid; page-break-inside: avoid; }
+  #demo-tables { break-before: page; page-break-before: always; }
+  .charts { break-inside: avoid; page-break-inside: avoid; }
   .detail.fullscreen .fsbar { display: none !important; }
 }
 .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
