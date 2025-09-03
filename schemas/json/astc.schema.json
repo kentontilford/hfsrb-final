@@ -231,6 +231,190 @@
       "type": "integer",
       "description": "TOTAL PATIENTS SERVED (payment/sex) (Section/Page: Sec I p.6) Auto-calculated; must match Q5 total"
     },
+    "patients_age_male_0_14": {
+      "type": "integer",
+      "description": "Male 0–14 (Section/Page: Sec I p.5) Convenience field derived from age/sex table"
+    },
+    "patients_age_male_15_44": {
+      "type": "integer",
+      "description": "Male 15–44 (Section/Page: Sec I p.5)"
+    },
+    "patients_age_male_45_64": {
+      "type": "integer",
+      "description": "Male 45–64 (Section/Page: Sec I p.5)"
+    },
+    "patients_age_male_65_74": {
+      "type": "integer",
+      "description": "Male 65–74 (Section/Page: Sec I p.5)"
+    },
+    "patients_age_male_75_plus": {
+      "type": "integer",
+      "description": "Male 75+ (Section/Page: Sec I p.5)"
+    },
+    "patients_age_female_0_14": {
+      "type": "integer",
+      "description": "Female 0–14 (Section/Page: Sec I p.5)"
+    },
+    "patients_age_female_15_44": {
+      "type": "integer",
+      "description": "Female 15–44 (Section/Page: Sec I p.5)"
+    },
+    "patients_age_female_45_64": {
+      "type": "integer",
+      "description": "Female 45–64 (Section/Page: Sec I p.5)"
+    },
+    "patients_age_female_65_74": {
+      "type": "integer",
+      "description": "Female 65–74 (Section/Page: Sec I p.5)"
+    },
+    "patients_age_female_75_plus": {
+      "type": "integer",
+      "description": "Female 75+ (Section/Page: Sec I p.5)"
+    },
+    "patients_payment_male_medicaid": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Male — Medicaid (Section/Page: Sec I p.6) Convenience field derived from payment/sex table"
+    },
+    "patients_payment_male_medicare": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Male — Medicare (Section/Page: Sec I p.6)"
+    },
+    "patients_payment_male_other_public": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Male — Other Public (Section/Page: Sec I p.6)"
+    },
+    "patients_payment_male_private_insurance": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Male — Private Insurance (Section/Page: Sec I p.6)"
+    },
+    "patients_payment_male_private_payment": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Male — Private Payment (Section/Page: Sec I p.6)"
+    },
+    "patients_payment_male_charity_care": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Male — Charity Care (Section/Page: Sec I p.6)"
+    },
+    "patients_payment_female_medicaid": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Female — Medicaid (Section/Page: Sec I p.6)"
+    },
+    "patients_payment_female_medicare": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Female — Medicare (Section/Page: Sec I p.6)"
+    },
+    "patients_payment_female_other_public": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Female — Other Public (Section/Page: Sec I p.6)"
+    },
+    "patients_payment_female_private_insurance": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Female — Private Insurance (Section/Page: Sec I p.6)"
+    },
+    "patients_payment_female_private_payment": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Female — Private Payment (Section/Page: Sec I p.6)"
+    },
+    "patients_payment_female_charity_care": {
+      "type": "integer",
+      "enum": [
+        "medicaid",
+        "medicare",
+        "other_public",
+        "private_insurance",
+        "private_payment",
+        "charity_care"
+      ],
+      "description": "Female — Charity Care (Section/Page: Sec I p.6)"
+    },
     "patients_origin": {
       "type": "array",
       "description": "Patients by Place of Origin (Section/Page: Sec I p.7-11) Prefer Zip; else County"

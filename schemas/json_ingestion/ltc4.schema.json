@@ -1,0 +1,169 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LTC4 — 16 or Fewer Intermediate DD Beds — Data Dictionary (Draft)",
+  "type": "object",
+  "properties": {
+    "license_number": {
+      "type": "string",
+      "description": "Facility License Number (Section/Page: Sec I p.2)"
+    },
+    "facility_name": {
+      "type": "string",
+      "description": "Facility Name (Section/Page: Sec I p.2)"
+    },
+    "address_line1": {
+      "type": "string",
+      "description": "Facility Address (Section/Page: Sec I p.2)"
+    },
+    "address_city": {
+      "type": "string",
+      "description": "Facility City (Section/Page: Sec I p.2)"
+    },
+    "address_zip": {
+      "type": "string",
+      "pattern": "^\\d{5}(-\\d{4})?$",
+      "description": "Facility Zip Code (Section/Page: Sec I p.2)"
+    },
+    "fein": {
+      "type": "string",
+      "pattern": "^\\d{2}-\\d{7}$",
+      "description": "Facility FEIN Number (Section/Page: Sec I p.2)"
+    },
+    "admission_restrictions": {
+      "type": "array",
+      "description": "Admission Restrictions (Section/Page: Sec I p.2) Multi-select; include None Applicable"
+    },
+    "reg_agent_*": {
+      "type": "string",
+      "description": "Registered Agent (Name/Address/CityStateZip/Phone) (Section/Page: Sec I p.2) Required if ownership requires RA"
+    },
+    "fte_*": {
+      "type": "number",
+      "description": "Staffing FTEs (Admin, Physicians, DON, RN, LPN, Certified Aides, Other Health, Other Non-Health, Total) (Section/Page: Sec I p.3) Total auto"
+    },
+    "workweek_hours": {
+      "type": "integer",
+      "description": "Typical work week hours (full-time) (Section/Page: Sec I p.3)"
+    },
+    "census_jan1": {
+      "type": "integer",
+      "description": "Patients in facility on Jan 1, 2023 (Section/Page: Sec I p.3)"
+    },
+    "admissions_initial": {
+      "type": "integer",
+      "description": "Initial admissions during 2023 (Section/Page: Sec I p.3)"
+    },
+    "discharges_permanent": {
+      "type": "integer",
+      "description": "Permanent discharges during 2023 (Section/Page: Sec I p.3)"
+    },
+    "census_dec31": {
+      "type": "integer",
+      "description": "Patients in facility on Dec 31, 2023 (Section/Page: Sec I p.3) Calculated per instructions"
+    },
+    "beds_licensed_idd": {
+      "type": "integer",
+      "description": "Licensed Beds — Intermediate DD (12/31/2023) (Section/Page: Sec I p.4)"
+    },
+    "beds_setup_idd": {
+      "type": "integer",
+      "description": "Beds Set Up — Intermediate DD (12/31/2023) (Section/Page: Sec I p.4)"
+    },
+    "beds_peak_setup_idd": {
+      "type": "integer",
+      "description": "Highest One-Day Beds Set Up — Intermediate DD (Section/Page: Sec I p.4)"
+    },
+    "beds_peak_occupied_idd": {
+      "type": "integer",
+      "description": "Highest One-Day Beds Occupied — Intermediate DD (Section/Page: Sec I p.4)"
+    },
+    "beds_occupied_idd": {
+      "type": "integer",
+      "description": "Beds Occupied — Intermediate DD (12/31/2023) (Section/Page: Sec I p.4)"
+    },
+    "days_total_idd": {
+      "type": "integer",
+      "description": "TOTAL PATIENT DAYS OF CARE 2023 — Intermediate DD (Section/Page: Sec I p.4)"
+    },
+    "residents_age_sex_*": {
+      "type": "integer",
+      "description": "Residents by Age/Sex — as of Dec 31 (Section/Page: Sec I p.4) Age bands as listed"
+    },
+    "residents_race_white": {
+      "type": "integer",
+      "description": "Residents — White (Section/Page: Sec I p.5)"
+    },
+    "residents_race_black_african_american": {
+      "type": "integer",
+      "description": "Residents — Black/African American (Section/Page: Sec I p.5)"
+    },
+    "residents_race_asian": {
+      "type": "integer",
+      "description": "Residents — Asian (Section/Page: Sec I p.5)"
+    },
+    "residents_race_american_indian": {
+      "type": "integer",
+      "description": "Residents — American Indian/Alaska Native (Section/Page: Sec I p.5)"
+    },
+    "residents_race_native_hawaiian_pacific_islander": {
+      "type": "integer",
+      "description": "Residents — Native Hawaiian/Pacific Islander (Section/Page: Sec I p.5)"
+    },
+    "residents_race_unknown": {
+      "type": "integer",
+      "description": "Residents — Unknown Race (Section/Page: Sec I p.5)"
+    },
+    "residents_race_total": {
+      "type": "integer",
+      "description": "Residents — Total by Race (Section/Page: Sec I p.5)"
+    },
+    "residents_eth_hispanic_latino": {
+      "type": "integer",
+      "description": "Residents — Hispanic/Latino (Section/Page: Sec I p.5)"
+    },
+    "residents_eth_non_hispanic": {
+      "type": "integer",
+      "description": "Residents — Not Hispanic/Latino (Section/Page: Sec I p.5)"
+    },
+    "residents_eth_unknown": {
+      "type": "integer",
+      "description": "Residents — Ethnicity Unknown (Section/Page: Sec I p.5)"
+    },
+    "residents_eth_total": {
+      "type": "integer",
+      "description": "Residents — Total by Ethnicity (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_medicare": {
+      "type": "integer",
+      "description": "Residents — Medicare (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_medicaid": {
+      "type": "integer",
+      "description": "Residents — Medicaid (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_other_public": {
+      "type": "integer",
+      "description": "Residents — Other Public Program (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_private_insurance": {
+      "type": "integer",
+      "description": "Residents — Private Insurance (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_private_payment": {
+      "type": "integer",
+      "description": "Residents — Private Payment (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_charity_care": {
+      "type": "integer",
+      "description": "Residents — Charity Care (Section/Page: Sec I p.5)"
+    },
+    "finance_*": {
+      "type": "string",
+      "description": "Fiscal year, capex, revenues, charity cost (Section/Page: Sec II p.7-8) Same structure as LTC2"
+    },
+    "immun_*": {
+      "type": "string",
+      "description": "Influenza/pneumonia policies and counts (Section/Page: Sec III p.9) Same as LTC2"
+    }
+  }
+}

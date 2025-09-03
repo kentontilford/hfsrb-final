@@ -1,0 +1,150 @@
+{
+  "sections": [
+    {
+      "type": "table",
+      "title": "Facility",
+      "fields": [
+        "facility_name",
+        "address_line1",
+        "address_city",
+        "address_state",
+        "address_zip",
+        "license_idph",
+        "fein"
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Ownership & Organization",
+      "fields": [
+        "operator_entity",
+        "plant_owner",
+        "ownership_type",
+        "cms_certification",
+        "hospital_characterization",
+        "chna_url"
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Management Contracts",
+      "fields": ["mgmt_emergency", "mgmt_psych", "mgmt_rehab"]
+    },
+    {
+      "type": "util_matrix",
+      "title": "Inpatient Utilization by Unit",
+      "units": [
+        {
+          "label": "Medical-Surgical",
+          "admissions": ["ms_total_admissions", "med_surg_admissions"],
+          "days": ["ms_total_pd", "med_surg_days_total"],
+          "beds": ["ms_beds_10_1_23", "med_surg_beds_oct1"]
+        },
+        {
+          "label": "ICU",
+          "admissions": ["total_icu_admissions", "icu_total"],
+          "days": ["total_icu_patient_days", "icu_days"],
+          "beds": ["total_icu_beds_10_1_23", "icu_beds_oct1"]
+        },
+        {
+          "label": "OB/GYN",
+          "admissions": ["total_ob_gyn_admissions", "obgyn_admissions_total"],
+          "days": ["total_ob_gyn_patient_days", "obgyn_days_total"],
+          "beds": ["ob_gyn_beds_10_1_23", "obgyn_beds_oct1"]
+        },
+        {
+          "label": "Pediatrics",
+          "admissions": ["peds_admissions", "pediatric_admissions", "pedadm"],
+          "days": ["peds_days", "pediatric_patient_days", "pedipd"],
+          "beds": ["peds_beds_oct1", "pediatric_beds_set_up_10_1_23", "ped_oct1"]
+        },
+        {
+          "label": "NICU",
+          "admissions": ["nicu_admissions", "nn_icu_admissions", "ntliiiadm"],
+          "days": ["nicu_days", "nn_icu_patient_days", "ntliiiipd"],
+          "beds": ["nn_icu_beds_on_10_1_23", "nicu_beds_oct1"]
+        },
+        { "label": "LTC", "admissions": ["ltc_admissions"], "days": ["ltc_days"], "beds": [] },
+        { "label": "Swing", "admissions": ["swing_admissions"], "days": ["swing_days"], "beds": [] }
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Outpatient Activity",
+      "fields": ["op_visits_on", "op_visits_off", "op_visits_total", "obs_unit_beds", "obs_unit_days"]
+    },
+    {
+      "type": "label_map",
+      "title": "Payer Mix — Inpatient",
+      "labels": {
+        "Inpatients by Payment — Medicare": "pay_inp_medicare",
+        "Inpatients by Payment — Medicaid": "pay_inp_medicaid",
+        "Inpatients by Payment — Private Insurance": "pay_inp_private_ins",
+        "Inpatients by Payment — Other Public": "pay_inp_other_public",
+        "Inpatients by Payment — Private Payment": "pay_inp_private_pay"
+      }
+    },
+    {
+      "type": "label_map",
+      "title": "Inpatients by Race",
+      "labels": {
+        "Inpatients — White": "race_inp_white",
+        "Inpatients — Black/African American": "race_inp_black",
+        "Inpatients — Asian": "race_inp_asian",
+        "Inpatients — AI/AN": "race_inp_ai_an",
+        "Inpatients — NH/PI": "race_inp_nh_pi",
+        "Inpatients — Unknown Race": "race_inp_unknown"
+      },
+      "width": "col-6"
+    },
+    {
+      "type": "label_map",
+      "title": "Inpatient Days by Race",
+      "labels": {
+        "Inpatient Days — White": "days_by_race_white",
+        "Inpatient Days — Black/African American": "days_by_race_black",
+        "Inpatient Days — Asian": "days_by_race_asian",
+        "Inpatient Days — AI/AN": "days_by_race_ai_an",
+        "Inpatient Days — NH/PI": "days_by_race_nh_pi",
+        "Inpatient Days — Unknown Race": "days_by_race_unknown"
+      },
+      "width": "col-6"
+    },
+    {
+      "type": "label_map",
+      "title": "Inpatients by Ethnicity",
+      "labels": {
+        "Inpatients — Hispanic/Latino": "eth_inp_hispanic",
+        "Inpatients — Not Hispanic/Latino": "eth_inp_not_hispanic",
+        "Inpatients — Ethnicity Unknown": "eth_inp_unknown"
+      },
+      "width": "col-6"
+    },
+    {
+      "type": "label_map",
+      "title": "Inpatient Days by Ethnicity",
+      "labels": {
+        "Inpatient Days — Hispanic/Latino": "days_by_eth_hispanic",
+        "Inpatient Days — Not Hispanic/Latino": "days_by_eth_not_hispanic",
+        "Inpatient Days — Unknown": "days_by_eth_unknown"
+      },
+      "width": "col-6"
+    },
+    {
+      "type": "surgery",
+      "title": "Surgical Services — OR Class C",
+      "prefix": "or_"
+    },
+    {
+      "type": "surgery",
+      "title": "Surgical Services — Class B",
+      "prefix": "procB_"
+    },
+    {
+      "type": "table",
+      "title": "Totals",
+      "fields": ["total_admissions", "total_inpatient_days", "total_beds_oct1"]
+    }
+  ]
+}
+

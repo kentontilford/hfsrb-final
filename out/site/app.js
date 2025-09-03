@@ -30,6 +30,8 @@ u.searchParams.set(k, v);
 window.history.replaceState({}, '', u.toString());
 }
 
+const IS_WEB_SUBDIR = window.location.pathname.includes('/web/');
+
 async function loadIndex() {
   // Load index
   const res = await fetch('data/index.json?v=2');
@@ -122,23 +124,24 @@ const rec = state.filtered.find(r => r.year == data.year
 && r.type == data.type && r.slug == data.slug);
 if (!rec) return;
 
-const res = await fetch(rec.data_path);
+const res = await fetch(IS_WEB_SUBDIR ? ('../' + rec.data_path) : rec.data_path);
 const doc = await res.json();
 const meta = doc.meta || {};
 const p = doc.payload || {};
 const schemaSpec = doc.schema || ''; // e.g., "schemas/json/ahq-short.schema.json"
 // Prefer filename so we can fetch from /schemas/json/
-const schemaFile = schemaSpec.split('/').pop();
+  const schemaFile = schemaSpec.split('/').pop();
 
 const d = el('#detail'); d.hidden = false;
 
 el('#meta').innerHTML = `${meta.facility_name || p.facility_name || rec.name}
     <div class="meta">${p.address_line1 || p.facility_address || ''}, ${p.address_city || p.facility_city || ''} ${p.address_zip || p.facility_zip || ''} — ${rec.type} • ${rec.year}</div>`;
 
-// Action links (use repo-root relative path so it works on GitHub Pages project sites)
+// Action links (work from /web/ during dev and site root in publish)
 const links = [];
-links.push(`<a href="out/profiles/${rec.year}/${rec.type}/${rec.slug}.html" target="_blank">Open Profile (HTML)</a>`);
-links.push(`<a href="out/profiles/${rec.year}/${rec.type}/${rec.slug}.pdf" target="_blank">Open Profile (PDF)</a>`);
+const siteBase = IS_WEB_SUBDIR ? '..' : '.';
+links.push(`<a href="${siteBase}/out/profiles/${rec.year}/${rec.type}/${rec.slug}.html" target="_blank">Open Profile (HTML)</a>`);
+links.push(`<a href="${siteBase}/out/profiles/${rec.year}/${rec.type}/${rec.slug}.pdf" target="_blank">Open Profile (PDF)</a>`);
 links.push(`<button id="dlcsv">Download CSV</button>`);
 links.push(`<button id="dlcharts">Download Charts (PNG)</button>`);
 links.push(`<button id="shareLink">Copy Share Link</button>`);
@@ -160,7 +163,8 @@ setParams({ year: rec.year, type: rec.type, slug: rec.slug, q: el('#q').value, c
 try {
     let schemaProps = {};
     if (schemaFile) {
-      const sres = await fetch(`schemas/json/${schemaFile}`);
+      const schemaURL = `${IS_WEB_SUBDIR ? '../' : ''}schemas/json/${schemaFile}`;
+      const sres = await fetch(schemaURL);
       if (sres.ok) {
         const schema = await sres.json();
         schemaProps = schema.properties || {};
@@ -205,49 +209,47 @@ const payerLabels = (type === 'Hospital' ? Object.keys(payerMap) : payerOrder(Ob
 const payerVals = payerLabels.map(k => toNum(payerMap[k]));
 drawDoughnut('#chart-payer', 'Payer Mix', payerLabels, payerVals);
 
-// Race data
+// Race data (patients) as pie
 const raceMap = (type === 'Hospital')
     ? {
-        'Inpatient White': p.race_inp_white,
-        'Inpatient Black': p.race_inp_black,
-        'Inpatient Asian': p.race_inp_asian,
-        'Inpatient AI/AN': p.race_inp_ai_an,
-        'Inpatient NH/PI': p.race_inp_nh_pi,
-        'Inpatient Unknown': p.race_inp_unknown,
+        'White': p.race_inp_white,
+        'Black/African American': p.race_inp_black,
+        'Asian': p.race_inp_asian,
+        'AI/AN': p.race_inp_ai_an,
+        'NH/PI': p.race_inp_nh_pi,
+        'Unknown': p.race_inp_unknown,
       }
     : {
         'White': p.race_white,
-        'Black/African American': p.race_black ||
-p.race_black_african_american,
+        'Black/African American': p.race_black || p.race_black_african_american,
         'Asian': p.race_asian,
         'AI/AN': p.race_american_indian,
-        'NH/PI': p.race_native_hawaiian_pacific_islander
-|| p.race_nh_pi,
+        'NH/PI': p.race_native_hawaiian_pacific_islander || p.race_nh_pi,
         'Unknown': p.race_unknown,
       };
-const raceLabels = (type === 'Hospital' ? Object.keys(raceMap) : raceOrder(Object.keys(raceMap)))
+const raceLabels = raceOrder(Object.keys(raceMap))
     .filter(k => String(raceMap[k] ?? '').trim() !== '');
 const raceVals = raceLabels.map(k => toNum(raceMap[k]));
-drawBar('#chart-race', 'Race', raceLabels, raceVals, true);
+drawDoughnut('#chart-race', 'Patients by Race', raceLabels, raceVals);
 
-// Ethnicity data
+// Ethnicity data (patients) as pie
 const ethMap = (type === 'Hospital')
     ? {
-        'Inpatient Not Hispanic':
-p.eth_inp_not_hispanic,
-        'Inpatient Hispanic': p.eth_inp_hispanic,
-        'Inpatient Unknown': p.eth_inp_unknown,
+        'Not Hispanic/Latino': p.eth_inp_not_hispanic,
+        'Hispanic/Latino': p.eth_inp_hispanic,
+        'Unknown': p.eth_inp_unknown,
       }
     : {
-        'Non-Hispanic': p.ethnicity_non_hispanic ||
-p.eth_not_hispanic,
-        'Hispanic/Latino': p.ethnicity_hispanic_latino
-|| p.eth_hispanic,
+        'Non-Hispanic': p.ethnicity_non_hispanic || p.eth_not_hispanic,
+        'Hispanic/Latino': p.ethnicity_hispanic_latino || p.eth_hispanic,
         'Unknown': p.ethnicity_unknown || p.eth_unknown,
       };
 const ethLabels = Object.keys(ethMap).filter(k => String(ethMap[k] ?? '').trim() !== '');
 const ethVals = ethLabels.map(k => toNum(ethMap[k]));
-drawBar('#chart-eth', 'Ethnicity', ethLabels, ethVals, true);
+drawDoughnut('#chart-eth', 'Patients by Ethnicity', ethLabels, ethVals);
+
+// Build demographics tables under charts
+buildDemographicsTables(type, p, raceLabels, raceMap, ethLabels, ethMap);
 
 // Extra charts per type
 function drawExtra(sel, title, labels, data) {
@@ -413,7 +415,19 @@ state.charts[sel] = new Chart(ctx, {
     options: {
       plugins: {
         title: { display: true, text: title },
-        legend: { display: true }
+        legend: { display: true },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const ds = ctx.dataset;
+              const total = (ds && ds.data || []).reduce((a,b)=>a+(Number(b)||0), 0) || 0;
+              const val = Number(ctx.raw) || 0;
+              const pct = total ? ((val/total)*100).toFixed(1) + '%' : '';
+              const lbl = ctx.label || '';
+              return `${lbl}: ${val.toLocaleString('en-US')} ${pct ? '('+pct+')' : ''}`;
+            }
+          }
+        }
       }
     }
 });
@@ -430,6 +444,50 @@ state.charts[sel] = new Chart(ctx, {
     }
 });
 state.charts[sel].$chart_config = { percentLabels };
+}
+
+function buildDemographicsTables(type, p, raceLabels, raceMap, ethLabels, ethMap) {
+  const host = el('#demo-tables');
+  if (!host) return;
+  const parts = [];
+  function makeRows(labels, patMap, daysMap) {
+    const patVals = labels.map(k => toNum(patMap[k]));
+    const patTotal = patVals.reduce((a,b)=>a+b,0);
+    const daysVals = labels.map(k => toNum(daysMap && daysMap[k]));
+    const daysTotal = daysVals.reduce((a,b)=>a+b,0);
+    const rows = labels.map((k, i) => {
+      const pv = patVals[i];
+      const dv = daysVals[i] || 0;
+      const pShare = patTotal ? ((pv/patTotal)*100).toFixed(1) + '%' : '';
+      const dShare = daysTotal ? ((dv/daysTotal)*100).toFixed(1) + '%' : '';
+      return `<tr><td>${k}</td><td class="right">${fmt(pv)}</td><td class="right">${pShare}</td><td class="right">${fmt(dv)}</td><td class="right">${dShare}</td></tr>`;
+    }).join('');
+    const totalRow = `<tr><th>Total</th><th class="right">${fmt(patTotal)}</th><th></th><th class="right">${fmt(daysTotal)}</th><th></th></tr>`;
+    return `<table><thead><tr><th>Category</th><th class="right">Patients</th><th class="right">Patients Share</th><th class="right">Inpatient Days</th><th class="right">Days Share</th></tr></thead><tbody>${rows}${totalRow}</tbody></table>`;
+  }
+  host.innerHTML = '';
+  if (type === 'Hospital') {
+    const raceDays = {
+      'White': p.days_by_race_white,
+      'Black/African American': p.days_by_race_black,
+      'Asian': p.days_by_race_asian,
+      'AI/AN': p.days_by_race_ai_an,
+      'NH/PI': p.days_by_race_nh_pi,
+      'Unknown': p.days_by_race_unknown,
+    };
+    const ethDays = {
+      'Not Hispanic/Latino': p.days_by_eth_not_hispanic,
+      'Hispanic/Latino': p.days_by_eth_hispanic,
+      'Unknown': p.days_by_eth_unknown,
+    };
+    parts.push(`<div class="card col-12"><h3>Race Breakdown</h3>${makeRows(raceLabels, raceMap, raceDays)}</div>`);
+    parts.push(`<div class="card col-12"><h3>Ethnicity Breakdown</h3>${makeRows(ethLabels, ethMap, ethDays)}</div>`);
+  } else {
+    const emptyDays = {};
+    parts.push(`<div class="card col-12"><h3>Race Breakdown</h3>${makeRows(raceLabels, raceMap, emptyDays)}</div>`);
+    parts.push(`<div class="card col-12"><h3>Ethnicity Breakdown</h3>${makeRows(ethLabels, ethMap, emptyDays)}</div>`);
+  }
+  host.innerHTML = parts.join('');
 }
 
 function downloadCSV(meta, payload) {

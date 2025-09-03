@@ -21,15 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Node dependencies
-        run: |
-          npm ci
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -40,12 +31,8 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Build data, profiles (HTML+PDF), and site
+      - name: Build data, profiles (HTML only), and site
         run: |
-          make all
-          # Generate HTML and PDFs for all profiles using Puppeteer
-          make profiles-puppeteer-all
-          # Prepare static site under out/site
           make publish
 
       - name: Configure Pages

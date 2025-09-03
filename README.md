@@ -19,6 +19,22 @@ Data dictionaries and generated JSON Schemas for Illinois HFSRB annual facility 
   - `python3 scripts/validate.py <schema-name> <path/to/data.json>`
   - Example: `python3 scripts/validate.py astc samples/astc.json`
 
+## Data Directories
+
+Facility JSON folders live under `data/<YEAR>/<TYPE>/<id>-<name-slug>/`.
+
+- Hospitals/LTC: created from the year-specific CSVs if present (e.g., `hospital_survey_<year>.csv`, `ltc_survey_<year>.csv`) via `make data`.
+- ASTC/ESRD: use the current facility lists in the root `ASTC.xlsx` and `ESRD.xlsx`. These lists are current and can be applied to any year.
+
+Create ASTC/ESRD directories for any year using the current lists:
+
+- `make data-xlsx YEAR=2024` (replace YEAR with the target year)
+
+Notes
+- The XLSX-based step is idempotent and safe to run for multiple years; it only ensures the folder structure and a `.gitkeep` file.
+- After creating directories, run the mappings pipeline to populate `schema_payload.json` and rebuild the dashboard:
+  - `make publish` (runs mappings → dashboard-data → profiles and stages site under `out/site`).
+
 ## Authoring Conventions
 
 - Each Markdown dictionary includes: Overview, Conventions, Fields table, Enumerations, Validation Rules, Mapping Notes.

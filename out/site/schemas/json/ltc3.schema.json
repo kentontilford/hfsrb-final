@@ -89,17 +89,73 @@
       "type": "integer",
       "description": "Residents by Age/Sex — as of Dec 31 (Section/Page: Sec I p.4) Age bands as listed"
     },
-    "residents_race_*": {
+    "residents_race_white": {
       "type": "integer",
-      "description": "Residents by Racial Group — as of Dec 31 (Section/Page: Sec I p.5)"
+      "description": "Residents — White (Section/Page: Sec I p.5)"
     },
-    "residents_eth_*": {
+    "residents_race_black_african_american": {
       "type": "integer",
-      "description": "Residents by Ethnicity — as of Dec 31 (Section/Page: Sec I p.5)"
+      "description": "Residents — Black/African American (Section/Page: Sec I p.5)"
     },
-    "residents_pay_*": {
+    "residents_race_asian": {
       "type": "integer",
-      "description": "Residents by Primary Payment — as of Dec 31 (Section/Page: Sec I p.5) Includes Charity Care"
+      "description": "Residents — Asian (Section/Page: Sec I p.5)"
+    },
+    "residents_race_american_indian": {
+      "type": "integer",
+      "description": "Residents — American Indian/Alaska Native (Section/Page: Sec I p.5)"
+    },
+    "residents_race_native_hawaiian_pacific_islander": {
+      "type": "integer",
+      "description": "Residents — Native Hawaiian/Pacific Islander (Section/Page: Sec I p.5)"
+    },
+    "residents_race_unknown": {
+      "type": "integer",
+      "description": "Residents — Unknown Race (Section/Page: Sec I p.5)"
+    },
+    "residents_race_total": {
+      "type": "integer",
+      "description": "Residents — Total by Race (Section/Page: Sec I p.5)"
+    },
+    "residents_eth_hispanic_latino": {
+      "type": "integer",
+      "description": "Residents — Hispanic/Latino (Section/Page: Sec I p.5)"
+    },
+    "residents_eth_non_hispanic": {
+      "type": "integer",
+      "description": "Residents — Not Hispanic/Latino (Section/Page: Sec I p.5)"
+    },
+    "residents_eth_unknown": {
+      "type": "integer",
+      "description": "Residents — Ethnicity Unknown (Section/Page: Sec I p.5)"
+    },
+    "residents_eth_total": {
+      "type": "integer",
+      "description": "Residents — Total by Ethnicity (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_medicare": {
+      "type": "integer",
+      "description": "Residents — Medicare (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_medicaid": {
+      "type": "integer",
+      "description": "Residents — Medicaid (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_other_public": {
+      "type": "integer",
+      "description": "Residents — Other Public Program (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_private_insurance": {
+      "type": "integer",
+      "description": "Residents — Private Insurance (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_private_payment": {
+      "type": "integer",
+      "description": "Residents — Private Payment (Section/Page: Sec I p.5)"
+    },
+    "residents_pay_charity_care": {
+      "type": "integer",
+      "description": "Residents — Charity Care (Section/Page: Sec I p.5)"
     },
     "finance_*": {
       "type": "string",
@@ -133,9 +189,6 @@
     "beds_peak_occupied_skilled22",
     "beds_occupied_skilled22",
     "days_total_skilled22",
-    "residents_age_sex_*",
-    "residents_race_*",
-    "residents_eth_*",
-    "residents_pay_*"
+    "residents_age_sex_*"
   ]
 }

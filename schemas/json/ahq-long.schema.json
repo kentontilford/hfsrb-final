@@ -74,21 +74,129 @@
       "type": "object",
       "description": "Facility Utilization by Category (Section/Page: p.3-4) Same structure as AHQ Short; include LTAC category"
     },
-    "race_*": {
+    "race_inp_ai_an": {
       "type": "integer",
-      "description": "Inpatients and Days by Racial Group (Section/Page: p.4) Counts and days tables"
+      "description": "Inpatients — AI/AN (Section/Page: p.4)"
     },
-    "eth_*": {
+    "race_inp_asian": {
       "type": "integer",
-      "description": "Inpatients and Days by Ethnicity (Section/Page: p.4)"
+      "description": "Inpatients — Asian (Section/Page: p.4)"
     },
-    "op_visits": {
-      "type": "object",
-      "description": "Outpatient Visits (Section/Page: p.4) On/off campus and total"
+    "race_inp_black": {
+      "type": "integer",
+      "description": "Inpatients — Black/African American (Section/Page: p.4)"
     },
-    "pay_*": {
-      "type": "object",
-      "description": "In/Outpatients by Primary Payment (Section/Page: p.4) Totals must tie to visits/admissions"
+    "race_inp_nh_pi": {
+      "type": "integer",
+      "description": "Inpatients — Native Hawaiian/Pacific Islander (Section/Page: p.4)"
+    },
+    "race_inp_white": {
+      "type": "integer",
+      "description": "Inpatients — White (Section/Page: p.4)"
+    },
+    "race_inp_unknown": {
+      "type": "integer",
+      "description": "Inpatients — Unknown Race (Section/Page: p.4)"
+    },
+    "days_by_race_ai_an": {
+      "type": "integer",
+      "description": "Inpatient Days — AI/AN (Section/Page: p.4)"
+    },
+    "days_by_race_asian": {
+      "type": "integer",
+      "description": "Inpatient Days — Asian (Section/Page: p.4)"
+    },
+    "days_by_race_black": {
+      "type": "integer",
+      "description": "Inpatient Days — Black/African American (Section/Page: p.4)"
+    },
+    "days_by_race_nh_pi": {
+      "type": "integer",
+      "description": "Inpatient Days — Native Hawaiian/Pacific Islander (Section/Page: p.4)"
+    },
+    "days_by_race_white": {
+      "type": "integer",
+      "description": "Inpatient Days — White (Section/Page: p.4)"
+    },
+    "days_by_race_unknown": {
+      "type": "integer",
+      "description": "Inpatient Days — Unknown Race (Section/Page: p.4)"
+    },
+    "eth_inp_hispanic": {
+      "type": "integer",
+      "description": "Inpatients — Hispanic/Latino (Section/Page: p.4)"
+    },
+    "eth_inp_not_hispanic": {
+      "type": "integer",
+      "description": "Inpatients — Not Hispanic/Latino (Section/Page: p.4)"
+    },
+    "eth_inp_unknown": {
+      "type": "integer",
+      "description": "Inpatients — Ethnicity Unknown (Section/Page: p.4)"
+    },
+    "days_by_eth_hispanic": {
+      "type": "integer",
+      "description": "Inpatient Days — Hispanic/Latino (Section/Page: p.4)"
+    },
+    "days_by_eth_not_hispanic": {
+      "type": "integer",
+      "description": "Inpatient Days — Not Hispanic/Latino (Section/Page: p.4)"
+    },
+    "days_by_eth_unknown": {
+      "type": "integer",
+      "description": "Inpatient Days — Ethnicity Unknown (Section/Page: p.4)"
+    },
+    "op_visits_on": {
+      "type": "integer",
+      "description": "Outpatient Visits — On Campus (Section/Page: p.4)"
+    },
+    "op_visits_off": {
+      "type": "integer",
+      "description": "Outpatient Visits — Off Site (Section/Page: p.4)"
+    },
+    "op_visits_total": {
+      "type": "integer",
+      "description": "Outpatient Visits — Total (Section/Page: p.4) op_visits_on + op_visits_off"
+    },
+    "pay_inp_medicare": {
+      "type": "integer",
+      "description": "Inpatients by Payment — Medicare (Section/Page: p.4)"
+    },
+    "pay_inp_medicaid": {
+      "type": "integer",
+      "description": "Inpatients by Payment — Medicaid (Section/Page: p.4)"
+    },
+    "pay_inp_other_public": {
+      "type": "integer",
+      "description": "Inpatients by Payment — Other Public (Section/Page: p.4)"
+    },
+    "pay_inp_private_ins": {
+      "type": "integer",
+      "description": "Inpatients by Payment — Private Insurance (Section/Page: p.4)"
+    },
+    "pay_inp_private_pay": {
+      "type": "integer",
+      "description": "Inpatients by Payment — Private Payment (Section/Page: p.4)"
+    },
+    "pay_out_medicare": {
+      "type": "integer",
+      "description": "Outpatients by Payment — Medicare (Section/Page: p.4)"
+    },
+    "pay_out_medicaid": {
+      "type": "integer",
+      "description": "Outpatients by Payment — Medicaid (Section/Page: p.4)"
+    },
+    "pay_out_other_public": {
+      "type": "integer",
+      "description": "Outpatients by Payment — Other Public (Section/Page: p.4)"
+    },
+    "pay_out_private_ins": {
+      "type": "integer",
+      "description": "Outpatients by Payment — Private Insurance (Section/Page: p.4)"
+    },
+    "pay_out_private_pay": {
+      "type": "integer",
+      "description": "Outpatients by Payment — Private Payment (Section/Page: p.4)"
     },
     "charity_inpatients": {
       "type": "integer",
@@ -105,6 +213,598 @@
     "procB_*": {
       "type": "object",
       "description": "Class B procedures (dedicated/multipurpose) (Section/Page: p.6)"
+    },
+    "or_rooms_ip_cardiovascular": {
+      "type": "integer",
+      "description": "OR Rooms IP — Cardiovascular (Section/Page: p.5)"
+    },
+    "or_rooms_op_cardiovascular": {
+      "type": "integer",
+      "description": "OR Rooms OP — Cardiovascular (Section/Page: p.5)"
+    },
+    "or_rooms_combined_cardiovascular": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Cardiovascular (Section/Page: p.5)"
+    },
+    "or_cases_ip_cardiovascular": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Cardiovascular (Section/Page: p.5)"
+    },
+    "or_cases_op_cardiovascular": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Cardiovascular (Section/Page: p.5)"
+    },
+    "or_hours_ip_cardiovascular": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Cardiovascular (Section/Page: p.5)"
+    },
+    "or_hours_op_cardiovascular": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Cardiovascular (Section/Page: p.5)"
+    },
+    "or_hours_total_cardiovascular": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Cardiovascular (Section/Page: p.5)"
+    },
+    "or_rooms_ip_dermatology": {
+      "type": "integer",
+      "description": "OR Rooms IP — Dermatology (Section/Page: p.5)"
+    },
+    "or_rooms_op_dermatology": {
+      "type": "integer",
+      "description": "OR Rooms OP — Dermatology (Section/Page: p.5)"
+    },
+    "or_rooms_combined_dermatology": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Dermatology (Section/Page: p.5)"
+    },
+    "or_cases_ip_dermatology": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Dermatology (Section/Page: p.5)"
+    },
+    "or_cases_op_dermatology": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Dermatology (Section/Page: p.5)"
+    },
+    "or_hours_ip_dermatology": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Dermatology (Section/Page: p.5)"
+    },
+    "or_hours_op_dermatology": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Dermatology (Section/Page: p.5)"
+    },
+    "or_hours_total_dermatology": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Dermatology (Section/Page: p.5)"
+    },
+    "or_rooms_ip_general_surgery": {
+      "type": "integer",
+      "description": "OR Rooms IP — General Surgery (Section/Page: p.5)"
+    },
+    "or_rooms_op_general_surgery": {
+      "type": "integer",
+      "description": "OR Rooms OP — General Surgery (Section/Page: p.5)"
+    },
+    "or_rooms_combined_general_surgery": {
+      "type": "integer",
+      "description": "OR Rooms Combined — General Surgery (Section/Page: p.5)"
+    },
+    "or_cases_ip_general_surgery": {
+      "type": "integer",
+      "description": "Surgical Cases IP — General Surgery (Section/Page: p.5)"
+    },
+    "or_cases_op_general_surgery": {
+      "type": "integer",
+      "description": "Surgical Cases OP — General Surgery (Section/Page: p.5)"
+    },
+    "or_hours_ip_general_surgery": {
+      "type": "integer",
+      "description": "Surgical Hours IP — General Surgery (Section/Page: p.5)"
+    },
+    "or_hours_op_general_surgery": {
+      "type": "integer",
+      "description": "Surgical Hours OP — General Surgery (Section/Page: p.5)"
+    },
+    "or_hours_total_general_surgery": {
+      "type": "integer",
+      "description": "Surgical Hours Total — General Surgery (Section/Page: p.5)"
+    },
+    "or_rooms_ip_gastroenterology": {
+      "type": "integer",
+      "description": "OR Rooms IP — Gastroenterology (Section/Page: p.5)"
+    },
+    "or_rooms_op_gastroenterology": {
+      "type": "integer",
+      "description": "OR Rooms OP — Gastroenterology (Section/Page: p.5)"
+    },
+    "or_rooms_combined_gastroenterology": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Gastroenterology (Section/Page: p.5)"
+    },
+    "or_cases_ip_gastroenterology": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Gastroenterology (Section/Page: p.5)"
+    },
+    "or_cases_op_gastroenterology": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Gastroenterology (Section/Page: p.5)"
+    },
+    "or_hours_ip_gastroenterology": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Gastroenterology (Section/Page: p.5)"
+    },
+    "or_hours_op_gastroenterology": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Gastroenterology (Section/Page: p.5)"
+    },
+    "or_hours_total_gastroenterology": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Gastroenterology (Section/Page: p.5)"
+    },
+    "or_rooms_ip_neurology": {
+      "type": "integer",
+      "description": "OR Rooms IP — Neurology (Section/Page: p.5)"
+    },
+    "or_rooms_op_neurology": {
+      "type": "integer",
+      "description": "OR Rooms OP — Neurology (Section/Page: p.5)"
+    },
+    "or_rooms_combined_neurology": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Neurology (Section/Page: p.5)"
+    },
+    "or_cases_ip_neurology": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Neurology (Section/Page: p.5)"
+    },
+    "or_cases_op_neurology": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Neurology (Section/Page: p.5)"
+    },
+    "or_hours_ip_neurology": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Neurology (Section/Page: p.5)"
+    },
+    "or_hours_op_neurology": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Neurology (Section/Page: p.5)"
+    },
+    "or_hours_total_neurology": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Neurology (Section/Page: p.5)"
+    },
+    "or_rooms_ip_obstetrics_gynecology": {
+      "type": "integer",
+      "description": "OR Rooms IP — Obstetrics/Gynecology (Section/Page: p.5)"
+    },
+    "or_rooms_op_obstetrics_gynecology": {
+      "type": "integer",
+      "description": "OR Rooms OP — Obstetrics/Gynecology (Section/Page: p.5)"
+    },
+    "or_rooms_combined_obstetrics_gynecology": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Obstetrics/Gynecology (Section/Page: p.5)"
+    },
+    "or_cases_ip_obstetrics_gynecology": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Obstetrics/Gynecology (Section/Page: p.5)"
+    },
+    "or_cases_op_obstetrics_gynecology": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Obstetrics/Gynecology (Section/Page: p.5)"
+    },
+    "or_hours_ip_obstetrics_gynecology": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Obstetrics/Gynecology (Section/Page: p.5)"
+    },
+    "or_hours_op_obstetrics_gynecology": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Obstetrics/Gynecology (Section/Page: p.5)"
+    },
+    "or_hours_total_obstetrics_gynecology": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Obstetrics/Gynecology (Section/Page: p.5)"
+    },
+    "or_rooms_ip_oral_maxillofacial": {
+      "type": "integer",
+      "description": "OR Rooms IP — Oral/Maxillofacial (Section/Page: p.5)"
+    },
+    "or_rooms_op_oral_maxillofacial": {
+      "type": "integer",
+      "description": "OR Rooms OP — Oral/Maxillofacial (Section/Page: p.5)"
+    },
+    "or_rooms_combined_oral_maxillofacial": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Oral/Maxillofacial (Section/Page: p.5)"
+    },
+    "or_cases_ip_oral_maxillofacial": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Oral/Maxillofacial (Section/Page: p.5)"
+    },
+    "or_cases_op_oral_maxillofacial": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Oral/Maxillofacial (Section/Page: p.5)"
+    },
+    "or_hours_ip_oral_maxillofacial": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Oral/Maxillofacial (Section/Page: p.5)"
+    },
+    "or_hours_op_oral_maxillofacial": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Oral/Maxillofacial (Section/Page: p.5)"
+    },
+    "or_hours_total_oral_maxillofacial": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Oral/Maxillofacial (Section/Page: p.5)"
+    },
+    "or_rooms_ip_ophthalmology": {
+      "type": "integer",
+      "description": "OR Rooms IP — Ophthalmology (Section/Page: p.5)"
+    },
+    "or_rooms_op_ophthalmology": {
+      "type": "integer",
+      "description": "OR Rooms OP — Ophthalmology (Section/Page: p.5)"
+    },
+    "or_rooms_combined_ophthalmology": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Ophthalmology (Section/Page: p.5)"
+    },
+    "or_cases_ip_ophthalmology": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Ophthalmology (Section/Page: p.5)"
+    },
+    "or_cases_op_ophthalmology": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Ophthalmology (Section/Page: p.5)"
+    },
+    "or_hours_ip_ophthalmology": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Ophthalmology (Section/Page: p.5)"
+    },
+    "or_hours_op_ophthalmology": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Ophthalmology (Section/Page: p.5)"
+    },
+    "or_hours_total_ophthalmology": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Ophthalmology (Section/Page: p.5)"
+    },
+    "or_rooms_ip_orthopedic": {
+      "type": "integer",
+      "description": "OR Rooms IP — Orthopedic (Section/Page: p.5)"
+    },
+    "or_rooms_op_orthopedic": {
+      "type": "integer",
+      "description": "OR Rooms OP — Orthopedic (Section/Page: p.5)"
+    },
+    "or_rooms_combined_orthopedic": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Orthopedic (Section/Page: p.5)"
+    },
+    "or_cases_ip_orthopedic": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Orthopedic (Section/Page: p.5)"
+    },
+    "or_cases_op_orthopedic": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Orthopedic (Section/Page: p.5)"
+    },
+    "or_hours_ip_orthopedic": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Orthopedic (Section/Page: p.5)"
+    },
+    "or_hours_op_orthopedic": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Orthopedic (Section/Page: p.5)"
+    },
+    "or_hours_total_orthopedic": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Orthopedic (Section/Page: p.5)"
+    },
+    "or_rooms_ip_otolaryngology": {
+      "type": "integer",
+      "description": "OR Rooms IP — Otolaryngology (Section/Page: p.5)"
+    },
+    "or_rooms_op_otolaryngology": {
+      "type": "integer",
+      "description": "OR Rooms OP — Otolaryngology (Section/Page: p.5)"
+    },
+    "or_rooms_combined_otolaryngology": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Otolaryngology (Section/Page: p.5)"
+    },
+    "or_cases_ip_otolaryngology": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Otolaryngology (Section/Page: p.5)"
+    },
+    "or_cases_op_otolaryngology": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Otolaryngology (Section/Page: p.5)"
+    },
+    "or_hours_ip_otolaryngology": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Otolaryngology (Section/Page: p.5)"
+    },
+    "or_hours_op_otolaryngology": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Otolaryngology (Section/Page: p.5)"
+    },
+    "or_hours_total_otolaryngology": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Otolaryngology (Section/Page: p.5)"
+    },
+    "or_rooms_ip_plastic": {
+      "type": "integer",
+      "description": "OR Rooms IP — Plastic (Section/Page: p.5)"
+    },
+    "or_rooms_op_plastic": {
+      "type": "integer",
+      "description": "OR Rooms OP — Plastic (Section/Page: p.5)"
+    },
+    "or_rooms_combined_plastic": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Plastic (Section/Page: p.5)"
+    },
+    "or_cases_ip_plastic": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Plastic (Section/Page: p.5)"
+    },
+    "or_cases_op_plastic": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Plastic (Section/Page: p.5)"
+    },
+    "or_hours_ip_plastic": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Plastic (Section/Page: p.5)"
+    },
+    "or_hours_op_plastic": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Plastic (Section/Page: p.5)"
+    },
+    "or_hours_total_plastic": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Plastic (Section/Page: p.5)"
+    },
+    "or_rooms_ip_podiatry": {
+      "type": "integer",
+      "description": "OR Rooms IP — Podiatry (Section/Page: p.5)"
+    },
+    "or_rooms_op_podiatry": {
+      "type": "integer",
+      "description": "OR Rooms OP — Podiatry (Section/Page: p.5)"
+    },
+    "or_rooms_combined_podiatry": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Podiatry (Section/Page: p.5)"
+    },
+    "or_cases_ip_podiatry": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Podiatry (Section/Page: p.5)"
+    },
+    "or_cases_op_podiatry": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Podiatry (Section/Page: p.5)"
+    },
+    "or_hours_ip_podiatry": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Podiatry (Section/Page: p.5)"
+    },
+    "or_hours_op_podiatry": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Podiatry (Section/Page: p.5)"
+    },
+    "or_hours_total_podiatry": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Podiatry (Section/Page: p.5)"
+    },
+    "or_rooms_ip_thoracic": {
+      "type": "integer",
+      "description": "OR Rooms IP — Thoracic (Section/Page: p.5)"
+    },
+    "or_rooms_op_thoracic": {
+      "type": "integer",
+      "description": "OR Rooms OP — Thoracic (Section/Page: p.5)"
+    },
+    "or_rooms_combined_thoracic": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Thoracic (Section/Page: p.5)"
+    },
+    "or_cases_ip_thoracic": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Thoracic (Section/Page: p.5)"
+    },
+    "or_cases_op_thoracic": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Thoracic (Section/Page: p.5)"
+    },
+    "or_hours_ip_thoracic": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Thoracic (Section/Page: p.5)"
+    },
+    "or_hours_op_thoracic": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Thoracic (Section/Page: p.5)"
+    },
+    "or_hours_total_thoracic": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Thoracic (Section/Page: p.5)"
+    },
+    "or_rooms_ip_urology": {
+      "type": "integer",
+      "description": "OR Rooms IP — Urology (Section/Page: p.5)"
+    },
+    "or_rooms_op_urology": {
+      "type": "integer",
+      "description": "OR Rooms OP — Urology (Section/Page: p.5)"
+    },
+    "or_rooms_combined_urology": {
+      "type": "integer",
+      "description": "OR Rooms Combined — Urology (Section/Page: p.5)"
+    },
+    "or_cases_ip_urology": {
+      "type": "integer",
+      "description": "Surgical Cases IP — Urology (Section/Page: p.5)"
+    },
+    "or_cases_op_urology": {
+      "type": "integer",
+      "description": "Surgical Cases OP — Urology (Section/Page: p.5)"
+    },
+    "or_hours_ip_urology": {
+      "type": "integer",
+      "description": "Surgical Hours IP — Urology (Section/Page: p.5)"
+    },
+    "or_hours_op_urology": {
+      "type": "integer",
+      "description": "Surgical Hours OP — Urology (Section/Page: p.5)"
+    },
+    "or_hours_total_urology": {
+      "type": "integer",
+      "description": "Surgical Hours Total — Urology (Section/Page: p.5)"
+    },
+    "procB_rooms_ip_gastro_intestinal": {
+      "type": "integer",
+      "description": "Class B Rooms IP — Gastro-Intestinal (Section/Page: p.6)"
+    },
+    "procB_rooms_op_gastro_intestinal": {
+      "type": "integer",
+      "description": "Class B Rooms OP — Gastro-Intestinal (Section/Page: p.6)"
+    },
+    "procB_rooms_combined_gastro_intestinal": {
+      "type": "integer",
+      "description": "Class B Rooms Combined — Gastro-Intestinal (Section/Page: p.6)"
+    },
+    "procB_rooms_total_gastro_intestinal": {
+      "type": "integer",
+      "description": "Class B Rooms Total — Gastro-Intestinal (Section/Page: p.6)"
+    },
+    "procB_cases_ip_gastro_intestinal": {
+      "type": "integer",
+      "description": "Class B Cases IP — Gastro-Intestinal (Section/Page: p.6)"
+    },
+    "procB_cases_op_gastro_intestinal": {
+      "type": "integer",
+      "description": "Class B Cases OP — Gastro-Intestinal (Section/Page: p.6)"
+    },
+    "procB_hours_ip_gastro_intestinal": {
+      "type": "integer",
+      "description": "Class B Hours IP — Gastro-Intestinal (Section/Page: p.6)"
+    },
+    "procB_hours_op_gastro_intestinal": {
+      "type": "integer",
+      "description": "Class B Hours OP — Gastro-Intestinal (Section/Page: p.6)"
+    },
+    "procB_hours_total_gastro_intestinal": {
+      "type": "integer",
+      "description": "Class B Hours Total — Gastro-Intestinal (Section/Page: p.6)"
+    },
+    "procB_rooms_ip_laser_eye": {
+      "type": "integer",
+      "description": "Class B Rooms IP — Laser Eye (Section/Page: p.6)"
+    },
+    "procB_rooms_op_laser_eye": {
+      "type": "integer",
+      "description": "Class B Rooms OP — Laser Eye (Section/Page: p.6)"
+    },
+    "procB_rooms_combined_laser_eye": {
+      "type": "integer",
+      "description": "Class B Rooms Combined — Laser Eye (Section/Page: p.6)"
+    },
+    "procB_rooms_total_laser_eye": {
+      "type": "integer",
+      "description": "Class B Rooms Total — Laser Eye (Section/Page: p.6)"
+    },
+    "procB_cases_ip_laser_eye": {
+      "type": "integer",
+      "description": "Class B Cases IP — Laser Eye (Section/Page: p.6)"
+    },
+    "procB_cases_op_laser_eye": {
+      "type": "integer",
+      "description": "Class B Cases OP — Laser Eye (Section/Page: p.6)"
+    },
+    "procB_hours_ip_laser_eye": {
+      "type": "integer",
+      "description": "Class B Hours IP — Laser Eye (Section/Page: p.6)"
+    },
+    "procB_hours_op_laser_eye": {
+      "type": "integer",
+      "description": "Class B Hours OP — Laser Eye (Section/Page: p.6)"
+    },
+    "procB_hours_total_laser_eye": {
+      "type": "integer",
+      "description": "Class B Hours Total — Laser Eye (Section/Page: p.6)"
+    },
+    "procB_rooms_ip_cystoscopy": {
+      "type": "integer",
+      "description": "Class B Rooms IP — Cystoscopy (Section/Page: p.6)"
+    },
+    "procB_rooms_op_cystoscopy": {
+      "type": "integer",
+      "description": "Class B Rooms OP — Cystoscopy (Section/Page: p.6)"
+    },
+    "procB_rooms_combined_cystoscopy": {
+      "type": "integer",
+      "description": "Class B Rooms Combined — Cystoscopy (Section/Page: p.6)"
+    },
+    "procB_rooms_total_cystoscopy": {
+      "type": "integer",
+      "description": "Class B Rooms Total — Cystoscopy (Section/Page: p.6)"
+    },
+    "procB_cases_ip_cystoscopy": {
+      "type": "integer",
+      "description": "Class B Cases IP — Cystoscopy (Section/Page: p.6)"
+    },
+    "procB_cases_op_cystoscopy": {
+      "type": "integer",
+      "description": "Class B Cases OP — Cystoscopy (Section/Page: p.6)"
+    },
+    "procB_hours_ip_cystoscopy": {
+      "type": "integer",
+      "description": "Class B Hours IP — Cystoscopy (Section/Page: p.6)"
+    },
+    "procB_hours_op_cystoscopy": {
+      "type": "integer",
+      "description": "Class B Hours OP — Cystoscopy (Section/Page: p.6)"
+    },
+    "procB_hours_total_cystoscopy": {
+      "type": "integer",
+      "description": "Class B Hours Total — Cystoscopy (Section/Page: p.6)"
+    },
+    "procB_rooms_ip_pain_management": {
+      "type": "integer",
+      "description": "Class B Rooms IP — Pain Management (Section/Page: p.6)"
+    },
+    "procB_rooms_op_pain_management": {
+      "type": "integer",
+      "description": "Class B Rooms OP — Pain Management (Section/Page: p.6)"
+    },
+    "procB_rooms_combined_pain_management": {
+      "type": "integer",
+      "description": "Class B Rooms Combined — Pain Management (Section/Page: p.6)"
+    },
+    "procB_rooms_total_pain_management": {
+      "type": "integer",
+      "description": "Class B Rooms Total — Pain Management (Section/Page: p.6)"
+    },
+    "procB_cases_ip_pain_management": {
+      "type": "integer",
+      "description": "Class B Cases IP — Pain Management (Section/Page: p.6)"
+    },
+    "procB_cases_op_pain_management": {
+      "type": "integer",
+      "description": "Class B Cases OP — Pain Management (Section/Page: p.6)"
+    },
+    "procB_hours_ip_pain_management": {
+      "type": "integer",
+      "description": "Class B Hours IP — Pain Management (Section/Page: p.6)"
+    },
+    "procB_hours_op_pain_management": {
+      "type": "integer",
+      "description": "Class B Hours OP — Pain Management (Section/Page: p.6)"
+    },
+    "procB_hours_total_pain_management": {
+      "type": "integer",
+      "description": "Class B Hours Total — Pain Management (Section/Page: p.6)"
     },
     "equip_*": {
       "type": "object",
@@ -267,10 +967,9 @@
     "hospital_characterization",
     "ownership_type",
     "util_*",
-    "race_*",
-    "eth_*",
-    "op_visits",
-    "pay_*",
+    "op_visits_on",
+    "op_visits_off",
+    "op_visits_total",
     "charity_inpatients",
     "charity_outpatients",
     "or_*",
