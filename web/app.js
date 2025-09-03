@@ -1,4 +1,4 @@
-const state = { all: [], filtered: [], charts: {} };
+const state = { all: [], filtered: [], charts: {}, showAllFields: false };
 
 function el(sel) { return document.querySelector(sel); }
 
@@ -21,13 +21,13 @@ const u = new URL(window.location.href);
 return Object.fromEntries(u.searchParams.entries());
 }
 function setParams(params) {
-const u = new URL(window.location.href);
-Object.entries(params).forEach(([k, v]) => {
-    if (v != null && String(v).length)
-u.searchParams.set(k, v);
-    else u.searchParams.delete(k);
-});
-window.history.replaceState({}, '', u.toString());
+  const u = new URL(window.location.href);
+  Object.entries(params).forEach(([k, v]) => {
+      if (v != null && String(v).length)
+  u.searchParams.set(k, v);
+      else u.searchParams.delete(k);
+  });
+  window.history.replaceState({}, '', u.toString());
 }
 
 const IS_WEB_SUBDIR = window.location.pathname.includes('/web/');
@@ -63,6 +63,9 @@ async function loadIndex() {
   if (p.county) el('#county').value = p.county;
   if (p.region) el('#region').value = p.region;
   if (p.q) el('#q').value = p.q;
+  // Show-all toggle deep link
+  if (p.show === 'all') { state.showAllFields = true; }
+  const showBox = el('#showAllFields'); if (showBox) showBox.checked = !!state.showAllFields;
 
   applyFilters();
 
@@ -166,13 +169,25 @@ downloadCharts);
 const shareBtn = el('#shareLink'); if (shareBtn)
 shareBtn.addEventListener('click', copyShareLink);
 
+// Bind show-all toggle to re-render fields and sync URL
+const showBox2 = el('#showAllFields');
+if (showBox2) {
+  showBox2.checked = !!state.showAllFields;
+  showBox2.addEventListener('change', () => {
+    state.showAllFields = !!showBox2.checked;
+    renderAllFields(p, schemaProps, state.showAllFields);
+    const cur = getParams();
+    setParams({ ...cur, show: state.showAllFields ? 'all' : null });
+  });
+}
+
 drawCharts(rec.type, p);
 
 // Update URL with selected facility
 setParams({ year: rec.year, type: rec.type, slug: rec.slug, q: el('#q').value, county: el('#county').value, region: el('#region').value });
   
   // Render “All Fields” with schema descriptions (if available)
-  try { renderAllFields(p, schemaProps); } catch { renderAllFields(p, {}); }
+  try { renderAllFields(p, schemaProps, state.showAllFields); } catch { renderAllFields(p, {}, state.showAllFields); }
 }
 
 function destroyCharts() {
@@ -536,7 +551,7 @@ for (const id of ['#chart-payer', '#chart-race',
 }
 
 // Render all payload fields with schema descriptions (if any)
-function renderAllFields(payload, props) {
+function renderAllFields(payload, props, showAll = false) {
   // Group by x_section and order by x_order; include required fields even if empty
   const keys = new Set([
     ...Object.keys(payload || {}),
@@ -546,7 +561,7 @@ function renderAllFields(payload, props) {
     .filter(k => {
       const hasVal = String((payload || {})[k] ?? '').trim() !== '';
       const isReq = !!(props && props[k] && props[k].x_required);
-      return hasVal || isReq;
+      return showAll || hasVal || isReq;
     })
     .map(k => ({
       key: k,
@@ -575,7 +590,7 @@ function renderAllFields(payload, props) {
     const arr = groups[sec].sort((a,b)=> a.order - b.order || a.label.localeCompare(b.label));
     const rows = arr.map(it => {
       const label = it.required ? `${it.label} *` : it.label;
-      const val = String(it.val ?? '').trim().length ? fmt(it.val) : '—';
+      const val = String(it.val ?? '').trim().length ? fmt(it.val) : (showAll ? '' : '—');
       return `<tr><td>${label}</td><td class="right">${val}</td><td>${it.desc||''}</td></tr>`;
     }).join('');
     htmlParts.push(`
