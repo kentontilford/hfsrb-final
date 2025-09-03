@@ -125,6 +125,18 @@ def build_property_spec(row: Dict[str,str], enum_sets: Dict[str, List[str]]) -> 
     if description_bits:
         prop['description'] = ' '.join(description_bits)
 
+    # Enrich with dashboard metadata to enable grouping/order in UI
+    if label:
+        prop['x_label'] = label
+    # Section is derived from the first segment of field_id (e.g., facility.name -> Facility)
+    fid = row.get('field_id', '').strip()
+    if fid:
+        top = fid.split('.', 1)[0]
+        # Humanize: replace separators and title-case
+        sec_label = top.replace('_', ' ').replace('-', ' ').strip().title()
+        if sec_label:
+            prop['x_section'] = sec_label
+
     return prop
 
 def generate_schema(readme: Path) -> Dict:
@@ -153,15 +165,27 @@ def generate_schema(readme: Path) -> Dict:
 
     properties: Dict[str, Dict] = {}
     required: List[str] = []
+    # Track section order by first appearance
+    section_first_index: Dict[str, int] = {}
+    # Assign incremental order for fields within the schema
+    field_order = 0
     for row in rows:
         field_name = row.get('field_name','').strip()
         if not field_name:
             continue
         prop = build_property_spec(row, enum_sets)
-        properties[field_name] = prop
+        # Order metadata for dashboard rendering
+        field_order += 1
+        prop['x_order'] = field_order
+        sec = prop.get('x_section') or 'Other'
+        if sec not in section_first_index:
+            section_first_index[sec] = len(section_first_index) + 1
+        prop['x_section_order'] = section_first_index[sec]
         req = row.get('required','').strip().lower()
         if req == 'yes':
+            prop['x_required'] = True
             required.append(field_name)
+        properties[field_name] = prop
 
     schema = {
         "$schema": "http://json-schema.org/draft-07/schema#",
@@ -187,4 +211,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

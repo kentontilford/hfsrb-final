@@ -518,9 +518,17 @@ for (const id of ['#chart-payer', '#chart-race',
 
 // Render all payload fields with schema descriptions (if any)
 function renderAllFields(payload, props) {
-  // Group by x_section and order by x_order; fall back gracefully
-  const items = Object.keys(payload || {})
-    .filter(k => String(payload[k] ?? '').trim() !== '')
+  // Group by x_section and order by x_order; include required fields even if empty
+  const keys = new Set([
+    ...Object.keys(payload || {}),
+    ...Object.keys(props || {}),
+  ]);
+  const items = Array.from(keys)
+    .filter(k => {
+      const hasVal = String((payload || {})[k] ?? '').trim() !== '';
+      const isReq = !!(props && props[k] && props[k].x_required);
+      return hasVal || isReq;
+    })
     .map(k => ({
       key: k,
       label: (props[k] && (props[k].x_label || props[k].title)) || k,
@@ -528,7 +536,8 @@ function renderAllFields(payload, props) {
       sectionOrder: (props[k] && Number(props[k].x_section_order)) || 9999,
       order: (props[k] && Number(props[k].x_order)) || 9999,
       desc: (props[k] && props[k].description) || '',
-      val: payload[k],
+      val: (payload || {})[k],
+      required: !!(props[k] && props[k].x_required),
     }));
   // Build groups
   const groups = {};
@@ -545,7 +554,11 @@ function renderAllFields(payload, props) {
   const htmlParts = [];
   for (const sec of sections) {
     const arr = groups[sec].sort((a,b)=> a.order - b.order || a.label.localeCompare(b.label));
-    const rows = arr.map(it => `<tr><td>${it.label}</td><td class="right">${fmt(it.val)}</td><td>${it.desc||''}</td></tr>`).join('');
+    const rows = arr.map(it => {
+      const label = it.required ? `${it.label} *` : it.label;
+      const val = String(it.val ?? '').trim().length ? fmt(it.val) : '—';
+      return `<tr><td>${label}</td><td class="right">${val}</td><td>${it.desc||''}</td></tr>`;
+    }).join('');
     htmlParts.push(`
       <details class="card col-12" open>
         <summary><h3>${sec}</h3></summary>

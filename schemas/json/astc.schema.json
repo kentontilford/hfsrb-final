@@ -5,41 +5,86 @@
   "properties": {
     "astc_license": {
       "type": "string",
-      "description": "ASTC License (Section/Page: Intro p.1) License identifier as issued by IDPH"
+      "description": "ASTC License (Section/Page: Intro p.1) License identifier as issued by IDPH",
+      "x_label": "ASTC License",
+      "x_section": "Facility",
+      "x_order": 1,
+      "x_section_order": 1,
+      "x_required": true
     },
     "facility_name": {
       "type": "string",
-      "description": "ASTC Name (Section/Page: Intro p.1) Official facility name"
+      "description": "ASTC Name (Section/Page: Intro p.1) Official facility name",
+      "x_label": "ASTC Name",
+      "x_section": "Facility",
+      "x_order": 2,
+      "x_section_order": 1,
+      "x_required": true
     },
     "address_line1": {
       "type": "string",
-      "description": "ASTC Address (Section/Page: Intro p.1) Street address"
+      "description": "ASTC Address (Section/Page: Intro p.1) Street address",
+      "x_label": "ASTC Address",
+      "x_section": "Facility",
+      "x_order": 3,
+      "x_section_order": 1,
+      "x_required": true
     },
     "address_city": {
       "type": "string",
-      "description": "ASTC City (Section/Page: Intro p.1)"
+      "description": "ASTC City (Section/Page: Intro p.1)",
+      "x_label": "ASTC City",
+      "x_section": "Facility",
+      "x_order": 4,
+      "x_section_order": 1,
+      "x_required": true
     },
     "address_state": {
       "type": "string",
-      "description": "State (Section/Page: Intro p.1) Fixed to IL"
+      "description": "State (Section/Page: Intro p.1) Fixed to IL",
+      "x_label": "State",
+      "x_section": "Facility",
+      "x_order": 5,
+      "x_section_order": 1,
+      "x_required": true
     },
     "address_zip": {
       "type": "string",
       "pattern": "^\\d{5}(-\\d{4})?$",
-      "description": "Zip Code (Section/Page: Intro p.1) 5-digit ZIP or ZIP+4"
+      "description": "Zip Code (Section/Page: Intro p.1) 5-digit ZIP or ZIP+4",
+      "x_label": "Zip Code",
+      "x_section": "Facility",
+      "x_order": 6,
+      "x_section_order": 1,
+      "x_required": true
     },
     "fein": {
       "type": "string",
       "pattern": "^\\d{2}-\\d{7}$",
-      "description": "Federal Employer Identification Number (FEIN) (Section/Page: Intro p.1)"
+      "description": "Federal Employer Identification Number (FEIN) (Section/Page: Intro p.1)",
+      "x_label": "Federal Employer Identification Number (FEIN)",
+      "x_section": "Facility",
+      "x_order": 7,
+      "x_section_order": 1,
+      "x_required": true
     },
     "section_i_year": {
       "type": "integer",
-      "description": "Section I Reporting Year (Section/Page: p.1) Fixed year for Section I"
+      "description": "Section I Reporting Year (Section/Page: p.1) Fixed year for Section I",
+      "x_label": "Section I Reporting Year",
+      "x_section": "Section I",
+      "x_order": 8,
+      "x_section_order": 2,
+      "x_required": true
     },
     "section_ii_fy_label": {
       "type": "string",
-      "description": "Section II Fiscal Year (Section/Page: p.15) Most recent fiscal year available"
+      "description": "Section II Fiscal Year (Section/Page: p.15) Most recent fiscal year available",
+      "x_label": "Section II Fiscal Year",
+      "x_section": "Section Ii",
+      "x_order": 9,
+      "x_section_order": 3,
+      "x_required": true
     },
     "ownership_type": {
       "type": "string",
@@ -58,162 +103,331 @@
         "nonprofit:township",
         "nonprofit:other"
       ],
-      "description": "Ownership Type (Section/Page: Sec I p.2) Choose one"
+      "description": "Ownership Type (Section/Page: Sec I p.2) Choose one",
+      "x_label": "Ownership Type",
+      "x_section": "Ownership",
+      "x_order": 10,
+      "x_section_order": 4,
+      "x_required": true
     },
     "ownership_other": {
       "type": "string",
-      "description": "Other Ownership Type (Specify) (Section/Page: Sec I p.2) Required if ownership_type = other_*"
+      "description": "Other Ownership Type (Specify) (Section/Page: Sec I p.2) Required if ownership_type = other_*",
+      "x_label": "Other Ownership Type (Specify)",
+      "x_section": "Ownership",
+      "x_order": 11,
+      "x_section_order": 4
     },
     "reg_agent_name": {
       "type": "string",
-      "description": "Name of Registered Agent (Section/Page: Sec I p.2) Required if ownership requires RA (see types)"
+      "description": "Name of Registered Agent (Section/Page: Sec I p.2) Required if ownership requires RA (see types)",
+      "x_label": "Name of Registered Agent",
+      "x_section": "Reg Agent",
+      "x_order": 12,
+      "x_section_order": 5
     },
     "reg_agent_address": {
       "type": "string",
-      "description": "Registered Agent Address (Section/Page: Sec I p.2)"
+      "description": "Registered Agent Address (Section/Page: Sec I p.2)",
+      "x_label": "Registered Agent Address",
+      "x_section": "Reg Agent",
+      "x_order": 13,
+      "x_section_order": 5
     },
     "reg_agent_city_state_zip": {
       "type": "string",
-      "description": "Registered Agent City, State, Zip+4 (Section/Page: Sec I p.2)"
+      "description": "Registered Agent City, State, Zip+4 (Section/Page: Sec I p.2)",
+      "x_label": "Registered Agent City, State, Zip+4",
+      "x_section": "Reg Agent",
+      "x_order": 14,
+      "x_section_order": 5
     },
     "reg_agent_phone": {
       "type": "string",
       "pattern": "^\\(\\d{3}\\) \\d{3}-\\d{4}(\\.\\d+)?$",
-      "description": "Registered Agent Telephone Number (Section/Page: Sec I p.2) Format as printed on form"
+      "description": "Registered Agent Telephone Number (Section/Page: Sec I p.2) Format as printed on form",
+      "x_label": "Registered Agent Telephone Number",
+      "x_section": "Reg Agent",
+      "x_order": 15,
+      "x_section_order": 5
     },
     "related_entities": {
       "type": "array",
-      "description": "Related Organizations/Entities (Section/Page: Sec I p.2) List of objects: name, relationship, interest"
+      "description": "Related Organizations/Entities (Section/Page: Sec I p.2) List of objects: name, relationship, interest",
+      "x_label": "Related Organizations/Entities",
+      "x_section": "Related Entities",
+      "x_order": 16,
+      "x_section_order": 6
     },
     "related_entities[].name": {
       "type": "string",
-      "description": "Name (Section/Page: Sec I p.2)"
+      "description": "Name (Section/Page: Sec I p.2)",
+      "x_label": "Name",
+      "x_section": "Related Entities[]",
+      "x_order": 17,
+      "x_section_order": 7
     },
     "related_entities[].relationship": {
       "type": "string",
-      "description": "Relationship (Section/Page: Sec I p.2) e.g., parent, subsidiary, affiliate"
+      "description": "Relationship (Section/Page: Sec I p.2) e.g., parent, subsidiary, affiliate",
+      "x_label": "Relationship",
+      "x_section": "Related Entities[]",
+      "x_order": 18,
+      "x_section_order": 7
     },
     "related_entities[].interest_type": {
       "type": "string",
-      "description": "Type of Interest (Section/Page: Sec I p.2) legal, financial, management, etc."
+      "description": "Type of Interest (Section/Page: Sec I p.2) legal, financial, management, etc.",
+      "x_label": "Type of Interest",
+      "x_section": "Related Entities[]",
+      "x_order": 19,
+      "x_section_order": 7
     },
     "owners": {
       "type": "array",
-      "description": "Legal Owners/Operators (Section/Page: Sec I p.3) Up to 25 in form; allow more via spreadsheet"
+      "description": "Legal Owners/Operators (Section/Page: Sec I p.3) Up to 25 in form; allow more via spreadsheet",
+      "x_label": "Legal Owners/Operators",
+      "x_section": "Owners",
+      "x_order": 20,
+      "x_section_order": 8
     },
     "owners[].name": {
       "type": "string",
-      "description": "Owner Name (Section/Page: Sec I p.3)"
+      "description": "Owner Name (Section/Page: Sec I p.3)",
+      "x_label": "Owner Name",
+      "x_section": "Owners[]",
+      "x_order": 21,
+      "x_section_order": 9
     },
     "owners[].address": {
       "type": "string",
-      "description": "Address (Section/Page: Sec I p.3)"
+      "description": "Address (Section/Page: Sec I p.3)",
+      "x_label": "Address",
+      "x_section": "Owners[]",
+      "x_order": 22,
+      "x_section_order": 9
     },
     "owners[].city_state_zip": {
       "type": "string",
-      "description": "City, State Zip+4 (Section/Page: Sec I p.3)"
+      "description": "City, State Zip+4 (Section/Page: Sec I p.3)",
+      "x_label": "City, State Zip+4",
+      "x_section": "Owners[]",
+      "x_order": 23,
+      "x_section_order": 9
     },
     "owners[].phone": {
       "type": "string",
       "pattern": "^\\(\\d{3}\\) \\d{3}-\\d{4}(\\.\\d+)?$",
-      "description": "Telephone Number (Section/Page: Sec I p.3)"
+      "description": "Telephone Number (Section/Page: Sec I p.3)",
+      "x_label": "Telephone Number",
+      "x_section": "Owners[]",
+      "x_order": 24,
+      "x_section_order": 9
     },
     "property_owner_name": {
       "type": "string",
-      "description": "Property Owner (Section/Page: Sec I p.4) Required if property not owned by legal owner/operator"
+      "description": "Property Owner (Section/Page: Sec I p.4) Required if property not owned by legal owner/operator",
+      "x_label": "Property Owner",
+      "x_section": "Property",
+      "x_order": 25,
+      "x_section_order": 10
     },
     "property_owner_address": {
       "type": "string",
-      "description": "Property Owner Address (Section/Page: Sec I p.4)"
+      "description": "Property Owner Address (Section/Page: Sec I p.4)",
+      "x_label": "Property Owner Address",
+      "x_section": "Property",
+      "x_order": 26,
+      "x_section_order": 10
     },
     "property_owner_city_state_zip": {
       "type": "string",
-      "description": "Property Owner City, State Zip+4 (Section/Page: Sec I p.4)"
+      "description": "Property Owner City, State Zip+4 (Section/Page: Sec I p.4)",
+      "x_label": "Property Owner City, State Zip+4",
+      "x_section": "Property",
+      "x_order": 27,
+      "x_section_order": 10
     },
     "property_owner_phone": {
       "type": "string",
       "pattern": "^\\(\\d{3}\\) \\d{3}-\\d{4}(\\.\\d+)?$",
-      "description": "Property Owner Telephone (Section/Page: Sec I p.4)"
+      "description": "Property Owner Telephone (Section/Page: Sec I p.4)",
+      "x_label": "Property Owner Telephone",
+      "x_section": "Property",
+      "x_order": 28,
+      "x_section_order": 10
     },
     "mgmt_no_contract": {
       "type": "boolean",
-      "description": "No Contractual Management (Section/Page: Sec I p.4) True if management NOT performed by independent contractor"
+      "description": "No Contractual Management (Section/Page: Sec I p.4) True if management NOT performed by independent contractor",
+      "x_label": "No Contractual Management",
+      "x_section": "Mgmt",
+      "x_order": 29,
+      "x_section_order": 11,
+      "x_required": true
     },
     "mgmt_contractors": {
       "type": "array",
-      "description": "Contractual Management Contractors (Section/Page: Sec I p.4) Required if mgmt_no_contract = false"
+      "description": "Contractual Management Contractors (Section/Page: Sec I p.4) Required if mgmt_no_contract = false",
+      "x_label": "Contractual Management Contractors",
+      "x_section": "Mgmt",
+      "x_order": 30,
+      "x_section_order": 11
     },
     "mgmt_contractors[].name": {
       "type": "string",
-      "description": "Contractor Name (Section/Page: Sec I p.4)"
+      "description": "Contractor Name (Section/Page: Sec I p.4)",
+      "x_label": "Contractor Name",
+      "x_section": "Mgmt",
+      "x_order": 31,
+      "x_section_order": 11
     },
     "mgmt_contractors[].address": {
       "type": "string",
-      "description": "Full Address (Section/Page: Sec I p.4)"
+      "description": "Full Address (Section/Page: Sec I p.4)",
+      "x_label": "Full Address",
+      "x_section": "Mgmt",
+      "x_order": 32,
+      "x_section_order": 11
     },
     "staffing_workweek_hours": {
       "type": "integer",
-      "description": "Hours in a full-time work week (Section/Page: Sec I p.4)"
+      "description": "Hours in a full-time work week (Section/Page: Sec I p.4)",
+      "x_label": "Hours in a full-time work week",
+      "x_section": "Staffing",
+      "x_order": 33,
+      "x_section_order": 12,
+      "x_required": true
     },
     "fte_admin": {
       "type": "number",
-      "description": "Administrators (FTEs) (Section/Page: Sec I p.4) Decimal FTEs"
+      "description": "Administrators (FTEs) (Section/Page: Sec I p.4) Decimal FTEs",
+      "x_label": "Administrators (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 34,
+      "x_section_order": 12,
+      "x_required": true
     },
     "fte_physicians": {
       "type": "number",
-      "description": "Physicians (FTEs) (Section/Page: Sec I p.4)"
+      "description": "Physicians (FTEs) (Section/Page: Sec I p.4)",
+      "x_label": "Physicians (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 35,
+      "x_section_order": 12,
+      "x_required": true
     },
     "fte_crna": {
       "type": "number",
-      "description": "Nurse Anesthetists (FTEs) (Section/Page: Sec I p.4)"
+      "description": "Nurse Anesthetists (FTEs) (Section/Page: Sec I p.4)",
+      "x_label": "Nurse Anesthetists (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 36,
+      "x_section_order": 12,
+      "x_required": true
     },
     "fte_don": {
       "type": "number",
-      "description": "Director of Nursing (FTEs) (Section/Page: Sec I p.4)"
+      "description": "Director of Nursing (FTEs) (Section/Page: Sec I p.4)",
+      "x_label": "Director of Nursing (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 37,
+      "x_section_order": 12,
+      "x_required": true
     },
     "fte_rn": {
       "type": "number",
-      "description": "Registered Nurses (FTEs) (Section/Page: Sec I p.4)"
+      "description": "Registered Nurses (FTEs) (Section/Page: Sec I p.4)",
+      "x_label": "Registered Nurses (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 38,
+      "x_section_order": 12,
+      "x_required": true
     },
     "fte_cert_aides": {
       "type": "number",
-      "description": "Certified Aides (FTEs) (Section/Page: Sec I p.4)"
+      "description": "Certified Aides (FTEs) (Section/Page: Sec I p.4)",
+      "x_label": "Certified Aides (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 39,
+      "x_section_order": 12,
+      "x_required": true
     },
     "fte_other_health": {
       "type": "number",
-      "description": "Other Health Professionals (FTEs) (Section/Page: Sec I p.4)"
+      "description": "Other Health Professionals (FTEs) (Section/Page: Sec I p.4)",
+      "x_label": "Other Health Professionals (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 40,
+      "x_section_order": 12,
+      "x_required": true
     },
     "fte_other_nonhealth": {
       "type": "number",
-      "description": "Other Non-Health Professionals (FTEs) (Section/Page: Sec I p.4)"
+      "description": "Other Non-Health Professionals (FTEs) (Section/Page: Sec I p.4)",
+      "x_label": "Other Non-Health Professionals (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 41,
+      "x_section_order": 12,
+      "x_required": true
     },
     "fte_total": {
       "type": "number",
-      "description": "TOTAL FACILITY PERSONNEL (FTEs) (Section/Page: Sec I p.4) Auto-calculated on form"
+      "description": "TOTAL FACILITY PERSONNEL (FTEs) (Section/Page: Sec I p.4) Auto-calculated on form",
+      "x_label": "TOTAL FACILITY PERSONNEL (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 42,
+      "x_section_order": 12
     },
     "patients_age_sex": {
       "type": "array",
-      "description": "Patients by Age Groups and Sex (Section/Page: Sec I p.5) Rows by age bands, counts by sex"
+      "description": "Patients by Age Groups and Sex (Section/Page: Sec I p.5) Rows by age bands, counts by sex",
+      "x_label": "Patients by Age Groups and Sex",
+      "x_section": "Patients",
+      "x_order": 43,
+      "x_section_order": 13,
+      "x_required": true
     },
     "age_band": {
       "type": "string",
-      "description": "Age Band (Section/Page: Sec I p.5) 0-14, 15-44, 45-64, 65-74, 75+"
+      "description": "Age Band (Section/Page: Sec I p.5) 0-14, 15-44, 45-64, 65-74, 75+",
+      "x_label": "Age Band",
+      "x_section": "Patients",
+      "x_order": 44,
+      "x_section_order": 13
     },
     "male_count": {
       "type": "integer",
-      "description": "Male (Section/Page: Sec I p.6)"
+      "description": "Male (Section/Page: Sec I p.6)",
+      "x_label": "Male",
+      "x_section": "Patients",
+      "x_order": 50,
+      "x_section_order": 13
     },
     "female_count": {
       "type": "integer",
-      "description": "Female (Section/Page: Sec I p.6)"
+      "description": "Female (Section/Page: Sec I p.6)",
+      "x_label": "Female",
+      "x_section": "Patients",
+      "x_order": 51,
+      "x_section_order": 13
     },
     "patients_age_total": {
       "type": "integer",
-      "description": "TOTAL PATIENTS SERVED (age/sex) (Section/Page: Sec I p.5) Auto-calculated; must match Q6 total"
+      "description": "TOTAL PATIENTS SERVED (age/sex) (Section/Page: Sec I p.5) Auto-calculated; must match Q6 total",
+      "x_label": "TOTAL PATIENTS SERVED (age/sex)",
+      "x_section": "Patients",
+      "x_order": 47,
+      "x_section_order": 13
     },
     "patients_payment_sex": {
       "type": "array",
-      "description": "Patients by Primary Payment Source and Sex (Section/Page: Sec I p.5-6) Rows by payment source, counts by sex"
+      "description": "Patients by Primary Payment Source and Sex (Section/Page: Sec I p.5-6) Rows by payment source, counts by sex",
+      "x_label": "Patients by Primary Payment Source and Sex",
+      "x_section": "Patients",
+      "x_order": 48,
+      "x_section_order": 13,
+      "x_required": true
     },
     "payment_source": {
       "type": "string",
@@ -225,51 +439,99 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Payment Source (Section/Page: Sec I p.6) Medicaid, Medicare, Other Public, Private Insurance, Private Payment, Charity Care"
+      "description": "Payment Source (Section/Page: Sec I p.6) Medicaid, Medicare, Other Public, Private Insurance, Private Payment, Charity Care",
+      "x_label": "Payment Source",
+      "x_section": "Patients",
+      "x_order": 49,
+      "x_section_order": 13
     },
     "patients_payment_total": {
       "type": "integer",
-      "description": "TOTAL PATIENTS SERVED (payment/sex) (Section/Page: Sec I p.6) Auto-calculated; must match Q5 total"
+      "description": "TOTAL PATIENTS SERVED (payment/sex) (Section/Page: Sec I p.6) Auto-calculated; must match Q5 total",
+      "x_label": "TOTAL PATIENTS SERVED (payment/sex)",
+      "x_section": "Patients",
+      "x_order": 52,
+      "x_section_order": 13
     },
     "patients_age_male_0_14": {
       "type": "integer",
-      "description": "Male 0–14 (Section/Page: Sec I p.5) Convenience field derived from age/sex table"
+      "description": "Male 0–14 (Section/Page: Sec I p.5) Convenience field derived from age/sex table",
+      "x_label": "Male 0–14",
+      "x_section": "Patients",
+      "x_order": 53,
+      "x_section_order": 13
     },
     "patients_age_male_15_44": {
       "type": "integer",
-      "description": "Male 15–44 (Section/Page: Sec I p.5)"
+      "description": "Male 15–44 (Section/Page: Sec I p.5)",
+      "x_label": "Male 15–44",
+      "x_section": "Patients",
+      "x_order": 54,
+      "x_section_order": 13
     },
     "patients_age_male_45_64": {
       "type": "integer",
-      "description": "Male 45–64 (Section/Page: Sec I p.5)"
+      "description": "Male 45–64 (Section/Page: Sec I p.5)",
+      "x_label": "Male 45–64",
+      "x_section": "Patients",
+      "x_order": 55,
+      "x_section_order": 13
     },
     "patients_age_male_65_74": {
       "type": "integer",
-      "description": "Male 65–74 (Section/Page: Sec I p.5)"
+      "description": "Male 65–74 (Section/Page: Sec I p.5)",
+      "x_label": "Male 65–74",
+      "x_section": "Patients",
+      "x_order": 56,
+      "x_section_order": 13
     },
     "patients_age_male_75_plus": {
       "type": "integer",
-      "description": "Male 75+ (Section/Page: Sec I p.5)"
+      "description": "Male 75+ (Section/Page: Sec I p.5)",
+      "x_label": "Male 75+",
+      "x_section": "Patients",
+      "x_order": 57,
+      "x_section_order": 13
     },
     "patients_age_female_0_14": {
       "type": "integer",
-      "description": "Female 0–14 (Section/Page: Sec I p.5)"
+      "description": "Female 0–14 (Section/Page: Sec I p.5)",
+      "x_label": "Female 0–14",
+      "x_section": "Patients",
+      "x_order": 58,
+      "x_section_order": 13
     },
     "patients_age_female_15_44": {
       "type": "integer",
-      "description": "Female 15–44 (Section/Page: Sec I p.5)"
+      "description": "Female 15–44 (Section/Page: Sec I p.5)",
+      "x_label": "Female 15–44",
+      "x_section": "Patients",
+      "x_order": 59,
+      "x_section_order": 13
     },
     "patients_age_female_45_64": {
       "type": "integer",
-      "description": "Female 45–64 (Section/Page: Sec I p.5)"
+      "description": "Female 45–64 (Section/Page: Sec I p.5)",
+      "x_label": "Female 45–64",
+      "x_section": "Patients",
+      "x_order": 60,
+      "x_section_order": 13
     },
     "patients_age_female_65_74": {
       "type": "integer",
-      "description": "Female 65–74 (Section/Page: Sec I p.5)"
+      "description": "Female 65–74 (Section/Page: Sec I p.5)",
+      "x_label": "Female 65–74",
+      "x_section": "Patients",
+      "x_order": 61,
+      "x_section_order": 13
     },
     "patients_age_female_75_plus": {
       "type": "integer",
-      "description": "Female 75+ (Section/Page: Sec I p.5)"
+      "description": "Female 75+ (Section/Page: Sec I p.5)",
+      "x_label": "Female 75+",
+      "x_section": "Patients",
+      "x_order": 62,
+      "x_section_order": 13
     },
     "patients_payment_male_medicaid": {
       "type": "integer",
@@ -281,7 +543,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Male — Medicaid (Section/Page: Sec I p.6) Convenience field derived from payment/sex table"
+      "description": "Male — Medicaid (Section/Page: Sec I p.6) Convenience field derived from payment/sex table",
+      "x_label": "Male — Medicaid",
+      "x_section": "Patients",
+      "x_order": 63,
+      "x_section_order": 13
     },
     "patients_payment_male_medicare": {
       "type": "integer",
@@ -293,7 +559,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Male — Medicare (Section/Page: Sec I p.6)"
+      "description": "Male — Medicare (Section/Page: Sec I p.6)",
+      "x_label": "Male — Medicare",
+      "x_section": "Patients",
+      "x_order": 64,
+      "x_section_order": 13
     },
     "patients_payment_male_other_public": {
       "type": "integer",
@@ -305,7 +575,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Male — Other Public (Section/Page: Sec I p.6)"
+      "description": "Male — Other Public (Section/Page: Sec I p.6)",
+      "x_label": "Male — Other Public",
+      "x_section": "Patients",
+      "x_order": 65,
+      "x_section_order": 13
     },
     "patients_payment_male_private_insurance": {
       "type": "integer",
@@ -317,7 +591,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Male — Private Insurance (Section/Page: Sec I p.6)"
+      "description": "Male — Private Insurance (Section/Page: Sec I p.6)",
+      "x_label": "Male — Private Insurance",
+      "x_section": "Patients",
+      "x_order": 66,
+      "x_section_order": 13
     },
     "patients_payment_male_private_payment": {
       "type": "integer",
@@ -329,7 +607,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Male — Private Payment (Section/Page: Sec I p.6)"
+      "description": "Male — Private Payment (Section/Page: Sec I p.6)",
+      "x_label": "Male — Private Payment",
+      "x_section": "Patients",
+      "x_order": 67,
+      "x_section_order": 13
     },
     "patients_payment_male_charity_care": {
       "type": "integer",
@@ -341,7 +623,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Male — Charity Care (Section/Page: Sec I p.6)"
+      "description": "Male — Charity Care (Section/Page: Sec I p.6)",
+      "x_label": "Male — Charity Care",
+      "x_section": "Patients",
+      "x_order": 68,
+      "x_section_order": 13
     },
     "patients_payment_female_medicaid": {
       "type": "integer",
@@ -353,7 +639,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Female — Medicaid (Section/Page: Sec I p.6)"
+      "description": "Female — Medicaid (Section/Page: Sec I p.6)",
+      "x_label": "Female — Medicaid",
+      "x_section": "Patients",
+      "x_order": 69,
+      "x_section_order": 13
     },
     "patients_payment_female_medicare": {
       "type": "integer",
@@ -365,7 +655,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Female — Medicare (Section/Page: Sec I p.6)"
+      "description": "Female — Medicare (Section/Page: Sec I p.6)",
+      "x_label": "Female — Medicare",
+      "x_section": "Patients",
+      "x_order": 70,
+      "x_section_order": 13
     },
     "patients_payment_female_other_public": {
       "type": "integer",
@@ -377,7 +671,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Female — Other Public (Section/Page: Sec I p.6)"
+      "description": "Female — Other Public (Section/Page: Sec I p.6)",
+      "x_label": "Female — Other Public",
+      "x_section": "Patients",
+      "x_order": 71,
+      "x_section_order": 13
     },
     "patients_payment_female_private_insurance": {
       "type": "integer",
@@ -389,7 +687,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Female — Private Insurance (Section/Page: Sec I p.6)"
+      "description": "Female — Private Insurance (Section/Page: Sec I p.6)",
+      "x_label": "Female — Private Insurance",
+      "x_section": "Patients",
+      "x_order": 72,
+      "x_section_order": 13
     },
     "patients_payment_female_private_payment": {
       "type": "integer",
@@ -401,7 +703,11 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Female — Private Payment (Section/Page: Sec I p.6)"
+      "description": "Female — Private Payment (Section/Page: Sec I p.6)",
+      "x_label": "Female — Private Payment",
+      "x_section": "Patients",
+      "x_order": 73,
+      "x_section_order": 13
     },
     "patients_payment_female_charity_care": {
       "type": "integer",
@@ -413,198 +719,408 @@
         "private_payment",
         "charity_care"
       ],
-      "description": "Female — Charity Care (Section/Page: Sec I p.6)"
+      "description": "Female — Charity Care (Section/Page: Sec I p.6)",
+      "x_label": "Female — Charity Care",
+      "x_section": "Patients",
+      "x_order": 74,
+      "x_section_order": 13
     },
     "patients_origin": {
       "type": "array",
-      "description": "Patients by Place of Origin (Section/Page: Sec I p.7-11) Prefer Zip; else County"
+      "description": "Patients by Place of Origin (Section/Page: Sec I p.7-11) Prefer Zip; else County",
+      "x_label": "Patients by Place of Origin",
+      "x_section": "Patients",
+      "x_order": 75,
+      "x_section_order": 13
     },
     "origin_zip": {
       "type": "string",
       "pattern": "^\\d{5}$",
-      "description": "Zip Code Area (Section/Page: Sec I p.7-11) Required if county not provided"
+      "description": "Zip Code Area (Section/Page: Sec I p.7-11) Required if county not provided",
+      "x_label": "Zip Code Area",
+      "x_section": "Patients",
+      "x_order": 76,
+      "x_section_order": 13
     },
     "origin_county": {
       "type": "string",
-      "description": "County Name (Section/Page: Sec I p.7-11) Required if zip not provided"
+      "description": "County Name (Section/Page: Sec I p.7-11) Required if zip not provided",
+      "x_label": "County Name",
+      "x_section": "Patients",
+      "x_order": 77,
+      "x_section_order": 13
     },
     "origin_count": {
       "type": "integer",
-      "description": "Number of Patients (Section/Page: Sec I p.7-11)"
+      "description": "Number of Patients (Section/Page: Sec I p.7-11)",
+      "x_label": "Number of Patients",
+      "x_section": "Patients",
+      "x_order": 78,
+      "x_section_order": 13
     },
     "hours_mon": {
       "type": "number",
-      "description": "Hours Open Monday (Section/Page: Sec I p.12) Report numeric hours"
+      "description": "Hours Open Monday (Section/Page: Sec I p.12) Report numeric hours",
+      "x_label": "Hours Open Monday",
+      "x_section": "Ops",
+      "x_order": 79,
+      "x_section_order": 14,
+      "x_required": true
     },
     "hours_tue": {
       "type": "number",
-      "description": "Hours Open Tuesday (Section/Page: Sec I p.12)"
+      "description": "Hours Open Tuesday (Section/Page: Sec I p.12)",
+      "x_label": "Hours Open Tuesday",
+      "x_section": "Ops",
+      "x_order": 80,
+      "x_section_order": 14,
+      "x_required": true
     },
     "hours_wed": {
       "type": "number",
-      "description": "Hours Open Wednesday (Section/Page: Sec I p.12)"
+      "description": "Hours Open Wednesday (Section/Page: Sec I p.12)",
+      "x_label": "Hours Open Wednesday",
+      "x_section": "Ops",
+      "x_order": 81,
+      "x_section_order": 14,
+      "x_required": true
     },
     "hours_thu": {
       "type": "number",
-      "description": "Hours Open Thursday (Section/Page: Sec I p.12)"
+      "description": "Hours Open Thursday (Section/Page: Sec I p.12)",
+      "x_label": "Hours Open Thursday",
+      "x_section": "Ops",
+      "x_order": 82,
+      "x_section_order": 14,
+      "x_required": true
     },
     "hours_fri": {
       "type": "number",
-      "description": "Hours Open Friday (Section/Page: Sec I p.12)"
+      "description": "Hours Open Friday (Section/Page: Sec I p.12)",
+      "x_label": "Hours Open Friday",
+      "x_section": "Ops",
+      "x_order": 83,
+      "x_section_order": 14,
+      "x_required": true
     },
     "hours_sat": {
       "type": "number",
-      "description": "Hours Open Saturday (Section/Page: Sec I p.12)"
+      "description": "Hours Open Saturday (Section/Page: Sec I p.12)",
+      "x_label": "Hours Open Saturday",
+      "x_section": "Ops",
+      "x_order": 84,
+      "x_section_order": 14,
+      "x_required": true
     },
     "hours_sun": {
       "type": "number",
-      "description": "Hours Open Sunday (Section/Page: Sec I p.12)"
+      "description": "Hours Open Sunday (Section/Page: Sec I p.12)",
+      "x_label": "Hours Open Sunday",
+      "x_section": "Ops",
+      "x_order": 85,
+      "x_section_order": 14,
+      "x_required": true
     },
     "hours_total": {
       "type": "number",
-      "description": "TOTAL HOURS (Section/Page: Sec I p.12) Auto-calculated"
+      "description": "TOTAL HOURS (Section/Page: Sec I p.12) Auto-calculated",
+      "x_label": "TOTAL HOURS",
+      "x_section": "Ops",
+      "x_order": 86,
+      "x_section_order": 14
     },
     "rooms_or_class_c": {
       "type": "integer",
-      "description": "Operating Rooms (Class C) (Section/Page: Sec I p.12)"
+      "description": "Operating Rooms (Class C) (Section/Page: Sec I p.12)",
+      "x_label": "Operating Rooms (Class C)",
+      "x_section": "Rooms",
+      "x_order": 87,
+      "x_section_order": 15,
+      "x_required": true
     },
     "rooms_proc_class_b": {
       "type": "integer",
-      "description": "Procedure Rooms (Class B) (Section/Page: Sec I p.12)"
+      "description": "Procedure Rooms (Class B) (Section/Page: Sec I p.12)",
+      "x_label": "Procedure Rooms (Class B)",
+      "x_section": "Rooms",
+      "x_order": 88,
+      "x_section_order": 15,
+      "x_required": true
     },
     "rooms_exam": {
       "type": "integer",
-      "description": "Examination Rooms (Section/Page: Sec I p.12)"
+      "description": "Examination Rooms (Section/Page: Sec I p.12)",
+      "x_label": "Examination Rooms",
+      "x_section": "Rooms",
+      "x_order": 89,
+      "x_section_order": 15,
+      "x_required": true
     },
     "stations_stage1": {
       "type": "integer",
-      "description": "Stage 1 Recovery Stations (Section/Page: Sec I p.12)"
+      "description": "Stage 1 Recovery Stations (Section/Page: Sec I p.12)",
+      "x_label": "Stage 1 Recovery Stations",
+      "x_section": "Rooms",
+      "x_order": 90,
+      "x_section_order": 15,
+      "x_required": true
     },
     "stations_stage2": {
       "type": "integer",
-      "description": "Stage 2 Recovery Stations (Section/Page: Sec I p.12)"
+      "description": "Stage 2 Recovery Stations (Section/Page: Sec I p.12)",
+      "x_label": "Stage 2 Recovery Stations",
+      "x_section": "Rooms",
+      "x_order": 91,
+      "x_section_order": 15,
+      "x_required": true
     },
     "hospital_relationships": {
       "type": "array",
-      "description": "Hospital Relationships (Section/Page: Sec I p.12) Contractual relationships incl. transfer agreements"
+      "description": "Hospital Relationships (Section/Page: Sec I p.12) Contractual relationships incl. transfer agreements",
+      "x_label": "Hospital Relationships",
+      "x_section": "Hospital Relationships",
+      "x_order": 92,
+      "x_section_order": 16
     },
     "hosp_name_city": {
       "type": "string",
-      "description": "Hospital Name and City (Section/Page: Sec I p.12)"
+      "description": "Hospital Name and City (Section/Page: Sec I p.12)",
+      "x_label": "Hospital Name and City",
+      "x_section": "Hospital Relationships[]",
+      "x_order": 93,
+      "x_section_order": 17
     },
     "hosp_patient_transfers": {
       "type": "integer",
-      "description": "Patient Transfers (Section/Page: Sec I p.12) If applicable; enter number of transfers"
+      "description": "Patient Transfers (Section/Page: Sec I p.12) If applicable; enter number of transfers",
+      "x_label": "Patient Transfers",
+      "x_section": "Hospital Relationships[]",
+      "x_order": 94,
+      "x_section_order": 17
     },
     "util_or_c": {
       "type": "array",
-      "description": "Surgical Utilization — Operating Rooms (Class C) (Section/Page: Sec I p.13) Per specialty category"
+      "description": "Surgical Utilization — Operating Rooms (Class C) (Section/Page: Sec I p.13) Per specialty category",
+      "x_label": "Surgical Utilization — Operating Rooms (Class C)",
+      "x_section": "Utilization",
+      "x_order": 95,
+      "x_section_order": 18,
+      "x_required": true
     },
     "util_or_c[].category": {
       "type": "string",
-      "description": "Surgical Category (Section/Page: Sec I p.13) Cardiovascular, Dermatology, General Surgery, Gastroenterology, Neurological, OB/Gynecology, Oral/Maxillofacial, Ophthalmology, Laser Eye Surgery, Orthopedic, Otolaryngology, Pain Management, Plastic, Podiatry, Thoracic, Urology"
+      "description": "Surgical Category (Section/Page: Sec I p.13) Cardiovascular, Dermatology, General Surgery, Gastroenterology, Neurological, OB/Gynecology, Oral/Maxillofacial, Ophthalmology, Laser Eye Surgery, Orthopedic, Otolaryngology, Pain Management, Plastic, Podiatry, Thoracic, Urology",
+      "x_label": "Surgical Category",
+      "x_section": "Utilization",
+      "x_order": 96,
+      "x_section_order": 18
     },
     "util_or_c[].cases": {
       "type": "integer",
-      "description": "Number of Cases (Section/Page: Sec I p.13) A case = a patient treated"
+      "description": "Number of Cases (Section/Page: Sec I p.13) A case = a patient treated",
+      "x_label": "Number of Cases",
+      "x_section": "Utilization",
+      "x_order": 97,
+      "x_section_order": 18
     },
     "util_or_c[].setup_hours": {
       "type": "number",
-      "description": "Room Set-Up Time (hours) (Section/Page: Sec I p.13) Round to nearest 0.25"
+      "description": "Room Set-Up Time (hours) (Section/Page: Sec I p.13) Round to nearest 0.25",
+      "x_label": "Room Set-Up Time (hours)",
+      "x_section": "Utilization",
+      "x_order": 98,
+      "x_section_order": 18
     },
     "util_or_c[].surgery_hours": {
       "type": "number",
-      "description": "Actual Surgery Time (hours) (Section/Page: Sec I p.13) Round to nearest 0.25"
+      "description": "Actual Surgery Time (hours) (Section/Page: Sec I p.13) Round to nearest 0.25",
+      "x_label": "Actual Surgery Time (hours)",
+      "x_section": "Utilization",
+      "x_order": 99,
+      "x_section_order": 18
     },
     "util_or_c[].cleanup_hours": {
       "type": "number",
-      "description": "Room Clean-Up Time (hours) (Section/Page: Sec I p.13) Round to nearest 0.25"
+      "description": "Room Clean-Up Time (hours) (Section/Page: Sec I p.13) Round to nearest 0.25",
+      "x_label": "Room Clean-Up Time (hours)",
+      "x_section": "Utilization",
+      "x_order": 100,
+      "x_section_order": 18
     },
     "util_proc_b": {
       "type": "object",
-      "description": "Surgical Utilization — Procedure Rooms (Class B) (Section/Page: Sec I p.14) Dedicated and multipurpose"
+      "description": "Surgical Utilization — Procedure Rooms (Class B) (Section/Page: Sec I p.14) Dedicated and multipurpose",
+      "x_label": "Surgical Utilization — Procedure Rooms (Class B)",
+      "x_section": "Utilization",
+      "x_order": 101,
+      "x_section_order": 18,
+      "x_required": true
     },
     "util_proc_b_ded": {
       "type": "array",
-      "description": "Dedicated Procedure Rooms (Section/Page: Sec I p.14) GI, Laser Eye, Pain Mgmt, Cardiac Cath"
+      "description": "Dedicated Procedure Rooms (Section/Page: Sec I p.14) GI, Laser Eye, Pain Mgmt, Cardiac Cath",
+      "x_label": "Dedicated Procedure Rooms",
+      "x_section": "Utilization",
+      "x_order": 102,
+      "x_section_order": 18
     },
     "util_proc_b_ded[].type": {
       "type": "string",
-      "description": "Dedicated Type (Section/Page: Sec I p.14) GI, Laser Eye, Pain Management, Cardiac Catheterization"
+      "description": "Dedicated Type (Section/Page: Sec I p.14) GI, Laser Eye, Pain Management, Cardiac Catheterization",
+      "x_label": "Dedicated Type",
+      "x_section": "Utilization",
+      "x_order": 103,
+      "x_section_order": 18
     },
     "util_proc_b_ded[].rooms": {
       "type": "integer",
-      "description": "Rooms (Section/Page: Sec I p.14)"
+      "description": "Rooms (Section/Page: Sec I p.14)",
+      "x_label": "Rooms",
+      "x_section": "Utilization",
+      "x_order": 104,
+      "x_section_order": 18
     },
     "util_proc_b_ded[].cases": {
       "type": "integer",
-      "description": "Cases (Section/Page: Sec I p.14)"
+      "description": "Cases (Section/Page: Sec I p.14)",
+      "x_label": "Cases",
+      "x_section": "Utilization",
+      "x_order": 105,
+      "x_section_order": 18
     },
     "util_proc_b_ded[].setup_hours": {
       "type": "number",
-      "description": "Set-Up Time (hours) (Section/Page: Sec I p.14)"
+      "description": "Set-Up Time (hours) (Section/Page: Sec I p.14)",
+      "x_label": "Set-Up Time (hours)",
+      "x_section": "Utilization",
+      "x_order": 106,
+      "x_section_order": 18
     },
     "util_proc_b_ded[].surgery_hours": {
       "type": "number",
-      "description": "Actual Surgery Time (hours) (Section/Page: Sec I p.14)"
+      "description": "Actual Surgery Time (hours) (Section/Page: Sec I p.14)",
+      "x_label": "Actual Surgery Time (hours)",
+      "x_section": "Utilization",
+      "x_order": 107,
+      "x_section_order": 18
     },
     "util_proc_b_ded[].cleanup_hours": {
       "type": "number",
-      "description": "Clean-Up Time (hours) (Section/Page: Sec I p.14)"
+      "description": "Clean-Up Time (hours) (Section/Page: Sec I p.14)",
+      "x_label": "Clean-Up Time (hours)",
+      "x_section": "Utilization",
+      "x_order": 108,
+      "x_section_order": 18
     },
     "util_proc_b_multi": {
       "type": "array",
-      "description": "Multipurpose Procedure Rooms (Section/Page: Sec I p.14) Specify procedure type"
+      "description": "Multipurpose Procedure Rooms (Section/Page: Sec I p.14) Specify procedure type",
+      "x_label": "Multipurpose Procedure Rooms",
+      "x_section": "Utilization",
+      "x_order": 109,
+      "x_section_order": 18
     },
     "util_proc_b_multi[].type": {
       "type": "string",
-      "description": "Procedure Type (Section/Page: Sec I p.14)"
+      "description": "Procedure Type (Section/Page: Sec I p.14)",
+      "x_label": "Procedure Type",
+      "x_section": "Utilization",
+      "x_order": 110,
+      "x_section_order": 18
     },
     "util_proc_b_multi[].cases": {
       "type": "integer",
-      "description": "Cases (Section/Page: Sec I p.14)"
+      "description": "Cases (Section/Page: Sec I p.14)",
+      "x_label": "Cases",
+      "x_section": "Utilization",
+      "x_order": 111,
+      "x_section_order": 18
     },
     "util_proc_b_multi[].setup_hours": {
       "type": "number",
-      "description": "Set-Up Time (hours) (Section/Page: Sec I p.14)"
+      "description": "Set-Up Time (hours) (Section/Page: Sec I p.14)",
+      "x_label": "Set-Up Time (hours)",
+      "x_section": "Utilization",
+      "x_order": 112,
+      "x_section_order": 18
     },
     "util_proc_b_multi[].surgery_hours": {
       "type": "number",
-      "description": "Actual Surgery Time (hours) (Section/Page: Sec I p.14)"
+      "description": "Actual Surgery Time (hours) (Section/Page: Sec I p.14)",
+      "x_label": "Actual Surgery Time (hours)",
+      "x_section": "Utilization",
+      "x_order": 113,
+      "x_section_order": 18
     },
     "util_proc_b_multi[].cleanup_hours": {
       "type": "number",
-      "description": "Clean-Up Time (hours) (Section/Page: Sec I p.14)"
+      "description": "Clean-Up Time (hours) (Section/Page: Sec I p.14)",
+      "x_label": "Clean-Up Time (hours)",
+      "x_section": "Utilization",
+      "x_order": 114,
+      "x_section_order": 18
     },
     "util_proc_b_multi_total_rooms": {
       "type": "integer",
-      "description": "Total Multi-Purpose Procedure Rooms (Section/Page: Sec I p.14) Auto-calculated"
+      "description": "Total Multi-Purpose Procedure Rooms (Section/Page: Sec I p.14) Auto-calculated",
+      "x_label": "Total Multi-Purpose Procedure Rooms",
+      "x_section": "Utilization",
+      "x_order": 115,
+      "x_section_order": 18
     },
     "util_proc_b_totals": {
       "type": "object",
-      "description": "TOTALS — Procedure Rooms (Section/Page: Sec I p.14) Auto-calculated summary"
+      "description": "TOTALS — Procedure Rooms (Section/Page: Sec I p.14) Auto-calculated summary",
+      "x_label": "TOTALS — Procedure Rooms",
+      "x_section": "Utilization",
+      "x_order": 116,
+      "x_section_order": 18
     },
     "util_total_cases": {
       "type": "integer",
-      "description": "TOTAL CASES (Q11 + Q12) (Section/Page: Sec I p.14) Must equal Total Patients Served (Q5 & Q6)"
+      "description": "TOTAL CASES (Q11 + Q12) (Section/Page: Sec I p.14) Must equal Total Patients Served (Q5 & Q6)",
+      "x_label": "TOTAL CASES (Q11 + Q12)",
+      "x_section": "Utilization",
+      "x_order": 117,
+      "x_section_order": 18
     },
     "fy_start": {
       "type": "string",
       "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/(19|20)\\d{2}$",
-      "description": "Fiscal Year Starting Date (Section/Page: Sec II p.15) Most recent fiscal year available"
+      "description": "Fiscal Year Starting Date (Section/Page: Sec II p.15) Most recent fiscal year available",
+      "x_label": "Fiscal Year Starting Date",
+      "x_section": "Finance",
+      "x_order": 118,
+      "x_section_order": 19,
+      "x_required": true
     },
     "fy_end": {
       "type": "string",
       "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/(19|20)\\d{2}$",
-      "description": "Fiscal Year Ending Date (Section/Page: Sec II p.15)"
+      "description": "Fiscal Year Ending Date (Section/Page: Sec II p.15)",
+      "x_label": "Fiscal Year Ending Date",
+      "x_section": "Finance",
+      "x_order": 119,
+      "x_section_order": 19,
+      "x_required": true
     },
     "finance_source": {
       "type": "string",
-      "description": "Source of Financial Information (Section/Page: Sec II p.15) e.g., Audited FS, Review, Compilation, Tax Return"
+      "description": "Source of Financial Information (Section/Page: Sec II p.15) e.g., Audited FS, Review, Compilation, Tax Return",
+      "x_label": "Source of Financial Information",
+      "x_section": "Finance",
+      "x_order": 120,
+      "x_section_order": 19,
+      "x_required": true
     },
     "capex_total": {
       "type": "number",
-      "description": "Capital Expenditures — Total (Section/Page: Sec II p.15) Report total for fiscal year"
+      "description": "Capital Expenditures — Total (Section/Page: Sec II p.15) Report total for fiscal year",
+      "x_label": "Capital Expenditures — Total",
+      "x_section": "Finance",
+      "x_order": 121,
+      "x_section_order": 19,
+      "x_required": true
     }
   },
   "required": [
