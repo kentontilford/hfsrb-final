@@ -1,4 +1,4 @@
-const state = { all: [], filtered: [], charts: {}, showAllFields: false };
+const state = { all: [], filtered: [], charts: {}, showAllFields: false, fullscreen: false };
 
 function el(sel) { return document.querySelector(sel); }
 
@@ -172,6 +172,10 @@ downloadCharts);
 const shareBtn = el('#shareLink'); if (shareBtn)
 shareBtn.addEventListener('click', copyShareLink);
 
+// Fullscreen control
+addFullscreenControl();
+if (state.fullscreen) setFullscreen(true);
+
 // Bind show-all toggle to re-render fields and sync URL
 const showBox2 = el('#showAllFields');
 if (showBox2) {
@@ -197,6 +201,36 @@ function destroyCharts() {
 for (const k in state.charts) { try
 { state.charts[k].destroy(); } catch {} }
 state.charts = {};
+}
+
+function addFullscreenControl() {
+  const linksHost = el('#links');
+  if (!linksHost) return;
+  if (!linksHost.querySelector('#fullscreenToggle')) {
+    const btn = document.createElement('button');
+    btn.id = 'fullscreenToggle';
+    btn.textContent = state.fullscreen ? 'Exit Full Screen' : 'Full Screen';
+    btn.addEventListener('click', () => {
+      state.fullscreen = !state.fullscreen;
+      setFullscreen(state.fullscreen);
+      btn.textContent = state.fullscreen ? 'Exit Full Screen' : 'Full Screen';
+      const cur = getParams();
+      setParams({ ...cur, view: state.fullscreen ? 'full' : null });
+    });
+    linksHost.appendChild(btn);
+  }
+}
+
+function setFullscreen(on) {
+  const d = el('#detail');
+  if (!d) return;
+  if (on) {
+    d.classList.add('fullscreen');
+    document.body.classList.add('no-scroll');
+  } else {
+    d.classList.remove('fullscreen');
+    document.body.classList.remove('no-scroll');
+  }
 }
 
 function drawCharts(type, p) {

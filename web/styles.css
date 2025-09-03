@@ -15,10 +15,11 @@ main { display: grid; grid-template-columns: 280px 1fr 420px; gap: 16px; padding
 .list .meta { color: var(--muted); font-size: 12px; }
 .detail { position: relative; border: 1px solid var(--border); border-radius: 8px; padding: 12px; background: var(--card); }
 .detail .close { position: absolute; right: 8px; top: 8px; border: none; background: transparent; font-size: 20px; cursor: pointer; }
+.detail.fullscreen { position: fixed; inset: 0; z-index: 1000; border-radius: 0; padding: 16px; overflow: auto; background: var(--bg); }
+body.no-scroll { overflow: hidden; }
 .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
 .links a, .links button { display: inline-block; margin-right: 8px; margin-bottom: 4px; font-size: 12px; }
 table { border-collapse: collapse; width: 100%; }
 th, td { padding: 6px 8px; border-bottom: 1px solid var(--border); font-size: 12px; }
 th { text-align: left; }
 td.right, th.right { text-align: right; }
-
