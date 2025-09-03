@@ -225,14 +225,34 @@ function addFullscreenControl() {
 function setFullscreen(on) {
   const d = el('#detail');
   if (!d) return;
+  const bar = el('#fsbar');
   if (on) {
-    d.classList.add('fullscreen');
+    if (!state._detailParent) {
+      state._detailParent = d.parentElement;
+      state._detailNext = d.nextSibling;
+    }
+    let overlay = document.getElementById('detailOverlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'detailOverlay';
+      overlay.className = 'detail-overlay';
+      document.body.appendChild(overlay);
+    }
+    overlay.appendChild(d);
     document.body.classList.add('no-scroll');
-    const bar = el('#fsbar'); if (bar) bar.hidden = false;
+    if (bar) bar.hidden = false;
   } else {
-    d.classList.remove('fullscreen');
+    if (state._detailParent) {
+      if (state._detailNext && state._detailNext.parentNode === state._detailParent) {
+        state._detailParent.insertBefore(d, state._detailNext);
+      } else {
+        state._detailParent.appendChild(d);
+      }
+    }
+    const overlay = document.getElementById('detailOverlay');
+    if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
     document.body.classList.remove('no-scroll');
-    const bar = el('#fsbar'); if (bar) bar.hidden = true;
+    if (bar) bar.hidden = true;
   }
 }
 
