@@ -647,6 +647,23 @@ function drawExtra(sel, title, labels, data) {
       }).join('');
       host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Services by Specialty</h3><table><thead><tr><th>Specialty</th><th class=\"right\">IP Services</th><th class=\"right\">OP Services</th><th class=\"right\">Hours (IP)</th><th class=\"right\">Hours (OP)</th><th class=\"right\">Hours (Total)</th></tr></thead><tbody>${rows}</tbody></table></div>`);
     }
+
+    // Imaging Modalities (CT/MRI/PET/Nuclear) — Exams IP/OP where available
+    function modalityRow(mod, ipKeys, opKeys) {
+      const ip = ipKeys.reduce((a,k)=> a + (toNum(p[k])||0), 0);
+      const op = opKeys.reduce((a,k)=> a + (toNum(p[k])||0), 0);
+      if (!ip && !op) return '';
+      return `<tr><td>${mod}</td><td class=\"right\">${fmt(ip)}</td><td class=\"right\">${fmt(op)}</td></tr>`;
+    }
+    const modRows = [];
+    modRows.push(modalityRow('CT', ['ctconipexam','ctipx'], ['ctconopexam','ctopx']));
+    modRows.push(modalityRow('MRI', ['mriipx'], ['mriopx']));
+    modRows.push(modalityRow('PET', ['petconipexam','petipx'], ['petconopexam','petopx']));
+    modRows.push(modalityRow('Nuclear Medicine', ['nuclconipexam','nucipx'], ['nuclconopexam','nucopx']));
+    const mr = modRows.filter(Boolean).join('');
+    if (mr) {
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Imaging Modalities — Exams</h3><table><thead><tr><th>Modality</th><th class=\"right\">IP Exams</th><th class=\"right\">OP Exams</th></tr></thead><tbody>${mr}</tbody></table></div>`);
+    }
   }
 
   if (type === 'LTC') {
@@ -945,6 +962,24 @@ function appendTypeSpecificTables(type, p) {
     if (eLab.length) {
       const rows = eLab.map(k => `<tr><td>${k}</td><td class=\"right\">${fmt(eth[k])}</td></tr>`).join('');
       host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Patients by Ethnicity</h3><table><thead><tr><th>Ethnicity</th><th class=\"right\">Count</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+
+    // Age distribution bar chart (inline)
+    const ageData = [
+      ['Under 14', toNum(p.male_patients_under_14)+toNum(p.female_patients_under_14)],
+      ['15-44', toNum(p.male_patients_15_44)+toNum(p.female_patients_15_44)],
+      ['45-64', toNum(p.male_patients_45_64)+toNum(p.female_patients_45_64)],
+      ['65-74', toNum(p.male_patients_65_74)+toNum(p.female_patients_65_74)],
+      ['75+', toNum(p.male_patients_75_and_over)+toNum(p.female_patients_75_and_over)],
+    ];
+    if (ageData.some(a=>a[1])) {
+      const id = 'esrd-age-bar';
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Patients by Age</h3><canvas id=\"${id}\"></canvas></div>`);
+      const cv = document.getElementById(id);
+      if (cv && typeof Chart !== 'undefined') {
+        const lbls = ageData.map(a=>a[0]); const vals = ageData.map(a=>a[1]);
+        new Chart(cv.getContext('2d'), { type:'bar', data:{ labels: lbls, datasets:[{ data: vals }] }, options:{ plugins:{ legend:{display:false} }, scales:{ y:{ beginAtZero:true } } } });
+      }
     }
   }
   if (type === 'LTC') {
