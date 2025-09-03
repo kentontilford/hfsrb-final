@@ -153,6 +153,9 @@ const d = el('#detail'); d.hidden = false;
 el('#meta').innerHTML = `${meta.facility_name || p.facility_name || rec.name}
     <div class="meta">${p.address_line1 || p.facility_address || ''}, ${p.address_city || p.facility_city || ''} ${p.address_zip || p.facility_zip || ''} — ${rec.type} • ${rec.year}</div>`;
 
+// Summary cards (Facility, Ownership, Management) for Hospital to mirror 2022 profile
+buildSummaryCards(rec.type, p);
+
 // Action links (work from /web/ during dev and site root in publish)
 const links = [];
 const siteBase = IS_WEB_SUBDIR ? '..' : '.';
@@ -547,6 +550,54 @@ function buildDemographicsTables(type, p, raceLabels, raceMap, ethLabels, ethMap
   host.innerHTML = parts.join('');
   // After demographics, append finance tables for specific types
   appendFinanceTables(type, p);
+}
+
+// Build summary cards for the detail view (Facility, Ownership, Management)
+function buildSummaryCards(type, p) {
+  const host = el('#summary');
+  if (!host) return;
+  host.innerHTML = '';
+  if (type !== 'Hospital') return;
+  function rowHTML(label, val, opts = {}) {
+    const v = String(val ?? '').trim();
+    if (!v) return '';
+    const display = opts.raw ? v : fmt(v);
+    return `<tr><td>${label}</td><td class="right">${display}</td></tr>`;
+  }
+  // Facility
+  const facRows = [];
+  const addr1 = p.address_line1 || p.facility_address;
+  const city = p.address_city || p.facility_city;
+  const state = p.address_state || p.facility_state || 'IL';
+  const zip = p.address_zip || p.facility_zip;
+  if (addr1 || city || zip) {
+    facRows.push(rowHTML('Street', addr1, { raw: true }));
+    facRows.push(rowHTML('City/State/ZIP', `${city || ''}, ${state || ''} ${zip || ''}`, { raw: true }));
+  }
+  facRows.push(rowHTML('IDPH License', p.license_idph, { raw: true }));
+  facRows.push(rowHTML('FEIN', p.fein, { raw: true }));
+  if (facRows.filter(Boolean).length) {
+    host.insertAdjacentHTML('beforeend', `<div class="card col-12"><h3>Facility</h3><table><thead><tr><th>Field</th><th class="right">Value</th></tr></thead><tbody>${facRows.join('')}</tbody></table></div>`);
+  }
+  // Ownership & Organization
+  const ownRows = [];
+  ownRows.push(rowHTML('Operating Entity', p.operator_entity));
+  ownRows.push(rowHTML('Plant Owner', p.plant_owner));
+  ownRows.push(rowHTML('Ownership Type', p.ownership_type));
+  ownRows.push(rowHTML('CMS Certification', p.cms_certification));
+  ownRows.push(rowHTML('Characterization', Array.isArray(p.hospital_characterization) ? p.hospital_characterization.join(', ') : p.hospital_characterization));
+  ownRows.push(rowHTML('CHNA URL', p.chna_url, { raw: true }));
+  if (ownRows.filter(Boolean).length) {
+    host.insertAdjacentHTML('beforeend', `<div class="card col-12"><h3>Ownership & Organization</h3><table><thead><tr><th>Field</th><th class=\"right\">Value</th></tr></thead><tbody>${ownRows.join('')}</tbody></table></div>`);
+  }
+  // Management Contracts
+  const mgmtRows = [];
+  mgmtRows.push(rowHTML('Emergency Services Management', p.mgmt_emergency));
+  mgmtRows.push(rowHTML('Psychiatric Services Management', p.mgmt_psych));
+  mgmtRows.push(rowHTML('Rehabilitation Services Management', p.mgmt_rehab));
+  if (mgmtRows.filter(Boolean).length) {
+    host.insertAdjacentHTML('beforeend', `<div class="card col-12"><h3>Management Contracts</h3><table><thead><tr><th>Field</th><th class=\"right\">Value</th></tr></thead><tbody>${mgmtRows.join('')}</tbody></table></div>`);
+  }
 }
 
 // Append Finance tables by type, using known revenue field names
