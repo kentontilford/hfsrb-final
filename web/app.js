@@ -824,6 +824,22 @@ function initEvents() {
   el('#close').addEventListener('click', () => { el('#detail').hidden = true; destroyCharts(); });
   const exportBtn = el('#exportFiltered');
   if (exportBtn) exportBtn.addEventListener('click', exportFilteredCSV);
+  // Keyboard shortcuts: Escape to exit full screen; 'f' to toggle when detail is open
+  document.addEventListener('keydown', (e) => {
+    const d = el('#detail');
+    if (!d || d.hidden) return;
+    if (e.key === 'Escape') {
+      state.fullscreen = false;
+      setFullscreen(false);
+      const btn = el('#fullscreenToggle'); if (btn) btn.textContent = 'Full Screen';
+      const cur = getParams(); setParams({ ...cur, view: null });
+    } else if ((e.key || '').toLowerCase() === 'f') {
+      state.fullscreen = !state.fullscreen;
+      setFullscreen(state.fullscreen);
+      const btn = el('#fullscreenToggle'); if (btn) btn.textContent = state.fullscreen ? 'Exit Full Screen' : 'Full Screen';
+      const cur = getParams(); setParams({ ...cur, view: state.fullscreen ? 'full' : null });
+    }
+  });
 }
 initEvents();
 loadIndex();

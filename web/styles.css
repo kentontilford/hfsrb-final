@@ -17,6 +17,12 @@ main { display: grid; grid-template-columns: 280px 1fr 420px; gap: 16px; padding
 .detail .close { position: absolute; right: 8px; top: 8px; border: none; background: transparent; font-size: 20px; cursor: pointer; }
 .detail.fullscreen { position: fixed; inset: 0; z-index: 1000; border-radius: 0; padding: 16px; overflow: auto; background: var(--bg); }
 body.no-scroll { overflow: hidden; }
+.card { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 10px 0; background: var(--card); }
+.card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+th { font-weight: 600; color: #222; }
+table { margin-bottom: 8px; }
+.links a, .links button { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: #f8f9fb; color: #222; text-decoration: none; }
+.links button { cursor: pointer; }
 .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
 .links a, .links button { display: inline-block; margin-right: 8px; margin-bottom: 4px; font-size: 12px; }
 table { border-collapse: collapse; width: 100%; }
