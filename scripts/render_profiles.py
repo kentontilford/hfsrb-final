@@ -895,12 +895,50 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
         rows_sorted = sorted(sec['rows'], key=lambda r: (r[0], str(r[1]).lower()))
         cards_html.append(section_card(sec['label'], table(rows_sorted, ('Field', 'Value')), 'col-12'))
 
+    # Build props map from dictionary metadata for client-side re-rendering
+    import json as _json
+    props = {}
+    for k, info in dict_meta.items():
+        sec_label = info.get('section_label') or 'Other'
+        # Coarse section order derived from the first time we see a section
+        props[k] = {
+            'x_label': info.get('label') or k,
+            'x_section': sec_label,
+            'x_section_order': 9999,  # will be normalized in JS
+            'x_order': info.get('order', 0),
+            'x_required': bool(info.get('required')),
+            'description': (info.get('notes') or '') + (f" (Section/Page: {info.get('page')})" if info.get('page') else ''),
+        }
+    data_blob = _json.dumps({'payload': payload, 'props': props}, ensure_ascii=False)
+
+    # Controls and container to allow client-side toggle of all fields
+    controls = (
+        '<div class="card col-12" id="pf-controls">'
+        '  <label style="display:inline-flex;align-items:center;gap:6px">'
+        '    <input type="checkbox" id="pfShowAll" /> Show all fields (include empty optionals)'
+        '  </label>'
+        '</div>'
+    )
+
+    client_js = (
+        '<script>(function(){\n'
+        '  try {\n'
+        '    const DATA = ' + data_blob + ';\n'
+        "    function fmt(n){const x=Number(String(n??'').replace(/[^0-9.-]/g,''));return Number.isFinite(x)?x.toLocaleString('en-US'):String(n??'');}\n"
+        "    function renderAll(payload, props, showAll){const keys=new Set([...Object.keys(payload||{}), ...Object.keys(props||{})]); const items=[...keys].map(k=>{const p=props[k]||{};return {key:k,label:p.x_label||k,section:p.x_section||'Other',sectionOrder:Number(p.x_section_order||9999),order:Number(p.x_order||9999),desc:p.description||'',required:!!p.x_required,val:(payload||{})[k]};}).filter(it=> showAll || String(it.val??'').trim()!=='' || it.required); const secOrder={}; let idx=0; items.forEach(it=>{ if(!(it.section in secOrder)) secOrder[it.section]=++idx; if(!it.sectionOrder||it.sectionOrder===9999) it.sectionOrder=secOrder[it.section];}); items.sort((a,b)=> (a.sectionOrder-b.sectionOrder) || (a.order-b.order) || String(a.label).localeCompare(String(b.label))); const groups={}; items.forEach(it=>{(groups[it.section]=groups[it.section]||[]).push(it);}); const container=document.getElementById('all-sections'); if(!container) return; container.innerHTML=''; Object.keys(groups).forEach(sec=>{ const arr=groups[sec]; const rows=arr.map(it=>{ const label=it.required? (it.label+' *') : it.label; const val=String(it.val??'').trim().length? fmt(it.val) : (showAll? '' : '—'); return '<tr><td>'+label+'</td><td class=\"right\">'+val+'</td><td>'+(it.desc||'')+'</td></tr>'; }).join(''); const card=['<div class=\"card col-12\">','<h3>'+sec+'</h3>','<table><thead><tr><th>Field</th><th class=\"right\">Value</th><th>Description</th></tr></thead><tbody>'+rows+'</tbody></table>','</div>'].join(''); container.insertAdjacentHTML('beforeend', card); }); }\n"
+        "    function applyFromURL(){ const u=new URL(window.location.href); const show=(u.searchParams.get('show')==='all'); const box=document.getElementById('pfShowAll'); if(box){ box.checked=show; } renderAll(DATA.payload, DATA.props, show); }\n"
+        "    document.addEventListener('DOMContentLoaded', function(){ applyFromURL(); const box=document.getElementById('pfShowAll'); if(box){ box.addEventListener('change', ()=>{ const show=!!box.checked; const u=new URL(window.location.href); if(show) u.searchParams.set('show','all'); else u.searchParams.delete('show'); history.replaceState({},'',u.toString()); renderAll(DATA.payload, DATA.props, show); }); } });\n"
+        "    window.__renderAllFields = function(){ renderAll(DATA.payload, DATA.props, true); };\n"
+        '  } catch(e) { /* noop */ }\n'
+        '})();</script>'
+    )
+
     return (
         '<!doctype html><html lang="en">'
         + head_html(f"{name} — Profile")
         + '<body>'
         + header
-        + f'<main class="grid">' + injected_html + ''.join(cards_html) + '</main>'
+        + f'<main class="grid">' + injected_html + controls + '<div id="all-sections">' + ''.join(cards_html) + '</div>' + client_js + '</main>'
         + '</body></html>'
     )
 

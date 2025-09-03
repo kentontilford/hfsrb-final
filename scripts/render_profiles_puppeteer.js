@@ -62,6 +62,8 @@ async function main() {
     if (hadChart) {
       try { await page.evaluate(() => { if (window.__renderProfileCharts) window.__renderProfileCharts(); }); } catch {}
     }
+    // Ensure All Fields are rendered in "show all" mode for PDFs
+    try { await page.evaluate(() => { if (window.__renderAllFields) window.__renderAllFields(); }); } catch {}
     const pdfPath = abs.replace(/\.html$/i, '.pdf');
     await page.pdf({ path: pdfPath, format: 'Letter', printBackground: true, margin: { top: '0.6in', right: '0.7in', bottom: '0.6in', left: '0.7in' } });
     ok++;
