@@ -329,6 +329,20 @@ function drawExtra(sel, title, labels, data) {
       if (!used2) { drawExtra('#chart-extra2', 'Staffing (FTEs)', sLabels, sData); used2 = true; }
       else if (!used3) { drawExtra('#chart-extra3', 'Staffing (FTEs)', sLabels, sData); used3 = true; }
     }
+    // Finance fallback chart if space available
+    const fin = {
+      'Medicare': p.net_revenue_medicare,
+      'Medicaid': p.net_revenue_medicaid,
+      'Other Public': p.net_revenue_other_public,
+      'Private Insurance': p.net_revenue_private_insur,
+      'Private Payment': p.net_revenue_private_pay,
+    };
+    const fLabels = Object.keys(fin).filter(k => String(fin[k] ?? '').trim() !== '');
+    const fData = fLabels.map(k => toNum(fin[k]));
+    if (fLabels.length) {
+      if (!used2) { drawExtra('#chart-extra2', 'Net Revenue by Source', fLabels, fData); used2 = true; }
+      else if (!used3) { drawExtra('#chart-extra3', 'Net Revenue by Source', fLabels, fData); used3 = true; }
+    }
   }
 
   if (type === 'Hospital') {
@@ -573,6 +587,19 @@ function appendFinanceTables(type, p) {
       'Private Payment': p.net_revenue_private_payment,
     };
     const total = p.net_revenue_total;
+    const finHTML = tableFromMap('Net Revenue by Primary Source of Payment', fin);
+    const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL</h3><table><tbody><tr><td>Total</td><td class="right">${fmt(total)}</td></tr></tbody></table></div>` : '';
+    host.insertAdjacentHTML('beforeend', finHTML + totHTML);
+  }
+  if (type === 'ESRD') {
+    const fin = {
+      'Medicare': p.net_revenue_medicare,
+      'Medicaid': p.net_revenue_medicaid,
+      'Other Public': p.net_revenue_other_public,
+      'Private Insurance': p.net_revenue_private_insur,
+      'Private Payment': p.net_revenue_private_pay,
+    };
+    const total = p.total_revenue;
     const finHTML = tableFromMap('Net Revenue by Primary Source of Payment', fin);
     const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL</h3><table><tbody><tr><td>Total</td><td class="right">${fmt(total)}</td></tr></tbody></table></div>` : '';
     host.insertAdjacentHTML('beforeend', finHTML + totHTML);
