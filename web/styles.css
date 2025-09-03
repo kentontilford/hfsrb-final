@@ -46,6 +46,9 @@ table { margin-bottom: 8px; }
   .detail.fullscreen .fsbar { display: none !important; }
 }
 .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+/* Tame charts in full-screen so they don't explode in size */
+.detail.fullscreen .charts { grid-template-columns: repeat(3, minmax(240px, 1fr)); }
+.detail.fullscreen canvas { max-height: 280px; width: 100% !important; height: auto !important; }
 .links a, .links button { display: inline-block; margin-right: 8px; margin-bottom: 4px; font-size: 12px; }
 table { border-collapse: collapse; width: 100%; }
 th, td { padding: 6px 8px; border-bottom: 1px solid var(--border); font-size: 12px; }

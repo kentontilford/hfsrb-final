@@ -196,6 +196,8 @@ setParams({ year: rec.year, type: rec.type, slug: rec.slug, q: el('#q').value, c
   
   // Render “All Fields” with schema descriptions (if available)
   try { renderAllFields(p, schemaProps, state.showAllFields); } catch { renderAllFields(p, {}, state.showAllFields); }
+  // If already in fullscreen, reapply overlay/toolbar and scroll to top
+  if (state.fullscreen) { setFullscreen(true); const dnode = el('#detail'); if (dnode) dnode.scrollTop = 0; }
 }
 
 function destroyCharts() {
