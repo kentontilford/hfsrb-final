@@ -604,10 +604,15 @@ function buildSummaryCards(type, p) {
 function appendFinanceTables(type, p) {
   const host = el('#demo-tables');
   if (!host) return;
+  function fmtCurrency(n) {
+    const x = Number(String(n ?? '').replace(/[^0-9.-]/g, ''));
+    if (!Number.isFinite(x)) return String(n ?? '');
+    try { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(x); } catch { return x.toLocaleString('en-US'); }
+  }
   function tableFromMap(title, map) {
     const labels = Object.keys(map).filter(k => String(map[k] ?? '').trim() !== '');
     if (!labels.length) return '';
-    const rows = labels.map(k => `<tr><td>${k}</td><td class="right">${fmt(map[k])}</td></tr>`).join('');
+    const rows = labels.map(k => `<tr><td>${k}</td><td class="right">${fmtCurrency(map[k])}</td></tr>`).join('');
     return `<div class="card col-12"><h3>${title}</h3><table><thead><tr><th>Source</th><th class="right">Net Revenue</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
   if (type === 'Hospital') {
@@ -639,7 +644,7 @@ function appendFinanceTables(type, p) {
     };
     const total = p.net_revenue_total;
     const finHTML = tableFromMap('Net Revenue by Primary Source of Payment', fin);
-    const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL</h3><table><tbody><tr><td>Total</td><td class="right">${fmt(total)}</td></tr></tbody></table></div>` : '';
+    const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL</h3><table><tbody><tr><td>Total</td><td class="right">${fmtCurrency(total)}</td></tr></tbody></table></div>` : '';
     host.insertAdjacentHTML('beforeend', finHTML + totHTML);
   }
   if (type === 'ESRD') {
@@ -652,7 +657,7 @@ function appendFinanceTables(type, p) {
     };
     const total = p.total_revenue;
     const finHTML = tableFromMap('Net Revenue by Primary Source of Payment', fin);
-    const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL</h3><table><tbody><tr><td>Total</td><td class="right">${fmt(total)}</td></tr></tbody></table></div>` : '';
+    const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL</h3><table><tbody><tr><td>Total</td><td class="right">${fmtCurrency(total)}</td></tr></tbody></table></div>` : '';
     host.insertAdjacentHTML('beforeend', finHTML + totHTML);
   }
 }

@@ -373,6 +373,16 @@ def _render_hospital_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
     surgery_matrix('procB_', 'Surgical Services — Class B')
 
     # Finance — Net Revenue by Source (Inpatient / Outpatient)
+    def _fmt_currency(v: Any) -> str:
+        try:
+            import re
+            s = re.sub(r'[^0-9\-\.]', '', str(v))
+            if s in ('', '.', '-'):
+                return ''
+            x = float(s)
+            return f"${x:,.0f}"
+        except Exception:
+            return str(v)
     def finance_rows(prefix: str) -> Tuple[str, List[List[Any]], bool]:
         mapping = [
             ('Medicare', f'{prefix}_medicare_revenue'),
@@ -387,7 +397,7 @@ def _render_hospital_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
             val = payload.get(key, '')
             if str(val or '').strip() != '':
                 any_val = True
-            rows.append([lab, val])
+            rows.append([lab, _fmt_currency(val)])
             used.add(key)
         title = 'Inpatient Net Revenue by Source' if prefix == 'inpatient' else 'Outpatient Net Revenue by Source'
         return (title, rows, any_val)
@@ -444,18 +454,28 @@ def _render_esrd_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
         ('Private Payment', 'net_revenue_private_pay'),
     ]
     fin_rows: List[List[Any]] = []
+    def _fmt_currency(v: Any) -> str:
+        try:
+            import re
+            s = re.sub(r'[^0-9\-\.]', '', str(v))
+            if s in ('', '.', '-'):
+                return ''
+            x = float(s)
+            return f"${x:,.0f}"
+        except Exception:
+            return str(v)
     any_fin = False
     for lab, key in fin_map:
         val = payload.get(key, '')
         if str(val or '').strip() != '':
             any_fin = True
-        fin_rows.append([lab, val])
+        fin_rows.append([lab, _fmt_currency(val)])
         used.add(key)
     total_rev = payload.get('total_revenue', '')
     if any_fin:
         parts.append(section_card('Net Revenue by Primary Source of Payment', table_matrix(['Source', 'Net Revenue'], fin_rows), 'col-12'))
         if str(total_rev or '').strip() != '':
-            parts.append(section_card('Net Revenue — TOTAL', table_matrix(['Metric', 'Amount'], [['TOTAL', total_rev]]), 'col-12'))
+            parts.append(section_card('Net Revenue — TOTAL', table_matrix(['Metric', 'Amount'], [['TOTAL', _fmt_currency(total_rev)]]), 'col-12'))
             used.add('total_revenue')
 
     # Staffing (FTEs) matrix
@@ -576,18 +596,28 @@ def _render_ltc_matrices(payload: Dict[str, Any]) -> Tuple[str, set[str]]:
         ('Private Payment', 'net_revenue_private_payment'),
     ]
     ltc_rows: List[List[Any]] = []
+    def _fmt_currency(v: Any) -> str:
+        try:
+            import re
+            s = re.sub(r'[^0-9\-\.]', '', str(v))
+            if s in ('', '.', '-'):
+                return ''
+            x = float(s)
+            return f"${x:,.0f}"
+        except Exception:
+            return str(v)
     any_ltc_fin = False
     for lab, key in ltc_fin_map:
         val = payload.get(key, '')
         if str(val or '').strip() != '':
             any_ltc_fin = True
-        ltc_rows.append([lab, val])
+        ltc_rows.append([lab, _fmt_currency(val)])
         used.add(key)
     total_key = 'net_revenue_total'
     if any_ltc_fin:
         parts.append(section_card('Net Revenue by Primary Source of Payment', table_matrix(['Source', 'Net Revenue'], ltc_rows), 'col-12'))
         if str(payload.get(total_key, '') or '').strip() != '':
-            parts.append(section_card('Net Revenue — TOTAL', table_matrix(['Metric', 'Amount'], [['TOTAL', payload.get(total_key, '')]]), 'col-12'))
+            parts.append(section_card('Net Revenue — TOTAL', table_matrix(['Metric', 'Amount'], [['TOTAL', _fmt_currency(payload.get(total_key, ''))]]), 'col-12'))
             used.add(total_key)
 
     return ''.join(parts), used
