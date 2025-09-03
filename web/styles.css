@@ -34,6 +34,8 @@ table { margin-bottom: 8px; }
 .fshead { display: flex; flex-direction: column; gap: 2px; margin: 0 8px; min-width: 0; }
 .fshead .fs-title { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .fshead .fs-sub { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* Fullscreen picker */
+.fsbar select { font-size: 12px; padding: 5px 8px; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
 
 /* Print styles: print only the detail pane, clean look */
 @media print {
@@ -48,7 +50,7 @@ table { margin-bottom: 8px; }
 .charts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
 /* Tame charts in full-screen so they don't explode in size */
 .detail.fullscreen .charts { grid-template-columns: repeat(3, minmax(240px, 1fr)); }
-.detail.fullscreen canvas { max-height: 280px; width: 100% !important; height: auto !important; }
+.detail.fullscreen canvas { max-height: 220px; width: 100% !important; height: auto !important; }
 .links a, .links button { display: inline-block; margin-right: 8px; margin-bottom: 4px; font-size: 12px; }
 table { border-collapse: collapse; width: 100%; }
 th, td { padding: 6px 8px; border-bottom: 1px solid var(--border); font-size: 12px; }

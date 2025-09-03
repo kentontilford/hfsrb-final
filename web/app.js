@@ -274,6 +274,12 @@ function renderFullscreenBar(ctx) {
   const zip = (ctx && ctx.payload && (ctx.payload.address_zip || ctx.payload.facility_zip)) || '';
   const sub = [city, state].filter(Boolean).join(', ') + (zip ? ` ${zip}` : '') + (type ? ` • ${type}` : '') + (year ? ` • ${year}` : '');
   html.push(`<div class="fshead"><div class="fs-title">${name || 'Facility'}</div><div class="fs-sub">${sub}</div></div>`);
+  // Facility picker (from current filtered list)
+  const idx = (state.filtered || []).findIndex(r => String(r.slug)===String(slug) && String(r.year)===String(year) && String(r.type)===String(type));
+  const opts = (state.filtered || []).map((r,i)=>`<option value="${i}" ${i===idx?'selected':''}>${r.name}</option>`).join('');
+  html.push(`<button id="fs-prev" title="Previous">◂</button>`);
+  html.push(`<select id="fs-pick" title="Jump to facility">${opts}</select>`);
+  html.push(`<button id="fs-next" title="Next">▸</button>`);
   html.push(`<a href="${siteBase || '.'}/out/profiles/${year}/${type}/${slug}.html" target="_blank">Open HTML</a>`);
   html.push(`<a href="${siteBase || '.'}/out/profiles/${year}/${type}/${slug}.pdf" target="_blank">Open PDF</a>`);
   html.push(`<button id="fs-dlcsv">Download CSV</button>`);
@@ -300,6 +306,14 @@ function renderFullscreenBar(ctx) {
     state.fullscreen = false; setFullscreen(false);
     const cur = getParams(); setParams({ ...cur, view: null });
   });
+  function openAt(i) {
+    const row = (state.filtered || [])[i];
+    if (!row) return;
+    openDetail({ year: row.year, type: row.type, slug: row.slug });
+  }
+  const pick = el('#fs-pick'); if (pick) pick.addEventListener('change', () => openAt(parseInt(pick.value,10)));
+  const prev = el('#fs-prev'); if (prev) prev.addEventListener('click', () => { const i = (pick?parseInt(pick.value,10):idx) - 1; if (i>=0) openAt(i); });
+  const next = el('#fs-next'); if (next) next.addEventListener('click', () => { const i = (pick?parseInt(pick.value,10):idx) + 1; if (i<(state.filtered||[]).length) openAt(i); });
 }
 
 function drawCharts(type, p) {
