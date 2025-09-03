@@ -835,8 +835,54 @@ function appendTypeSpecificTables(type, p) {
     if (String(p.private_room_rate ?? '').trim() !== '') rates.push(['Private Room Rate', p.private_room_rate]);
     if (String(p.shared_room_rate ?? '').trim() !== '') rates.push(['Shared Room Rate', p.shared_room_rate]);
     if (rates.length) {
-      const rows = rates.map(([k,v]) => `<tr><td>${k}</td><td class=\"right\">${fmt(v)}</td></tr>`).join('');
-      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Room Rates</h3><table><thead><tr><th>Type</th><th class=\"right\">Rate</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+      const rows = rates.map(([k,v]) => `<tr><td>${k}</td><td class="right">${fmt(v)}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class="card col-12"><h3>Room Rates</h3><table><thead><tr><th>Type</th><th class="right">Rate</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    // Demographics — Age (Male/Female/Total)
+    const ageRows = [
+      ['Under 18', p.male_under_18, p.female_under_18],
+      ['18-44', p.male_18_44, p.female_18_44],
+      ['45-59', p.male_45_59, p.female_45_59],
+      ['60-64', p.male_60_64, p.female_60_64],
+      ['65-74', p.male_65_74, p.female_65_74],
+      ['75-84', p.male_75_84, p.female_75_84],
+      ['85+', p.male_85_plus, p.female_85_plus],
+    ];
+    if (ageRows.some(r => String(r[1] ?? '').trim() !== '' || String(r[2] ?? '').trim() !== '')) {
+      const rows = ageRows.map(([lab,m,f]) => `<tr><td>${lab}</td><td class="right">${fmt(m)}</td><td class="right">${fmt(f)}</td><td class="right">${fmt((toNum(m)||0)+(toNum(f)||0))}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class="card col-12"><h3>Residents by Age and Sex</h3><table><thead><tr><th>Age Group</th><th class="right">Male</th><th class="right">Female</th><th class="right">Total</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    // Demographics — Race
+    const race = {
+      'White': p.race_white,
+      'Black/African American': p.race_black_african_american,
+      'Asian': p.race_asian,
+      'American Indian/Alaska Native': p.race_american_indian,
+      'Native Hawaiian/Pacific Islander': p.race_native_hawaiian_pacific_islander,
+      'Unknown': p.race_unknown,
+    };
+    const rLab = Object.keys(race).filter(k => String(race[k] ?? '').trim() !== '');
+    if (rLab.length) {
+      const rows = rLab.map(k => `<tr><td>${k}</td><td class="right">${fmt(race[k])}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class="card col-12"><h3>Residents by Race</h3><table><thead><tr><th>Race</th><th class="right">Count</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    // Demographics — Ethnicity
+    const eth = {
+      'Hispanic/Latino': p.ethnicity_hispanic_latino,
+      'Non-Hispanic': p.ethnicity_non_hispanic,
+      'Unknown': p.ethnicity_unknown,
+    };
+    const eLab = Object.keys(eth).filter(k => String(eth[k] ?? '').trim() !== '');
+    if (eLab.length) {
+      const rows = eLab.map(k => `<tr><td>${k}</td><td class="right">${fmt(eth[k])}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class="card col-12"><h3>Residents by Ethnicity</h3><table><thead><tr><th>Ethnicity</th><th class="right">Count</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    // Staffing FTEs
+    const staff = [];
+    [["Administrators (FTEs)", p.adminfte],["Physicians (FTEs)", p.physfte],["Director of Nursing (FTEs)", p.dirnursfte],["Registered Nurses (FTEs)", p.regnursfte],["LPNs (FTEs)", p.lpn_fte],["Certified Aides (FTEs)", p.certaidefte],["Other Health-related (FTEs)", p.otherhealthfte],["Other Non Health-related (FTEs)", p.othnonhealthfte]].forEach(([k,v])=>{ if (String(v ?? '').trim() !== '') staff.push([k,v]);});
+    if (staff.length) {
+      const rows = staff.map(([k,v]) => `<tr><td>${k}</td><td class="right">${fmt(v)}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class="card col-12"><h3>Staffing (FTEs)</h3><table><thead><tr><th>Role</th><th class="right">FTEs</th></tr></thead><tbody>${rows}</tbody></table></div>`);
     }
   }
 }
