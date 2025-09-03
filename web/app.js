@@ -148,7 +148,7 @@ links.push(`<button id="shareLink">Copy Share Link</button>`);
 el('#links').innerHTML = links.join(' ');
 
 el('#dlcsv').addEventListener('click', () =>
-downloadCSV(meta, p));
+downloadCSV(meta, p, schemaProps));
 el('#dlcharts').addEventListener('click',
 downloadCharts);
 const shareBtn = el('#shareLink'); if (shareBtn)
@@ -490,19 +490,39 @@ function buildDemographicsTables(type, p, raceLabels, raceMap, ethLabels, ethMap
   host.innerHTML = parts.join('');
 }
 
-function downloadCSV(meta, payload) {
-const rows = [['key', 'value']];
-Object.entries(payload || {}).forEach(([k, v]) => rows.push([k, String(v ?? '')]));
-const csv = rows
-    .map(r => r.map(x => '"' + String(x).replace(/"/g,'""') + '"').join(','))
-    .join('\n');
-const blob = new Blob([csv], { type: 'text/csv' });
-const a = document.createElement('a');
-a.href = URL.createObjectURL(blob);
-a.download = (meta.facility_name ||
-'facility').replace(/[^a-z0-9]+/gi, '-').toLowerCase()
-+ '.csv';
-document.body.appendChild(a); a.click(); a.remove();
+function downloadCSV(meta, payload, props) {
+  // Include all fields from the data dictionary (props) in section and field order
+  const keys = Object.keys(props || payload || {});
+  const items = keys.map(k => ({
+    key: k,
+    label: (props && props[k] && (props[k].x_label || props[k].title)) || k,
+    section: (props && props[k] && props[k].x_section) || 'Other',
+    sectionOrder: (props && props[k] && Number(props[k].x_section_order)) || 9999,
+    order: (props && props[k] && Number(props[k].x_order)) || 9999,
+    desc: (props && props[k] && props[k].description) || '',
+    required: !!(props && props[k] && props[k].x_required),
+    val: (payload || {})[k],
+  }));
+  items.sort((a,b) => (a.sectionOrder - b.sectionOrder) || (a.order - b.order) || String(a.label).localeCompare(String(b.label)));
+  const rows = [['section','label','key','value','required','description']];
+  items.forEach(it => {
+    rows.push([
+      it.section,
+      it.label,
+      it.key,
+      String(it.val ?? ''),
+      it.required ? 'yes' : '',
+      it.desc || '',
+    ]);
+  });
+  const csv = rows
+      .map(r => r.map(x => '"' + String(x).replace(/"/g,'""') + '"').join(','))
+      .join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = (meta.facility_name || 'facility').replace(/[^a-z0-9]+/gi, '-').toLowerCase() + '-full.csv';
+  document.body.appendChild(a); a.click(); a.remove();
 }
 function downloadCharts() {
 for (const id of ['#chart-payer', '#chart-race',

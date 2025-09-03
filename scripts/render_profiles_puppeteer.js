@@ -57,7 +57,11 @@ async function main() {
     const abs = path.resolve(htmlPath);
     const url = 'file://' + abs;
     await page.goto(url, { waitUntil: 'networkidle0' });
-    await ensureChartJs(page);
+    const hadChart = await ensureChartJs(page);
+    // Trigger chart rendering if the HTML defined a deferred hook
+    if (hadChart) {
+      try { await page.evaluate(() => { if (window.__renderProfileCharts) window.__renderProfileCharts(); }); } catch {}
+    }
     const pdfPath = abs.replace(/\.html$/i, '.pdf');
     await page.pdf({ path: pdfPath, format: 'Letter', printBackground: true, margin: { top: '0.6in', right: '0.7in', bottom: '0.6in', left: '0.7in' } });
     ok++;
@@ -68,4 +72,3 @@ async function main() {
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
-

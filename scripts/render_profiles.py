@@ -75,7 +75,51 @@ def head_html(title: str) -> str:
         "<meta charset=\"utf-8\">"
         f"<title>{html.escape(title)}</title>"
         f"{inline_css()}"
+        # Chart.js for interactive pies in HTML (Puppeteer injects its own copy for PDFs)
+        "<script src=\"https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js\"></script>"
         "</head>"
+    )
+
+def _charts_block(ftype: str, payload: Dict[str, Any]) -> str:
+    """Inline demographics charts + tables to mirror dashboard popup.
+    Draws Payer Mix, Patients by Race, Patients by Ethnicity as doughnut charts,
+    and a combined demographics table with patient/day shares (days only for Hospital).
+    """
+    import json as _json
+    data_json = _json.dumps({'type': ftype, 'payload': payload}, ensure_ascii=False)
+    return (
+        '<div class="card col-12" id="demographics">'
+        '  <h3>Demographics & Payer Mix</h3>'
+        '  <div class="charts" style="display:grid;grid-template-columns:repeat(3, minmax(220px,1fr));gap:12px">'
+        '    <canvas id="chart-payer" height="140"></canvas>'
+        '    <canvas id="chart-race" height="140"></canvas>'
+        '    <canvas id="chart-eth" height="140"></canvas>'
+        '  </div>'
+        '  <div id="demo-tables"></div>'
+        '  <script>(function(){\n'
+        '    const C = ' + data_json + ';\n'
+        "    function toNum(n){const x=Number(String(n??'').replace(/[^0-9.-]/g,''));return Number.isFinite(x)?x:0;}\n"
+        "    function fmt(n){const x=Number(String(n??'').replace(/[^0-9.-]/g,''));return Number.isFinite(x)?x.toLocaleString('en-US'):String(n??'');}\n"
+        "    function payerOrder(a){const order=['Medicare','Medicaid','Private Insurance','Other Public','Private Pay','Charity Care'];return a.slice().sort((x,y)=>order.indexOf(x)-order.indexOf(y));}\n"
+        "    function raceOrder(a){const order=['White','Black/African American','Black','Asian','AI/AN','American Indian','NH/PI','Unknown'];return a.slice().sort((x,y)=>order.indexOf(x)-order.indexOf(y));}\n"
+        "    function drawDoughnut(sel,title,labels,data){var cv=document.querySelector(sel);if(!cv||!labels.length){return;}var ctx=cv.getContext('2d');new Chart(ctx,{type:'doughnut',data:{labels:labels,datasets:[{data:data}]},options:{plugins:{title:{display:true,text:title},legend:{display:true},tooltip:{callbacks:{label:(ctx)=>{const ds=ctx.dataset;const total=(ds&&ds.data||[]).reduce((a,b)=>a+(Number(b)||0),0)||0;const val=Number(ctx.raw)||0;const pct=total?((val/total)*100).toFixed(1)+'%':'';const lbl=ctx.label||'';return lbl+': '+val.toLocaleString('en-US')+' '+(pct?('('+pct+')'):'');}}}}});}\n"
+        "    function buildTables(type,p){const host=document.getElementById('demo-tables');if(!host) return;const parts=[];function makeRows(labels,patMap,daysMap){const patVals=labels.map(k=>toNum(patMap[k]));const patTotal=patVals.reduce((a,b)=>a+b,0);const daysVals=labels.map(k=>toNum(daysMap&&daysMap[k]));const daysTotal=daysVals.reduce((a,b)=>a+b,0);const rows=labels.map((k,i)=>{const pv=patVals[i];const dv=daysVals[i]||0;const pShare=patTotal?((pv/patTotal)*100).toFixed(1)+'%':'';const dShare=daysTotal?((dv/daysTotal)*100).toFixed(1)+'%':'';return '<tr><td>'+k+'</td><td class=\"right\">'+fmt(pv)+'</td><td class=\"right\">'+pShare+'</td><td class=\"right\">'+fmt(dv)+'</td><td class=\"right\">'+dShare+'</td></tr>';}).join('');const totalRow='<tr><th>Total</th><th class=\"right\">'+fmt(patTotal)+'</th><th></th><th class=\"right\">'+fmt(daysTotal)+'</th><th></th></tr>';return '<table><thead><tr><th>Category</th><th class=\"right\">Patients</th><th class=\"right\">Patients Share</th><th class=\"right\">Inpatient Days</th><th class=\"right\">Days Share</th></tr></thead><tbody>'+rows+totalRow+'</tbody></table>';}\n"
+        "      const t=C.type;const p=C.payload||{};\n"
+        "      const payerMap=(t==='Hospital')?{'Inpatient Medicare':p.pay_inp_medicare,'Inpatient Medicaid':p.pay_inp_medicaid,'Inpatient Private Insurance':p.pay_inp_private_ins,'Inpatient Other Public':p.pay_inp_other_public,'Inpatient Private Pay':p.pay_inp_private_pay}:{'Medicare':p.pat_medicare,'Medicaid':p.pat_medicaid,'Private Insurance':p.pat_private_insurance,'Other Public':p.pat_other_public,'Private Pay':p.pat_private_payment,'Charity Care':p.pat_charity};\n"
+        "      const payerLabels=(t==='Hospital'?Object.keys(payerMap):payerOrder(Object.keys(payerMap))).filter(k=>String(payerMap[k]??'').trim()!=='');\n"
+        "      const payerVals=payerLabels.map(k=>toNum(payerMap[k]));\n"
+        "      const raceMap=(t==='Hospital')?{'White':p.race_inp_white,'Black/African American':p.race_inp_black,'Asian':p.race_inp_asian,'AI/AN':p.race_inp_ai_an,'NH/PI':p.race_inp_nh_pi,'Unknown':p.race_inp_unknown}:{'White':p.race_white,'Black/African American':p.race_black||p.race_black_african_american,'Asian':p.race_asian,'AI/AN':p.race_american_indian,'NH/PI':p.race_native_hawaiian_pacific_islander||p.race_nh_pi,'Unknown':p.race_unknown};\n"
+        "      const raceLabels=raceOrder(Object.keys(raceMap)).filter(k=>String(raceMap[k]??'').trim()!=='');\n"
+        "      const raceVals=raceLabels.map(k=>toNum(raceMap[k]));\n"
+        "      const ethMap=(t==='Hospital')?{'Not Hispanic/Latino':p.eth_inp_not_hispanic,'Hispanic/Latino':p.eth_inp_hispanic,'Unknown':p.eth_inp_unknown}:{'Non-Hispanic':p.ethnicity_non_hispanic||p.eth_not_hispanic,'Hispanic/Latino':p.ethnicity_hispanic_latino||p.eth_hispanic,'Unknown':p.ethnicity_unknown||p.eth_unknown};\n"
+        "      const ethLabels=Object.keys(ethMap).filter(k=>String(ethMap[k]??'').trim()!=='');\n"
+        "      const ethVals=ethLabels.map(k=>toNum(ethMap[k]));\n"
+        "      function renderCharts(){ if (typeof Chart==='undefined') return; if(payerLabels.length) drawDoughnut('#chart-payer','Payer Mix',payerLabels,payerVals); if(raceLabels.length) drawDoughnut('#chart-race','Patients by Race',raceLabels,raceVals); if(ethLabels.length) drawDoughnut('#chart-eth','Patients by Ethnicity',ethLabels,ethVals); const raceDays=(t==='Hospital')?{'White':p.days_by_race_white,'Black/African American':p.days_by_race_black,'Asian':p.days_by_race_asian,'AI/AN':p.days_by_race_ai_an,'NH/PI':p.days_by_race_nh_pi,'Unknown':p.days_by_race_unknown}:{}; const ethDays=(t==='Hospital')?{'Not Hispanic/Latino':p.days_by_eth_not_hispanic,'Hispanic/Latino':p.days_by_eth_hispanic,'Unknown':p.days_by_eth_unknown}:{}; const tables=[]; tables.push('<div class=\"card col-12\"><h3>Race Breakdown</h3>'+makeRows(raceLabels,raceMap,raceDays)+'</div>'); tables.push('<div class=\"card col-12\"><h3>Ethnicity Breakdown</h3>'+makeRows(ethLabels,ethMap,ethDays)+'</div>'); document.getElementById('demo-tables').innerHTML=tables.join(''); }\n"
+        "      function makeRows(labels,patMap,daysMap){return makeRowsImpl(labels,patMap,daysMap);}\n"
+        "      function makeRowsImpl(labels,patMap,daysMap){const patVals=labels.map(k=>toNum(patMap[k]));const patTotal=patVals.reduce((a,b)=>a+b,0);const daysVals=labels.map(k=>toNum(daysMap&&daysMap[k]));const daysTotal=daysVals.reduce((a,b)=>a+b,0);const rows=labels.map((k,i)=>{const pv=patVals[i];const dv=daysVals[i]||0;const pShare=patTotal?((pv/patTotal)*100).toFixed(1)+'%':'';const dShare=daysTotal?((dv/daysTotal)*100).toFixed(1)+'%':'';return '<tr><td>'+k+'</td><td class=\"right\">'+fmt(pv)+'</td><td class=\"right\">'+pShare+'</td><td class=\"right\">'+fmt(dv)+'</td><td class=\"right\">'+dShare+'</td></tr>';}).join('');const totalRow='<tr><th>Total</th><th class=\"right\">'+fmt(patTotal)+'</th><th></th><th class=\"right\">'+fmt(daysTotal)+'</th><th></th></tr>';return '<table><thead><tr><th>Category</th><th class=\"right\">Patients</th><th class=\"right\">Patients Share</th><th class=\"right\">Inpatient Days</th><th class=\"right\">Days Share</th></tr></thead><tbody>'+rows+totalRow+'</tbody></table>';}\n"
+        "      if (typeof Chart!=='undefined') { renderCharts(); } else { window.__renderProfileCharts = renderCharts; }\n"
+        '  })();</script>'
+        '</div>'
     )
 
 
@@ -777,6 +821,13 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
         injected_html, used_keys = _render_esrd_matrices(payload)
     elif schema_name == 'astc':
         injected_html, used_keys = _render_astc_matrices(payload)
+
+    # Add demographics/payer charts block consistent with dashboard
+    # Determine display type
+    typemap = {'esrd': 'ESRD', 'astc': 'ASTC'}
+    disp_type = ftype or typemap.get(schema_name, 'Hospital' if schema_name.startswith('ahq-') else '')
+    if disp_type:
+        injected_html = _charts_block(disp_type, payload) + injected_html
 
     # Build items grouped strictly by data dictionary field_id hierarchy
     # Section = first segment of field_id
