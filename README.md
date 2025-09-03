@@ -35,3 +35,21 @@ Data dictionaries and generated JSON Schemas for Illinois HFSRB annual facility 
 - Field names are treated as flat keys in JSON Schema to match the authored contract.
 - Regex formats in Markdown become JSON Schema `pattern` entries; date fields get `MM/DD/YYYY` patterns where noted.
 
+## Deployment (GitHub Pages)
+
+This repo includes a GitHub Actions workflow that builds the dashboard and deploys a static site to GitHub Pages.
+
+- Trigger: pushes to `main` (or run manually via Actions).
+- Build steps: `make all`, generate HTML+PDF profiles (`make profiles-puppeteer-all`), then `make publish` to stage the site under `out/site`.
+- Deploy: the action uploads `out/site` and publishes it via Pages.
+
+To enable:
+
+- In repo Settings → Pages, set Source to “GitHub Actions”.
+- Push to `main` (or use “Run workflow”) and wait for the `Deploy GitHub Pages` workflow to complete.
+
+URLs and paths are relative, so the site works for both user/org and project Pages. Profile links resolve to `out/profiles/...` under the site root. PDFs are generated with Puppeteer/Chromium and included alongside the HTML.
+
+Troubleshooting
+- If PDFs fail due to Chromium download issues, re-run the workflow; GitHub-hosted runners allow the Puppeteer install step (`npm ci`) to fetch Chromium.
+- If you prefer WeasyPrint instead of Puppeteer, we can add the necessary OS packages and use the Python renderer; Puppeteer is used by default for portability.
