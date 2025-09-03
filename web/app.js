@@ -353,7 +353,15 @@ const raceMap = (type === 'Hospital')
         'NH/PI': p.race_inp_nh_pi,
         'Unknown': p.race_inp_unknown,
       }
-    : {
+    : (type === 'ESRD')
+      ? {
+        'White': p.white_patients,
+        'Black/African American': p.black_african_patients,
+        'Asian': p.asian_patients,
+        'AI/AN': p.american_indian_patients,
+        'NH/PI': p.hawaiian_pacific_patients,
+      }
+      : {
         'White': p.race_white,
         'Black/African American': p.race_black || p.race_black_african_american,
         'Asian': p.race_asian,
@@ -373,7 +381,13 @@ const ethMap = (type === 'Hospital')
         'Hispanic/Latino': p.eth_inp_hispanic,
         'Unknown': p.eth_inp_unknown,
       }
-    : {
+    : (type === 'ESRD')
+      ? {
+        'Hispanic/Latino': p.hispanic_latino_patients,
+        'Non-Hispanic/Latino': p.non_hispanic_latino_patients,
+        'Unknown': p.unknown_ethnicity_patients,
+      }
+      : {
         'Non-Hispanic': p.ethnicity_non_hispanic || p.eth_not_hispanic,
         'Hispanic/Latino': p.ethnicity_hispanic_latino || p.eth_hispanic,
         'Unknown': p.ethnicity_unknown || p.eth_unknown,
@@ -802,6 +816,42 @@ function appendTypeSpecificTables(type, p) {
     if (labels.length) {
       const rows = labels.map(k => `<tr><td>${k}</td><td class=\"right\">${fmt(flow[k])}</td></tr>`).join('');
       host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Patient Flow (Year)</h3><table><thead><tr><th>Metric</th><th class=\"right\">Count</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    // Demographics — Age (Male/Female/Total)
+    const ageRows = [
+      ['Under 14', p.male_patients_under_14, p.female_patients_under_14],
+      ['15-44', p.male_patients_15_44, p.female_patients_15_44],
+      ['45-64', p.male_patients_45_64, p.female_patients_45_64],
+      ['65-74', p.male_patients_65_74, p.female_patients_65_74],
+      ['75+', p.male_patients_75_and_over, p.female_patients_75_and_over],
+    ];
+    if (ageRows.some(r => String(r[1] ?? '').trim() !== '' || String(r[2] ?? '').trim() !== '')) {
+      const rows = ageRows.map(([lab,m,f]) => `<tr><td>${lab}</td><td class=\"right\">${fmt(m)}</td><td class=\"right\">${fmt(f)}</td><td class=\"right\">${fmt((toNum(m)||0)+(toNum(f)||0))}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Patients by Age and Sex</h3><table><thead><tr><th>Age Group</th><th class=\"right\">Male</th><th class=\"right\">Female</th><th class=\"right\">Total</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    // Demographics — Race
+    const race = {
+      'White': p.white_patients,
+      'Black/African American': p.black_african_patients,
+      'Asian': p.asian_patients,
+      'American Indian/Alaska Native': p.american_indian_patients,
+      'Native Hawaiian/Pacific Islander': p.hawaiian_pacific_patients,
+    };
+    const rLab = Object.keys(race).filter(k => String(race[k] ?? '').trim() !== '');
+    if (rLab.length) {
+      const rows = rLab.map(k => `<tr><td>${k}</td><td class=\"right\">${fmt(race[k])}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Patients by Race</h3><table><thead><tr><th>Race</th><th class=\"right\">Count</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+    }
+    // Demographics — Ethnicity
+    const eth = {
+      'Hispanic/Latino': p.hispanic_latino_patients,
+      'Non-Hispanic/Latino': p.non_hispanic_latino_patients,
+      'Unknown': p.unknown_ethnicity_patients,
+    };
+    const eLab = Object.keys(eth).filter(k => String(eth[k] ?? '').trim() !== '');
+    if (eLab.length) {
+      const rows = eLab.map(k => `<tr><td>${k}</td><td class=\"right\">${fmt(eth[k])}</td></tr>`).join('');
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Patients by Ethnicity</h3><table><thead><tr><th>Ethnicity</th><th class=\"right\">Count</th></tr></thead><tbody>${rows}</tbody></table></div>`);
     }
   }
   if (type === 'LTC') {
