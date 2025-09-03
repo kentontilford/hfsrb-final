@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HFSRB Facility Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>HFSRB Facility Dashboard</h1>
+    <div class="sub">Explore facilities by year and type; click a facility for details.</div>
+  </header>
+  <main>
+    <aside class="controls">
+      <label>Year
+        <select id="year"></select>
+      </label>
+      <label>Type
+        <select id="type">
+          <option value="">All Types</option>
+          <option>Hospital</option>
+          <option>ESRD</noption>
+          <option>ASTC</option>
+          <option>LTC</option>
+        </select>
+      </label>
+      <label>County
+        <select id="county">
+          <option value="">All Counties</option>
+        </select>
+      </label>
+      <label>Region (HSA)
+        <select id="region">
+          <option value="">All Regions</option>
+        </select>
+      </label>
+      <label>Search
+        <input type="text" id="q" placeholder="Search by name, city, ZIP" />
+      </label>
+      <div class="links" style="margin-top:8px">
+        <button id="exportFiltered">Export Filtered CSV</button>
+        <a href="summary.html">Summary</a>
+      </div>
+      <div class="stats" id="stats"></div>
+    </aside>
+    <section class="results">
+      <ul id="list" class="list"></ul>
+    </section>
+    <section class="detail" id="detail" hidden>
+      <button class="close" id="close">×</button>
+      <div id="meta"></div>
+      <div class="charts">
+        <canvas id="chart-payer"></canvas>
+        <canvas id="chart-race"></canvas>
+        <canvas id="chart-eth"></canvas>
+        <canvas id="chart-extra1"></canvas>
+        <canvas id="chart-extra2"></canvas>
+        <canvas id="chart-extra3"></canvas>
+      </div>
+      <div class="links" id="links"></div>
+      <div id="allfields"></div>
+    </section>
+  </main>
+
+  <script src="app.js?v=5"></script>
+  <footer>
+    <small>Source: HFSRB Annual Facility Survey</small>
+  </footer>
+</body>
+</html>
+

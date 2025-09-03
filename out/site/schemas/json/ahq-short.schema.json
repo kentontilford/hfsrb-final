@@ -1,0 +1,575 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AHQ Short (< 100 Beds) — Data Dictionary (Draft)",
+  "type": "object",
+  "properties": {
+    "license_idph": {
+      "type": "string",
+      "description": "Facility IDPH License Number (Section/Page: p.1) As shown on license"
+    },
+    "facility_name": {
+      "type": "string",
+      "description": "Facility Name (Section/Page: p.1)"
+    },
+    "address_line1": {
+      "type": "string",
+      "description": "Facility Address (Section/Page: p.1)"
+    },
+    "address_city": {
+      "type": "string",
+      "description": "Facility City (Section/Page: p.1)"
+    },
+    "address_zip": {
+      "type": "string",
+      "pattern": "^\\d{5}(-\\d{4})?$",
+      "description": "Facility Zip Code (Section/Page: p.1)"
+    },
+    "fein": {
+      "type": "string",
+      "pattern": "^\\d{2}-\\d{7}$",
+      "description": "Facility FEIN Number (Section/Page: p.1)"
+    },
+    "operator_entity": {
+      "type": "string",
+      "description": "Legal entity operating the facility (Section/Page: p.1)"
+    },
+    "plant_owner": {
+      "type": "string",
+      "description": "Legal entity owning physical plant (Section/Page: p.1)"
+    },
+    "hospital_characterization": {
+      "type": "array",
+      "description": "Entire hospital characterized as (Section/Page: p.2) Multi-select"
+    },
+    "cms_certification": {
+      "type": "string",
+      "description": "CMS certification (entire facility) (Section/Page: p.2) If applicable"
+    },
+    "ownership_type": {
+      "type": "string",
+      "enum": [
+        "governmental:county",
+        "governmental:city",
+        "governmental:township",
+        "governmental:hospital_district",
+        "governmental:other",
+        "nonprofit:church_related",
+        "nonprofit:corporation_not_church",
+        "nonprofit:other",
+        "for_profit:corporation",
+        "for_profit:limited_partnership",
+        "for_profit:llp",
+        "for_profit:llc",
+        "for_profit:other"
+      ],
+      "description": "Managing organization type (Section/Page: p.2) Select one"
+    },
+    "ownership_other": {
+      "type": "string",
+      "description": "Other Ownership Details (Section/Page: p.2) Required if “Other …” selected"
+    },
+    "chna_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Community Health Needs Assessment (CHNA) URL (Section/Page: p.2) Provide URL if posted online; else send via email"
+    },
+    "mgmt_emergency": {
+      "type": "string",
+      "description": "Emergency Services Management Contractor (Section/Page: p.2) Name/contact if applicable"
+    },
+    "mgmt_psych": {
+      "type": "string",
+      "description": "Psychiatric Services Management Contractor (Section/Page: p.2)"
+    },
+    "mgmt_rehab": {
+      "type": "string",
+      "description": "Rehabilitation Services Management Contractor (Section/Page: p.2)"
+    },
+    "util_med_surg": {
+      "type": "object",
+      "description": "Medical-Surgical Utilization (Section/Page: p.3) Admissions, inpatient days by age"
+    },
+    "med_surg_admissions": {
+      "type": "integer",
+      "description": "Admissions (Section/Page: p.3)"
+    },
+    "med_surg_days_0_14": {
+      "type": "integer",
+      "description": "Inpatient Days 0-14 (Section/Page: p.3)"
+    },
+    "med_surg_days_15_44": {
+      "type": "integer",
+      "description": "Inpatient Days 15-44 (Section/Page: p.3)"
+    },
+    "med_surg_days_45_64": {
+      "type": "integer",
+      "description": "Inpatient Days 45-64 (Section/Page: p.3)"
+    },
+    "med_surg_days_65_74": {
+      "type": "integer",
+      "description": "Inpatient Days 65-74 (Section/Page: p.3)"
+    },
+    "med_surg_days_75_plus": {
+      "type": "integer",
+      "description": "Inpatient Days 75+ (Section/Page: p.3)"
+    },
+    "med_surg_days_total": {
+      "type": "integer",
+      "description": "TOTALS (Section/Page: p.3) Auto-calculated"
+    },
+    "med_surg_beds_oct1": {
+      "type": "integer",
+      "description": "Beds Set Up and Staffed Oct 1, 2023 (Section/Page: p.3)"
+    },
+    "med_surg_peak_beds": {
+      "type": "integer",
+      "description": "Peak Beds Set Up and Staffed (Section/Page: p.3)"
+    },
+    "med_surg_peak_census": {
+      "type": "integer",
+      "description": "Peak Daily Census (Section/Page: p.3)"
+    },
+    "med_surg_observation_days": {
+      "type": "number",
+      "description": "Observation Days in Unit (Section/Page: p.3) Observation hours/24"
+    },
+    "util_peds": {
+      "type": "object",
+      "description": "Pediatrics Utilization (Section/Page: p.3) If facility has authorized pediatrics unit"
+    },
+    "peds_admissions": {
+      "type": "integer",
+      "description": "Admissions (Section/Page: p.3)"
+    },
+    "peds_days": {
+      "type": "integer",
+      "description": "Inpatient Days (Section/Page: p.3)"
+    },
+    "peds_beds_oct1": {
+      "type": "integer",
+      "description": "Beds Set Up and Staffed Oct 1, 2023 (Section/Page: p.3)"
+    },
+    "peds_peak_beds": {
+      "type": "integer",
+      "description": "Peak Beds Set Up and Staffed (Section/Page: p.3)"
+    },
+    "peds_peak_census": {
+      "type": "integer",
+      "description": "Peak Daily Census (Section/Page: p.3)"
+    },
+    "peds_observation_days": {
+      "type": "number",
+      "description": "Observation Days in Unit (Section/Page: p.3)"
+    },
+    "icu_direct": {
+      "type": "integer",
+      "description": "ICU — Directly Admitted (Section/Page: p.3)"
+    },
+    "icu_transferred": {
+      "type": "integer",
+      "description": "ICU — Transferred into ICU (Section/Page: p.3) Not counted as additional hospital admissions"
+    },
+    "icu_total": {
+      "type": "integer",
+      "description": "ICU — Total Intensive Care (Section/Page: p.3) Auto-calculated"
+    },
+    "icu_days": {
+      "type": "integer",
+      "description": "ICU — Inpatient Days (Section/Page: p.3)"
+    },
+    "icu_beds_oct1": {
+      "type": "integer",
+      "description": "ICU — Beds Set Up and Staffed Oct 1, 2023 (Section/Page: p.3)"
+    },
+    "icu_peak_beds": {
+      "type": "integer",
+      "description": "ICU — Peak Beds Set Up and Staffed (Section/Page: p.3)"
+    },
+    "icu_peak_census": {
+      "type": "integer",
+      "description": "ICU — Peak Daily Census (Section/Page: p.3)"
+    },
+    "icu_observation_days": {
+      "type": "number",
+      "description": "ICU — Observation Days in Unit (Section/Page: p.3)"
+    },
+    "ob_admissions": {
+      "type": "integer",
+      "description": "Obstetrics Admissions (Section/Page: p.3)"
+    },
+    "gyn_admissions": {
+      "type": "integer",
+      "description": "Clean Gynecology Admissions (Section/Page: p.3)"
+    },
+    "obgyn_admissions_total": {
+      "type": "integer",
+      "description": "Total Obstetrics/Gyne Admissions (Section/Page: p.3) Auto-calculated"
+    },
+    "ob_days": {
+      "type": "integer",
+      "description": "Obstetrics Inpatient Days (Section/Page: p.3)"
+    },
+    "gyn_days": {
+      "type": "integer",
+      "description": "Clean Gynecology Inpatient Days (Section/Page: p.3)"
+    },
+    "obgyn_days_total": {
+      "type": "integer",
+      "description": "Total Obstetrics/Gyne Days (Section/Page: p.3) Auto-calculated"
+    },
+    "obgyn_beds_oct1": {
+      "type": "integer",
+      "description": "Beds Set Up and Staffed Oct 1, 2023 (Section/Page: p.3)"
+    },
+    "obgyn_peak_beds": {
+      "type": "integer",
+      "description": "Peak Beds Set Up and Staffed (Section/Page: p.3)"
+    },
+    "obgyn_peak_census": {
+      "type": "integer",
+      "description": "Peak Daily Census (Section/Page: p.3)"
+    },
+    "obgyn_observation_days": {
+      "type": "number",
+      "description": "Observation Days in Unit (Section/Page: p.3)"
+    },
+    "nicu_admissions": {
+      "type": "integer",
+      "description": "Neonatal Intensive Care Admissions (Section/Page: p.3)"
+    },
+    "nicu_days": {
+      "type": "integer",
+      "description": "Neonatal Intensive Care Inpatient Days (Section/Page: p.3)"
+    },
+    "ltc_admissions": {
+      "type": "integer",
+      "description": "Long-Term Nursing Care Admissions (Section/Page: p.3)"
+    },
+    "ltc_days": {
+      "type": "integer",
+      "description": "Long-Term Nursing Care Inpatient Days (Section/Page: p.3)"
+    },
+    "swing_admissions": {
+      "type": "integer",
+      "description": "LTC Swing Beds Admissions (Section/Page: p.3) Medicare-certified"
+    },
+    "swing_days": {
+      "type": "integer",
+      "description": "LTC Swing Beds Inpatient Days (Section/Page: p.3)"
+    },
+    "ami_admissions": {
+      "type": "integer",
+      "description": "Acute Mental Illness Admissions (Section/Page: p.3)"
+    },
+    "ami_days": {
+      "type": "integer",
+      "description": "Acute Mental Illness Inpatient Days (Section/Page: p.3)"
+    },
+    "total_admissions": {
+      "type": "integer",
+      "description": "Total Facility Admissions (Section/Page: p.3) Auto-calculated"
+    },
+    "total_inpatient_days": {
+      "type": "integer",
+      "description": "Total Facility Inpatient Days (Section/Page: p.3) Auto-calculated"
+    },
+    "total_beds_oct1": {
+      "type": "integer",
+      "description": "Beds Set Up and Staffed Oct 1, 2023 (Section/Page: p.3)"
+    },
+    "obs_unit_beds": {
+      "type": "integer",
+      "description": "Dedicated Observation Beds (Section/Page: p.3) If applicable"
+    },
+    "obs_unit_days": {
+      "type": "number",
+      "description": "Dedicated Observation Days (Section/Page: p.3)"
+    },
+    "race_inp_asian": {
+      "type": "integer",
+      "description": "Inpatients — Asian (Section/Page: p.4) Must tie to totals"
+    },
+    "race_inp_ai_an": {
+      "type": "integer",
+      "description": "Inpatients — American Indian/Native Alaskan (Section/Page: p.4)"
+    },
+    "race_inp_black": {
+      "type": "integer",
+      "description": "Inpatients — Black/African-American (Section/Page: p.4)"
+    },
+    "race_inp_nh_pi": {
+      "type": "integer",
+      "description": "Inpatients — Native Hawaiian/Pacific Islander (Section/Page: p.4)"
+    },
+    "race_inp_white": {
+      "type": "integer",
+      "description": "Inpatients — White (Section/Page: p.4)"
+    },
+    "race_inp_unknown": {
+      "type": "integer",
+      "description": "Inpatients — Race Unknown (Section/Page: p.4)"
+    },
+    "days_by_race_*": {
+      "type": "integer",
+      "description": "Inpatient Days by Race (same categories) (Section/Page: p.4) One field per race category"
+    },
+    "eth_inp_hispanic": {
+      "type": "integer",
+      "description": "Inpatients — Hispanic/Latino (Section/Page: p.4)"
+    },
+    "eth_inp_not_hispanic": {
+      "type": "integer",
+      "description": "Inpatients — Not Hispanic (Section/Page: p.4)"
+    },
+    "eth_inp_unknown": {
+      "type": "integer",
+      "description": "Inpatients — Ethnicity Unknown (Section/Page: p.4)"
+    },
+    "days_by_eth_*": {
+      "type": "integer",
+      "description": "Inpatient Days by Ethnicity (same categories) (Section/Page: p.4)"
+    },
+    "op_visits_on": {
+      "type": "integer",
+      "description": "Outpatient Visits at Hospital/Campus (Section/Page: p.4)"
+    },
+    "op_visits_off": {
+      "type": "integer",
+      "description": "Outpatient Visits Off Site/Off Campus (Section/Page: p.4)"
+    },
+    "op_visits_total": {
+      "type": "integer",
+      "description": "TOTAL OUTPATIENT VISITS (Section/Page: p.4) Auto-calculated"
+    },
+    "pay_inp_medicare": {
+      "type": "integer",
+      "description": "Inpatients — Medicare (Section/Page: p.4)"
+    },
+    "pay_inp_medicaid": {
+      "type": "integer",
+      "description": "Inpatients — Medicaid (Section/Page: p.4)"
+    },
+    "pay_inp_other_public": {
+      "type": "integer",
+      "description": "Inpatients — Other Public (Section/Page: p.4)"
+    },
+    "pay_inp_private_ins": {
+      "type": "integer",
+      "description": "Inpatients — Private Insurance (Section/Page: p.4)"
+    },
+    "pay_inp_private_pay": {
+      "type": "integer",
+      "description": "Inpatients — Private Payment (Section/Page: p.4)"
+    },
+    "pay_out_medicare": {
+      "type": "integer",
+      "description": "Outpatients — Medicare (Section/Page: p.4)"
+    },
+    "pay_out_medicaid": {
+      "type": "integer",
+      "description": "Outpatients — Medicaid (Section/Page: p.4)"
+    },
+    "pay_out_other_public": {
+      "type": "integer",
+      "description": "Outpatients — Other Public (Section/Page: p.4)"
+    },
+    "pay_out_private_ins": {
+      "type": "integer",
+      "description": "Outpatients — Private Insurance (Section/Page: p.4)"
+    },
+    "pay_out_private_pay": {
+      "type": "integer",
+      "description": "Outpatients — Private Payment (Section/Page: p.4)"
+    },
+    "pay_totals_by_payment": {
+      "type": "object",
+      "description": "Totals by Payment (In+Out) (Section/Page: p.4) Auto-calculated per payer"
+    },
+    "charity_inpatients": {
+      "type": "integer",
+      "description": "Charity Care Inpatients (Section/Page: p.4) > 50% of cost covered by charity"
+    },
+    "charity_outpatients": {
+      "type": "integer",
+      "description": "Charity Care Outpatients (Section/Page: p.4)"
+    },
+    "or_rooms_inpatient": {
+      "type": "integer",
+      "description": "ORs — Inpatient (Section/Page: p.5) Class C"
+    },
+    "or_rooms_outpatient": {
+      "type": "integer",
+      "description": "ORs — Outpatient (Section/Page: p.5)"
+    },
+    "or_rooms_combined": {
+      "type": "integer",
+      "description": "ORs — Combined (Section/Page: p.5) Combined ≠ sum"
+    },
+    "or_cases_[category]": {
+      "type": "integer",
+      "description": "Surgical Cases by Category (Section/Page: p.5) Separate inpatient/outpatient and total"
+    },
+    "or_hours_[category]": {
+      "type": "integer",
+      "description": "Surgical Hours by Category (Section/Page: p.5) Setup + surgery + cleanup; rounded hours"
+    },
+    "procB_rooms_[type]": {
+      "type": "integer",
+      "description": "Dedicated Class B Rooms by Type (Section/Page: p.6)"
+    },
+    "procB_cases_[type]": {
+      "type": "integer",
+      "description": "Dedicated Class B Cases by Type (Section/Page: p.6)"
+    },
+    "procB_hours_[type]": {
+      "type": "integer",
+      "description": "Dedicated Class B Hours by Type (Section/Page: p.6)"
+    },
+    "procB_multipurpose": {
+      "type": "array",
+      "description": "Multipurpose Procedure Types (Section/Page: p.6) Items: type, cases, hours; include total rooms"
+    },
+    "equip_diag": {
+      "type": "object",
+      "description": "Diagnostic Equipment Inventory (Section/Page: p.9-10) Include owned/contracted and volumes if shown"
+    },
+    "equip_ther": {
+      "type": "object",
+      "description": "Therapeutic Equipment Inventory (Section/Page: p.9-10) Include owned/contracted and treatments"
+    },
+    "fy_start": {
+      "type": "string",
+      "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/(19|20)\\d{2}$",
+      "description": "Fiscal Year Starting Date (Section/Page: p.10)"
+    },
+    "fy_end": {
+      "type": "string",
+      "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/(19|20)\\d{2}$",
+      "description": "Fiscal Year Ending Date (Section/Page: p.10)"
+    },
+    "finance_source": {
+      "type": "string",
+      "description": "Financial Records Source (Section/Page: p.10)"
+    },
+    "capex_total": {
+      "type": "number",
+      "description": "Total Capital Expenditures (Section/Page: p.10)"
+    },
+    "project_desc": {
+      "type": "string",
+      "description": "Project/Expenditure Description (> $350k) (Section/Page: p.10)"
+    },
+    "project_amount": {
+      "type": "number",
+      "description": "Amount Obligated (Section/Page: p.10)"
+    },
+    "project_financing": {
+      "type": "string",
+      "description": "Method of Financing (Section/Page: p.10)"
+    },
+    "project_con": {
+      "type": "string",
+      "description": "CON Project Number (Section/Page: p.10)"
+    },
+    "rev_ip_[payer]": {
+      "type": "number",
+      "description": "Inpatient Net Revenue by Source (Section/Page: p.11)"
+    },
+    "rev_op_[payer]": {
+      "type": "number",
+      "description": "Outpatient Net Revenue by Source (Section/Page: p.11)"
+    },
+    "contact_name": {
+      "type": "string",
+      "description": "Reporting Contact Name (Section/Page: p.15) Required to accept form"
+    },
+    "contact_title": {
+      "type": "string",
+      "description": "Reporting Contact Title (Section/Page: p.15)"
+    },
+    "contact_phone": {
+      "type": "string",
+      "pattern": "^\\(\\d{3}\\) \\d{3}-\\d{4}(\\.\\d+)?$",
+      "description": "Reporting Contact Phone (Section/Page: p.15)"
+    },
+    "contact_email": {
+      "type": "string",
+      "format": "email",
+      "description": "Reporting Contact Email (Section/Page: p.15)"
+    },
+    "certification_attest": {
+      "type": "boolean",
+      "description": "Certification Attestation (Section/Page: p.15) Attest accuracy and completeness"
+    },
+    "cert_name": {
+      "type": "string",
+      "description": "Certifying Official Name (Section/Page: p.15)"
+    },
+    "cert_title": {
+      "type": "string",
+      "description": "Certifying Official Title (Section/Page: p.15)"
+    },
+    "cert_date": {
+      "type": "string",
+      "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/(19|20)\\d{2}$",
+      "description": "Certification Date (Section/Page: p.15)"
+    }
+  },
+  "required": [
+    "license_idph",
+    "facility_name",
+    "address_line1",
+    "address_city",
+    "address_zip",
+    "fein",
+    "operator_entity",
+    "plant_owner",
+    "hospital_characterization",
+    "ownership_type",
+    "util_med_surg",
+    "race_inp_asian",
+    "race_inp_ai_an",
+    "race_inp_black",
+    "race_inp_nh_pi",
+    "race_inp_white",
+    "race_inp_unknown",
+    "days_by_race_*",
+    "eth_inp_hispanic",
+    "eth_inp_not_hispanic",
+    "eth_inp_unknown",
+    "days_by_eth_*",
+    "op_visits_on",
+    "op_visits_off",
+    "pay_inp_medicare",
+    "pay_inp_medicaid",
+    "pay_inp_other_public",
+    "pay_inp_private_ins",
+    "pay_inp_private_pay",
+    "pay_out_medicare",
+    "pay_out_medicaid",
+    "pay_out_other_public",
+    "pay_out_private_ins",
+    "pay_out_private_pay",
+    "charity_inpatients",
+    "charity_outpatients",
+    "or_rooms_inpatient",
+    "or_rooms_outpatient",
+    "or_rooms_combined",
+    "or_cases_[category]",
+    "or_hours_[category]",
+    "fy_start",
+    "fy_end",
+    "finance_source",
+    "capex_total",
+    "rev_ip_[payer]",
+    "rev_op_[payer]",
+    "contact_name",
+    "contact_title",
+    "contact_phone",
+    "contact_email",
+    "certification_attest",
+    "cert_name",
+    "cert_title",
+    "cert_date"
+  ]
+}

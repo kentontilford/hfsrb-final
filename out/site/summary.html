@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HFSRB Summary</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>HFSRB Summary</h1>
+    <div class="sub">Totals by county and region. Choose year and type.</div>
+  </header>
+  <main>
+    <aside class="controls">
+      <label>Year
+        <select id="year"></select>
+      </label>
+      <label>Type
+        <select id="type">
+          <option>Hospital</option>
+          <option>ESRD</option>
+          <option>ASTC</option>
+          <option>LTC</option>
+        </select>
+      </label>
+      <div class="stats" id="totals"></div>
+    </aside>
+    <section class="results">
+      <div class="charts">
+        <canvas id="county"></canvas>
+        <canvas id="region"></canvas>
+      </div>
+      <div class="links" style="padding:10px 14px">
+        <button id="exportCounty">Export County CSV</button>
+        <button id="exportRegion">Export Region CSV</button>
+        <a href="index.html">Back to Dashboard</a>
+      </div>
+      <div style="padding:0 14px 14px 14px">
+        <h3>By County</h3>
+        <table id="tbl-county">
+          <thead>
+            <tr>
+              <th data-key="name">County</th>
+              <th data-key="count" class="right">Count</th>
+              <th data-key="percent" class="right">Percent</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <h3>By Region</h3>
+        <table id="tbl-region">
+          <thead>
+            <tr>
+              <th data-key="name">Region</th>
+              <th data-key="count" class="right">Count</th>
+              <th data-key="percent" class="right">Percent</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="summary.js?v=2"></script>
+</body>
+</html>
+

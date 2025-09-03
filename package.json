@@ -1,0 +1,14 @@
+{
+  "name": "hfsrb-final",
+  "version": "1.0.0",
+  "description": "Dashboard and profile rendering for HFSRB Annual Facility Survey.",
+  "private": true,
+  "scripts": {
+    "profiles:pdf": "node scripts/render_profiles_puppeteer.js --year 2024 --type Hospital"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.0",
+    "puppeteer": "^24.18.0"
+  }
+}
+
