@@ -791,7 +791,9 @@ function buildDemographicsTables(type, p, raceLabels, raceMap, ethLabels, ethMap
   host.innerHTML = parts.join('');
   // After demographics, append type-specific and finance tables
   appendTypeSpecificTables(type, p);
+  appendTypeSpecificTables(type, p);
   appendFinanceTables(type, p);
+  addExportAllButton(type);
 }
 
 // Build summary cards for the detail view (Facility, Ownership, Management)
@@ -1225,4 +1227,47 @@ function exportFilteredCSV() {
   a.href = URL.createObjectURL(blob);
   a.download = 'facilities-filtered.csv';
   document.body.appendChild(a); a.click(); a.remove();
+}
+
+
+function addExportAllButton(type) {
+  const host = el('#demo-tables'); if (!host) return;
+  let bar = document.getElementById('exportAllBar');
+  if (!bar) {
+    bar = document.createElement('div'); bar.id = 'exportAllBar'; bar.className = 'export-all';
+    const btn = document.createElement('button'); btn.textContent = 'Export All Tables (CSV)';
+    btn.addEventListener('click', () => {
+      const csv = exportAllTablesCSV(host);
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = (type || 'section') + '-all-tables.csv';
+      document.body.appendChild(a); a.click(); a.remove();
+    });
+    bar.appendChild(btn);
+    host.prepend(bar);
+  }
+}
+
+function exportAllTablesCSV(container) {
+  const parts = [];
+  const cards = container.querySelectorAll('.card');
+  cards.forEach(card => {
+    const h3 = card.querySelector('h3');
+    const title = h3 ? h3.textContent.trim() : '';
+    const table = card.querySelector('table'); if (!table) return;
+    const rows = [];
+    const ths = Array.from(table.querySelectorAll('thead th')).map(th=>th.textContent.trim());
+    if (title) rows.push([title]);
+    rows.push(ths);
+    table.querySelectorAll('tbody tr').forEach(tr => {
+      const cols = Array.from(tr.children).map(td => td.textContent.trim());
+      rows.push(cols);
+    });
+    rows.push([]);
+    parts.push(rows.map(r => r.map(x => ' + String(x).replace(/"/g,) + ').join(',')).join('
+'));
+  });
+  return parts.join('
+');
 }
