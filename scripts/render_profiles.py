@@ -78,7 +78,7 @@ def head_html(title: str) -> str:
         "<style>body{font-family:Aptos,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif} a{color:#28658D} h3{color:#28658D}</style>"
         # Chart.js for interactive pies in HTML (Puppeteer injects its own copy for PDFs)
         "<script src=\"https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js\"></script>"
-        "<link rel=\"stylesheet\" href=\"../../brand.css\">"
+        "<link rel=\"stylesheet\" href=\"../../../../brand.css\">"
         "</head>"
     )
 
@@ -1114,7 +1114,7 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
 
     header = (
         '<div class="header" style="display:flex;align-items:center;gap:10px">'
-        '  <img src="../../assets/hfsrb-logo.png" alt="HFSRB logo" style="height:28px; width:auto" onerror="this.style.display=\'none\'" />'
+        '  <img src="../../../../assets/hfsrb-logo.png" alt="HFSRB logo" style="height:28px; width:auto" onerror="this.style.display=\'none\'" />'
         f'  <div><div class="title">{html.escape(str(name))}</div>'
         f'       <div class="subtitle">{html.escape(str(city))}, {html.escape(str(state))} {html.escape(str(zipc))} • {html.escape(str(ftype))} • {html.escape(str(year))}</div></div>'
         '</div>'
