@@ -1113,7 +1113,8 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
     zipc = payload.get('address_zip') or payload.get('facility_zip') or ''
 
     header = (
-        '<div class="header">'
+        '<div class="header" style="display:flex;align-items:center;gap:10px">'
+        '  <img src="../../assets/hfsrb-logo.png" alt="HFSRB logo" style="height:28px; width:auto" />'
         f'  <div><div class="title">{html.escape(str(name))}</div>'
         f'       <div class="subtitle">{html.escape(str(city))}, {html.escape(str(state))} {html.escape(str(zipc))} • {html.escape(str(ftype))} • {html.escape(str(year))}</div></div>'
         '</div>'

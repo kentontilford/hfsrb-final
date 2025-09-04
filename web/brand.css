@@ -30,4 +30,10 @@
 
 body { font-family: Aptos, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
  a { color: var(--accent); }
- h3 { color: var(--accent); }
+h3 { color: var(--accent); }
+
+/* Branding helpers */
+.brand { display:flex; align-items:center; gap:10px; }
+.brand-logo { height: 28px; width: auto; display:inline-block; }
+@media (max-width: 520px){ .brand-logo { height: 22px; } }
+@media print { .brand-logo { display:none !important; } }
