@@ -274,6 +274,15 @@ function renderFullscreenBar(ctx) {
   const zip = (ctx && ctx.payload && (ctx.payload.address_zip || ctx.payload.facility_zip)) || '';
   const sub = [city, state].filter(Boolean).join(', ') + (zip ? ` ${zip}` : '') + (type ? ` • ${type}` : '') + (year ? ` • ${year}` : '');
   html.push(`<div class="fshead"><div class="fs-title">${name || 'Facility'}</div><div class="fs-sub">${sub}</div></div>`);
+  // Inline Year/Type filters (mirror left controls)
+  const curYearVal = (el('#year') && el('#year').value) || '';
+  const curTypeVal = (el('#type') && el('#type').value) || '';
+  const years = [...new Set((state.all || []).map(r => r.year))].filter(Boolean).sort((a,b)=>b-a);
+  const types = [...new Set((state.all || []).map(r => r.type))].filter(Boolean).sort();
+  const yOpts = [`<option value="">All Years</option>`].concat(years.map(y => `<option ${String(curYearVal)===String(y)?'selected':''}>${y}</option>`)).join('');
+  const tOpts = [`<option value="">All Types</option>`].concat(types.map(t => `<option ${String(curTypeVal)===String(t)?'selected':''}>${t}</option>`)).join('');
+  html.push(`<label style="font-size:12px">Year <select id="fs-year">${yOpts}</select></label>`);
+  html.push(`<label style="font-size:12px">Type <select id="fs-type">${tOpts}</select></label>`);
   // Facility picker (from current filtered list)
   const idx = (state.filtered || []).findIndex(r => String(r.slug)===String(slug) && String(r.year)===String(year) && String(r.type)===String(type));
   const opts = (state.filtered || []).map((r,i)=>`<option value="${i}" ${i===idx?'selected':''}>${r.name}</option>`).join('');
@@ -314,6 +323,21 @@ function renderFullscreenBar(ctx) {
   const pick = el('#fs-pick'); if (pick) pick.addEventListener('change', () => openAt(parseInt(pick.value,10)));
   const prev = el('#fs-prev'); if (prev) prev.addEventListener('click', () => { const i = (pick?parseInt(pick.value,10):idx) - 1; if (i>=0) openAt(i); });
   const next = el('#fs-next'); if (next) next.addEventListener('click', () => { const i = (pick?parseInt(pick.value,10):idx) + 1; if (i<(state.filtered||[]).length) openAt(i); });
+
+  // Inline filter handlers
+  const fy = el('#fs-year'); if (fy) fy.addEventListener('change', () => {
+    const main = el('#year'); if (main) main.value = fy.value;
+    applyFilters();
+    // If current facility falls out of filter, open first
+    const curIdx = (state.filtered || []).findIndex(r => String(r.slug)===String(slug) && String(r.type)===String(type) && String(r.year)===String(year));
+    if (curIdx === -1) openAt(0); else renderFullscreenBar(ctx);
+  });
+  const ft = el('#fs-type'); if (ft) ft.addEventListener('change', () => {
+    const main = el('#type'); if (main) main.value = ft.value;
+    applyFilters();
+    const curIdx = (state.filtered || []).findIndex(r => String(r.slug)===String(slug) && String(r.type)===String(type) && String(r.year)===String(year));
+    if (curIdx === -1) openAt(0); else renderFullscreenBar(ctx);
+  });
 }
 
 function drawCharts(type, p) {
@@ -664,6 +688,22 @@ function drawExtra(sel, title, labels, data) {
     if (mr) {
       host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Imaging Modalities — Exams</h3><table><thead><tr><th>Modality</th><th class=\"right\">IP Exams</th><th class=\"right\">OP Exams</th></tr></thead><tbody>${mr}</tbody></table></div>`);
     }
+    // Imaging Equipment — Unit counts (if present)
+    function equipRow(mod, hospKeys, conKeys) {
+      const hosp = hospKeys.reduce((a,k)=> a + (toNum(p[k])||0), 0);
+      const con = conKeys.reduce((a,k)=> a + (toNum(p[k])||0), 0);
+      if (!hosp && !con) return '';
+      return `<tr><td>${mod}</td><td class=\"right\">${fmt(hosp)}</td><td class=\"right\">${fmt(con)}</td></tr>`;
+    }
+    const erows = [];
+    erows.push(equipRow('CT', ['ct_scan_hosp'], ['ct_scan_con']));
+    erows.push(equipRow('MRI', ['mriho'], ['contmri']));
+    erows.push(equipRow('PET', ['pethosp'], ['petcon']));
+    erows.push(equipRow('Nuclear Medicine', ['nucequip_hosp'], ['nucequip_con']));
+    const er = erows.filter(Boolean).join('');
+    if (er) {
+      host.insertAdjacentHTML('beforeend', `<div class=\"card col-12\"><h3>Imaging Equipment — Units</h3><table><thead><tr><th>Modality</th><th class=\"right\">Hospital-Owned</th><th class=\"right\">Contracted</th></tr></thead><tbody>${er}</tbody></table></div>`);
+    }
   }
 
   if (type === 'LTC') {
@@ -791,9 +831,9 @@ function buildDemographicsTables(type, p, raceLabels, raceMap, ethLabels, ethMap
   host.innerHTML = parts.join('');
   // After demographics, append type-specific and finance tables
   appendTypeSpecificTables(type, p);
-  appendTypeSpecificTables(type, p);
   appendFinanceTables(type, p);
   addExportAllButton(type);
+  addPerCardExports('#demo-tables');
 }
 
 // Build summary cards for the detail view (Facility, Ownership, Management)
@@ -842,6 +882,8 @@ function buildSummaryCards(type, p) {
   if (mgmtRows.filter(Boolean).length) {
     host.insertAdjacentHTML('beforeend', `<div class="card col-12"><h3>Management Contracts</h3><table><thead><tr><th>Field</th><th class=\"right\">Value</th></tr></thead><tbody>${mgmtRows.join('')}</tbody></table></div>`);
   }
+  // Add export buttons to summary cards
+  addPerCardExports('#summary');
 }
 
 // Append Finance tables by type, using known revenue field names
@@ -857,7 +899,26 @@ function appendFinanceTables(type, p) {
     const labels = Object.keys(map).filter(k => String(map[k] ?? '').trim() !== '');
     if (!labels.length) return '';
     const rows = labels.map(k => `<tr><td>${k}</td><td class="right">${fmtCurrency(map[k])}</td></tr>`).join('');
-    return `<div class="card col-12"><h3>${title}</h3><table><thead><tr><th>Source</th><th class="right">Net Revenue</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    return `<div class="card col-12"><h3>${title} <button class="tiny" data-export>Export CSV</button></h3><table><thead><tr><th>Source</th><th class="right">Net Revenue</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  }
+  function wireExportOnLastCard(filename) {
+    const cards = host.querySelectorAll('.card');
+    const card = cards[cards.length - 1];
+    if (!card) return;
+    const btn = card.querySelector('button[data-export]');
+    const table = card.querySelector('table');
+    if (btn && table) {
+      btn.addEventListener('click', () => {
+        const titleNode = card.querySelector('h3');
+        const title = titleNode ? titleNode.childNodes[0].textContent.trim() : '';
+        const csv = tableToCSV(table, title);
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = (filename || 'table') + '.csv';
+        document.body.appendChild(a); a.click(); a.remove();
+      });
+    }
   }
   if (type === 'Hospital') {
     const ip = {
@@ -875,8 +936,9 @@ function appendFinanceTables(type, p) {
       'Private Payment': p.outpatient_private_payment_revenue,
     };
     const ipHTML = tableFromMap('Inpatient Net Revenue by Source', ip);
+    if (ipHTML) { host.insertAdjacentHTML('beforeend', ipHTML); wireExportOnLastCard('hospital-inpatient-revenue'); }
     const opHTML = tableFromMap('Outpatient Net Revenue by Source', op);
-    host.insertAdjacentHTML('beforeend', ipHTML + opHTML);
+    if (opHTML) { host.insertAdjacentHTML('beforeend', opHTML); wireExportOnLastCard('hospital-outpatient-revenue'); }
   }
   if (type === 'LTC') {
     const fin = {
@@ -888,8 +950,9 @@ function appendFinanceTables(type, p) {
     };
     const total = p.net_revenue_total;
     const finHTML = tableFromMap('Net Revenue by Primary Source of Payment', fin);
-    const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL</h3><table><tbody><tr><td>Total</td><td class="right">${fmtCurrency(total)}</td></tr></tbody></table></div>` : '';
-    host.insertAdjacentHTML('beforeend', finHTML + totHTML);
+    if (finHTML) { host.insertAdjacentHTML('beforeend', finHTML); wireExportOnLastCard('ltc-revenue'); }
+    const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL <button class="tiny" data-export>Export CSV</button></h3><table><tbody><tr><td>Total</td><td class="right">${fmtCurrency(total)}</td></tr></tbody></table></div>` : '';
+    if (totHTML) { host.insertAdjacentHTML('beforeend', totHTML); wireExportOnLastCard('ltc-revenue-total'); }
   }
   if (type === 'ESRD') {
     const fin = {
@@ -901,8 +964,9 @@ function appendFinanceTables(type, p) {
     };
     const total = p.total_revenue;
     const finHTML = tableFromMap('Net Revenue by Primary Source of Payment', fin);
-    const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL</h3><table><tbody><tr><td>Total</td><td class="right">${fmtCurrency(total)}</td></tr></tbody></table></div>` : '';
-    host.insertAdjacentHTML('beforeend', finHTML + totHTML);
+    if (finHTML) { host.insertAdjacentHTML('beforeend', finHTML); wireExportOnLastCard('esrd-revenue'); }
+    const totHTML = (String(total ?? '').trim() !== '') ? `<div class="card col-12"><h3>Net Revenue — TOTAL <button class="tiny" data-export>Export CSV</button></h3><table><tbody><tr><td>Total</td><td class="right">${fmtCurrency(total)}</td></tr></tbody></table></div>` : '';
+    if (totHTML) { host.insertAdjacentHTML('beforeend', totHTML); wireExportOnLastCard('esrd-revenue-total'); }
   }
 }
 
@@ -1230,6 +1294,36 @@ function exportFilteredCSV() {
 }
 
 
+// CSV helpers for table export
+function csvEscape(val) {
+  const s = String(val == null ? '' : val);
+  if (/[",\n]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+  return s;
+}
+function tableToCSV(table, title) {
+  const rows = [];
+  if (title) rows.push([title]);
+  const ths = table.querySelectorAll('thead th');
+  if (ths.length) rows.push(Array.from(ths).map(th => th.textContent.trim()));
+  table.querySelectorAll('tbody tr').forEach(tr => {
+    const cols = Array.from(tr.children).map(td => td.textContent.trim());
+    rows.push(cols);
+  });
+  return rows.map(r => r.map(csvEscape).join(',')).join('\n');
+}
+function exportAllTablesCSV2(container) {
+  const parts = [];
+  const cards = container.querySelectorAll('.card');
+  cards.forEach(card => {
+    const titleNode = card.querySelector('h3');
+    const title = titleNode ? titleNode.childNodes[0].textContent.trim() : '';
+    const table = card.querySelector('table'); if (!table) return;
+    parts.push(tableToCSV(table, title));
+    parts.push('');
+  });
+  return parts.join('\n');
+}
+
 function addExportAllButton(type) {
   const host = el('#demo-tables'); if (!host) return;
   let bar = document.getElementById('exportAllBar');
@@ -1237,7 +1331,7 @@ function addExportAllButton(type) {
     bar = document.createElement('div'); bar.id = 'exportAllBar'; bar.className = 'export-all';
     const btn = document.createElement('button'); btn.textContent = 'Export All Tables (CSV)';
     btn.addEventListener('click', () => {
-      const csv = exportAllTablesCSV(host);
+      const csv = exportAllTablesCSV2(host);
       const blob = new Blob([csv], { type: 'text/csv' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -1247,6 +1341,32 @@ function addExportAllButton(type) {
     bar.appendChild(btn);
     host.prepend(bar);
   }
+}
+
+function addPerCardExports(containerSel) {
+  const cont = typeof containerSel === 'string' ? el(containerSel) : containerSel;
+  if (!cont) return;
+  cont.querySelectorAll('.card').forEach(card => {
+    const h3 = card.querySelector('h3');
+    const table = card.querySelector('table');
+    if (!h3 || !table) return;
+    if (h3.querySelector('button[data-export]')) return;
+    const btn = document.createElement('button');
+    btn.className = 'tiny';
+    btn.setAttribute('data-export', '');
+    btn.textContent = 'Export CSV';
+    btn.addEventListener('click', () => {
+      const title = h3.childNodes[0]?.textContent?.trim() || 'table';
+      const csv = tableToCSV(table, title);
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      const safeTitle = title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$|--+/g,'-');
+      a.download = `${safeTitle || 'table'}.csv`;
+      document.body.appendChild(a); a.click(); a.remove();
+    });
+    h3.appendChild(btn);
+  });
 }
 
 function exportAllTablesCSV(container) {
