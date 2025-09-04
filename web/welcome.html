@@ -25,8 +25,11 @@
 </head>
 <body>
   <main class="wrap">
-    <h1>Explore Illinois Facility Survey</h1>
-    <p class="sub">Pick a facility type and year, then jump right into a clean, full-screen profile view.</p>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <h1 style="display:flex;align-items:center;gap:10px"><span style="display:inline-block;padding:4px 10px;border:1px solid var(--border);border-radius:999px;background:#0e1530;color:#c9d5ff;font-size:12px;letter-spacing:.4px">HFSRB</span> Explore Illinois Facility Survey</h1>
+      <span style="font-size:12px;color:var(--muted)">v10</span>
+    </div>
+    <p class="sub">Pick a facility type and year, then jump right into a full profile.</p>
     <div class="row">
       <div class="step" style="min-width:260px">
         <label for="type">Facility Type</label>
@@ -42,8 +45,9 @@
         <label for="year">Year</label>
         <select id="year"></select>
       </div>
-      <div class="step hidden" id="step-fac" style="flex:1; min-width:280px">
+      <div class="step hidden" id="step-fac" style="flex:1; min-width:320px">
         <label for="facility">Facility</label>
+        <input id="facFilter" type="text" placeholder="Type to filter facilities…" style="padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:#0e1530;color:var(--fg);font-size:14px">
         <select id="facility"></select>
         <div class="hint" id="facCount"></div>
       </div>
@@ -63,7 +67,7 @@
       }
     };
     const el = (s) => document.querySelector(s);
-    const state = { all: [], choices: { type:'', year:'', slug:'' } };
+    const state = { all: [], choices: { type:'', year:'', slug:'' }, facFilter: '' };
     function setYears() {
       const ysel = el('#year'); const stp = el('#step-year');
       const years = [...new Set(state.all.filter(r => !state.choices.type || r.type===state.choices.type).map(r => r.year))]
@@ -72,12 +76,13 @@
       stp.classList.toggle('hidden', years.length===0);
     }
     function setFacilities() {
-      const fes = el('#facility'); const stp = el('#step-fac'); const cnt = el('#facCount');
-      const rows = state.all.filter(r => (!state.choices.type || r.type===state.choices.type) && (!state.choices.year || String(r.year)===String(state.choices.year)));
-      const opts = rows.sort((a,b)=> a.name.localeCompare(b.name)).map(r => `<option value="${r.slug}">${r.name}</option>`).join('');
+      const fes = el('#facility'); const stp = el('#step-fac'); const cnt = el('#facCount'); const filt = (state.facFilter||'').toLowerCase();
+      let rows = state.all.filter(r => (!state.choices.type || r.type===state.choices.type) && (!state.choices.year || String(r.year)===String(state.choices.year)));
+      if (filt) rows = rows.filter(r => `${r.name} ${r.city||''} ${r.zip||''}`.toLowerCase().includes(filt));
+      const opts = rows.sort((a,b)=> a.name.localeCompare(b.name)).map(r => `<option value="${r.slug}">${r.name}${r.city?` — ${r.city}`:''}</option>`).join('');
       fes.innerHTML = '<option value="" disabled selected>Select a facility…</option>' + opts;
       stp.classList.toggle('hidden', rows.length===0);
-      cnt.textContent = rows.length ? `${rows.length} facilities` : '';
+      cnt.textContent = rows.length ? `${rows.length} facilities${filt?` • filtered by “${state.facFilter}”`:''}` : (filt ? 'No matches' : '');
     }
     function openProfile() {
       const { type, year, slug } = state.choices;
@@ -91,6 +96,7 @@
       // Wire selects
       el('#type').addEventListener('change', (e)=>{ state.choices.type = e.target.value; setYears(); el('#openBtn').disabled = true; });
       el('#year').addEventListener('change', (e)=>{ state.choices.year = e.target.value; setFacilities(); el('#openBtn').disabled = true; });
+      el('#facFilter').addEventListener('input', (e)=>{ state.facFilter = e.target.value; setFacilities(); el('#openBtn').disabled = true; });
       el('#facility').addEventListener('change', (e)=>{ state.choices.slug = e.target.value; el('#openBtn').disabled = !(state.choices.slug); });
       el('#openBtn').addEventListener('click', openProfile);
     })();
