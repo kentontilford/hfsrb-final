@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HFSRB Survey | Welcome</title>
+  <style>
+    :root { --bg:#0b1020; --card:#11162a; --fg:#e7eaf1; --muted:#98a2b3; --accent:#6ea8fe; --border:#263148; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin:0; background: radial-gradient(1200px 600px at 50% -10%, #1a2240 0%, #0b1020 60%); color: var(--fg); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; display:grid; place-items:center; }
+    .wrap { width: min(800px, 92vw); padding: 28px; border: 1px solid var(--border); border-radius: 16px; background: rgba(17,22,42,0.82); backdrop-filter: blur(4px); box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+    h1 { margin: 0 0 6px; font-size: 24px; letter-spacing: 0.3px; }
+    p.sub { margin: 0 0 18px; color: var(--muted); }
+    .row { display:flex; gap:14px; flex-wrap:wrap; margin: 8px 0; align-items: center; }
+    label { font-size: 13px; color: var(--muted); }
+    select { appearance: none; -webkit-appearance:none; -moz-appearance:none; width: 100%; max-width: 300px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--border); background: #0e1530; color: var(--fg); font-size: 14px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03); }
+    .step { display:flex; flex-direction:column; gap:6px; }
+    .step.hidden { display:none; }
+    .cta { margin-top: 18px; display:flex; gap:10px; }
+    .btn { padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); background: linear-gradient(180deg, #1b2550, #121a3a); color: #eaf2ff; cursor: pointer; font-weight: 600; letter-spacing: .2px; }
+    .btn:disabled { opacity: .5; cursor: not-allowed; }
+    .hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Explore Illinois Facility Survey</h1>
+    <p class="sub">Pick a facility type and year, then jump right into a clean, full-screen profile view.</p>
+    <div class="row">
+      <div class="step" style="min-width:260px">
+        <label for="type">Facility Type</label>
+        <select id="type">
+          <option value="" disabled selected>Select a type…</option>
+          <option>Hospital</option>
+          <option>ASTC</option>
+          <option>ESRD</option>
+          <option>LTC</option>
+        </select>
+      </div>
+      <div class="step hidden" id="step-year" style="min-width:180px">
+        <label for="year">Year</label>
+        <select id="year"></select>
+      </div>
+      <div class="step hidden" id="step-fac" style="flex:1; min-width:280px">
+        <label for="facility">Facility</label>
+        <select id="facility"></select>
+        <div class="hint" id="facCount"></div>
+      </div>
+    </div>
+    <div class="cta">
+      <button class="btn" id="openBtn" disabled>Open Profile</button>
+      <a class="btn" href="index.html">Advanced Dashboard</a>
+    </div>
+  </main>
+
+  <script>
+    const IS_WEB_SUBDIR = window.location.pathname.includes('/web/');
+    const api = {
+      async loadIndex() {
+        const res = await fetch((IS_WEB_SUBDIR ? '' : '') + 'data/index.json?v=2');
+        return await res.json();
+      }
+    };
+    const el = (s) => document.querySelector(s);
+    const state = { all: [], choices: { type:'', year:'', slug:'' } };
+    function setYears() {
+      const ysel = el('#year'); const stp = el('#step-year');
+      const years = [...new Set(state.all.filter(r => !state.choices.type || r.type===state.choices.type).map(r => r.year))]
+        .filter(Boolean).sort((a,b)=>b-a);
+      ysel.innerHTML = '<option value="" disabled selected>Select a year…</option>' + years.map(y=>`<option>${y}</option>`).join('');
+      stp.classList.toggle('hidden', years.length===0);
+    }
+    function setFacilities() {
+      const fes = el('#facility'); const stp = el('#step-fac'); const cnt = el('#facCount');
+      const rows = state.all.filter(r => (!state.choices.type || r.type===state.choices.type) && (!state.choices.year || String(r.year)===String(state.choices.year)));
+      const opts = rows.sort((a,b)=> a.name.localeCompare(b.name)).map(r => `<option value="${r.slug}">${r.name}</option>`).join('');
+      fes.innerHTML = '<option value="" disabled selected>Select a facility…</option>' + opts;
+      stp.classList.toggle('hidden', rows.length===0);
+      cnt.textContent = rows.length ? `${rows.length} facilities` : '';
+    }
+    function openProfile() {
+      const { type, year, slug } = state.choices;
+      if (!type || !year || !slug) return;
+      const base = IS_WEB_SUBDIR ? '.' : '.';
+      const url = `${base}/out/profiles/${year}/${type}/${slug}.html?show=all&minimal=1`;
+      window.location.href = url;
+    }
+    (async function init(){
+      state.all = await api.loadIndex();
+      // Wire selects
+      el('#type').addEventListener('change', (e)=>{ state.choices.type = e.target.value; setYears(); el('#openBtn').disabled = true; });
+      el('#year').addEventListener('change', (e)=>{ state.choices.year = e.target.value; setFacilities(); el('#openBtn').disabled = true; });
+      el('#facility').addEventListener('change', (e)=>{ state.choices.slug = e.target.value; el('#openBtn').disabled = !(state.choices.slug); });
+      el('#openBtn').addEventListener('click', openProfile);
+    })();
+  </script>
+</body>
+</html>
+
