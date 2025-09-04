@@ -3,86 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230a58ca'/%3E%3Ctext x='50%' y='54%' font-size='34' text-anchor='middle' fill='white' font-family='Arial, sans-serif'%3EH%3C/text%3E%3C/svg%3E">
-  <title>HFSRB Facility Dashboard</title>
-  <link rel="stylesheet" href="styles.css?v=7">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <meta http-equiv="refresh" content="0; url=welcome.html">
+  <title>Redirecting…</title>
+  <script>window.location.replace('welcome.html');</script>
 </head>
 <body>
-  <header>
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <h1>HFSRB Facility Dashboard <span id="appVersion" class="version-badge">v10</span></h1>
-      <a href="welcome.html" class="links" style="text-decoration:none"><button>Start Wizard</button></a>
-    </div>
-    <div class="sub">Explore facilities by year and type; click a facility for details.</div>
-  </header>
-  <main>
-    <aside class="controls">
-      <label>Year
-        <select id="year"></select>
-      </label>
-      <label>Type
-        <select id="type">
-          <option value="">All Types</option>
-          <option>Hospital</option>
-          <option>ESRD</option>
-          <option>ASTC</option>
-          <option>LTC</option>
-        </select>
-      </label>
-      <label>County
-        <select id="county">
-          <option value="">All Counties</option>
-        </select>
-      </label>
-      <label>Region (HSA)
-        <select id="region">
-          <option value="">All Regions</option>
-        </select>
-      </label>
-      <label>Search
-        <input type="text" id="q" placeholder="Search by name, city, ZIP" />
-      </label>
-      <div class="links" style="margin-top:8px">
-        <button id="exportFiltered">Export Filtered CSV</button>
-        <button id="resetFilters">Reset Filters</button>
-        <a href="summary.html">Summary</a>
-      </div>
-      <label style="display:inline-flex;align-items:center;gap:6px;margin-top:6px">
-        <input type="checkbox" id="toggleDebug" /> Debug events
-      </label>
-      <div class="stats" id="stats"></div>
-    </aside>
-    <section class="results">
-      <ul id="list" class="list"></ul>
-    </section>
-    <section class="detail" id="detail" hidden>
-      <button class="close" id="close">×</button>
-      <div id="fsbar" class="fsbar" hidden></div>
-      <div id="meta"></div>
-      <div id="summary"></div>
-      <div class="links" style="margin:6px 0 10px 0">
-        <label style="display:inline-flex;align-items:center;gap:6px;font-size:0.95em">
-          <input type="checkbox" id="showAllFields" /> Show all fields (include empty optionals)
-        </label>
-      </div>
-      <div class="charts">
-        <canvas id="chart-payer"></canvas>
-        <canvas id="chart-race"></canvas>
-        <canvas id="chart-eth"></canvas>
-        <canvas id="chart-extra1"></canvas>
-        <canvas id="chart-extra2"></canvas>
-        <canvas id="chart-extra3"></canvas>
-      </div>
-      <div class="tables" id="demo-tables"></div>
-      <div class="links" id="links"></div>
-      <div id="allfields"></div>
-    </section>
-  </main>
-
-  <script src="app.js?v=10"></script>
-  <footer>
-    <small>Source: HFSRB Annual Facility Survey • <span id="buildInfo">Build v9</span></small>
-  </footer>
+  <p>Redirecting to the welcome wizard… If you are not redirected, <a href="welcome.html">click here</a>.</p>
 </body>
 </html>
