@@ -162,7 +162,7 @@ function renderList() {
       <div class="name">${r.name}</div>
       <div class="meta">${r.type} • ${r.city || ''} ${r.zip || ''} • ${r.year} ${r.variant ? '• ' + r.variant : ''}</div>
     </li>`).join('');
-  el('#stats').textContent = `${state.filtered.length} facilities`;
+  el('#stats').textContent = `${state.filtered.length} facilities`; const rc=el('#resultCount'); if(rc) rc.textContent = `${state.filtered.length} matches`;
 
   ul.querySelectorAll('li').forEach(li => li.addEventListener('click', () => openDetail(li.dataset)));
 }

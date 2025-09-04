@@ -14,7 +14,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 148731,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 3243,
+      "pay_medicaid": 1600,
+      "pay_private_ins": 991,
+      "pay_other_public": 134,
+      "pay_private_pay": 73
     }
   },
   {
@@ -32,7 +38,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 362944,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 7813,
+      "pay_medicaid": 3223,
+      "pay_private_ins": 2835,
+      "pay_other_public": 502,
+      "pay_private_pay": 146
     }
   },
   {
@@ -50,7 +62,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 57379,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 440,
+      "pay_medicaid": 3101,
+      "pay_private_ins": 530,
+      "pay_other_public": 0,
+      "pay_private_pay": 25
     }
   },
   {
@@ -68,7 +86,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 175639,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 8698,
+      "pay_medicaid": 2434,
+      "pay_private_ins": 3521,
+      "pay_other_public": 0,
+      "pay_private_pay": 127
     }
   },
   {
@@ -86,7 +110,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 362893,
-      "or_rooms_total": 19
+      "or_rooms_total": 19,
+      "ed_visits": null,
+      "pay_medicare": 19223,
+      "pay_medicaid": 10279,
+      "pay_private_ins": 9764,
+      "pay_other_public": 0,
+      "pay_private_pay": 765
     }
   },
   {
@@ -104,7 +134,13 @@
       "ms_beds": 55,
       "icu_beds": 18,
       "op_visits_total": 562269,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 2145,
+      "pay_medicaid": 610,
+      "pay_private_ins": 860,
+      "pay_other_public": 0,
+      "pay_private_pay": 105
     }
   },
   {
@@ -122,7 +158,13 @@
       "ms_beds": 15,
       "icu_beds": 0,
       "op_visits_total": 28626,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 169,
+      "pay_medicaid": 6,
+      "pay_private_ins": 6,
+      "pay_other_public": 0,
+      "pay_private_pay": 2
     }
   },
   {
@@ -140,7 +182,13 @@
       "ms_beds": 19,
       "icu_beds": 0,
       "op_visits_total": 73298,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 370,
+      "pay_medicaid": 223,
+      "pay_private_ins": 176,
+      "pay_other_public": 0,
+      "pay_private_pay": 62
     }
   },
   {
@@ -158,7 +206,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 264463,
-      "or_rooms_total": 18
+      "or_rooms_total": 18,
+      "ed_visits": null,
+      "pay_medicare": 3624,
+      "pay_medicaid": 1391,
+      "pay_private_ins": 1447,
+      "pay_other_public": 173,
+      "pay_private_pay": 63
     }
   },
   {
@@ -176,7 +230,13 @@
       "ms_beds": 37,
       "icu_beds": 6,
       "op_visits_total": 242921,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 1266,
+      "pay_medicaid": 728,
+      "pay_private_ins": 634,
+      "pay_other_public": 45,
+      "pay_private_pay": 41
     }
   },
   {
@@ -194,7 +254,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 145916,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 3956,
+      "pay_medicaid": 2558,
+      "pay_private_ins": 1730,
+      "pay_other_public": 370,
+      "pay_private_pay": 81
     }
   },
   {
@@ -212,7 +278,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 53750,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 454,
+      "pay_medicaid": 500,
+      "pay_private_ins": 221,
+      "pay_other_public": 12,
+      "pay_private_pay": 28
     }
   },
   {
@@ -230,7 +302,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 875198,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 8009,
+      "pay_medicaid": 3492,
+      "pay_private_ins": 10467,
+      "pay_other_public": 0,
+      "pay_private_pay": 504
     }
   },
   {
@@ -248,7 +326,13 @@
       "ms_beds": 21,
       "icu_beds": 4,
       "op_visits_total": 0,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 377,
+      "pay_medicaid": 31,
+      "pay_private_ins": 118,
+      "pay_other_public": 0,
+      "pay_private_pay": 11
     }
   },
   {
@@ -266,7 +350,13 @@
       "ms_beds": 74,
       "icu_beds": 8,
       "op_visits_total": 110657,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 2062,
+      "pay_medicaid": 507,
+      "pay_private_ins": 422,
+      "pay_other_public": 164,
+      "pay_private_pay": 32
     }
   },
   {
@@ -284,7 +374,13 @@
       "ms_beds": 33,
       "icu_beds": 10,
       "op_visits_total": 233516,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 1630,
+      "pay_medicaid": 580,
+      "pay_private_ins": 546,
+      "pay_other_public": 0,
+      "pay_private_pay": 71
     }
   },
   {
@@ -302,7 +398,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 13759,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 299,
+      "pay_medicaid": 38,
+      "pay_private_ins": 35,
+      "pay_other_public": 13,
+      "pay_private_pay": 0
     }
   },
   {
@@ -320,7 +422,13 @@
       "ms_beds": 20,
       "icu_beds": 4,
       "op_visits_total": 185137,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 406,
+      "pay_medicaid": 14,
+      "pay_private_ins": 41,
+      "pay_other_public": 0,
+      "pay_private_pay": 82
     }
   },
   {
@@ -338,7 +446,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 174621,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 3305,
+      "pay_medicaid": 837,
+      "pay_private_ins": 548,
+      "pay_other_public": 221,
+      "pay_private_pay": 29
     }
   },
   {
@@ -356,7 +470,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 25360,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 212,
+      "pay_medicaid": 33,
+      "pay_private_ins": 9,
+      "pay_other_public": 0,
+      "pay_private_pay": 9
     }
   },
   {
@@ -374,7 +494,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 274084,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 4128,
+      "pay_medicaid": 1546,
+      "pay_private_ins": 4153,
+      "pay_other_public": 0,
+      "pay_private_pay": 29
     }
   },
   {
@@ -392,7 +518,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 61504,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 1592,
+      "pay_medicaid": 2129,
+      "pay_private_ins": 390,
+      "pay_other_public": 3,
+      "pay_private_pay": 1
     }
   },
   {
@@ -410,7 +542,13 @@
       "ms_beds": 21,
       "icu_beds": 4,
       "op_visits_total": 21216,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 105,
+      "pay_medicaid": 0,
+      "pay_private_ins": 38,
+      "pay_other_public": 3,
+      "pay_private_pay": 1
     }
   },
   {
@@ -428,7 +566,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 291585,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 4187,
+      "pay_medicaid": 2998,
+      "pay_private_ins": 1009,
+      "pay_other_public": 0,
+      "pay_private_pay": 96
     }
   },
   {
@@ -446,7 +590,13 @@
       "ms_beds": 19,
       "icu_beds": 6,
       "op_visits_total": 36973,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 138,
+      "pay_medicaid": 42,
+      "pay_private_ins": 41,
+      "pay_other_public": 5,
+      "pay_private_pay": 9
     }
   },
   {
@@ -464,7 +614,13 @@
       "ms_beds": 18,
       "icu_beds": 5,
       "op_visits_total": 29179,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 1383,
+      "pay_medicaid": 2601,
+      "pay_private_ins": 164,
+      "pay_other_public": 0,
+      "pay_private_pay": 405
     }
   },
   {
@@ -482,7 +638,13 @@
       "ms_beds": 12,
       "icu_beds": 2,
       "op_visits_total": 58517,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 443,
+      "pay_medicaid": 33,
+      "pay_private_ins": 76,
+      "pay_other_public": 0,
+      "pay_private_pay": 9
     }
   },
   {
@@ -500,7 +662,13 @@
       "ms_beds": 15,
       "icu_beds": 0,
       "op_visits_total": 16,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 36,
+      "pay_medicaid": 2,
+      "pay_private_ins": 69,
+      "pay_other_public": 0,
+      "pay_private_pay": 6
     }
   },
   {
@@ -518,7 +686,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 21869,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 574,
+      "pay_medicaid": 2013,
+      "pay_private_ins": 141,
+      "pay_other_public": 0,
+      "pay_private_pay": 123
     }
   },
   {
@@ -536,7 +710,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 159014,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 261,
+      "pay_medicaid": 22,
+      "pay_private_ins": 50,
+      "pay_other_public": 64,
+      "pay_private_pay": 1
     }
   },
   {
@@ -554,7 +734,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 50388,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 318,
+      "pay_medicaid": 72,
+      "pay_private_ins": 174,
+      "pay_other_public": 10,
+      "pay_private_pay": 9
     }
   },
   {
@@ -572,7 +758,13 @@
       "ms_beds": 31,
       "icu_beds": 7,
       "op_visits_total": 158856,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 575,
+      "pay_medicaid": 233,
+      "pay_private_ins": 212,
+      "pay_other_public": 36,
+      "pay_private_pay": 17
     }
   },
   {
@@ -590,7 +782,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 479850,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 11437,
+      "pay_medicaid": 3860,
+      "pay_private_ins": 4993,
+      "pay_other_public": 500,
+      "pay_private_pay": 68
     }
   },
   {
@@ -608,7 +806,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 263848,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 5532,
+      "pay_medicaid": 3768,
+      "pay_private_ins": 2610,
+      "pay_other_public": 62,
+      "pay_private_pay": 92
     }
   },
   {
@@ -626,7 +830,13 @@
       "ms_beds": 65,
       "icu_beds": 12,
       "op_visits_total": 300137,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 2600,
+      "pay_medicaid": 722,
+      "pay_private_ins": 1338,
+      "pay_other_public": 123,
+      "pay_private_pay": 54
     }
   },
   {
@@ -644,7 +854,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 55444,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 135,
+      "pay_medicaid": 9,
+      "pay_private_ins": 22,
+      "pay_other_public": 0,
+      "pay_private_pay": 13
     }
   },
   {
@@ -662,7 +878,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 237015,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 2067,
+      "pay_medicaid": 6873,
+      "pay_private_ins": 944,
+      "pay_other_public": 63,
+      "pay_private_pay": 18
     }
   },
   {
@@ -680,7 +902,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 628482,
-      "or_rooms_total": 11
+      "or_rooms_total": 11,
+      "ed_visits": null,
+      "pay_medicare": 12915,
+      "pay_medicaid": 2937,
+      "pay_private_ins": 5653,
+      "pay_other_public": 0,
+      "pay_private_pay": 421
     }
   },
   {
@@ -698,7 +926,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 92780,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 1711,
+      "pay_medicaid": 2876,
+      "pay_private_ins": 371,
+      "pay_other_public": 0,
+      "pay_private_pay": 21
     }
   },
   {
@@ -716,7 +950,13 @@
       "ms_beds": 73,
       "icu_beds": 14,
       "op_visits_total": 172521,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 2587,
+      "pay_medicaid": 844,
+      "pay_private_ins": 789,
+      "pay_other_public": 0,
+      "pay_private_pay": 100
     }
   },
   {
@@ -734,7 +974,13 @@
       "ms_beds": 1,
       "icu_beds": 0,
       "op_visits_total": 28226,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 263,
+      "pay_medicaid": 13,
+      "pay_private_ins": 15,
+      "pay_other_public": 0,
+      "pay_private_pay": 2
     }
   },
   {
@@ -752,7 +998,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 198988,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 436,
+      "pay_medicaid": 79,
+      "pay_private_ins": 53,
+      "pay_other_public": 30,
+      "pay_private_pay": 9
     }
   },
   {
@@ -770,7 +1022,13 @@
       "ms_beds": 17,
       "icu_beds": 4,
       "op_visits_total": 87864,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 1195,
+      "pay_medicaid": 465,
+      "pay_private_ins": 454,
+      "pay_other_public": 0,
+      "pay_private_pay": 31
     }
   },
   {
@@ -788,7 +1046,13 @@
       "ms_beds": 35,
       "icu_beds": 4,
       "op_visits_total": 58173,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 1256,
+      "pay_medicaid": 306,
+      "pay_private_ins": 226,
+      "pay_other_public": 0,
+      "pay_private_pay": 29
     }
   },
   {
@@ -806,7 +1070,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 680271,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 11764,
+      "pay_medicaid": 8295,
+      "pay_private_ins": 8369,
+      "pay_other_public": 33,
+      "pay_private_pay": 381
     }
   },
   {
@@ -824,7 +1094,13 @@
       "ms_beds": 68,
       "icu_beds": 6,
       "op_visits_total": 59317,
-      "or_rooms_total": 15
+      "or_rooms_total": 15,
+      "ed_visits": null,
+      "pay_medicare": 2072,
+      "pay_medicaid": 207,
+      "pay_private_ins": 549,
+      "pay_other_public": 6,
+      "pay_private_pay": 23
     }
   },
   {
@@ -842,7 +1118,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 668419,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 4662,
+      "pay_medicaid": 2380,
+      "pay_private_ins": 1798,
+      "pay_other_public": 255,
+      "pay_private_pay": 65
     }
   },
   {
@@ -860,7 +1142,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 258,
+      "pay_medicaid": 26,
+      "pay_private_ins": 47,
+      "pay_other_public": 3,
+      "pay_private_pay": 10
     }
   },
   {
@@ -878,7 +1166,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 24685,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 74,
+      "pay_medicaid": 0,
+      "pay_private_ins": 7,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -896,7 +1190,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 28770,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 941,
+      "pay_medicaid": 1705,
+      "pay_private_ins": 142,
+      "pay_other_public": 0,
+      "pay_private_pay": 83
     }
   },
   {
@@ -914,7 +1214,13 @@
       "ms_beds": 21,
       "icu_beds": 4,
       "op_visits_total": 39488,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 0,
+      "pay_private_ins": 0,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -932,7 +1238,13 @@
       "ms_beds": 10,
       "icu_beds": 0,
       "op_visits_total": 35173,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 47,
+      "pay_medicaid": 9,
+      "pay_private_ins": 31,
+      "pay_other_public": 0,
+      "pay_private_pay": 1
     }
   },
   {
@@ -950,7 +1262,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 10372,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 309,
+      "pay_medicaid": 600,
+      "pay_private_ins": 102,
+      "pay_other_public": 23,
+      "pay_private_pay": 1
     }
   },
   {
@@ -968,7 +1286,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 23213,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 215,
+      "pay_medicaid": 26,
+      "pay_private_ins": 23,
+      "pay_other_public": 3,
+      "pay_private_pay": 0
     }
   },
   {
@@ -986,7 +1310,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 95258,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 238,
+      "pay_medicaid": 24,
+      "pay_private_ins": 127,
+      "pay_other_public": 0,
+      "pay_private_pay": 7
     }
   },
   {
@@ -1004,7 +1334,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 225676,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 6795,
+      "pay_medicaid": 1503,
+      "pay_private_ins": 1790,
+      "pay_other_public": 195,
+      "pay_private_pay": 57
     }
   },
   {
@@ -1022,7 +1358,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 183522,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 1832,
+      "pay_medicaid": 413,
+      "pay_private_ins": 737,
+      "pay_other_public": 111,
+      "pay_private_pay": 53
     }
   },
   {
@@ -1040,7 +1382,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 67759,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 1047,
+      "pay_medicaid": 1975,
+      "pay_private_ins": 81,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -1058,7 +1406,13 @@
       "ms_beds": 18,
       "icu_beds": 4,
       "op_visits_total": 60996,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 687,
+      "pay_medicaid": 163,
+      "pay_private_ins": 114,
+      "pay_other_public": 25,
+      "pay_private_pay": 3
     }
   },
   {
@@ -1076,7 +1430,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 648462,
-      "or_rooms_total": 16
+      "or_rooms_total": 16,
+      "ed_visits": null,
+      "pay_medicare": 13973,
+      "pay_medicaid": 6307,
+      "pay_private_ins": 6788,
+      "pay_other_public": 539,
+      "pay_private_pay": 176
     }
   },
   {
@@ -1094,7 +1454,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 229091,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 9262,
+      "pay_medicaid": 5431,
+      "pay_private_ins": 4880,
+      "pay_other_public": 643,
+      "pay_private_pay": 242
     }
   },
   {
@@ -1112,7 +1478,13 @@
       "ms_beds": 21,
       "icu_beds": 0,
       "op_visits_total": 77153,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 793,
+      "pay_medicaid": 187,
+      "pay_private_ins": 532,
+      "pay_other_public": 19,
+      "pay_private_pay": 15
     }
   },
   {
@@ -1130,7 +1502,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 120131,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 1923,
+      "pay_medicaid": 491,
+      "pay_private_ins": 434,
+      "pay_other_public": 143,
+      "pay_private_pay": 28
     }
   },
   {
@@ -1148,7 +1526,13 @@
       "ms_beds": 23,
       "icu_beds": 4,
       "op_visits_total": 104743,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 952,
+      "pay_medicaid": 1944,
+      "pay_private_ins": 397,
+      "pay_other_public": 53,
+      "pay_private_pay": 21
     }
   },
   {
@@ -1166,7 +1550,13 @@
       "ms_beds": 65,
       "icu_beds": 9,
       "op_visits_total": 218516,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 2320,
+      "pay_medicaid": 799,
+      "pay_private_ins": 555,
+      "pay_other_public": 119,
+      "pay_private_pay": 11
     }
   },
   {
@@ -1184,7 +1574,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 231728,
-      "or_rooms_total": 20
+      "or_rooms_total": 20,
+      "ed_visits": null,
+      "pay_medicare": 3602,
+      "pay_medicaid": 4032,
+      "pay_private_ins": 1502,
+      "pay_other_public": 0,
+      "pay_private_pay": 248
     }
   },
   {
@@ -1202,7 +1598,13 @@
       "ms_beds": 12,
       "icu_beds": 0,
       "op_visits_total": 34207,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 62,
+      "pay_medicaid": 6,
+      "pay_private_ins": 27,
+      "pay_other_public": 3,
+      "pay_private_pay": 0
     }
   },
   {
@@ -1220,7 +1622,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 156571,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 441,
+      "pay_medicaid": 26,
+      "pay_private_ins": 49,
+      "pay_other_public": 12,
+      "pay_private_pay": 13
     }
   },
   {
@@ -1238,7 +1646,13 @@
       "ms_beds": 10,
       "icu_beds": 0,
       "op_visits_total": 33939,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 25,
+      "pay_medicaid": 9,
+      "pay_private_ins": 0,
+      "pay_other_public": 9,
+      "pay_private_pay": 0
     }
   },
   {
@@ -1256,7 +1670,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 37602,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 205,
+      "pay_medicaid": 29,
+      "pay_private_ins": 355,
+      "pay_other_public": 11,
+      "pay_private_pay": 3
     }
   },
   {
@@ -1274,7 +1694,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 26698,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 132,
+      "pay_private_ins": 9,
+      "pay_other_public": 2,
+      "pay_private_pay": 0
     }
   },
   {
@@ -1292,7 +1718,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 177538,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 12666,
+      "pay_medicaid": 2133,
+      "pay_private_ins": 4277,
+      "pay_other_public": 73,
+      "pay_private_pay": 153
     }
   },
   {
@@ -1310,7 +1742,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 44388,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1973,
+      "pay_medicaid": 219,
+      "pay_private_ins": 645,
+      "pay_other_public": 25,
+      "pay_private_pay": 4
     }
   },
   {
@@ -1328,7 +1766,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 380612,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 5404,
+      "pay_medicaid": 2114,
+      "pay_private_ins": 1716,
+      "pay_other_public": 0,
+      "pay_private_pay": 49
     }
   },
   {
@@ -1346,7 +1790,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 1278895,
-      "or_rooms_total": 17
+      "or_rooms_total": 17,
+      "ed_visits": null,
+      "pay_medicare": 16656,
+      "pay_medicaid": 7802,
+      "pay_private_ins": 21211,
+      "pay_other_public": 304,
+      "pay_private_pay": 94
     }
   },
   {
@@ -1364,7 +1814,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 185573,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 7209,
+      "pay_medicaid": 2107,
+      "pay_private_ins": 5664,
+      "pay_other_public": 35,
+      "pay_private_pay": 210
     }
   },
   {
@@ -1382,7 +1838,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 333209,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 3550,
+      "pay_medicaid": 1357,
+      "pay_private_ins": 1066,
+      "pay_other_public": 247,
+      "pay_private_pay": 92
     }
   },
   {
@@ -1400,7 +1862,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 11850,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1048,
+      "pay_medicaid": 819,
+      "pay_private_ins": 119,
+      "pay_other_public": 0,
+      "pay_private_pay": 27
     }
   },
   {
@@ -1418,7 +1886,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 221813,
-      "or_rooms_total": 14
+      "or_rooms_total": 14,
+      "ed_visits": null,
+      "pay_medicare": 5710,
+      "pay_medicaid": 601,
+      "pay_private_ins": 3133,
+      "pay_other_public": 0,
+      "pay_private_pay": 89
     }
   },
   {
@@ -1436,7 +1910,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 224948,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 4707,
+      "pay_medicaid": 474,
+      "pay_private_ins": 991,
+      "pay_other_public": 0,
+      "pay_private_pay": 236
     }
   },
   {
@@ -1454,7 +1934,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 16573,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 38,
+      "pay_private_ins": 419,
+      "pay_other_public": 6,
+      "pay_private_pay": 0
     }
   },
   {
@@ -1472,7 +1958,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 2175733,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 11875,
+      "pay_medicaid": 5689,
+      "pay_private_ins": 6115,
+      "pay_other_public": 220,
+      "pay_private_pay": 240
     }
   },
   {
@@ -1490,7 +1982,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 56673,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 2195,
+      "pay_medicaid": 1484,
+      "pay_private_ins": 875,
+      "pay_other_public": 0,
+      "pay_private_pay": 38
     }
   },
   {
@@ -1508,7 +2006,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 181320,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 6004,
+      "pay_medicaid": 1016,
+      "pay_private_ins": 1679,
+      "pay_other_public": 118,
+      "pay_private_pay": 78
     }
   },
   {
@@ -1526,7 +2030,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 155635,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 5305,
+      "pay_medicaid": 1306,
+      "pay_private_ins": 3167,
+      "pay_other_public": 105,
+      "pay_private_pay": 44
     }
   },
   {
@@ -1544,7 +2054,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 557303,
-      "or_rooms_total": 35
+      "or_rooms_total": 35,
+      "ed_visits": null,
+      "pay_medicare": 13177,
+      "pay_medicaid": 12135,
+      "pay_private_ins": 8766,
+      "pay_other_public": 0,
+      "pay_private_pay": 472
     }
   },
   {
@@ -1562,7 +2078,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 696356,
-      "or_rooms_total": 17
+      "or_rooms_total": 17,
+      "ed_visits": null,
+      "pay_medicare": 10224,
+      "pay_medicaid": 2594,
+      "pay_private_ins": 11790,
+      "pay_other_public": 134,
+      "pay_private_pay": 32
     }
   },
   {
@@ -1580,7 +2102,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 192179,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 3380,
+      "pay_medicaid": 893,
+      "pay_private_ins": 1709,
+      "pay_other_public": 39,
+      "pay_private_pay": 86
     }
   },
   {
@@ -1598,7 +2126,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 86431,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 3049,
+      "pay_medicaid": 1803,
+      "pay_private_ins": 748,
+      "pay_other_public": 0,
+      "pay_private_pay": 86
     }
   },
   {
@@ -1616,7 +2150,13 @@
       "ms_beds": 13,
       "icu_beds": 0,
       "op_visits_total": 228803,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 358,
+      "pay_medicaid": 56,
+      "pay_private_ins": 49,
+      "pay_other_public": 1,
+      "pay_private_pay": 2
     }
   },
   {
@@ -1634,7 +2174,13 @@
       "ms_beds": 3,
       "icu_beds": 0,
       "op_visits_total": 45628,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 329,
+      "pay_medicaid": 799,
+      "pay_private_ins": 168,
+      "pay_other_public": 4,
+      "pay_private_pay": 90
     }
   },
   {
@@ -1652,7 +2198,13 @@
       "ms_beds": 24,
       "icu_beds": 4,
       "op_visits_total": 119782,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 339,
+      "pay_medicaid": 426,
+      "pay_private_ins": 65,
+      "pay_other_public": 0,
+      "pay_private_pay": 52
     }
   },
   {
@@ -1670,7 +2222,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 36151,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 555,
+      "pay_medicaid": 451,
+      "pay_private_ins": 449,
+      "pay_other_public": 28,
+      "pay_private_pay": 22
     }
   },
   {
@@ -1688,7 +2246,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 68921,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 404,
+      "pay_medicaid": 57,
+      "pay_private_ins": 43,
+      "pay_other_public": 20,
+      "pay_private_pay": 1
     }
   },
   {
@@ -1706,7 +2270,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 200811,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 5449,
+      "pay_medicaid": 2811,
+      "pay_private_ins": 3721,
+      "pay_other_public": 0,
+      "pay_private_pay": 224
     }
   },
   {
@@ -1724,7 +2294,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 7422,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 260,
+      "pay_medicaid": 1817,
+      "pay_private_ins": 578,
+      "pay_other_public": 40,
+      "pay_private_pay": 28
     }
   },
   {
@@ -1742,7 +2318,13 @@
       "ms_beds": 15,
       "icu_beds": 4,
       "op_visits_total": 33566,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 373,
+      "pay_medicaid": 37,
+      "pay_private_ins": 52,
+      "pay_other_public": 6,
+      "pay_private_pay": 3
     }
   },
   {
@@ -1760,7 +2342,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 159820,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 5217,
+      "pay_medicaid": 1452,
+      "pay_private_ins": 1410,
+      "pay_other_public": 0,
+      "pay_private_pay": 110
     }
   },
   {
@@ -1778,7 +2366,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 18332,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 100,
+      "pay_medicaid": 2714,
+      "pay_private_ins": 753,
+      "pay_other_public": 29,
+      "pay_private_pay": 7
     }
   },
   {
@@ -1796,7 +2390,13 @@
       "ms_beds": 27,
       "icu_beds": 8,
       "op_visits_total": 129357,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 941,
+      "pay_medicaid": 290,
+      "pay_private_ins": 215,
+      "pay_other_public": 8,
+      "pay_private_pay": 75
     }
   },
   {
@@ -1814,7 +2414,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 369426,
-      "or_rooms_total": 20
+      "or_rooms_total": 20,
+      "ed_visits": null,
+      "pay_medicare": 13825,
+      "pay_medicaid": 6378,
+      "pay_private_ins": 10455,
+      "pay_other_public": 0,
+      "pay_private_pay": 489
     }
   },
   {
@@ -1832,7 +2438,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 225,
+      "pay_medicaid": 176,
+      "pay_private_ins": 207,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -1850,7 +2462,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 145845,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 8214,
+      "pay_medicaid": 3180,
+      "pay_private_ins": 2842,
+      "pay_other_public": 0,
+      "pay_private_pay": 116
     }
   },
   {
@@ -1868,7 +2486,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 64426,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 1811,
+      "pay_medicaid": 420,
+      "pay_private_ins": 234,
+      "pay_other_public": 202,
+      "pay_private_pay": 9
     }
   },
   {
@@ -1886,7 +2510,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 36880,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 1762,
+      "pay_medicaid": 902,
+      "pay_private_ins": 668,
+      "pay_other_public": 110,
+      "pay_private_pay": 38
     }
   },
   {
@@ -1904,7 +2534,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 89464,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 2485,
+      "pay_medicaid": 1071,
+      "pay_private_ins": 1085,
+      "pay_other_public": 0,
+      "pay_private_pay": 17
     }
   },
   {
@@ -1922,7 +2558,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 60017,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 2552,
+      "pay_medicaid": 1172,
+      "pay_private_ins": 978,
+      "pay_other_public": 0,
+      "pay_private_pay": 53
     }
   },
   {
@@ -1940,7 +2582,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 56608,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 2553,
+      "pay_medicaid": 2324,
+      "pay_private_ins": 1398,
+      "pay_other_public": 0,
+      "pay_private_pay": 115
     }
   },
   {
@@ -1958,7 +2606,13 @@
       "ms_beds": 4,
       "icu_beds": 1,
       "op_visits_total": 58680,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 82,
+      "pay_medicaid": 7,
+      "pay_private_ins": 9,
+      "pay_other_public": 2,
+      "pay_private_pay": 1
     }
   },
   {
@@ -1976,7 +2630,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 208187,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 5391,
+      "pay_medicaid": 3716,
+      "pay_private_ins": 4855,
+      "pay_other_public": 0,
+      "pay_private_pay": 138
     }
   },
   {
@@ -1994,7 +2654,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 156381,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 871,
+      "pay_medicaid": 701,
+      "pay_private_ins": 2981,
+      "pay_other_public": 0,
+      "pay_private_pay": 17
     }
   },
   {
@@ -2012,7 +2678,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 68796,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 504,
+      "pay_medicaid": 42,
+      "pay_private_ins": 2910,
+      "pay_other_public": 14,
+      "pay_private_pay": 1
     }
   },
   {
@@ -2030,7 +2702,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 283629,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 4347,
+      "pay_medicaid": 1416,
+      "pay_private_ins": 3620,
+      "pay_other_public": 0,
+      "pay_private_pay": 187
     }
   },
   {
@@ -2048,7 +2726,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 164069,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 4469,
+      "pay_medicaid": 1489,
+      "pay_private_ins": 1418,
+      "pay_other_public": 45,
+      "pay_private_pay": 93
     }
   },
   {
@@ -2066,7 +2750,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 19852,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 197,
+      "pay_medicaid": 2884,
+      "pay_private_ins": 1227,
+      "pay_other_public": 0,
+      "pay_private_pay": 15
     }
   },
   {
@@ -2084,7 +2774,13 @@
       "ms_beds": 10,
       "icu_beds": 4,
       "op_visits_total": 26395,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 374,
+      "pay_medicaid": 37,
+      "pay_private_ins": 27,
+      "pay_other_public": 12,
+      "pay_private_pay": 1
     }
   },
   {
@@ -2102,7 +2798,13 @@
       "ms_beds": 18,
       "icu_beds": 0,
       "op_visits_total": 117866,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 34,
+      "pay_medicaid": 353,
+      "pay_private_ins": 450,
+      "pay_other_public": 0,
+      "pay_private_pay": 4
     }
   },
   {
@@ -2120,7 +2822,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 241698,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 5202,
+      "pay_medicaid": 2709,
+      "pay_private_ins": 3849,
+      "pay_other_public": 6,
+      "pay_private_pay": 237
     }
   },
   {
@@ -2138,7 +2846,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1090,
+      "pay_medicaid": 226,
+      "pay_private_ins": 250,
+      "pay_other_public": 0,
+      "pay_private_pay": 1
     }
   },
   {
@@ -2156,7 +2870,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 47892,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 186,
+      "pay_medicaid": 10,
+      "pay_private_ins": 13,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -2174,7 +2894,13 @@
       "ms_beds": 33,
       "icu_beds": 5,
       "op_visits_total": 188291,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 899,
+      "pay_medicaid": 153,
+      "pay_private_ins": 157,
+      "pay_other_public": 17,
+      "pay_private_pay": 3
     }
   },
   {
@@ -2192,7 +2918,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 900112,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 2590,
+      "pay_medicaid": 8688,
+      "pay_private_ins": 991,
+      "pay_other_public": 2,
+      "pay_private_pay": 1582
     }
   },
   {
@@ -2210,7 +2942,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 722089,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 4783,
+      "pay_medicaid": 7866,
+      "pay_private_ins": 3280,
+      "pay_other_public": 14,
+      "pay_private_pay": 0
     }
   },
   {
@@ -2228,7 +2966,13 @@
       "ms_beds": 28,
       "icu_beds": 0,
       "op_visits_total": 39655,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 340,
+      "pay_medicaid": 14,
+      "pay_private_ins": 35,
+      "pay_other_public": 21,
+      "pay_private_pay": 3
     }
   },
   {
@@ -2246,7 +2990,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 542,
+      "pay_medicaid": 48,
+      "pay_private_ins": 52,
+      "pay_other_public": 16,
+      "pay_private_pay": 9
     }
   },
   {
@@ -2264,7 +3014,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 63113,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 780,
+      "pay_medicaid": 113,
+      "pay_private_ins": 228,
+      "pay_other_public": 2452,
+      "pay_private_pay": 10
     }
   },
   {
@@ -2282,7 +3038,13 @@
       "ms_beds": 46,
       "icu_beds": 6,
       "op_visits_total": 172640,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 1369,
+      "pay_medicaid": 571,
+      "pay_private_ins": 369,
+      "pay_other_public": 51,
+      "pay_private_pay": 46
     }
   },
   {
@@ -2300,7 +3062,13 @@
       "ms_beds": 23,
       "icu_beds": 0,
       "op_visits_total": 74244,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 304,
+      "pay_medicaid": 20,
+      "pay_private_ins": 22,
+      "pay_other_public": 8,
+      "pay_private_pay": 2
     }
   },
   {
@@ -2318,7 +3086,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 37753,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 605,
+      "pay_medicaid": 20,
+      "pay_private_ins": 67,
+      "pay_other_public": 0,
+      "pay_private_pay": 13
     }
   },
   {
@@ -2336,7 +3110,13 @@
       "ms_beds": 70,
       "icu_beds": 12,
       "op_visits_total": 242570,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 3131,
+      "pay_medicaid": 883,
+      "pay_private_ins": 1434,
+      "pay_other_public": 70,
+      "pay_private_pay": 10
     }
   },
   {
@@ -2354,7 +3134,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 38006,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 272,
+      "pay_medicaid": 10,
+      "pay_private_ins": 12,
+      "pay_other_public": 8,
+      "pay_private_pay": 13
     }
   },
   {
@@ -2372,7 +3158,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 198144,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 2879,
+      "pay_medicaid": 1357,
+      "pay_private_ins": 1716,
+      "pay_other_public": 0,
+      "pay_private_pay": 51
     }
   },
   {
@@ -2390,7 +3182,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 6279,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 82,
+      "pay_private_ins": 634,
+      "pay_other_public": 1636,
+      "pay_private_pay": 2
     }
   },
   {
@@ -2408,7 +3206,13 @@
       "ms_beds": 54,
       "icu_beds": 5,
       "op_visits_total": 253783,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 1951,
+      "pay_medicaid": 1159,
+      "pay_private_ins": 860,
+      "pay_other_public": 53,
+      "pay_private_pay": 37
     }
   },
   {
@@ -2426,7 +3230,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 255156,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 8439,
+      "pay_medicaid": 1746,
+      "pay_private_ins": 3193,
+      "pay_other_public": 142,
+      "pay_private_pay": 268
     }
   },
   {
@@ -2444,7 +3254,13 @@
       "ms_beds": 61,
       "icu_beds": 4,
       "op_visits_total": 167943,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 2194,
+      "pay_medicaid": 335,
+      "pay_private_ins": 520,
+      "pay_other_public": 0,
+      "pay_private_pay": 41
     }
   },
   {
@@ -2462,7 +3278,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 91498,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 385,
+      "pay_medicaid": 18,
+      "pay_private_ins": 125,
+      "pay_other_public": 0,
+      "pay_private_pay": 4
     }
   },
   {
@@ -2480,7 +3302,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 77710,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1089,
+      "pay_medicaid": 3721,
+      "pay_private_ins": 487,
+      "pay_other_public": 0,
+      "pay_private_pay": 169
     }
   },
   {
@@ -2498,7 +3326,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 227783,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 3994,
+      "pay_medicaid": 1843,
+      "pay_private_ins": 2788,
+      "pay_other_public": 13,
+      "pay_private_pay": 9
     }
   },
   {
@@ -2516,7 +3350,13 @@
       "ms_beds": 11,
       "icu_beds": 0,
       "op_visits_total": 52955,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 228,
+      "pay_medicaid": 40,
+      "pay_private_ins": 6,
+      "pay_other_public": 0,
+      "pay_private_pay": 5
     }
   },
   {
@@ -2534,7 +3374,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 309350,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 5417,
+      "pay_medicaid": 1742,
+      "pay_private_ins": 3747,
+      "pay_other_public": 229,
+      "pay_private_pay": 101
     }
   },
   {
@@ -2552,7 +3398,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 138,
+      "pay_medicaid": 161,
+      "pay_private_ins": 76,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -2570,7 +3422,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 60338,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 401,
+      "pay_medicaid": 41,
+      "pay_private_ins": 45,
+      "pay_other_public": 0,
+      "pay_private_pay": 6
     }
   },
   {
@@ -2588,7 +3446,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 45769,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 579,
+      "pay_medicaid": 47,
+      "pay_private_ins": 67,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -2606,7 +3470,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 318224,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 5542,
+      "pay_medicaid": 821,
+      "pay_private_ins": 3492,
+      "pay_other_public": 74,
+      "pay_private_pay": 46
     }
   },
   {
@@ -2624,7 +3494,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 1216358,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 10336,
+      "pay_medicaid": 2954,
+      "pay_private_ins": 8500,
+      "pay_other_public": 139,
+      "pay_private_pay": 109
     }
   },
   {
@@ -2642,7 +3518,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 625512,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 8140,
+      "pay_medicaid": 2748,
+      "pay_private_ins": 7206,
+      "pay_other_public": 58,
+      "pay_private_pay": -29
     }
   },
   {
@@ -2660,7 +3542,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 30539,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 211,
+      "pay_medicaid": 12,
+      "pay_private_ins": 14,
+      "pay_other_public": 0,
+      "pay_private_pay": 7
     }
   },
   {
@@ -2678,7 +3566,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 349,
+      "pay_medicaid": 118,
+      "pay_private_ins": 144,
+      "pay_other_public": 10,
+      "pay_private_pay": 0
     }
   },
   {
@@ -2696,7 +3590,13 @@
       "ms_beds": 16,
       "icu_beds": 0,
       "op_visits_total": 51783,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 221,
+      "pay_medicaid": 9,
+      "pay_private_ins": 23,
+      "pay_other_public": 0,
+      "pay_private_pay": 8
     }
   },
   {
@@ -2714,7 +3614,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 50652,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 3565,
+      "pay_medicaid": 1000,
+      "pay_private_ins": 842,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -2732,7 +3638,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 1236896,
-      "or_rooms_total": 27
+      "or_rooms_total": 27,
+      "ed_visits": null,
+      "pay_medicare": 7799,
+      "pay_medicaid": 4554,
+      "pay_private_ins": 5438,
+      "pay_other_public": 17,
+      "pay_private_pay": 0
     }
   },
   {
@@ -2750,7 +3662,13 @@
       "ms_beds": 21,
       "icu_beds": 4,
       "op_visits_total": 91697,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 486,
+      "pay_medicaid": 49,
+      "pay_private_ins": 70,
+      "pay_other_public": 19,
+      "pay_private_pay": 8
     }
   },
   {
@@ -2768,7 +3686,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 315495,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 11394,
+      "pay_medicaid": 2452,
+      "pay_private_ins": 6546,
+      "pay_other_public": 22,
+      "pay_private_pay": 204
     }
   },
   {
@@ -2786,7 +3710,13 @@
       "ms_beds": 64,
       "icu_beds": 6,
       "op_visits_total": 107345,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 4217,
+      "pay_medicaid": 1740,
+      "pay_private_ins": 1420,
+      "pay_other_public": 313,
+      "pay_private_pay": 58
     }
   },
   {
@@ -2804,7 +3734,13 @@
       "ms_beds": 22,
       "icu_beds": 0,
       "op_visits_total": 22954,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 135,
+      "pay_medicaid": 6,
+      "pay_private_ins": 14,
+      "pay_other_public": 0,
+      "pay_private_pay": 3
     }
   },
   {
@@ -2822,7 +3758,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 320684,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 6339,
+      "pay_medicaid": 2582,
+      "pay_private_ins": 3444,
+      "pay_other_public": 1061,
+      "pay_private_pay": 320
     }
   },
   {
@@ -2840,7 +3782,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 60424,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 1000,
+      "pay_medicaid": 46,
+      "pay_private_ins": 149,
+      "pay_other_public": 35,
+      "pay_private_pay": 10
     }
   },
   {
@@ -2858,7 +3806,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 49,
+      "pay_private_ins": 134,
+      "pay_other_public": 1258,
+      "pay_private_pay": 0
     }
   },
   {
@@ -2876,7 +3830,13 @@
       "ms_beds": 22,
       "icu_beds": 3,
       "op_visits_total": 84465,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 306,
+      "pay_medicaid": 32,
+      "pay_private_ins": 21,
+      "pay_other_public": 3,
+      "pay_private_pay": 4
     }
   },
   {
@@ -2894,7 +3854,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 8510,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1292,
+      "pay_medicaid": 3715,
+      "pay_private_ins": 720,
+      "pay_other_public": 8,
+      "pay_private_pay": 7
     }
   },
   {
@@ -2912,7 +3878,13 @@
       "ms_beds": 38,
       "icu_beds": 11,
       "op_visits_total": 122224,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 1442,
+      "pay_medicaid": 481,
+      "pay_private_ins": 283,
+      "pay_other_public": 18,
+      "pay_private_pay": 14
     }
   },
   {
@@ -2930,7 +3902,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 41694,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 1384,
+      "pay_medicaid": 344,
+      "pay_private_ins": 2138,
+      "pay_other_public": 3,
+      "pay_private_pay": 60
     }
   },
   {
@@ -2948,7 +3926,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 126385,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 4978,
+      "pay_medicaid": 755,
+      "pay_private_ins": 1517,
+      "pay_other_public": 0,
+      "pay_private_pay": 37
     }
   },
   {
@@ -2966,7 +3950,13 @@
       "ms_beds": 14,
       "icu_beds": 0,
       "op_visits_total": 43301,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 209,
+      "pay_medicaid": 24,
+      "pay_private_ins": 97,
+      "pay_other_public": 0,
+      "pay_private_pay": 12
     }
   },
   {
@@ -2984,7 +3974,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 82786,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 2737,
+      "pay_medicaid": 2196,
+      "pay_private_ins": 2798,
+      "pay_other_public": 0,
+      "pay_private_pay": 54
     }
   },
   {
@@ -3002,7 +3998,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 95525,
-      "or_rooms_total": 11
+      "or_rooms_total": 11,
+      "ed_visits": null,
+      "pay_medicare": 3200,
+      "pay_medicaid": 1603,
+      "pay_private_ins": 828,
+      "pay_other_public": 0,
+      "pay_private_pay": 92
     }
   },
   {
@@ -3020,7 +4022,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 154736,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 3950,
+      "pay_medicaid": 4749,
+      "pay_private_ins": 1356,
+      "pay_other_public": 0,
+      "pay_private_pay": 278
     }
   },
   {
@@ -3038,7 +4046,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 11847,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 444,
+      "pay_private_ins": 139,
+      "pay_other_public": 0,
+      "pay_private_pay": 5
     }
   },
   {
@@ -3056,7 +4070,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 17732,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 405,
+      "pay_medicaid": 157,
+      "pay_private_ins": 125,
+      "pay_other_public": 0,
+      "pay_private_pay": 2
     }
   },
   {
@@ -3074,7 +4094,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 142698,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 6814,
+      "pay_medicaid": 1789,
+      "pay_private_ins": 2442,
+      "pay_other_public": 0,
+      "pay_private_pay": 65
     }
   },
   {
@@ -3092,7 +4118,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 221084,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 6302,
+      "pay_medicaid": 1382,
+      "pay_private_ins": 1782,
+      "pay_other_public": 618,
+      "pay_private_pay": 122
     }
   },
   {
@@ -3110,7 +4142,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 6087,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 8857,
+      "pay_medicaid": 25313,
+      "pay_private_ins": 6694,
+      "pay_other_public": 3351,
+      "pay_private_pay": 621
     }
   },
   {
@@ -3128,7 +4166,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 298594,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 4133,
+      "pay_medicaid": 3370,
+      "pay_private_ins": 1733,
+      "pay_other_public": 4,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3146,7 +4190,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 536,
+      "pay_medicaid": 1468,
+      "pay_private_ins": 1376,
+      "pay_other_public": 35,
+      "pay_private_pay": 42
     }
   },
   {
@@ -3164,7 +4214,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 3980,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 572,
+      "pay_medicaid": 1871,
+      "pay_private_ins": 49,
+      "pay_other_public": 2,
+      "pay_private_pay": 6
     }
   },
   {
@@ -3182,7 +4238,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 169616,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 5608,
+      "pay_medicaid": 2611,
+      "pay_private_ins": 1493,
+      "pay_other_public": 79,
+      "pay_private_pay": 66
     }
   },
   {
@@ -3200,7 +4262,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 129,
+      "pay_medicaid": 39,
+      "pay_private_ins": 169,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3218,7 +4286,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 133,
+      "pay_medicaid": 29,
+      "pay_private_ins": 227,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3236,7 +4310,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 0,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 225,
+      "pay_medicaid": 125,
+      "pay_private_ins": 775,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3254,7 +4334,13 @@
       "ms_beds": 0,
       "icu_beds": 6,
       "op_visits_total": 73536,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1251,
+      "pay_medicaid": 1307,
+      "pay_private_ins": 376,
+      "pay_other_public": 0,
+      "pay_private_pay": 210
     }
   },
   {
@@ -3272,7 +4358,13 @@
       "ms_beds": 22,
       "icu_beds": 3,
       "op_visits_total": 91470,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 409,
+      "pay_medicaid": 43,
+      "pay_private_ins": 59,
+      "pay_other_public": 9,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3290,7 +4382,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 503,
+      "pay_medicaid": 109,
+      "pay_private_ins": 327,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3308,7 +4406,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 501,
+      "pay_medicaid": 80,
+      "pay_private_ins": 137,
+      "pay_other_public": 102,
+      "pay_private_pay": 4
     }
   },
   {
@@ -3326,7 +4430,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 52,
+      "pay_private_ins": 250,
+      "pay_other_public": 1001,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3344,7 +4454,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 363,
+      "pay_medicaid": 43,
+      "pay_private_ins": 278,
+      "pay_other_public": 0,
+      "pay_private_pay": 2
     }
   },
   {
@@ -3362,7 +4478,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 56671,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 268,
+      "pay_medicaid": 30,
+      "pay_private_ins": 92,
+      "pay_other_public": 8,
+      "pay_private_pay": 8
     }
   },
   {
@@ -3380,7 +4502,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 40215,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 2469,
+      "pay_medicaid": 1155,
+      "pay_private_ins": 413,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3398,7 +4526,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 59167,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 2185,
+      "pay_medicaid": 3006,
+      "pay_private_ins": 690,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3416,7 +4550,13 @@
       "ms_beds": 6,
       "icu_beds": 0,
       "op_visits_total": 54483,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 239,
+      "pay_medicaid": 101,
+      "pay_private_ins": 202,
+      "pay_other_public": 25,
+      "pay_private_pay": 10
     }
   },
   {
@@ -3434,7 +4574,13 @@
       "ms_beds": 76,
       "icu_beds": 18,
       "op_visits_total": 50449,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 994,
+      "pay_medicaid": 384,
+      "pay_private_ins": 737,
+      "pay_other_public": 164,
+      "pay_private_pay": 40
     }
   },
   {
@@ -3452,7 +4598,13 @@
       "ms_beds": 15,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 199,
+      "pay_medicaid": 54,
+      "pay_private_ins": 136,
+      "pay_other_public": 0,
+      "pay_private_pay": 2
     }
   },
   {
@@ -3470,7 +4622,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 42326,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 482,
+      "pay_medicaid": 40,
+      "pay_private_ins": 262,
+      "pay_other_public": 7,
+      "pay_private_pay": 5
     }
   },
   {
@@ -3488,7 +4646,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 12566,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 36,
+      "pay_medicaid": 7,
+      "pay_private_ins": 20,
+      "pay_other_public": 0,
+      "pay_private_pay": 2
     }
   },
   {
@@ -3506,7 +4670,13 @@
       "ms_beds": 20,
       "icu_beds": 0,
       "op_visits_total": 23506,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 134,
+      "pay_medicaid": 12,
+      "pay_private_ins": 15,
+      "pay_other_public": 1,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3524,7 +4694,13 @@
       "ms_beds": 20,
       "icu_beds": 0,
       "op_visits_total": 76923,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 273,
+      "pay_medicaid": 22,
+      "pay_private_ins": 63,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -3542,7 +4718,13 @@
       "ms_beds": 1,
       "icu_beds": 1,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 0,
+      "pay_private_ins": 0,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -18346,7 +19528,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 155393,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 3348,
+      "pay_medicaid": 1558,
+      "pay_private_ins": 1410,
+      "pay_other_public": 185,
+      "pay_private_pay": 126
     }
   },
   {
@@ -18364,7 +19552,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 456038,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 7880,
+      "pay_medicaid": 2933,
+      "pay_private_ins": 2882,
+      "pay_other_public": 686,
+      "pay_private_pay": 187
     }
   },
   {
@@ -18382,7 +19576,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 54460,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 504,
+      "pay_medicaid": 2842,
+      "pay_private_ins": 533,
+      "pay_other_public": 10,
+      "pay_private_pay": 38
     }
   },
   {
@@ -18400,7 +19600,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 381961,
-      "or_rooms_total": 34
+      "or_rooms_total": 34,
+      "ed_visits": null,
+      "pay_medicare": 19546,
+      "pay_medicaid": 10291,
+      "pay_private_ins": 9530,
+      "pay_other_public": 0,
+      "pay_private_pay": 1105
     }
   },
   {
@@ -18418,7 +19624,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 26476,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 119,
+      "pay_medicaid": 16,
+      "pay_private_ins": 23,
+      "pay_other_public": 0,
+      "pay_private_pay": 3
     }
   },
   {
@@ -18436,7 +19648,13 @@
       "ms_beds": 20,
       "icu_beds": 0,
       "op_visits_total": 79629,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 171,
+      "pay_medicaid": 18,
+      "pay_private_ins": 24,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -18454,7 +19672,13 @@
       "ms_beds": 55,
       "icu_beds": 18,
       "op_visits_total": 577717,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 2351,
+      "pay_medicaid": 671,
+      "pay_private_ins": 926,
+      "pay_other_public": 0,
+      "pay_private_pay": 132
     }
   },
   {
@@ -18472,7 +19696,13 @@
       "ms_beds": 15,
       "icu_beds": 0,
       "op_visits_total": 28767,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 200,
+      "pay_medicaid": 5,
+      "pay_private_ins": 24,
+      "pay_other_public": 0,
+      "pay_private_pay": 1
     }
   },
   {
@@ -18490,7 +19720,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 75072,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 534,
+      "pay_medicaid": 217,
+      "pay_private_ins": 252,
+      "pay_other_public": 1,
+      "pay_private_pay": 20
     }
   },
   {
@@ -18508,7 +19744,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 270552,
-      "or_rooms_total": 18
+      "or_rooms_total": 18,
+      "ed_visits": null,
+      "pay_medicare": 4732,
+      "pay_medicaid": 1414,
+      "pay_private_ins": 1482,
+      "pay_other_public": 266,
+      "pay_private_pay": 66
     }
   },
   {
@@ -18526,7 +19768,13 @@
       "ms_beds": 37,
       "icu_beds": 6,
       "op_visits_total": 238050,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 1462,
+      "pay_medicaid": 531,
+      "pay_private_ins": 514,
+      "pay_other_public": 51,
+      "pay_private_pay": 34
     }
   },
   {
@@ -18544,7 +19792,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 141567,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 6119,
+      "pay_medicaid": 3690,
+      "pay_private_ins": 2752,
+      "pay_other_public": 626,
+      "pay_private_pay": 194
     }
   },
   {
@@ -18562,7 +19816,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 75230,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 599,
+      "pay_medicaid": 526,
+      "pay_private_ins": 142,
+      "pay_other_public": 55,
+      "pay_private_pay": 49
     }
   },
   {
@@ -18580,7 +19840,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 772680,
-      "or_rooms_total": 14
+      "or_rooms_total": 14,
+      "ed_visits": null,
+      "pay_medicare": 7067,
+      "pay_medicaid": 1865,
+      "pay_private_ins": 9054,
+      "pay_other_public": 10,
+      "pay_private_pay": 141
     }
   },
   {
@@ -18598,7 +19864,13 @@
       "ms_beds": 21,
       "icu_beds": 4,
       "op_visits_total": 46773,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 464,
+      "pay_medicaid": 38,
+      "pay_private_ins": 189,
+      "pay_other_public": 0,
+      "pay_private_pay": 4
     }
   },
   {
@@ -18616,7 +19888,13 @@
       "ms_beds": 59,
       "icu_beds": 8,
       "op_visits_total": 107181,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 2112,
+      "pay_medicaid": 527,
+      "pay_private_ins": 403,
+      "pay_other_public": 151,
+      "pay_private_pay": 36
     }
   },
   {
@@ -18634,7 +19912,13 @@
       "ms_beds": 17,
       "icu_beds": 3,
       "op_visits_total": 172928,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 455,
+      "pay_medicaid": 172,
+      "pay_private_ins": 221,
+      "pay_other_public": 0,
+      "pay_private_pay": 5
     }
   },
   {
@@ -18652,7 +19936,13 @@
       "ms_beds": 33,
       "icu_beds": 10,
       "op_visits_total": 273297,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 1540,
+      "pay_medicaid": 592,
+      "pay_private_ins": 686,
+      "pay_other_public": 0,
+      "pay_private_pay": 65
     }
   },
   {
@@ -18670,7 +19960,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 18867,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 4,
+      "pay_medicaid": 0,
+      "pay_private_ins": 2,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -18688,7 +19984,13 @@
       "ms_beds": 20,
       "icu_beds": 4,
       "op_visits_total": 169548,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 337,
+      "pay_medicaid": 15,
+      "pay_private_ins": 30,
+      "pay_other_public": 0,
+      "pay_private_pay": 57
     }
   },
   {
@@ -18706,7 +20008,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 14982,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 329,
+      "pay_medicaid": 6,
+      "pay_private_ins": 259,
+      "pay_other_public": 2,
+      "pay_private_pay": 19
     }
   },
   {
@@ -18724,7 +20032,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 170346,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 3533,
+      "pay_medicaid": 837,
+      "pay_private_ins": 613,
+      "pay_other_public": 229,
+      "pay_private_pay": 70
     }
   },
   {
@@ -18742,7 +20056,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 21846,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 251,
+      "pay_medicaid": 30,
+      "pay_private_ins": 2,
+      "pay_other_public": 0,
+      "pay_private_pay": 5
     }
   },
   {
@@ -18760,7 +20080,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 271765,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 4661,
+      "pay_medicaid": 1613,
+      "pay_private_ins": 4450,
+      "pay_other_public": 0,
+      "pay_private_pay": 71
     }
   },
   {
@@ -18778,7 +20104,13 @@
       "ms_beds": 54,
       "icu_beds": 12,
       "op_visits_total": 78637,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 1485,
+      "pay_medicaid": 1886,
+      "pay_private_ins": 335,
+      "pay_other_public": 17,
+      "pay_private_pay": 301
     }
   },
   {
@@ -18796,7 +20128,13 @@
       "ms_beds": 21,
       "icu_beds": 4,
       "op_visits_total": 21231,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 166,
+      "pay_medicaid": 0,
+      "pay_private_ins": 34,
+      "pay_other_public": 27,
+      "pay_private_pay": 1
     }
   },
   {
@@ -18814,7 +20152,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 310559,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 28944,
+      "pay_medicaid": 21037,
+      "pay_private_ins": 6485,
+      "pay_other_public": 0,
+      "pay_private_pay": 4844
     }
   },
   {
@@ -18832,7 +20176,13 @@
       "ms_beds": 19,
       "icu_beds": 6,
       "op_visits_total": 28926,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 147,
+      "pay_medicaid": 16,
+      "pay_private_ins": 11,
+      "pay_other_public": 23,
+      "pay_private_pay": 3
     }
   },
   {
@@ -18850,7 +20200,13 @@
       "ms_beds": 28,
       "icu_beds": 4,
       "op_visits_total": 30188,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1064,
+      "pay_medicaid": 2503,
+      "pay_private_ins": 135,
+      "pay_other_public": 1,
+      "pay_private_pay": 567
     }
   },
   {
@@ -18868,7 +20224,13 @@
       "ms_beds": 12,
       "icu_beds": 2,
       "op_visits_total": 57811,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 500,
+      "pay_medicaid": 34,
+      "pay_private_ins": 61,
+      "pay_other_public": 12,
+      "pay_private_pay": 16
     }
   },
   {
@@ -18886,7 +20248,13 @@
       "ms_beds": 15,
       "icu_beds": 0,
       "op_visits_total": 17,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 38,
+      "pay_medicaid": 2,
+      "pay_private_ins": 60,
+      "pay_other_public": 0,
+      "pay_private_pay": 3
     }
   },
   {
@@ -18904,7 +20272,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 23027,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 428,
+      "pay_medicaid": 1522,
+      "pay_private_ins": 135,
+      "pay_other_public": 0,
+      "pay_private_pay": 232
     }
   },
   {
@@ -18922,7 +20296,13 @@
       "ms_beds": 23,
       "icu_beds": 0,
       "op_visits_total": 162089,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 360,
+      "pay_medicaid": 46,
+      "pay_private_ins": 56,
+      "pay_other_public": 0,
+      "pay_private_pay": 1
     }
   },
   {
@@ -18940,7 +20320,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 50496,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 501,
+      "pay_medicaid": 59,
+      "pay_private_ins": 55,
+      "pay_other_public": 4,
+      "pay_private_pay": 5
     }
   },
   {
@@ -18958,7 +20344,13 @@
       "ms_beds": 31,
       "icu_beds": 7,
       "op_visits_total": 234152,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 823,
+      "pay_medicaid": 188,
+      "pay_private_ins": 222,
+      "pay_other_public": 29,
+      "pay_private_pay": 75
     }
   },
   {
@@ -18976,7 +20368,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 173044,
-      "or_rooms_total": 16
+      "or_rooms_total": 16,
+      "ed_visits": null,
+      "pay_medicare": 6360,
+      "pay_medicaid": 1766,
+      "pay_private_ins": 1434,
+      "pay_other_public": 209,
+      "pay_private_pay": 69
     }
   },
   {
@@ -18994,7 +20392,13 @@
       "ms_beds": 50,
       "icu_beds": 5,
       "op_visits_total": 151670,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 2706,
+      "pay_medicaid": 991,
+      "pay_private_ins": 1588,
+      "pay_other_public": 253,
+      "pay_private_pay": 25
     }
   },
   {
@@ -19012,7 +20416,13 @@
       "ms_beds": 14,
       "icu_beds": 2,
       "op_visits_total": 46361,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 105,
+      "pay_medicaid": 14,
+      "pay_private_ins": 90,
+      "pay_other_public": 5,
+      "pay_private_pay": 1
     }
   },
   {
@@ -19030,7 +20440,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 208224,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 5421,
+      "pay_medicaid": 3743,
+      "pay_private_ins": 1932,
+      "pay_other_public": 108,
+      "pay_private_pay": 307
     }
   },
   {
@@ -19048,7 +20464,13 @@
       "ms_beds": 65,
       "icu_beds": 12,
       "op_visits_total": 388151,
-      "or_rooms_total": 595
+      "or_rooms_total": 595,
+      "ed_visits": null,
+      "pay_medicare": 1587,
+      "pay_medicaid": 414,
+      "pay_private_ins": 794,
+      "pay_other_public": 287,
+      "pay_private_pay": 145
     }
   },
   {
@@ -19066,7 +20488,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 66985,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 154,
+      "pay_medicaid": 4,
+      "pay_private_ins": 15,
+      "pay_other_public": 0,
+      "pay_private_pay": 20
     }
   },
   {
@@ -19084,7 +20512,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 250313,
-      "or_rooms_total": 17
+      "or_rooms_total": 17,
+      "ed_visits": null,
+      "pay_medicare": 2084,
+      "pay_medicaid": 6271,
+      "pay_private_ins": 1014,
+      "pay_other_public": 50,
+      "pay_private_pay": 688
     }
   },
   {
@@ -19102,7 +20536,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 708744,
-      "or_rooms_total": 14
+      "or_rooms_total": 14,
+      "ed_visits": null,
+      "pay_medicare": 12821,
+      "pay_medicaid": 1553,
+      "pay_private_ins": 7522,
+      "pay_other_public": 46,
+      "pay_private_pay": 17
     }
   },
   {
@@ -19120,7 +20560,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 95,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1762,
+      "pay_medicaid": 2845,
+      "pay_private_ins": 293,
+      "pay_other_public": 0,
+      "pay_private_pay": 306
     }
   },
   {
@@ -19138,7 +20584,13 @@
       "ms_beds": 73,
       "icu_beds": 14,
       "op_visits_total": 171465,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 2761,
+      "pay_medicaid": 868,
+      "pay_private_ins": 814,
+      "pay_other_public": 3,
+      "pay_private_pay": 130
     }
   },
   {
@@ -19156,7 +20608,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 27621,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 375,
+      "pay_medicaid": 4,
+      "pay_private_ins": 47,
+      "pay_other_public": 0,
+      "pay_private_pay": 1
     }
   },
   {
@@ -19174,7 +20632,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 244108,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 385,
+      "pay_medicaid": 30,
+      "pay_private_ins": 47,
+      "pay_other_public": 18,
+      "pay_private_pay": 3
     }
   },
   {
@@ -19192,7 +20656,13 @@
       "ms_beds": 17,
       "icu_beds": 4,
       "op_visits_total": 90553,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 1035,
+      "pay_medicaid": 513,
+      "pay_private_ins": 461,
+      "pay_other_public": 0,
+      "pay_private_pay": 27
     }
   },
   {
@@ -19210,7 +20680,13 @@
       "ms_beds": 77,
       "icu_beds": 8,
       "op_visits_total": 48221,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 1241,
+      "pay_medicaid": 165,
+      "pay_private_ins": 152,
+      "pay_other_public": 12,
+      "pay_private_pay": 54
     }
   },
   {
@@ -19228,7 +20704,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 746493,
-      "or_rooms_total": 32
+      "or_rooms_total": 32,
+      "ed_visits": null,
+      "pay_medicare": 11837,
+      "pay_medicaid": 8105,
+      "pay_private_ins": 8384,
+      "pay_other_public": 37,
+      "pay_private_pay": 570
     }
   },
   {
@@ -19246,7 +20728,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 46957,
-      "or_rooms_total": 16
+      "or_rooms_total": 16,
+      "ed_visits": null,
+      "pay_medicare": 2578,
+      "pay_medicaid": 251,
+      "pay_private_ins": 397,
+      "pay_other_public": 23,
+      "pay_private_pay": 96
     }
   },
   {
@@ -19264,7 +20752,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 670499,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 4486,
+      "pay_medicaid": 2388,
+      "pay_private_ins": 2011,
+      "pay_other_public": 261,
+      "pay_private_pay": 88
     }
   },
   {
@@ -19282,7 +20776,13 @@
       "ms_beds": 13,
       "icu_beds": 4,
       "op_visits_total": 71296,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 582,
+      "pay_medicaid": 73,
+      "pay_private_ins": 134,
+      "pay_other_public": 14,
+      "pay_private_pay": 15
     }
   },
   {
@@ -19300,7 +20800,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 172963,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 5608,
+      "pay_medicaid": 1248,
+      "pay_private_ins": 2705,
+      "pay_other_public": 299,
+      "pay_private_pay": 151
     }
   },
   {
@@ -19318,7 +20824,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 14658,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 0,
+      "pay_private_ins": 0,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -19336,7 +20848,13 @@
       "ms_beds": 21,
       "icu_beds": 4,
       "op_visits_total": 41471,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 326,
+      "pay_medicaid": 25,
+      "pay_private_ins": 63,
+      "pay_other_public": 0,
+      "pay_private_pay": 7
     }
   },
   {
@@ -19354,7 +20872,13 @@
       "ms_beds": 11,
       "icu_beds": 0,
       "op_visits_total": 34813,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 84,
+      "pay_medicaid": 11,
+      "pay_private_ins": 10,
+      "pay_other_public": 0,
+      "pay_private_pay": 1
     }
   },
   {
@@ -19372,7 +20896,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 19708,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 296,
+      "pay_medicaid": 670,
+      "pay_private_ins": 110,
+      "pay_other_public": 5,
+      "pay_private_pay": 27
     }
   },
   {
@@ -19390,7 +20920,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 24464,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 266,
+      "pay_medicaid": 13,
+      "pay_private_ins": 12,
+      "pay_other_public": 6,
+      "pay_private_pay": 1
     }
   },
   {
@@ -19408,7 +20944,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 42909,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 203,
+      "pay_medicaid": 17,
+      "pay_private_ins": 0,
+      "pay_other_public": 114,
+      "pay_private_pay": 12
     }
   },
   {
@@ -19426,7 +20968,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 169920,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 8535,
+      "pay_medicaid": 2354,
+      "pay_private_ins": 3285,
+      "pay_other_public": 0,
+      "pay_private_pay": 316
     }
   },
   {
@@ -19444,7 +20992,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 276718,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 7675,
+      "pay_medicaid": 1634,
+      "pay_private_ins": 2034,
+      "pay_other_public": 250,
+      "pay_private_pay": 109
     }
   },
   {
@@ -19462,7 +21016,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 131886,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 1968,
+      "pay_medicaid": 414,
+      "pay_private_ins": 778,
+      "pay_other_public": 129,
+      "pay_private_pay": 61
     }
   },
   {
@@ -19480,7 +21040,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 78071,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 1046,
+      "pay_medicaid": 2128,
+      "pay_private_ins": 172,
+      "pay_other_public": 0,
+      "pay_private_pay": 5
     }
   },
   {
@@ -19498,7 +21064,13 @@
       "ms_beds": 18,
       "icu_beds": 4,
       "op_visits_total": 58819,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 520,
+      "pay_medicaid": 145,
+      "pay_private_ins": 112,
+      "pay_other_public": 11,
+      "pay_private_pay": 4
     }
   },
   {
@@ -19516,7 +21088,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 688470,
-      "or_rooms_total": 25
+      "or_rooms_total": 25,
+      "ed_visits": null,
+      "pay_medicare": 14735,
+      "pay_medicaid": 6364,
+      "pay_private_ins": 7016,
+      "pay_other_public": 575,
+      "pay_private_pay": 240
     }
   },
   {
@@ -19534,7 +21112,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 208964,
-      "or_rooms_total": 20
+      "or_rooms_total": 20,
+      "ed_visits": null,
+      "pay_medicare": 8700,
+      "pay_medicaid": 4926,
+      "pay_private_ins": 4463,
+      "pay_other_public": 698,
+      "pay_private_pay": 285
     }
   },
   {
@@ -19552,7 +21136,13 @@
       "ms_beds": 21,
       "icu_beds": 0,
       "op_visits_total": 78569,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 772,
+      "pay_medicaid": 168,
+      "pay_private_ins": 562,
+      "pay_other_public": 25,
+      "pay_private_pay": 13
     }
   },
   {
@@ -19570,7 +21160,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 178868,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 4415,
+      "pay_medicaid": 835,
+      "pay_private_ins": 1880,
+      "pay_other_public": 203,
+      "pay_private_pay": 66
     }
   },
   {
@@ -19588,7 +21184,13 @@
       "ms_beds": 20,
       "icu_beds": 8,
       "op_visits_total": 103133,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 1609,
+      "pay_medicaid": 274,
+      "pay_private_ins": 361,
+      "pay_other_public": 118,
+      "pay_private_pay": 33
     }
   },
   {
@@ -19606,7 +21208,13 @@
       "ms_beds": 32,
       "icu_beds": 5,
       "op_visits_total": 105101,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 1942,
+      "pay_medicaid": 842,
+      "pay_private_ins": 398,
+      "pay_other_public": 67,
+      "pay_private_pay": 35
     }
   },
   {
@@ -19624,7 +21232,13 @@
       "ms_beds": 65,
       "icu_beds": 9,
       "op_visits_total": 219770,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 2596,
+      "pay_medicaid": 754,
+      "pay_private_ins": 612,
+      "pay_other_public": 167,
+      "pay_private_pay": 29
     }
   },
   {
@@ -19642,7 +21256,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 304417,
-      "or_rooms_total": 20
+      "or_rooms_total": 20,
+      "ed_visits": null,
+      "pay_medicare": 5782,
+      "pay_medicaid": 3217,
+      "pay_private_ins": 1993,
+      "pay_other_public": 0,
+      "pay_private_pay": 6
     }
   },
   {
@@ -19660,7 +21280,13 @@
       "ms_beds": 12,
       "icu_beds": 0,
       "op_visits_total": 34550,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 56,
+      "pay_medicaid": 4,
+      "pay_private_ins": 40,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -19678,7 +21304,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 163547,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 480,
+      "pay_medicaid": 34,
+      "pay_private_ins": 47,
+      "pay_other_public": 23,
+      "pay_private_pay": 9
     }
   },
   {
@@ -19696,7 +21328,13 @@
       "ms_beds": 10,
       "icu_beds": 0,
       "op_visits_total": 33130,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 37,
+      "pay_medicaid": 3,
+      "pay_private_ins": 33,
+      "pay_other_public": 0,
+      "pay_private_pay": 2
     }
   },
   {
@@ -19714,7 +21352,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 459612,
-      "or_rooms_total": 29
+      "or_rooms_total": 29,
+      "ed_visits": null,
+      "pay_medicare": 12528,
+      "pay_medicaid": 3609,
+      "pay_private_ins": 5006,
+      "pay_other_public": 514,
+      "pay_private_pay": 186
     }
   },
   {
@@ -19732,7 +21376,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 46330,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 261,
+      "pay_medicaid": 66,
+      "pay_private_ins": 398,
+      "pay_other_public": 7,
+      "pay_private_pay": 2
     }
   },
   {
@@ -19750,7 +21400,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 27873,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 4,
+      "pay_medicaid": 156,
+      "pay_private_ins": 17,
+      "pay_other_public": 5,
+      "pay_private_pay": 0
     }
   },
   {
@@ -19768,7 +21424,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 201826,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 13432,
+      "pay_medicaid": 2457,
+      "pay_private_ins": 4413,
+      "pay_other_public": 108,
+      "pay_private_pay": 142
     }
   },
   {
@@ -19786,7 +21448,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 46738,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1963,
+      "pay_medicaid": 237,
+      "pay_private_ins": 635,
+      "pay_other_public": 25,
+      "pay_private_pay": 15
     }
   },
   {
@@ -19804,7 +21472,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 337651,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 5393,
+      "pay_medicaid": 2229,
+      "pay_private_ins": 1684,
+      "pay_other_public": 0,
+      "pay_private_pay": 106
     }
   },
   {
@@ -19822,7 +21496,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 1311249,
-      "or_rooms_total": 61
+      "or_rooms_total": 61,
+      "ed_visits": null,
+      "pay_medicare": 17104,
+      "pay_medicaid": 8218,
+      "pay_private_ins": 21349,
+      "pay_other_public": 321,
+      "pay_private_pay": 337
     }
   },
   {
@@ -19840,7 +21520,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 201723,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 7697,
+      "pay_medicaid": 2118,
+      "pay_private_ins": 5624,
+      "pay_other_public": 40,
+      "pay_private_pay": 315
     }
   },
   {
@@ -19858,7 +21544,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 369508,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 4647,
+      "pay_medicaid": 1025,
+      "pay_private_ins": 1245,
+      "pay_other_public": 119,
+      "pay_private_pay": 89
     }
   },
   {
@@ -19876,7 +21568,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 12018,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 961,
+      "pay_medicaid": 797,
+      "pay_private_ins": 360,
+      "pay_other_public": 0,
+      "pay_private_pay": 84
     }
   },
   {
@@ -19894,7 +21592,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 235270,
-      "or_rooms_total": 14
+      "or_rooms_total": 14,
+      "ed_visits": null,
+      "pay_medicare": 6251,
+      "pay_medicaid": 595,
+      "pay_private_ins": 3006,
+      "pay_other_public": 3,
+      "pay_private_pay": 141
     }
   },
   {
@@ -19912,7 +21616,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 223080,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 6220,
+      "pay_medicaid": 869,
+      "pay_private_ins": 1746,
+      "pay_other_public": 12,
+      "pay_private_pay": 271
     }
   },
   {
@@ -19930,7 +21640,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 38,
+      "pay_private_ins": 474,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -19948,7 +21664,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 2101422,
-      "or_rooms_total": 18
+      "or_rooms_total": 18,
+      "ed_visits": null,
+      "pay_medicare": 13119,
+      "pay_medicaid": 6065,
+      "pay_private_ins": 6704,
+      "pay_other_public": 222,
+      "pay_private_pay": 308
     }
   },
   {
@@ -19966,7 +21688,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 48692,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 2211,
+      "pay_medicaid": 1484,
+      "pay_private_ins": 918,
+      "pay_other_public": 0,
+      "pay_private_pay": 44
     }
   },
   {
@@ -19984,7 +21712,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 196443,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 6367,
+      "pay_medicaid": 960,
+      "pay_private_ins": 1810,
+      "pay_other_public": 161,
+      "pay_private_pay": 109
     }
   },
   {
@@ -20002,7 +21736,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 170603,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 5149,
+      "pay_medicaid": 1343,
+      "pay_private_ins": 3097,
+      "pay_other_public": 107,
+      "pay_private_pay": 72
     }
   },
   {
@@ -20020,7 +21760,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 566976,
-      "or_rooms_total": 36
+      "or_rooms_total": 36,
+      "ed_visits": null,
+      "pay_medicare": 13328,
+      "pay_medicaid": 12276,
+      "pay_private_ins": 8898,
+      "pay_other_public": 0,
+      "pay_private_pay": 226
     }
   },
   {
@@ -20038,7 +21784,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 719160,
-      "or_rooms_total": 17
+      "or_rooms_total": 17,
+      "ed_visits": null,
+      "pay_medicare": 10783,
+      "pay_medicaid": 2620,
+      "pay_private_ins": 11600,
+      "pay_other_public": 163,
+      "pay_private_pay": 19
     }
   },
   {
@@ -20056,7 +21808,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 195595,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 3500,
+      "pay_medicaid": 798,
+      "pay_private_ins": 1701,
+      "pay_other_public": 23,
+      "pay_private_pay": 127
     }
   },
   {
@@ -20074,7 +21832,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 90134,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 3446,
+      "pay_medicaid": 1609,
+      "pay_private_ins": 862,
+      "pay_other_public": 0,
+      "pay_private_pay": 156
     }
   },
   {
@@ -20092,7 +21856,13 @@
       "ms_beds": 15,
       "icu_beds": 0,
       "op_visits_total": 237240,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 388,
+      "pay_medicaid": 30,
+      "pay_private_ins": 55,
+      "pay_other_public": 0,
+      "pay_private_pay": 5
     }
   },
   {
@@ -20110,7 +21880,13 @@
       "ms_beds": 12,
       "icu_beds": 0,
       "op_visits_total": 51188,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 377,
+      "pay_medicaid": 885,
+      "pay_private_ins": 233,
+      "pay_other_public": 7,
+      "pay_private_pay": 113
     }
   },
   {
@@ -20128,7 +21904,13 @@
       "ms_beds": 24,
       "icu_beds": 2,
       "op_visits_total": 116713,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 276,
+      "pay_medicaid": 334,
+      "pay_private_ins": 47,
+      "pay_other_public": 0,
+      "pay_private_pay": 81
     }
   },
   {
@@ -20146,7 +21928,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 44124,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 599,
+      "pay_medicaid": 417,
+      "pay_private_ins": 407,
+      "pay_other_public": 29,
+      "pay_private_pay": 46
     }
   },
   {
@@ -20164,7 +21952,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 73114,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 447,
+      "pay_medicaid": 48,
+      "pay_private_ins": 55,
+      "pay_other_public": 18,
+      "pay_private_pay": 9
     }
   },
   {
@@ -20182,7 +21976,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 208835,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 5936,
+      "pay_medicaid": 2706,
+      "pay_private_ins": 3654,
+      "pay_other_public": 0,
+      "pay_private_pay": 398
     }
   },
   {
@@ -20200,7 +22000,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 6529,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 269,
+      "pay_medicaid": 1799,
+      "pay_private_ins": 558,
+      "pay_other_public": 18,
+      "pay_private_pay": 10
     }
   },
   {
@@ -20218,7 +22024,13 @@
       "ms_beds": 15,
       "icu_beds": 4,
       "op_visits_total": 41667,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 441,
+      "pay_medicaid": 51,
+      "pay_private_ins": 78,
+      "pay_other_public": 3,
+      "pay_private_pay": 7
     }
   },
   {
@@ -20236,7 +22048,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 167851,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 5771,
+      "pay_medicaid": 1592,
+      "pay_private_ins": 1626,
+      "pay_other_public": 0,
+      "pay_private_pay": 194
     }
   },
   {
@@ -20254,7 +22072,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 18627,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 165,
+      "pay_medicaid": 2797,
+      "pay_private_ins": 720,
+      "pay_other_public": 65,
+      "pay_private_pay": 8
     }
   },
   {
@@ -20272,7 +22096,13 @@
       "ms_beds": 15,
       "icu_beds": 6,
       "op_visits_total": 120653,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 808,
+      "pay_medicaid": 313,
+      "pay_private_ins": 145,
+      "pay_other_public": 4,
+      "pay_private_pay": 50
     }
   },
   {
@@ -20290,7 +22120,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 391801,
-      "or_rooms_total": 26
+      "or_rooms_total": 26,
+      "ed_visits": null,
+      "pay_medicare": 13448,
+      "pay_medicaid": 7005,
+      "pay_private_ins": 11914,
+      "pay_other_public": 0,
+      "pay_private_pay": 742
     }
   },
   {
@@ -20308,7 +22144,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 245,
+      "pay_medicaid": 170,
+      "pay_private_ins": 215,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -20326,7 +22168,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 115255,
-      "or_rooms_total": 15
+      "or_rooms_total": 15,
+      "ed_visits": null,
+      "pay_medicare": 7886,
+      "pay_medicaid": 2923,
+      "pay_private_ins": 2818,
+      "pay_other_public": 0,
+      "pay_private_pay": 299
     }
   },
   {
@@ -20344,7 +22192,13 @@
       "ms_beds": 66,
       "icu_beds": 12,
       "op_visits_total": 67009,
-      "or_rooms_total": 4
+      "or_rooms_total": 4,
+      "ed_visits": null,
+      "pay_medicare": 1597,
+      "pay_medicaid": 565,
+      "pay_private_ins": 239,
+      "pay_other_public": 167,
+      "pay_private_pay": 17
     }
   },
   {
@@ -20362,7 +22216,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 39761,
-      "or_rooms_total": 15
+      "or_rooms_total": 15,
+      "ed_visits": null,
+      "pay_medicare": 1798,
+      "pay_medicaid": 879,
+      "pay_private_ins": 639,
+      "pay_other_public": 114,
+      "pay_private_pay": 83
     }
   },
   {
@@ -20380,7 +22240,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 74415,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 2294,
+      "pay_medicaid": 1048,
+      "pay_private_ins": 998,
+      "pay_other_public": 0,
+      "pay_private_pay": 51
     }
   },
   {
@@ -20398,7 +22264,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 46645,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 2351,
+      "pay_medicaid": 926,
+      "pay_private_ins": 927,
+      "pay_other_public": 0,
+      "pay_private_pay": 114
     }
   },
   {
@@ -20416,7 +22288,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 48880,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 2655,
+      "pay_medicaid": 2276,
+      "pay_private_ins": 1539,
+      "pay_other_public": 0,
+      "pay_private_pay": 204
     }
   },
   {
@@ -20434,7 +22312,13 @@
       "ms_beds": 4,
       "icu_beds": 1,
       "op_visits_total": 23649,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 117,
+      "pay_medicaid": 23,
+      "pay_private_ins": 33,
+      "pay_other_public": 4,
+      "pay_private_pay": 8
     }
   },
   {
@@ -20452,7 +22336,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 205573,
-      "or_rooms_total": 19
+      "or_rooms_total": 19,
+      "ed_visits": null,
+      "pay_medicare": 3787,
+      "pay_medicaid": 5460,
+      "pay_private_ins": 4884,
+      "pay_other_public": 0,
+      "pay_private_pay": 281
     }
   },
   {
@@ -20470,7 +22360,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 187036,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 765,
+      "pay_medicaid": 1238,
+      "pay_private_ins": 2741,
+      "pay_other_public": 0,
+      "pay_private_pay": 50
     }
   },
   {
@@ -20488,7 +22384,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 71179,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 512,
+      "pay_medicaid": 44,
+      "pay_private_ins": 2854,
+      "pay_other_public": 14,
+      "pay_private_pay": 5
     }
   },
   {
@@ -20506,7 +22408,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 281492,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 4011,
+      "pay_medicaid": 558,
+      "pay_private_ins": 3785,
+      "pay_other_public": 15,
+      "pay_private_pay": 5
     }
   },
   {
@@ -20524,7 +22432,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 260270,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 4977,
+      "pay_medicaid": 1662,
+      "pay_private_ins": 1582,
+      "pay_other_public": 50,
+      "pay_private_pay": 722
     }
   },
   {
@@ -20542,7 +22456,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 23880,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 359,
+      "pay_medicaid": 3030,
+      "pay_private_ins": 842,
+      "pay_other_public": 0,
+      "pay_private_pay": 8
     }
   },
   {
@@ -20560,7 +22480,13 @@
       "ms_beds": 10,
       "icu_beds": 4,
       "op_visits_total": 25129,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 344,
+      "pay_medicaid": 41,
+      "pay_private_ins": 31,
+      "pay_other_public": 6,
+      "pay_private_pay": 1
     }
   },
   {
@@ -20578,7 +22504,13 @@
       "ms_beds": 10,
       "icu_beds": 0,
       "op_visits_total": 121651,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 41,
+      "pay_medicaid": 321,
+      "pay_private_ins": 425,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -20596,7 +22528,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 256423,
-      "or_rooms_total": 17
+      "or_rooms_total": 17,
+      "ed_visits": null,
+      "pay_medicare": 5743,
+      "pay_medicaid": 2671,
+      "pay_private_ins": 4049,
+      "pay_other_public": 24,
+      "pay_private_pay": 334
     }
   },
   {
@@ -20614,7 +22552,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1191,
+      "pay_medicaid": 222,
+      "pay_private_ins": 278,
+      "pay_other_public": 0,
+      "pay_private_pay": 1
     }
   },
   {
@@ -20632,7 +22576,13 @@
       "ms_beds": 16,
       "icu_beds": 0,
       "op_visits_total": 38508,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 146,
+      "pay_medicaid": 5,
+      "pay_private_ins": 15,
+      "pay_other_public": 36,
+      "pay_private_pay": 0
     }
   },
   {
@@ -20650,7 +22600,13 @@
       "ms_beds": 33,
       "icu_beds": 5,
       "op_visits_total": 180368,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 1018,
+      "pay_medicaid": 121,
+      "pay_private_ins": 127,
+      "pay_other_public": 11,
+      "pay_private_pay": 3
     }
   },
   {
@@ -20668,7 +22624,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 924784,
-      "or_rooms_total": 17
+      "or_rooms_total": 17,
+      "ed_visits": null,
+      "pay_medicare": 2506,
+      "pay_medicaid": 7444,
+      "pay_private_ins": 1119,
+      "pay_other_public": 4,
+      "pay_private_pay": 2770
     }
   },
   {
@@ -20686,7 +22648,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 774660,
-      "or_rooms_total": 26
+      "or_rooms_total": 26,
+      "ed_visits": null,
+      "pay_medicare": 5019,
+      "pay_medicaid": 7992,
+      "pay_private_ins": 3542,
+      "pay_other_public": 5,
+      "pay_private_pay": 0
     }
   },
   {
@@ -20704,7 +22672,13 @@
       "ms_beds": 8,
       "icu_beds": 0,
       "op_visits_total": 40371,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 289,
+      "pay_medicaid": 19,
+      "pay_private_ins": 17,
+      "pay_other_public": 19,
+      "pay_private_pay": 1
     }
   },
   {
@@ -20722,7 +22696,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 0,
+      "pay_private_ins": 0,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -20740,7 +22720,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 114254,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 660,
+      "pay_medicaid": 2459,
+      "pay_private_ins": 111,
+      "pay_other_public": 0,
+      "pay_private_pay": 48
     }
   },
   {
@@ -20758,7 +22744,13 @@
       "ms_beds": 67,
       "icu_beds": 14,
       "op_visits_total": 73340,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1233,
+      "pay_medicaid": 1407,
+      "pay_private_ins": 1788,
+      "pay_other_public": 119,
+      "pay_private_pay": 344
     }
   },
   {
@@ -20776,7 +22768,13 @@
       "ms_beds": 46,
       "icu_beds": 6,
       "op_visits_total": 136141,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 1486,
+      "pay_medicaid": 643,
+      "pay_private_ins": 432,
+      "pay_other_public": 50,
+      "pay_private_pay": 36
     }
   },
   {
@@ -20794,7 +22792,13 @@
       "ms_beds": 23,
       "icu_beds": 0,
       "op_visits_total": 68133,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 403,
+      "pay_medicaid": 22,
+      "pay_private_ins": 20,
+      "pay_other_public": 13,
+      "pay_private_pay": 3
     }
   },
   {
@@ -20812,7 +22816,13 @@
       "ms_beds": 70,
       "icu_beds": 12,
       "op_visits_total": 262371,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 3604,
+      "pay_medicaid": 1041,
+      "pay_private_ins": 1703,
+      "pay_other_public": 92,
+      "pay_private_pay": 83
     }
   },
   {
@@ -20830,7 +22840,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 41075,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 343,
+      "pay_medicaid": 8,
+      "pay_private_ins": 17,
+      "pay_other_public": 4,
+      "pay_private_pay": 13
     }
   },
   {
@@ -20848,7 +22864,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 161706,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 3123,
+      "pay_medicaid": 1625,
+      "pay_private_ins": 1741,
+      "pay_other_public": 0,
+      "pay_private_pay": 84
     }
   },
   {
@@ -20866,7 +22888,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 48726,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 0,
+      "pay_private_ins": 0,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -20884,7 +22912,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 1012228,
-      "or_rooms_total": 14
+      "or_rooms_total": 14,
+      "ed_visits": null,
+      "pay_medicare": 6735,
+      "pay_medicaid": 4932,
+      "pay_private_ins": 3042,
+      "pay_other_public": 355,
+      "pay_private_pay": 113
     }
   },
   {
@@ -20902,7 +22936,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 1215,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 1587,
+      "pay_private_ins": 560,
+      "pay_other_public": 47,
+      "pay_private_pay": 0
     }
   },
   {
@@ -20920,7 +22960,13 @@
       "ms_beds": 12,
       "icu_beds": 0,
       "op_visits_total": 38307,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 346,
+      "pay_medicaid": 21,
+      "pay_private_ins": 30,
+      "pay_other_public": 3,
+      "pay_private_pay": 4
     }
   },
   {
@@ -20938,7 +22984,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 266529,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 9554,
+      "pay_medicaid": 2341,
+      "pay_private_ins": 3652,
+      "pay_other_public": 183,
+      "pay_private_pay": 464
     }
   },
   {
@@ -20956,7 +23008,13 @@
       "ms_beds": 63,
       "icu_beds": 4,
       "op_visits_total": 178774,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1794,
+      "pay_medicaid": 130,
+      "pay_private_ins": 859,
+      "pay_other_public": 4,
+      "pay_private_pay": 2
     }
   },
   {
@@ -20974,7 +23032,13 @@
       "ms_beds": 15,
       "icu_beds": 0,
       "op_visits_total": 97213,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 359,
+      "pay_medicaid": 35,
+      "pay_private_ins": 127,
+      "pay_other_public": 0,
+      "pay_private_pay": 3
     }
   },
   {
@@ -20992,7 +23056,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 79246,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1138,
+      "pay_medicaid": 4734,
+      "pay_private_ins": 593,
+      "pay_other_public": 0,
+      "pay_private_pay": 432
     }
   },
   {
@@ -21010,7 +23080,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 64158,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 472,
+      "pay_medicaid": 42,
+      "pay_private_ins": 76,
+      "pay_other_public": 0,
+      "pay_private_pay": 7
     }
   },
   {
@@ -21028,7 +23104,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 355688,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 5510,
+      "pay_medicaid": 1560,
+      "pay_private_ins": 3598,
+      "pay_other_public": 193,
+      "pay_private_pay": 94
     }
   },
   {
@@ -21046,7 +23128,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 130,
+      "pay_medicaid": 158,
+      "pay_private_ins": 63,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21064,7 +23152,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 43100,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 585,
+      "pay_medicaid": 37,
+      "pay_private_ins": 51,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21082,7 +23176,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 343769,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 5806,
+      "pay_medicaid": 881,
+      "pay_private_ins": 3502,
+      "pay_other_public": 77,
+      "pay_private_pay": 96
     }
   },
   {
@@ -21100,7 +23200,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 1316738,
-      "or_rooms_total": 26
+      "or_rooms_total": 26,
+      "ed_visits": null,
+      "pay_medicare": 11175,
+      "pay_medicaid": 2954,
+      "pay_private_ins": 8847,
+      "pay_other_public": 126,
+      "pay_private_pay": 177
     }
   },
   {
@@ -21118,7 +23224,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 645594,
-      "or_rooms_total": 14
+      "or_rooms_total": 14,
+      "ed_visits": null,
+      "pay_medicare": 8435,
+      "pay_medicaid": 2762,
+      "pay_private_ins": 7631,
+      "pay_other_public": 58,
+      "pay_private_pay": 1
     }
   },
   {
@@ -21136,7 +23248,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 53010,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 0,
+      "pay_private_ins": 0,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21154,7 +23272,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 439,
+      "pay_medicaid": 157,
+      "pay_private_ins": 181,
+      "pay_other_public": 21,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21172,7 +23296,13 @@
       "ms_beds": 16,
       "icu_beds": 0,
       "op_visits_total": 56596,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 178,
+      "pay_medicaid": 3,
+      "pay_private_ins": 20,
+      "pay_other_public": 0,
+      "pay_private_pay": 3
     }
   },
   {
@@ -21190,7 +23320,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 53703,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 3614,
+      "pay_medicaid": 838,
+      "pay_private_ins": 804,
+      "pay_other_public": 2,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21208,7 +23344,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 1202407,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 8402,
+      "pay_medicaid": 4457,
+      "pay_private_ins": 5404,
+      "pay_other_public": 31,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21226,7 +23368,13 @@
       "ms_beds": 21,
       "icu_beds": 4,
       "op_visits_total": 84655,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 514,
+      "pay_medicaid": 39,
+      "pay_private_ins": 52,
+      "pay_other_public": 8,
+      "pay_private_pay": 6
     }
   },
   {
@@ -21244,7 +23392,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 307862,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 11649,
+      "pay_medicaid": 2298,
+      "pay_private_ins": 6619,
+      "pay_other_public": 15,
+      "pay_private_pay": 243
     }
   },
   {
@@ -21262,7 +23416,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 764482,
-      "or_rooms_total": 19
+      "or_rooms_total": 19,
+      "ed_visits": null,
+      "pay_medicare": 68,
+      "pay_medicaid": 6120,
+      "pay_private_ins": 5164,
+      "pay_other_public": 86,
+      "pay_private_pay": 88
     }
   },
   {
@@ -21280,7 +23440,13 @@
       "ms_beds": 59,
       "icu_beds": 4,
       "op_visits_total": 110585,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 4119,
+      "pay_medicaid": 1456,
+      "pay_private_ins": 1434,
+      "pay_other_public": 302,
+      "pay_private_pay": 78
     }
   },
   {
@@ -21298,7 +23464,13 @@
       "ms_beds": 14,
       "icu_beds": 0,
       "op_visits_total": 20290,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 138,
+      "pay_medicaid": 10,
+      "pay_private_ins": 9,
+      "pay_other_public": 1,
+      "pay_private_pay": 1
     }
   },
   {
@@ -21316,7 +23488,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 300285,
-      "or_rooms_total": 13
+      "or_rooms_total": 13,
+      "ed_visits": null,
+      "pay_medicare": 6285,
+      "pay_medicaid": 2262,
+      "pay_private_ins": 3128,
+      "pay_other_public": 936,
+      "pay_private_pay": 524
     }
   },
   {
@@ -21334,7 +23512,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 67225,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 1020,
+      "pay_medicaid": 46,
+      "pay_private_ins": 134,
+      "pay_other_public": 24,
+      "pay_private_pay": 12
     }
   },
   {
@@ -21352,7 +23536,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 9662,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 1393,
+      "pay_private_ins": 149,
+      "pay_other_public": 5,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21370,7 +23560,13 @@
       "ms_beds": 22,
       "icu_beds": 3,
       "op_visits_total": 84413,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 299,
+      "pay_medicaid": 33,
+      "pay_private_ins": 28,
+      "pay_other_public": 14,
+      "pay_private_pay": 1
     }
   },
   {
@@ -21388,7 +23584,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 7469,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1221,
+      "pay_medicaid": 3247,
+      "pay_private_ins": 610,
+      "pay_other_public": 9,
+      "pay_private_pay": 32
     }
   },
   {
@@ -21406,7 +23608,13 @@
       "ms_beds": 38,
       "icu_beds": 11,
       "op_visits_total": 124589,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 1477,
+      "pay_medicaid": 405,
+      "pay_private_ins": 314,
+      "pay_other_public": 22,
+      "pay_private_pay": 34
     }
   },
   {
@@ -21424,7 +23632,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 52759,
-      "or_rooms_total": 6
+      "or_rooms_total": 6,
+      "ed_visits": null,
+      "pay_medicare": 1593,
+      "pay_medicaid": 903,
+      "pay_private_ins": 267,
+      "pay_other_public": 25,
+      "pay_private_pay": 221
     }
   },
   {
@@ -21442,7 +23656,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 91212,
-      "or_rooms_total": 16
+      "or_rooms_total": 16,
+      "ed_visits": null,
+      "pay_medicare": 5335,
+      "pay_medicaid": 738,
+      "pay_private_ins": 1714,
+      "pay_other_public": 0,
+      "pay_private_pay": 55
     }
   },
   {
@@ -21460,7 +23680,13 @@
       "ms_beds": 13,
       "icu_beds": 0,
       "op_visits_total": 49483,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 219,
+      "pay_medicaid": 14,
+      "pay_private_ins": 78,
+      "pay_other_public": 0,
+      "pay_private_pay": 30
     }
   },
   {
@@ -21478,7 +23704,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 87264,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 2707,
+      "pay_medicaid": 2122,
+      "pay_private_ins": 2887,
+      "pay_other_public": 0,
+      "pay_private_pay": 104
     }
   },
   {
@@ -21496,7 +23728,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 84251,
-      "or_rooms_total": 12
+      "or_rooms_total": 12,
+      "ed_visits": null,
+      "pay_medicare": 3371,
+      "pay_medicaid": 1456,
+      "pay_private_ins": 862,
+      "pay_other_public": 0,
+      "pay_private_pay": 141
     }
   },
   {
@@ -21514,7 +23752,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 7850,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 269,
+      "pay_private_ins": 100,
+      "pay_other_public": 0,
+      "pay_private_pay": 3
     }
   },
   {
@@ -21532,7 +23776,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 15670,
-      "or_rooms_total": 7
+      "or_rooms_total": 7,
+      "ed_visits": null,
+      "pay_medicare": 435,
+      "pay_medicaid": 147,
+      "pay_private_ins": 147,
+      "pay_other_public": 0,
+      "pay_private_pay": 4
     }
   },
   {
@@ -21550,7 +23800,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 118855,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 6929,
+      "pay_medicaid": 1369,
+      "pay_private_ins": 2198,
+      "pay_other_public": 0,
+      "pay_private_pay": 152
     }
   },
   {
@@ -21568,7 +23824,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 270146,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1645,
+      "pay_medicaid": 607,
+      "pay_private_ins": 1459,
+      "pay_other_public": 14,
+      "pay_private_pay": 8
     }
   },
   {
@@ -21586,7 +23848,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 211019,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 6458,
+      "pay_medicaid": 1258,
+      "pay_private_ins": 1760,
+      "pay_other_public": 618,
+      "pay_private_pay": 131
     }
   },
   {
@@ -21604,7 +23872,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 8233,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 853,
+      "pay_medicaid": 2980,
+      "pay_private_ins": 807,
+      "pay_other_public": 358,
+      "pay_private_pay": 49
     }
   },
   {
@@ -21622,7 +23896,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 304909,
-      "or_rooms_total": 11
+      "or_rooms_total": 11,
+      "ed_visits": null,
+      "pay_medicare": 3906,
+      "pay_medicaid": 3421,
+      "pay_private_ins": 1674,
+      "pay_other_public": 3,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21640,7 +23920,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 13631,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 561,
+      "pay_medicaid": 1463,
+      "pay_private_ins": 1400,
+      "pay_other_public": 20,
+      "pay_private_pay": 49
     }
   },
   {
@@ -21658,7 +23944,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 2890,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 402,
+      "pay_medicaid": 1633,
+      "pay_private_ins": 104,
+      "pay_other_public": 4,
+      "pay_private_pay": 15
     }
   },
   {
@@ -21676,7 +23968,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 173732,
-      "or_rooms_total": 10
+      "or_rooms_total": 10,
+      "ed_visits": null,
+      "pay_medicare": 5729,
+      "pay_medicaid": 2737,
+      "pay_private_ins": 1522,
+      "pay_other_public": 70,
+      "pay_private_pay": 108
     }
   },
   {
@@ -21694,7 +23992,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 54178,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 229,
+      "pay_medicaid": 39,
+      "pay_private_ins": 0,
+      "pay_other_public": 0,
+      "pay_private_pay": 1
     }
   },
   {
@@ -21712,7 +24016,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 226796,
-      "or_rooms_total": 9
+      "or_rooms_total": 9,
+      "ed_visits": null,
+      "pay_medicare": 4233,
+      "pay_medicaid": 2339,
+      "pay_private_ins": 1784,
+      "pay_other_public": 8,
+      "pay_private_pay": 28
     }
   },
   {
@@ -21730,7 +24040,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 107,
+      "pay_medicaid": 56,
+      "pay_private_ins": 179,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21748,7 +24064,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 0,
-      "or_rooms_total": 1
+      "or_rooms_total": 1,
+      "ed_visits": null,
+      "pay_medicare": 201,
+      "pay_medicaid": 135,
+      "pay_private_ins": 769,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21766,7 +24088,13 @@
       "ms_beds": 46,
       "icu_beds": 6,
       "op_visits_total": 73821,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 798,
+      "pay_medicaid": 120,
+      "pay_private_ins": 172,
+      "pay_other_public": 2528,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21784,7 +24112,13 @@
       "ms_beds": 22,
       "icu_beds": 3,
       "op_visits_total": 99761,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 512,
+      "pay_medicaid": 41,
+      "pay_private_ins": 61,
+      "pay_other_public": 11,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21802,7 +24136,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 607,
+      "pay_medicaid": 95,
+      "pay_private_ins": 372,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21820,7 +24160,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 690,
+      "pay_medicaid": 77,
+      "pay_private_ins": 97,
+      "pay_other_public": 158,
+      "pay_private_pay": 5
     }
   },
   {
@@ -21838,7 +24184,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 484,
+      "pay_medicaid": 69,
+      "pay_private_ins": 267,
+      "pay_other_public": 13,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21856,7 +24208,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 49024,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 265,
+      "pay_medicaid": 17,
+      "pay_private_ins": 71,
+      "pay_other_public": 0,
+      "pay_private_pay": 5
     }
   },
   {
@@ -21874,7 +24232,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 35928,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 2019,
+      "pay_medicaid": 974,
+      "pay_private_ins": 301,
+      "pay_other_public": 0,
+      "pay_private_pay": 72
     }
   },
   {
@@ -21892,7 +24256,13 @@
       "ms_beds": null,
       "icu_beds": null,
       "op_visits_total": 67579,
-      "or_rooms_total": 8
+      "or_rooms_total": 8,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 0,
+      "pay_private_ins": 0,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21910,7 +24280,13 @@
       "ms_beds": 10,
       "icu_beds": 0,
       "op_visits_total": 55319,
-      "or_rooms_total": 5
+      "or_rooms_total": 5,
+      "ed_visits": null,
+      "pay_medicare": 197,
+      "pay_medicaid": 203,
+      "pay_private_ins": 144,
+      "pay_other_public": 30,
+      "pay_private_pay": 24
     }
   },
   {
@@ -21928,7 +24304,13 @@
       "ms_beds": 76,
       "icu_beds": 18,
       "op_visits_total": 53613,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1151,
+      "pay_medicaid": 358,
+      "pay_private_ins": 844,
+      "pay_other_public": 154,
+      "pay_private_pay": 51
     }
   },
   {
@@ -21946,7 +24328,13 @@
       "ms_beds": 20,
       "icu_beds": 0,
       "op_visits_total": 27704,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 0,
+      "pay_medicaid": 0,
+      "pay_private_ins": 0,
+      "pay_other_public": 0,
+      "pay_private_pay": 0
     }
   },
   {
@@ -21964,7 +24352,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 40162,
-      "or_rooms_total": 2
+      "or_rooms_total": 2,
+      "ed_visits": null,
+      "pay_medicare": 411,
+      "pay_medicaid": 16,
+      "pay_private_ins": 235,
+      "pay_other_public": 3,
+      "pay_private_pay": 10
     }
   },
   {
@@ -21982,7 +24376,13 @@
       "ms_beds": 20,
       "icu_beds": 4,
       "op_visits_total": 65998,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 1191,
+      "pay_medicaid": 1869,
+      "pay_private_ins": 457,
+      "pay_other_public": 71,
+      "pay_private_pay": 153
     }
   },
   {
@@ -22000,7 +24400,13 @@
       "ms_beds": 11,
       "icu_beds": 2,
       "op_visits_total": 25255,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 91,
+      "pay_medicaid": 22,
+      "pay_private_ins": 83,
+      "pay_other_public": 3,
+      "pay_private_pay": 16
     }
   },
   {
@@ -22018,7 +24424,13 @@
       "ms_beds": 0,
       "icu_beds": 0,
       "op_visits_total": 0,
-      "or_rooms_total": 0
+      "or_rooms_total": 0,
+      "ed_visits": null,
+      "pay_medicare": 256,
+      "pay_medicaid": 0,
+      "pay_private_ins": 160,
+      "pay_other_public": 0,
+      "pay_private_pay": 1
     }
   },
   {
@@ -22036,7 +24448,13 @@
       "ms_beds": 25,
       "icu_beds": 0,
       "op_visits_total": 37342,
-      "or_rooms_total": 3
+      "or_rooms_total": 3,
+      "ed_visits": null,
+      "pay_medicare": 654,
+      "pay_medicaid": 24,
+      "pay_private_ins": 95,
+      "pay_other_public": 0,
+      "pay_private_pay": 4
     }
   }
 ]

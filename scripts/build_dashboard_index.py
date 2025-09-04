@@ -113,8 +113,25 @@ def main() -> None:
                             or_cases += n; found_cases = True
                     if found_cases:
                         metrics['or_cases_total'] = or_cases
+                    # Separate class C vs class B cases if available
+                    oc = 0; ocf=False
+                    for key in ['or_cases_ip','or_cases_op']:
+                        n = to_num(payload.get(key))
+                        if n is not None: oc += n; ocf=True
+                    if ocf: metrics['or_cases_class_c'] = oc
+                    ob = 0; obf=False
+                    for key in ['procB_cases_ip','procB_cases_op']:
+                        n = to_num(payload.get(key))
+                        if n is not None: ob += n; obf=True
+                    if obf: metrics['or_cases_class_b'] = ob
                     # ED visits if present (best-effort)
                     metrics['ed_visits'] = first_num(['ed_visits','er_visits','ed_total_visits'])
+                    # Inpatient payer counts
+                    metrics['pay_medicare'] = first_num(['pay_inp_medicare'])
+                    metrics['pay_medicaid'] = first_num(['pay_inp_medicaid'])
+                    metrics['pay_private_ins'] = first_num(['pay_inp_private_ins'])
+                    metrics['pay_other_public'] = first_num(['pay_inp_other_public'])
+                    metrics['pay_private_pay'] = first_num(['pay_inp_private_pay'])
                 elif ftype == 'ESRD':
                     metrics['stations_setup'] = first_num(['stations_oct_setup_staffed'])
                     metrics['fte_total'] = first_num(['fte_total'])
