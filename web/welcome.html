@@ -55,6 +55,7 @@
     <div class="cta">
       <button class="btn" id="openBtn" disabled>Open Profile</button>
       <a class="btn" href="dashboard.html">Advanced Dashboard</a>
+      <a class="btn" href="query.html">Query Assistant</a>
     </div>
   </main>
 
@@ -68,6 +69,30 @@
     };
     const el = (s) => document.querySelector(s);
     const state = { all: [], choices: { type:'', year:'', slug:'' }, facFilter: '' };
+    const RECENT_KEY = 'hfsrb_recent_profiles';
+    function pushRecent(row){
+      try{
+        const rec = JSON.parse(localStorage.getItem(RECENT_KEY)||'[]');
+        const entry = { year: row.year, type: row.type, slug: row.slug, name: row.name };
+        const filtered = rec.filter(r => !(r.year==entry.year && r.type==entry.type && r.slug==entry.slug));
+        filtered.unshift(entry);
+        localStorage.setItem(RECENT_KEY, JSON.stringify(filtered.slice(0,8)));
+      }catch{}
+    }
+    function renderRecent(){
+      try{
+        const box = document.createElement('div'); box.id='recentWrap'; box.className='recent';
+        const anchor = document.querySelector('.cta'); if (!anchor) return;
+        const rec = JSON.parse(localStorage.getItem(RECENT_KEY)||'[]');
+        if (!rec.length) return;
+        box.innerHTML = rec.map(r=>`<button class="chip" data-year="${r.year}" data-type="${r.type}" data-slug="${r.slug}">${r.name}</button>`).join('');
+        anchor.insertAdjacentElement('afterend', box);
+        box.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', () => {
+          const y = ch.getAttribute('data-year'); const t = ch.getAttribute('data-type'); const s = ch.getAttribute('data-slug');
+          window.location.href = `./out/profiles/${y}/${t}/${s}.html?show=all`;
+        }));
+      }catch{}
+    }
     function setYears() {
       const ysel = el('#year'); const stp = el('#step-year');
       const years = [...new Set(state.all.filter(r => !state.choices.type || r.type===state.choices.type).map(r => r.year))]
@@ -89,16 +114,27 @@
       if (!type || !year || !slug) return;
       const base = IS_WEB_SUBDIR ? '.' : '.';
       const url = `${base}/out/profiles/${year}/${type}/${slug}.html?show=all`;
+      try { const row = state.all.find(r => r.type===type && String(r.year)===String(year) && r.slug===slug); if (row) pushRecent(row); } catch {}
       window.location.href = url;
     }
     (async function init(){
       state.all = await api.loadIndex();
       // Wire selects
-      el('#type').addEventListener('change', (e)=>{ state.choices.type = e.target.value; setYears(); el('#openBtn').disabled = true; });
-      el('#year').addEventListener('change', (e)=>{ state.choices.year = e.target.value; setFacilities(); el('#openBtn').disabled = true; });
-      el('#facFilter').addEventListener('input', (e)=>{ state.facFilter = e.target.value; setFacilities(); el('#openBtn').disabled = true; });
-      el('#facility').addEventListener('change', (e)=>{ state.choices.slug = e.target.value; el('#openBtn').disabled = !(state.choices.slug); });
+      const tSel = el('#type'); const ySel = el('#year'); const fInp = el('#facFilter'); const fSel = el('#facility');
+      tSel.addEventListener('change', (e)=>{ state.choices.type = e.target.value; setYears(); el('#openBtn').disabled = true; ySel.focus(); });
+      ySel.addEventListener('change', (e)=>{ state.choices.year = e.target.value; setFacilities(); el('#openBtn').disabled = true; fInp.focus(); });
+      fInp.addEventListener('input', (e)=>{ state.facFilter = e.target.value; setFacilities(); el('#openBtn').disabled = true; });
+      fSel.addEventListener('change', (e)=>{ state.choices.slug = e.target.value; el('#openBtn').disabled = !(state.choices.slug); });
       el('#openBtn').addEventListener('click', openProfile);
+      // Keyboard: Enter to advance or open
+      document.addEventListener('keydown', (ev)=>{
+        if ((ev.key||'') !== 'Enter') return;
+        if (!state.choices.type) { tSel.focus(); return; }
+        if (!state.choices.year) { ySel.focus(); return; }
+        if (!state.choices.slug) { fInp.focus(); return; }
+        if (!el('#openBtn').disabled) openProfile();
+      });
+      renderRecent();
     })();
   </script>
 </body>
