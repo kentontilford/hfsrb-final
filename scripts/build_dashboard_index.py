@@ -86,17 +86,35 @@ def main() -> None:
                             if n is not None:
                                 return n
                     return None
+                def sum_prefix(prefix):
+                    total = 0
+                    found = False
+                    for k, v in (payload or {}).items():
+                        if isinstance(k, str) and k.startswith(prefix) and v not in (None, ''):
+                            n = to_num(v)
+                            if n is not None:
+                                total += n
+                                found = True
+                    return total if found else None
                 metrics = {}
                 if ftype == 'Hospital':
                     metrics['ms_beds'] = first_num(['ms_beds_10_1_23','med_surg_beds_oct1'])
                     metrics['icu_beds'] = first_num(['total_icu_beds_10_1_23','icu_beds_oct1'])
                     metrics['op_visits_total'] = first_num(['op_visits_total'])
+                    # Aggregate OR rooms across ip/op/combined
+                    or_rooms = sum_prefix('or_rooms_')
+                    if or_rooms is not None:
+                        metrics['or_rooms_total'] = or_rooms
                 elif ftype == 'ESRD':
                     metrics['stations_setup'] = first_num(['stations_oct_setup_staffed'])
+                    metrics['fte_total'] = first_num(['fte_total'])
                 elif ftype == 'ASTC':
                     metrics['or_rooms_class_c'] = first_num(['rooms_or_class_c'])
+                    metrics['rooms_exam'] = first_num(['rooms_exam'])
+                    metrics['fte_total'] = first_num(['fte_total'])
                 elif ftype == 'LTC':
                     metrics['beds_licensed_idd'] = first_num(['beds_licensed_idd'])
+                    metrics['days_total_idd'] = first_num(['days_total_idd'])
 
                 rows.append({
                     'year': year,
