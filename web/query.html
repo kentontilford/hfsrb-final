@@ -15,6 +15,8 @@
     .results { margin-top: 14px; }
     .card { border:1px solid var(--border); border-radius:10px; background:#fff; padding:10px 12px; margin:8px 0; }
     small { color: var(--muted); }
+    #chips { margin-top:10px }
+    #chips .chip { display:inline-block; margin: 0 6px 6px 0; padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:#fff; cursor:pointer; font-size:12px }
   </style>
 </head>
 <body>
@@ -39,7 +41,7 @@
     const yearRe = /(20\d{2}|19\d{2})/g;
     const zipRe = /\b\d{5}\b/;
     function parseQuery(text){
-      const out = { type:'', year:'', county:'', city:'', zip:'' };
+      const out = { type:'', year:'', county:'', city:'', zip:'', metrics:[] };
       const t = text.trim(); if (!t) return out;
       const y = t.match(yearRe); if (y) out.year = y.map(String).pop();
       const lower = t.toLowerCase();
@@ -54,6 +56,10 @@
         const m = /(\b[A-Z][a-zA-Z]+) County\b/.exec(joined);
         if (m) out.county = m[1]; else out.city = candidates[0];
       }
+      // numeric: e.g., "icu beds > 10", "stations >= 20", "rooms < 5", "visits 10000"
+      const mexp = /(icu|ms|beds|stations|rooms|visits)\s*(?:beds|stations|rooms|visits)?\s*(>=|<=|>|<|=)?\s*(\d+)/gi;
+      let mm; const map = { icu:'icu_beds', ms:'ms_beds', beds:'ms_beds', stations:'stations_setup', rooms:'or_rooms_class_c', visits:'op_visits_total' };
+      while ((mm = mexp.exec(t))){ const k = map[mm[1].toLowerCase()]; const op = mm[2]||'='; const val = Number(mm[3]); if (k && Number.isFinite(val)) out.metrics.push({k,op,val}); }
       return out;
     }
     async function loadIndex(){ const r = await fetch('data/index.json?v=2'); return await r.json(); }
@@ -76,6 +82,19 @@
       if (p.zip) rows = rows.filter(r => String(r.zip||'').includes(p.zip));
       if (p.county) rows = rows.filter(r => (r.county||'').toLowerCase()===p.county.toLowerCase());
       if (p.city) rows = rows.filter(r => (r.city||'').toLowerCase().includes(p.city.toLowerCase()));
+      if (p.metrics && p.metrics.length){
+        rows = rows.filter(r => {
+          const m = r.metrics || {};
+          return p.metrics.every(cond => {
+            const val = m[cond.k]; if (val == null) return false;
+            if (cond.op==='>') return val > cond.val;
+            if (cond.op==='>=') return val >= cond.val;
+            if (cond.op==='<') return val < cond.val;
+            if (cond.op==='<=') return val <= cond.val;
+            return Number(val) === Number(cond.val);
+          });
+        });
+      }
       el('#out').innerHTML = rows.length ? rows.slice(0,200).map(fmtRow).join('') : '<div class=\"card\">No matches found.</div>';
     }
     function fmtRow(r){

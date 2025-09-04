@@ -68,6 +68,36 @@ def main() -> None:
                     or fields.get('health_service_area')
                     or ''
                 )
+                # Curated numeric metrics for NL query (optional per type)
+                def to_num(v):
+                    try:
+                        s = str(v)
+                        s = ''.join(ch for ch in s if (ch.isdigit() or ch in '.-'))
+                        if not s:
+                            return None
+                        x = float(s)
+                        return int(x) if x.is_integer() else x
+                    except Exception:
+                        return None
+                def first_num(keys):
+                    for k in keys:
+                        if k in payload and payload[k] not in (None, ''):
+                            n = to_num(payload.get(k))
+                            if n is not None:
+                                return n
+                    return None
+                metrics = {}
+                if ftype == 'Hospital':
+                    metrics['ms_beds'] = first_num(['ms_beds_10_1_23','med_surg_beds_oct1'])
+                    metrics['icu_beds'] = first_num(['total_icu_beds_10_1_23','icu_beds_oct1'])
+                    metrics['op_visits_total'] = first_num(['op_visits_total'])
+                elif ftype == 'ESRD':
+                    metrics['stations_setup'] = first_num(['stations_oct_setup_staffed'])
+                elif ftype == 'ASTC':
+                    metrics['or_rooms_class_c'] = first_num(['rooms_or_class_c'])
+                elif ftype == 'LTC':
+                    metrics['beds_licensed_idd'] = first_num(['beds_licensed_idd'])
+
                 rows.append({
                     'year': year,
                     'type': ftype,
@@ -79,6 +109,7 @@ def main() -> None:
                     'region': region,
                     'variant': variant,
                     'data_path': str(sp),
+                    'metrics': metrics,
                 })
                 # Build summary rollups
                 ykey = str(year)
@@ -102,4 +133,3 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
-
