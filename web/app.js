@@ -1,4 +1,5 @@
 const state = { all: [], filtered: [], charts: {}, showAllFields: false, fullscreen: false };
+try { window.state = state; } catch {}
 
 function el(sel) { return document.querySelector(sel); }
 
@@ -65,6 +66,7 @@ async function loadIndex() {
   if (p.q) el('#q').value = p.q;
   // Show-all toggle deep link
   if (p.show === 'all') { state.showAllFields = true; }
+  if (p.view === 'full') { state.fullscreen = true; }
   const showBox = el('#showAllFields'); if (showBox) showBox.checked = !!state.showAllFields;
 
   applyFilters();
@@ -284,8 +286,8 @@ function renderFullscreenBar(ctx) {
   html.push(`<label style="font-size:12px">Year <select id="fs-year">${yOpts}</select></label>`);
   html.push(`<label style="font-size:12px">Type <select id="fs-type">${tOpts}</select></label>`);
   // Facility picker (from current filtered list)
-  const idx = (window.state.filtered || []).findIndex(r => String(r.slug)===String(slug) && String(r.year)===String(year) && String(r.type)===String(type));
-  const opts = (window.state.filtered || []).map((r,i)=>`<option value="${i}" ${i===idx?'selected':''}>${r.name}</option>`).join('');
+  const idx = (state.filtered || []).findIndex(r => String(r.slug)===String(slug) && String(r.year)===String(year) && String(r.type)===String(type));
+  const opts = (state.filtered || []).map((r,i)=>`<option value="${i}" ${i===idx?'selected':''}>${r.name}</option>`).join('');
   html.push(`<button id="fs-prev" title="Previous">◂</button>`);
   html.push(`<select id="fs-pick" title="Jump to facility">${opts}</select>`);
   html.push(`<button id="fs-next" title="Next">▸</button>`);
@@ -303,7 +305,7 @@ function renderFullscreenBar(ctx) {
   const payload = (ctx && ctx.payload) || {};
   const props = (ctx && ctx.schemaProps) || {};
   const back = el('#fs-back'); if (back) back.addEventListener('click', () => {
-    window.state.fullscreen = false; setFullscreen(false);
+    state.fullscreen = false; setFullscreen(false);
     const d = el('#detail'); if (d) d.hidden = true;
     const cur = getParams(); delete cur.slug; delete cur.view; setParams(cur);
     const list = el('#list'); if (list) list.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -316,25 +318,25 @@ function renderFullscreenBar(ctx) {
     const cur = getParams(); setParams({ ...cur, view: null });
   });
   function openAt(i) {
-    const row = (window.state.filtered || [])[i];
+    const row = (state.filtered || [])[i];
     if (!row) return;
     openDetail({ year: row.year, type: row.type, slug: row.slug });
   }
   const pick = el('#fs-pick'); if (pick) pick.addEventListener('change', () => openAt(parseInt(pick.value,10)));
   const prev = el('#fs-prev'); if (prev) prev.addEventListener('click', () => { const i = (pick?parseInt(pick.value,10):idx) - 1; if (i>=0) openAt(i); });
-  const next = el('#fs-next'); if (next) next.addEventListener('click', () => { const i = (pick?parseInt(pick.value,10):idx) + 1; if (i<(window.state.filtered||[]).length) openAt(i); });
+  const next = el('#fs-next'); if (next) next.addEventListener('click', () => { const i = (pick?parseInt(pick.value,10):idx) + 1; if (i<(state.filtered||[]).length) openAt(i); });
 
   // Inline filter handlers
   const fy = el('#fs-year'); if (fy) fy.addEventListener('change', () => {
     const main = el('#year'); if (main) main.value = fy.value;
     applyFilters();
-    const curIdx = (window.state.filtered || []).findIndex(r => String(r.slug)===String(slug) && String(r.type)===String(type) && String(r.year)===String(year));
+    const curIdx = (state.filtered || []).findIndex(r => String(r.slug)===String(slug) && String(r.type)===String(type) && String(r.year)===String(year));
     if (curIdx === -1) openAt(0); else renderFullscreenBar({ ...ctx, year: fy.value });
   });
   const ft = el('#fs-type'); if (ft) ft.addEventListener('change', () => {
     const main = el('#type'); if (main) main.value = ft.value;
     applyFilters();
-    const curIdx = (window.state.filtered || []).findIndex(r => String(r.slug)===String(slug) && String(r.type)===String(type) && String(r.year)===String(year));
+    const curIdx = (state.filtered || []).findIndex(r => String(r.slug)===String(slug) && String(r.type)===String(type) && String(r.year)===String(year));
     if (curIdx === -1) openAt(0); else renderFullscreenBar({ ...ctx, type: ft.value });
   });
 }
