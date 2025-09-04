@@ -69,6 +69,12 @@ async function loadIndex() {
   if (p.show === 'all') { state.showAllFields = true; }
   if (p.view === 'full') { state.fullscreen = true; }
   const showBox = el('#showAllFields'); if (showBox) showBox.checked = !!state.showAllFields;
+  // Debug toggle
+  const dbgToggle = el('#toggleDebug');
+  if (dbgToggle) {
+    const u0 = new URL(window.location.href);
+    dbgToggle.checked = (u0.searchParams.get('debug') === 'events');
+  }
 
   applyFilters();
 
@@ -1293,6 +1299,14 @@ function initEvents() {
       const btn = el('#fullscreenToggle'); if (btn) btn.textContent = state.fullscreen ? 'Exit Full Screen' : 'Full Screen';
       const cur = getParams(); setParams({ ...cur, view: state.fullscreen ? 'full' : null });
     }
+  });
+
+  // Debug events toggle
+  const dbgToggle = el('#toggleDebug');
+  if (dbgToggle) dbgToggle.addEventListener('change', () => {
+    const cur = getParams();
+    if (dbgToggle.checked) cur.debug = 'events'; else if (cur.debug) delete cur.debug;
+    setParams(cur);
   });
 }
 initEvents();

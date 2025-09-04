@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1>HFSRB Facility Dashboard</h1>
+    <h1>HFSRB Facility Dashboard <span id="appVersion" class="version-badge">v9</span></h1>
     <div class="sub">Explore facilities by year and type; click a facility for details.</div>
   </header>
   <main>
@@ -44,6 +44,9 @@
         <button id="resetFilters">Reset Filters</button>
         <a href="summary.html">Summary</a>
       </div>
+      <label style="display:inline-flex;align-items:center;gap:6px;margin-top:6px">
+        <input type="checkbox" id="toggleDebug" /> Debug events
+      </label>
       <div class="stats" id="stats"></div>
     </aside>
     <section class="results">
