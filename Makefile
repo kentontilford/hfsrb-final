@@ -5,7 +5,7 @@ PY=python3
 # Emit build metadata consumed by the dashboard at runtime
 build-info:
 	@mkdir -p web
-	@echo "{\"version\":\"v10\",\"sha\":\"$$(git rev-parse --short HEAD 2>/dev/null || echo unknown)\",\"built_at\":\"$$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > web/build.json
+	@echo "{\"version\":\"v10\",\"sha\":\"$$(git rev-parse --short HEAD 2>/dev/null || echo unknown)\",\"full_sha\":\"$$(git rev-parse HEAD 2>/dev/null || echo unknown)\",\"built_at\":\"$$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > web/build.json
 
 schemas:
 	$(PY) scripts/generate_schemas.py

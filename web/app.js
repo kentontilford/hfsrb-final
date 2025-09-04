@@ -50,9 +50,33 @@ async function loadIndex() {
       if (br.ok) {
         const info = await br.json();
         const tag = (info.version || APP_VERSION);
-        const sha = (info.sha || '').toString().slice(0, 10);
-        if (vEl) vEl.textContent = tag + (sha ? ' +' + sha : '');
-        if (bEl) bEl.textContent = 'Build ' + tag + (sha ? ' (' + sha + ')' : '') + (info.built_at ? ' • ' + info.built_at : '');
+        const short = (info.sha || '').toString().slice(0, 10);
+        const full = (info.full_sha || '').toString();
+        if (vEl) {
+          vEl.textContent = tag + (short ? ' +' + short : '');
+          if (full) vEl.title = 'Commit ' + full;
+        }
+        if (bEl) {
+          const parts = [];
+          parts.push('Build ' + tag + (short ? ' (' + short + ')' : ''));
+          if (info.built_at) parts.push(info.built_at);
+          // Try to construct a commit URL for GitHub Pages deployments
+          let commitURL = '';
+          try {
+            const h = window.location.hostname || '';
+            const p = window.location.pathname || '';
+            if (/github\.io$/.test(h) && p) {
+              const owner = h.split('.')[0];
+              const repo = (p.split('/').filter(Boolean)[0]) || '';
+              if (owner && repo && full) commitURL = `https://github.com/${owner}/${repo}/commit/${full}`;
+            }
+          } catch {}
+          if (commitURL) {
+            bEl.innerHTML = `${parts.join(' • ')} • <a href="${commitURL}" target="_blank" rel="noopener">Commit</a>`;
+          } else {
+            bEl.textContent = parts.join(' • ');
+          }
+        }
       }
     } catch {}
   } catch {}
