@@ -1,0 +1,41 @@
+name: Update Release Body
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to update (e.g., v10)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract changelog for tag
+        id: changelog
+        run: |
+          TAG="${{ inputs.tag }}"
+          OUT="/tmp/RELEASE_BODY.md"
+          if grep -q "^## ${TAG}\b" CHANGELOG.md; then
+            awk "/^## ${TAG}\b/{flag=1;print;next}/^## v[0-9]/{flag=0}flag" CHANGELOG.md > "$OUT"
+          else
+            echo "Release ${TAG}" > "$OUT"
+            echo >> "$OUT"
+            echo "See commit history for details." >> "$OUT"
+          fi
+          echo "body_path=$OUT" >> $GITHUB_OUTPUT
+
+      - name: Update GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag }}
+          body_path: ${{ steps.changelog.outputs.body_path }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
