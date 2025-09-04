@@ -1,0 +1,33 @@
+/* Brand typography and color
+   To enable Aptos everywhere, place licensed webfont files here:
+   - web/fonts/aptos-regular.woff2
+   - web/fonts/aptos-semibold.woff2
+   Then this @font-face will load them; otherwise it falls back to local('Aptos') or system fonts. */
+
+@font-face {
+  font-family: 'Aptos';
+  src:
+    local('Aptos'),
+    url('./fonts/aptos-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aptos';
+  src:
+    local('Aptos Semibold'), local('Aptos SemiBold'),
+    url('./fonts/aptos-semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --accent: #28658D;
+}
+
+body { font-family: Aptos, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+ a { color: var(--accent); }
+ h3 { color: var(--accent); }

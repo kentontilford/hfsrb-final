@@ -78,6 +78,7 @@ def head_html(title: str) -> str:
         "<style>body{font-family:Aptos,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif} a{color:#28658D} h3{color:#28658D}</style>"
         # Chart.js for interactive pies in HTML (Puppeteer injects its own copy for PDFs)
         "<script src=\"https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js\"></script>"
+        "<link rel=\"stylesheet\" href=\"../../brand.css\">"
         "</head>"
     )
 
