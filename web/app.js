@@ -1254,7 +1254,8 @@ alert('Link copied to clipboard');
 
 // Events
 function initEvents() {
-  ['#year', '#type', '#q', '#county', '#region'].forEach(id => el(id).addEventListener('input', applyFilters));
+  ['#year', '#type', '#county', '#region'].forEach(id => { const node = el(id); if (node) node.addEventListener('change', applyFilters); });
+  const q = el('#q'); if (q) q.addEventListener('input', applyFilters);
   el('#close').addEventListener('click', () => { el('#detail').hidden = true; destroyCharts(); });
   const exportBtn = el('#exportFiltered');
   if (exportBtn) exportBtn.addEventListener('click', exportFilteredCSV);
