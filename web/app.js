@@ -148,6 +148,7 @@ if (q) rows = rows.filter(r => (r.name
 
 state.filtered = rows;
 renderList();
+renderFilterChips();
 try { const u = new URL(window.location.href); if (u.searchParams.get('debug')==='events') console.log('[DBG] applyFilters end', {count: state.filtered.length}); } catch {}
 
 // Update URL
@@ -1430,3 +1431,30 @@ function addPerCardExports(containerSel) {
 }
 
 function exportAllTablesCSV(container) { return exportAllTablesCSV2(container); }
+
+
+function renderFilterChips() {
+  const box = el('#filterChips'); if (!box) return;
+  const parts = [];
+  const year = el('#year').value;
+  const type = el('#type').value;
+  const county = el('#county').value;
+  const region = el('#region').value;
+  const q = el('#q').value.trim();
+  function chip(lbl, k){ parts.push(`<span class="chip" data-k="${k}">${lbl} ×</span>`); }
+  if (type) chip(`Type: ${type}`,'type');
+  if (year) chip(`Year: ${year}`,'year');
+  if (county) chip(`County: ${county}`,'county');
+  if (region) chip(`Region: ${region}`,'region');
+  if (q) chip(`Search: ${q}`,'q');
+  box.innerHTML = parts.join(' ');
+  box.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', () => {
+    const k = ch.getAttribute('data-k');
+    if (k==='type') el('#type').value='';
+    if (k==='year') el('#year').value='';
+    if (k==='county') el('#county').value='';
+    if (k==='region') el('#region').value='';
+    if (k==='q') el('#q').value='';
+    applyFilters();
+  }));
+}
