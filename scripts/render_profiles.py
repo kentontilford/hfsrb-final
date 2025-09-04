@@ -205,7 +205,8 @@ def parse_dictionary(schema_path: Path) -> Dict[str, Dict[str, Any]]:
             section_key = segs[0]
         else:
             section_key = 'Other'
-        section_label = section_key.replace('_', ' ').replace('.', ' — ').title()
+        # Derive a readable section label from field_id without forcing Title Case
+        section_label = section_key.replace('_', ' ').replace('.', ' — ').strip()
         if fname:
             out[fname] = {
                 'field_id': fid,
@@ -1235,9 +1236,12 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
     # Controls and container to allow client-side toggle of all fields
     controls = (
         '<div class="card col-12" id="pf-controls">'
-        '  <label style="display:inline-flex;align-items:center;gap:6px">'
-        '    <input type="checkbox" id="pfShowAll" /> Show all fields (include empty optionals)'
-        '  </label>'
+        '  <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">'
+        '    <label style="display:inline-flex;align-items:center;gap:6px">'
+        '      <input type="checkbox" id="pfShowAll" /> Show all fields (include empty optionals)'
+        '    </label>'
+        '    <button id="pfExportAll" class="tiny">Export All Tables (CSV)</button>'
+        '  </div>'
         '</div>'
     )
 
@@ -1250,7 +1254,8 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
         "    function tableToCSV(table,title){const rows=[]; if(title) rows.push([title]); const ths=table.querySelectorAll('thead th'); if(ths.length){rows.push(Array.from(ths).map(th=>th.textContent.trim()));} table.querySelectorAll('tbody tr').forEach(tr=>{rows.push(Array.from(tr.children).map(td=>td.textContent.trim()));}); return rows.map(r=>r.map(csvEscape).join(',')).join('\\n');}\n"
         "    function addPerCardExports(containerSel){const cont=(typeof containerSel==='string')?document.querySelector(containerSel):containerSel; if(!cont) return; cont.querySelectorAll('.card').forEach(card=>{const h3=card.querySelector('h3'); const table=card.querySelector('table'); if(!h3||!table) return; if(h3.querySelector('button[data-export]')) return; const btn=document.createElement('button'); btn.className='tiny'; btn.setAttribute('data-export',''); btn.textContent='Export CSV'; btn.addEventListener('click',()=>{const title=h3.childNodes[0]?h3.childNodes[0].textContent.trim():'table'; const csv=tableToCSV(table,title); const blob=new Blob([csv],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); const safe=title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$|--+/g,'-'); a.download=(safe||'table')+'.csv'; document.body.appendChild(a); a.click(); a.remove();}); h3.appendChild(btn);});}\n"
         "    function renderAll(payload, props, showAll){const keys=new Set([...Object.keys(payload||{}), ...Object.keys(props||{})]); const items=[...keys].map(k=>{const p=props[k]||{};return {key:k,label:p.x_label||k,section:p.x_section||'Other',sectionOrder:Number(p.x_section_order||9999),order:Number(p.x_order||9999),desc:p.description||'',required:!!p.x_required,val:(payload||{})[k]};}).filter(it=> showAll || String(it.val??'').trim()!=='' || it.required); const secOrder={}; let idx=0; items.forEach(it=>{ if(!(it.section in secOrder)) secOrder[it.section]=++idx; if(!it.sectionOrder||it.sectionOrder===9999) it.sectionOrder=secOrder[it.section];}); items.sort((a,b)=> (a.sectionOrder-b.sectionOrder) || (a.order-b.order) || String(a.label).localeCompare(String(b.label))); const groups={}; items.forEach(it=>{(groups[it.section]=groups[it.section]||[]).push(it);}); const container=document.getElementById('all-sections'); if(!container) return; container.innerHTML=''; Object.keys(groups).forEach(sec=>{ const arr=groups[sec]; const rows=arr.map(it=>{ const label=it.required? (it.label+' *') : it.label; const val=String(it.val??'').trim().length? fmt(it.val) : (showAll? '' : '—'); return '<tr><td>'+label+'</td><td class=\"right\">'+val+'</td><td>'+(it.desc||'')+'</td></tr>'; }).join(''); const card=['<div class=\"card col-12\">','<h3>'+sec+'</h3>','<table><thead><tr><th>Field</th><th class=\"right\">Value</th><th>Description</th></tr></thead><tbody>'+rows+'</tbody></table>','</div>'].join(''); container.insertAdjacentHTML('beforeend', card); }); }\n"
-        "    function applyFromURL(){ const u=new URL(window.location.href); const show=(u.searchParams.get('show')==='all'); const box=document.getElementById('pfShowAll'); if(box){ box.checked=show; } renderAll(DATA.payload, DATA.props, show); addPerCardExports('#all-sections'); addPerCardExports('#demo-tables'); }\n"
+        "    function exportAll(containerSel){ const cont=(typeof containerSel==='string')?document.querySelector(containerSel):containerSel; if(!cont) return ''; const parts=[]; cont.querySelectorAll('.card').forEach(card=>{ const h3=card.querySelector('h3'); const title=h3? (h3.childNodes[0]?.textContent?.trim()||'') : ''; const table=card.querySelector('table'); if(!table) return; parts.push(tableToCSV(table, title)); parts.push(''); }); return parts.join('\\n'); }\n"
+        "    function applyFromURL(){ const u=new URL(window.location.href); const show=(u.searchParams.get('show')==='all'); const box=document.getElementById('pfShowAll'); if(box){ box.checked=show; } renderAll(DATA.payload, DATA.props, show); addPerCardExports('#all-sections'); addPerCardExports('#demo-tables'); const ex=document.getElementById('pfExportAll'); if(ex){ ex.addEventListener('click', ()=>{ const csv = [ exportAll('#demographics'), exportAll('#demo-tables'), exportAll('#all-sections') ].join('\n'); const blob=new Blob([csv],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='profile-all-tables.csv'; document.body.appendChild(a); a.click(); a.remove(); }); } }\n"
         "    document.addEventListener('DOMContentLoaded', function(){ applyFromURL(); const box=document.getElementById('pfShowAll'); if(box){ box.addEventListener('change', ()=>{ const show=!!box.checked; const u=new URL(window.location.href); if(show) u.searchParams.set('show','all'); else u.searchParams.delete('show'); history.replaceState({},'',u.toString()); renderAll(DATA.payload, DATA.props, show); addPerCardExports('#all-sections'); }); } addPerCardExports('#demo-tables'); });\n"
         "    window.__renderAllFields = function(){ renderAll(DATA.payload, DATA.props, true); };\n"
         '  } catch(e) { /* noop */ }\n'
