@@ -28,10 +28,12 @@
       <button id="run" class="btn">Search</button>
     </div>
     <div id="hint"><small>Supported: type (Hospital/ASTC/ESRD/LTC), county/city/ZIP, and year. Advanced metrics coming later.</small></div>
+    <div id="chips" style="margin-top:10px"></div>
     <div class="results" id="out"></div>
   </main>
   <script>
     const el = s => document.querySelector(s);
+    const chipsBox = () => el('#chips');
     const types = ['Hospital','ASTC','ESRD','LTC'];
     const stop = new Set(['in','of','the','for','with','and','to','at','on']);
     const yearRe = /(20\d{2}|19\d{2})/g;
@@ -55,22 +57,34 @@
       return out;
     }
     async function loadIndex(){ const r = await fetch('data/index.json?v=2'); return await r.json(); }
+    function renderChips(p){
+      const box = chipsBox();
+      const parts = [];
+      function chip(label, key){ if (!p[key]) return; parts.push(`<span class=\"chip\" data-k=\"${key}\">${label}: ${p[key]} ×</span>`); }
+      chip('Type','type'); chip('Year','year'); chip('County','county'); chip('City','city'); chip('ZIP','zip');
+      parts.push(`<button class=\"btn\" id=\"clearChips\">Clear</button>`);
+      box.innerHTML = parts.join(' ');
+      box.querySelectorAll('.chip').forEach(c => c.addEventListener('click', ()=>{ const k=c.getAttribute('data-k'); p[k]=''; runWith(p); }));
+      const clr = el('#clearChips'); if (clr) clr.addEventListener('click', ()=>{ el('#q').value=''; run(); });
+    }
+    function runWith(p){
+      renderChips(p);
+      const all = window.__ALL__ || [];
+      let rows = all.slice();
+      if (p.type) rows = rows.filter(r => r.type===p.type);
+      if (p.year) rows = rows.filter(r => String(r.year)===String(p.year));
+      if (p.zip) rows = rows.filter(r => String(r.zip||'').includes(p.zip));
+      if (p.county) rows = rows.filter(r => (r.county||'').toLowerCase()===p.county.toLowerCase());
+      if (p.city) rows = rows.filter(r => (r.city||'').toLowerCase().includes(p.city.toLowerCase()));
+      el('#out').innerHTML = rows.length ? rows.slice(0,200).map(fmtRow).join('') : '<div class=\"card\">No matches found.</div>';
+    }
     function fmtRow(r){
       const link = `./out/profiles/${r.year}/${r.type}/${r.slug}.html`;
       return `<div class=\"card\"><div><strong>${r.name}</strong> <small>• ${r.type} • ${r.city||''} ${r.zip||''} • ${r.year}</small></div><div><a class=\"btn\" href=\"${link}\" target=\"_blank\">Open Profile</a></div></div>`;
     }
     (async function(){
-      const all = await loadIndex();
-      function run(){
-        const p = parseQuery(el('#q').value||'');
-        let rows = all.slice();
-        if (p.type) rows = rows.filter(r => r.type===p.type);
-        if (p.year) rows = rows.filter(r => String(r.year)===String(p.year));
-        if (p.zip) rows = rows.filter(r => String(r.zip||'').includes(p.zip));
-        if (p.county) rows = rows.filter(r => (r.county||'').toLowerCase()===p.county.toLowerCase());
-        if (p.city) rows = rows.filter(r => (r.city||'').toLowerCase().includes(p.city.toLowerCase()));
-        el('#out').innerHTML = rows.length ? rows.slice(0,200).map(fmtRow).join('') : '<div class=\"card\">No matches found.</div>';
-      }
+      const all = await loadIndex(); window.__ALL__ = all;
+      function run(){ const p = parseQuery(el('#q').value||''); runWith(p); }
       el('#run').addEventListener('click', run);
       el('#q').addEventListener('keydown', e => { if (e.key==='Enter') run(); });
     })();
