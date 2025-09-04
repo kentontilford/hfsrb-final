@@ -15,10 +15,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Extract changelog for tag
+        id: changelog
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          OUT="/tmp/RELEASE_BODY.md"
+          if grep -q "^## ${TAG}\b" CHANGELOG.md; then
+            # Extract lines from the tag header to the next tag header or EOF
+            awk "/^## ${TAG}\b/{flag=1;print;next}/^## v[0-9]/{flag=0}flag" CHANGELOG.md > "$OUT"
+          else
+            echo "Release ${TAG}" > "$OUT"
+            echo >> "$OUT"
+            echo "See commit history for details." >> "$OUT"
+          fi
+          echo "body_path=$OUT" >> $GITHUB_OUTPUT
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          generate_release_notes: true
+          body_path: ${{ steps.changelog.outputs.body_path }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
