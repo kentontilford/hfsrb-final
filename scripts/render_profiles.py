@@ -1196,12 +1196,28 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
         sec_bucket = sections.setdefault('facility', {'label': 'Facility', 'order': -1, 'rows': []})
         sec_bucket['rows'] = [(-100, 'Street', address), (-99, 'City/State/ZIP', f'{city}, {state} {zipc}')] + sec_bucket['rows']
 
+    def normalize_section_label(ftype: str, label: str) -> str:
+        s = (label or '').strip()
+        sl = s.lower()
+        t = (disp_type or ftype or '').lower()
+        if t == 'hospital':
+            if 'ownership' in sl or 'owner' in sl or 'organization' in sl:
+                return 'Ownership & Organization'
+            if 'management' in sl or 'mgmt' in sl:
+                return 'Management Contracts'
+            if sl in ('facility', 'facility information', 'facility info'):
+                return 'Facility'
+            if 'outpatient' in sl and 'activity' in sl:
+                return 'Outpatient Activity'
+        return s
+
     # Sort sections and subsections; rows by order then label
     ordered_sections = sorted(sections.items(), key=lambda kv: (kv[1]['order'], kv[1]['label']))
     cards_html = []
     for _, sec in ordered_sections:
         rows_sorted = sorted(sec['rows'], key=lambda r: (r[0], str(r[1]).lower()))
-        cards_html.append(section_card(sec['label'], table(rows_sorted, ('Field', 'Value')), 'col-12'))
+        pretty = normalize_section_label(disp_type, sec['label'])
+        cards_html.append(section_card(pretty, table(rows_sorted, ('Field', 'Value')), 'col-12'))
 
     # Coverage verifier: compute missing dictionary keys not rendered; expose via ?debug=coverage
     import json as _json
@@ -1222,6 +1238,8 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
     props = {}
     for k, info in dict_meta.items():
         sec_label = info.get('section_label') or 'Other'
+        # Normalize to preferred phrasing in client-side view
+        sec_label = normalize_section_label(disp_type, sec_label)
         # Coarse section order derived from the first time we see a section
         props[k] = {
             'x_label': info.get('label') or k,
