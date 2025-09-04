@@ -282,32 +282,11 @@ function setFullscreen(on) {
   if (!d) return;
   const bar = el('#fsbar');
   if (on) {
-    if (!state._detailParent) {
-      state._detailParent = d.parentElement;
-      state._detailNext = d.nextSibling;
-    }
-    let overlay = document.getElementById('detailOverlay');
-    if (!overlay) {
-      overlay = document.createElement('div');
-      overlay.id = 'detailOverlay';
-      overlay.className = 'detail-overlay';
-      document.body.appendChild(overlay);
-    }
-    overlay.appendChild(d);
-    d.style.width = '100%';
+    d.classList.add('fullscreen');
     document.body.classList.add('no-scroll');
     if (bar) bar.hidden = false;
   } else {
-    if (state._detailParent) {
-      if (state._detailNext && state._detailNext.parentNode === state._detailParent) {
-        state._detailParent.insertBefore(d, state._detailNext);
-      } else {
-        state._detailParent.appendChild(d);
-      }
-    }
-    const overlay = document.getElementById('detailOverlay');
-    if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
-    d.style.removeProperty('width');
+    d.classList.remove('fullscreen');
     document.body.classList.remove('no-scroll');
     if (bar) bar.hidden = true;
   }
