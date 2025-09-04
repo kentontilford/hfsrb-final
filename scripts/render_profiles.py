@@ -79,6 +79,9 @@ def head_html(title: str) -> str:
         # Chart.js for interactive pies in HTML (Puppeteer injects its own copy for PDFs)
         "<script src=\"https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js\"></script>"
         "<link rel=\"stylesheet\" href=\"../../../../brand.css\">"
+        "<link rel=\"icon\" type=\"image/png\" href=\"../../../../assets/hfsrb-logo.png\">"
+        "<meta property=\"og:title\" content=\"Profile\">"
+        "<meta property=\"og:image\" content=\"../../../../assets/hfsrb-logo.png\">"
         "</head>"
     )
 
