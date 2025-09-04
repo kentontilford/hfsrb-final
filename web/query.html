@@ -26,10 +26,11 @@
   </header>
   <main>
     <div class="box">
-      <input id="q" placeholder="Example: hospitals in Cook County in 2024 with city Chicago" />
+      <input id="q" placeholder="Example: hospitals in Cook County in 2024 with icu beds > 10" />
       <button id="run" class="btn">Search</button>
     </div>
-    <div id="hint"><small>Supported: type (Hospital/ASTC/ESRD/LTC), county/city/ZIP, and year. Advanced metrics coming later.</small></div>
+    <div id="hint"><small>Supported: type (Hospital/ASTC/ESRD/LTC), county/city/ZIP, year, and metrics like “icu beds &gt; 10”, “stations &gt;= 20”, “rooms &lt; 5”, “visits 10000”.</small></div>
+    <div id="count" style="margin-top:8px;color:#5f6b7a"></div>
     <div id="chips" style="margin-top:10px"></div>
     <div class="results" id="out"></div>
   </main>
@@ -103,9 +104,10 @@
     }
     (async function(){
       const all = await loadIndex(); window.__ALL__ = all;
-      function run(){ const p = parseQuery(el('#q').value||''); runWith(p); }
+      function run(){ const p = parseQuery(el('#q').value||''); runWith(p); const n=(el('#out').children||[]).length; el('#count').textContent = `${n} match${n==1?'':'es'}`; }
       el('#run').addEventListener('click', run);
       el('#q').addEventListener('keydown', e => { if (e.key==='Enter') run(); });
+      let t=null; el('#q').addEventListener('input', ()=>{ clearTimeout(t); t=setTimeout(run, 220); });
     })();
   </script>
 </body>

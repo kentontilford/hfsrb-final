@@ -105,6 +105,16 @@ def main() -> None:
                     or_rooms = sum_prefix('or_rooms_')
                     if or_rooms is not None:
                         metrics['or_rooms_total'] = or_rooms
+                    # Aggregate OR cases across ip/op and class B where available
+                    or_cases = 0; found_cases = False
+                    for key in ['or_cases_ip','or_cases_op','procB_cases_ip','procB_cases_op']:
+                        n = to_num(payload.get(key))
+                        if n is not None:
+                            or_cases += n; found_cases = True
+                    if found_cases:
+                        metrics['or_cases_total'] = or_cases
+                    # ED visits if present (best-effort)
+                    metrics['ed_visits'] = first_num(['ed_visits','er_visits','ed_total_visits'])
                 elif ftype == 'ESRD':
                     metrics['stations_setup'] = first_num(['stations_oct_setup_staffed'])
                     metrics['fte_total'] = first_num(['fte_total'])
