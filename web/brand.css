@@ -37,3 +37,9 @@ h3 { color: var(--accent); }
 .brand-logo { height: 28px; width: auto; display:inline-block; }
 @media (max-width: 520px){ .brand-logo { height: 22px; } }
 @media print { .brand-logo { display:none !important; } }
+
+
+/* Chips */
+.chips { margin-top: 8px; }
+.chip { display:inline-block; margin: 0 6px 6px 0; padding:6px 10px; border:1px solid var(--border, #e5eaf1); border-radius:999px; background:#fff; cursor:pointer; font-size:12px; color:#0b1220; }
+.chip:hover { box-shadow: 0 0 0 3px rgba(40,101,141,0.15); border-color: var(--accent); }

@@ -1117,7 +1117,7 @@ def render(meta: Dict[str, Any], payload: Dict[str, Any], dict_meta: Dict[str, D
 
     header = (
         '<div class="header" style="display:flex;align-items:center;gap:10px">'
-        '  <img src="../../../../assets/hfsrb-logo.png" alt="HFSRB logo" style="height:28px; width:auto" onerror="this.style.display=\'none\'" />'
+        '  <img src="../../../../assets/hfsrb-logo.png" srcset="../../../../assets/hfsrb-logo.png 1x, ../../../../assets/hfsrb-logo@2x.png 2x" alt="HFSRB logo" style="height:28px; width:auto" onerror="this.style.display=\'none\'" />'
         f'  <div><div class="title">{html.escape(str(name))}</div>'
         f'       <div class="subtitle">{html.escape(str(city))}, {html.escape(str(state))} {html.escape(str(zipc))} • {html.escape(str(ftype))} • {html.escape(str(year))}</div></div>'
         '</div>'
