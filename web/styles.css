@@ -34,6 +34,7 @@ table { margin-bottom: 8px; }
 .detail.fullscreen .fsbar { display: flex; }
 .fsbar button, .fsbar a { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: #f8f9fb; color: #222; text-decoration: none; font-size: 12px; }
 .fsbar .spacer { flex: 1; }
+.fsbar .badge { font-size: 11px; padding: 2px 6px; border: 1px solid var(--border); border-radius: 10px; background: #eef2ff; color: #334; }
 .fshead { display: flex; flex-direction: column; gap: 2px; margin: 0 8px; min-width: 0; }
 .fshead .fs-title { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .fshead .fs-sub { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

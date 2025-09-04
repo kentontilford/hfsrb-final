@@ -37,6 +37,7 @@ async function loadIndex() {
   // Load index
   const res = await fetch('data/index.json?v=2');
   state.all = await res.json();
+  try { const u = new URL(window.location.href); if (u.searchParams.get('debug')==='events') console.log('[DBG] Index loaded', state.all.length); } catch {}
 
   // Year options
   const years = [...new Set(state.all.map(r => r.year))].sort((a, b) => b - a);
@@ -83,6 +84,7 @@ const type = el('#type').value;
 const county = el('#county').value;
 const region = el('#region').value;
 const q = el('#q').value.trim().toLowerCase();
+try { const u = new URL(window.location.href); if (u.searchParams.get('debug')==='events') console.log('[DBG] applyFilters start', {year,type,county,region,q}); } catch {}
 
 let rows = state.all.slice();
 if (year) rows = rows.filter(r => String(r.year) ===
@@ -98,6 +100,7 @@ if (q) rows = rows.filter(r => (r.name
 
 state.filtered = rows;
 renderList();
+try { const u = new URL(window.location.href); if (u.searchParams.get('debug')==='events') console.log('[DBG] applyFilters end', {count: state.filtered.length}); } catch {}
 
 // Update URL
 setParams({ year, type, county, region, q });
@@ -265,6 +268,7 @@ function setFullscreen(on) {
 function renderFullscreenBar(ctx) {
   const bar = el('#fsbar');
   if (!bar) return;
+  try { const u = new URL(window.location.href); if (u.searchParams.get('debug')==='events') console.log('[DBG] renderFullscreenBar', ctx); } catch {}
   // Build toolbar content
   const { year, type, slug, siteBase } = ctx || {};
   const html = [];
@@ -1258,6 +1262,19 @@ alert('Link copied to clipboard');
 function initEvents() {
   ['#year', '#type', '#county', '#region'].forEach(id => { const node = el(id); if (node) node.addEventListener('change', applyFilters); });
   const q = el('#q'); if (q) q.addEventListener('input', applyFilters);
+  const reset = el('#resetFilters'); if (reset) reset.addEventListener('click', () => {
+    try {
+      ['#year', '#type', '#county', '#region'].forEach(id => { const n = el(id); if (n) n.value = ''; });
+      if (q) q.value = '';
+      const cur = getParams();
+      ['year','type','county','region','q','slug','view','show'].forEach(k => delete cur[k]);
+      setParams(cur);
+      const d = el('#detail'); if (d) d.hidden = true;
+      state.fullscreen = false; setFullscreen(false);
+      applyFilters();
+      try { const u = new URL(window.location.href); if (u.searchParams.get('debug')==='events') console.log('[DBG] resetFilters'); } catch {}
+    } catch (e) { console.warn('resetFilters failed', e); }
+  });
   el('#close').addEventListener('click', () => { el('#detail').hidden = true; destroyCharts(); });
   const exportBtn = el('#exportFiltered');
   if (exportBtn) exportBtn.addEventListener('click', exportFilteredCSV);
