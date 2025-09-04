@@ -83,7 +83,7 @@
       const { type, year, slug } = state.choices;
       if (!type || !year || !slug) return;
       const base = IS_WEB_SUBDIR ? '.' : '.';
-      const url = `${base}/out/profiles/${year}/${type}/${slug}.html?show=all&minimal=1`;
+      const url = `${base}/out/profiles/${year}/${type}/${slug}.html?show=all`;
       window.location.href = url;
     }
     (async function init(){
@@ -97,4 +97,3 @@
   </script>
 </body>
 </html>
-
