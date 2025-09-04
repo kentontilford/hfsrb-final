@@ -1,3 +1,4 @@
+const APP_VERSION = 'v9';
 const state = { all: [], filtered: [], charts: {}, showAllFields: false, fullscreen: false };
 try { window.state = state; } catch {}
 
@@ -38,6 +39,8 @@ async function loadIndex() {
   const res = await fetch('data/index.json?v=2');
   state.all = await res.json();
   try { const u = new URL(window.location.href); if (u.searchParams.get('debug')==='events') console.log('[DBG] Index loaded', state.all.length); } catch {}
+  // Set version/build info if present
+  try { const vEl = document.getElementById('appVersion'); if (vEl) vEl.textContent = APP_VERSION; const bEl = document.getElementById('buildInfo'); if (bEl) bEl.textContent = 'Build ' + APP_VERSION; } catch {}
 
   // Year options
   const years = [...new Set(state.all.map(r => r.year))].sort((a, b) => b - a);
@@ -306,6 +309,8 @@ function renderFullscreenBar(ctx) {
   html.push(`<button id="fs-dlcsv">Download CSV</button>`);
   html.push(`<button id="fs-share">Share</button>`);
   html.push(`<button id="fs-print">Print</button>`);
+  html.push(`<button id="fs-reset">Reset Filters</button>`);
+  html.push(`<span class="badge">Full Screen</span>`);
   html.push(`<span class="spacer"></span>`);
   html.push(`<button id="fs-exit">Exit Full Screen</button>`);
   bar.innerHTML = html.join(' ');
@@ -327,6 +332,7 @@ function renderFullscreenBar(ctx) {
     state.fullscreen = false; setFullscreen(false);
     const cur = getParams(); setParams({ ...cur, view: null });
   });
+  const rs = el('#fs-reset'); if (rs) rs.addEventListener('click', () => { doResetFilters(); });
   function openAt(i) {
     const row = (state.filtered || [])[i];
     if (!row) return;
@@ -1268,19 +1274,7 @@ alert('Link copied to clipboard');
 function initEvents() {
   ['#year', '#type', '#county', '#region'].forEach(id => { const node = el(id); if (node) node.addEventListener('change', applyFilters); });
   const q = el('#q'); if (q) q.addEventListener('input', applyFilters);
-  const reset = el('#resetFilters'); if (reset) reset.addEventListener('click', () => {
-    try {
-      ['#year', '#type', '#county', '#region'].forEach(id => { const n = el(id); if (n) n.value = ''; });
-      if (q) q.value = '';
-      const cur = getParams();
-      ['year','type','county','region','q','slug','view','show'].forEach(k => delete cur[k]);
-      setParams(cur);
-      const d = el('#detail'); if (d) d.hidden = true;
-      state.fullscreen = false; setFullscreen(false);
-      applyFilters();
-      try { const u = new URL(window.location.href); if (u.searchParams.get('debug')==='events') console.log('[DBG] resetFilters'); } catch {}
-    } catch (e) { console.warn('resetFilters failed', e); }
-  });
+  const reset = el('#resetFilters'); if (reset) reset.addEventListener('click', doResetFilters);
   el('#close').addEventListener('click', () => { el('#detail').hidden = true; destroyCharts(); });
   const exportBtn = el('#exportFiltered');
   if (exportBtn) exportBtn.addEventListener('click', exportFilteredCSV);
@@ -1308,6 +1302,21 @@ function initEvents() {
     if (dbgToggle.checked) cur.debug = 'events'; else if (cur.debug) delete cur.debug;
     setParams(cur);
   });
+}
+
+function doResetFilters() {
+  try {
+    const q = el('#q');
+    ['#year', '#type', '#county', '#region'].forEach(id => { const n = el(id); if (n) n.value = ''; });
+    if (q) q.value = '';
+    const cur = getParams();
+    ['year','type','county','region','q','slug','view','show'].forEach(k => delete cur[k]);
+    setParams(cur);
+    const d = el('#detail'); if (d) d.hidden = true;
+    state.fullscreen = false; setFullscreen(false);
+    applyFilters();
+    try { const u = new URL(window.location.href); if (u.searchParams.get('debug')==='events') console.log('[DBG] resetFilters'); } catch {}
+  } catch (e) { console.warn('resetFilters failed', e); }
 }
 initEvents();
 loadIndex();
