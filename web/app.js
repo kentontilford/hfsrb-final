@@ -1402,25 +1402,4 @@ function addPerCardExports(containerSel) {
   });
 }
 
-function exportAllTablesCSV(container) {
-  const parts = [];
-  const cards = container.querySelectorAll('.card');
-  cards.forEach(card => {
-    const h3 = card.querySelector('h3');
-    const title = h3 ? h3.textContent.trim() : '';
-    const table = card.querySelector('table'); if (!table) return;
-    const rows = [];
-    const ths = Array.from(table.querySelectorAll('thead th')).map(th=>th.textContent.trim());
-    if (title) rows.push([title]);
-    rows.push(ths);
-    table.querySelectorAll('tbody tr').forEach(tr => {
-      const cols = Array.from(tr.children).map(td => td.textContent.trim());
-      rows.push(cols);
-    });
-    rows.push([]);
-    parts.push(rows.map(r => r.map(x => ' + String(x).replace(/"/g,) + ').join(',')).join('
-'));
-  });
-  return parts.join('
-');
-}
+function exportAllTablesCSV(container) { return exportAllTablesCSV2(container); }
