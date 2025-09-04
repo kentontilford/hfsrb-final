@@ -1,6 +1,11 @@
 PY=python3
 
-.PHONY: schemas ingestion-schemas data csv normalize variants mappings validate validate-ingestion all publish publish-pdf profiles profiles-all profiles-pdf profiles-puppeteer profiles-puppeteer-all dashboard-data site site-pdf
+.PHONY: schemas ingestion-schemas data csv normalize variants mappings validate validate-ingestion all publish publish-pdf profiles profiles-all profiles-pdf profiles-puppeteer profiles-puppeteer-all dashboard-data site site-pdf build-info
+
+# Emit build metadata consumed by the dashboard at runtime
+build-info:
+	@mkdir -p web
+	@echo "{\"version\":\"v10\",\"sha\":\"$$(git rev-parse --short HEAD 2>/dev/null || echo unknown)\",\"built_at\":\"$$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > web/build.json
 
 schemas:
 	$(PY) scripts/generate_schemas.py
@@ -58,7 +63,7 @@ validate-strict: schemas
 report-missing:
 	$(PY) scripts/report_missing_identity.py
 
-publish: dashboard-data profiles-all
+publish: build-info dashboard-data profiles-all
 	@mkdir -p out/site
 	@cp -r web/* out/site/
 	@cp -r data out/site/
@@ -96,7 +101,7 @@ dashboard-data: mappings
 site: publish
 
 # Build + publish with PDFs via Puppeteer (requires Node deps installed)
-publish-pdf: dashboard-data profiles-puppeteer-all
+publish-pdf: build-info dashboard-data profiles-puppeteer-all
 	@mkdir -p out/site
 	@cp -r web/* out/site/
 	@cp -r data out/site/

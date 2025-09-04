@@ -1,4 +1,4 @@
-const APP_VERSION = 'v9';
+const APP_VERSION = 'v10';
 const state = { all: [], filtered: [], charts: {}, showAllFields: false, fullscreen: false };
 try { window.state = state; } catch {}
 
@@ -39,8 +39,23 @@ async function loadIndex() {
   const res = await fetch('data/index.json?v=2');
   state.all = await res.json();
   try { const u = new URL(window.location.href); if (u.searchParams.get('debug')==='events') console.log('[DBG] Index loaded', state.all.length); } catch {}
-  // Set version/build info if present
-  try { const vEl = document.getElementById('appVersion'); if (vEl) vEl.textContent = APP_VERSION; const bEl = document.getElementById('buildInfo'); if (bEl) bEl.textContent = 'Build ' + APP_VERSION; } catch {}
+  // Set version/build info, prefer build.json if present
+  try {
+    const vEl = document.getElementById('appVersion');
+    const bEl = document.getElementById('buildInfo');
+    if (vEl) vEl.textContent = APP_VERSION;
+    if (bEl) bEl.textContent = 'Build ' + APP_VERSION;
+    try {
+      const br = await fetch('build.json?_=' + Date.now());
+      if (br.ok) {
+        const info = await br.json();
+        const tag = (info.version || APP_VERSION);
+        const sha = (info.sha || '').toString().slice(0, 10);
+        if (vEl) vEl.textContent = tag + (sha ? ' +' + sha : '');
+        if (bEl) bEl.textContent = 'Build ' + tag + (sha ? ' (' + sha + ')' : '') + (info.built_at ? ' • ' + info.built_at : '');
+      }
+    } catch {}
+  } catch {}
 
   // Year options
   const years = [...new Set(state.all.map(r => r.year))].sort((a, b) => b - a);
