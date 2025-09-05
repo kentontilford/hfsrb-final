@@ -156,8 +156,8 @@
       // Wire selects
       const tSel = el('#type'); const ySel = el('#year'); const fInp = el('#facFilter'); const fSel = el('#facility');
       function updateDisabled(){ ySel.disabled = !state.choices.type; const dis = !state.choices.year; if(fInp) fInp.disabled = dis; if(fSel) fSel.disabled = dis; }
-      tSel.addEventListener('change', (e)=>{ state.choices.type = e.target.value; setYears(); el('#openBtn').disabled = true; ySel.focus(); updateChips(); });
-      ySel.addEventListener('change', (e)=>{ state.choices.year = e.target.value; setFacilities(); el('#openBtn').disabled = true; fInp.focus(); updateChips(); });
+      tSel.addEventListener('change', (e)=>{ state.choices.type = e.target.value; setYears(); el('#openBtn').disabled = true; updateDisabled(); ySel.focus(); updateChips(); });
+      ySel.addEventListener('change', (e)=>{ state.choices.year = e.target.value; setFacilities(); el('#openBtn').disabled = true; updateDisabled(); if (fInp) fInp.focus(); updateChips(); });
       fInp.addEventListener('input', (e)=>{ state.facFilter = e.target.value; setFacilities(); el('#openBtn').disabled = true; updateChips(); });
       fSel.addEventListener('change', (e)=>{ state.choices.slug = e.target.value; el('#openBtn').disabled = !(state.choices.slug); });
       el('#openBtn').addEventListener('click', openProfile);
