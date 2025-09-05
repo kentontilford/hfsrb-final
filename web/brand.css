@@ -4,25 +4,10 @@
    - web/fonts/aptos-semibold.woff2
    Then this @font-face will load them; otherwise it falls back to local('Aptos') or system fonts. */
 
-@font-face {
-  font-family: 'Aptos';
-  src:
-    local('Aptos'),
-    url('./fonts/aptos-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Aptos';
-  src:
-    local('Aptos Semibold'), local('Aptos SemiBold'),
-    url('./fonts/aptos-semibold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
+/* Webfont loading is disabled to avoid 404s unless files exist.
+   If you later add web/fonts/aptos-regular.woff2 and aptos-semibold.woff2,
+   you may reinstate @font-face with those URLs. For now, rely on local Aptos
+   or system fonts. */
 
 :root {
   --accent: #28658D;
