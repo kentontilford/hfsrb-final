@@ -17,7 +17,7 @@
     html, body { height: 100%; }
     body { margin:0; background: radial-gradient(900px 360px at 50% -20%, #eef3ff 0%, transparent 60%), linear-gradient(180deg,#f9fbff, #f4f7fb); color: var(--fg); display:grid; place-items:center; }
     .wrap { width: min(920px, 92vw); padding: 28px; border: 1px solid var(--border); border-radius: 16px; background: var(--card); box-shadow: 0 8px 24px rgba(16,24,40,0.08); }
-    .head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom: 6px; }
+    .head { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom: 8px; text-align:center; }
     h1 { margin: 0; font-size: 22px; letter-spacing: 0.2px; }
     .sub { margin: 4px 0 14px; color: var(--muted); }
     label { font-size: 12px; color: var(--muted); }
@@ -37,8 +37,7 @@
 <body>
   <main class="wrap">
     <div class="head">
-      <h1 class="brand"><img class="brand-logo" src="assets/hfsrb-logo.png" srcset="assets/hfsrb-logo.png 1x, assets/hfsrb-logo@2x.png 2x" alt="HFSRB logo" onerror="this.onerror=null;this.src='assets/hfsrb-logo.svg';"> Explore Illinois Facility Survey</h1>
-      <span style="font-size:12px;color:var(--muted)">v10</span>
+      <h1 class="brand"><img class="brand-logo" src="assets/hfsrb-logo.png" srcset="assets/hfsrb-logo.png 1x, assets/hfsrb-logo@2x.png 2x" alt="HFSRB logo" onerror="this.onerror=null;this.src='assets/hfsrb-logo.svg';"> Explore Illinois Facility Survey <span class="version">v10</span></h1>
     </div>
     <p class="sub">Pick a facility type and year, then jump right into a full profile.</p>
     <div id="chips" class="chips" style="margin-bottom:6px"></div>
