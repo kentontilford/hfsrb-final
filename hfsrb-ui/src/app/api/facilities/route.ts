@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { and, desc, eq, ilike, like, sql } from "drizzle-orm";
+import { and, eq, ilike } from "drizzle-orm";
 import { db } from "@/lib/db";
-import { facility, hospitalProfile2024 } from "@/db/schema";
+import { facility, hospitalProfileByYear } from "@/db/schema";
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
@@ -9,12 +9,13 @@ export async function GET(req: Request) {
   const hpa = searchParams.get("hpa") ?? undefined;
   const type = searchParams.get("hospital_type") ?? undefined;
   const q = searchParams.get("q") ?? undefined;
+  const year = Number(searchParams.get("year") ?? 2024);
 
   try {
     const conditions = [eq(facility.type, 'Hospital')] as any[];
     if (hsa) conditions.push(eq(facility.hsa, hsa));
     if (hpa) conditions.push(eq(facility.hpa, hpa));
-    if (type) conditions.push(eq(hospitalProfile2024.hospitalType, type));
+    if (type) conditions.push(eq(hospitalProfileByYear.hospitalType, type));
     if (q) conditions.push(ilike(facility.name, `%${q}%`));
 
     const rows = await db
@@ -23,10 +24,10 @@ export async function GET(req: Request) {
         name: facility.name,
         hsa: facility.hsa,
         hpa: facility.hpa,
-        hospitalType: hospitalProfile2024.hospitalType,
+        hospitalType: hospitalProfileByYear.hospitalType,
       })
       .from(facility)
-      .leftJoin(hospitalProfile2024, eq(hospitalProfile2024.facilityId, facility.id))
+      .leftJoin(hospitalProfileByYear, and(eq(hospitalProfileByYear.facilityId, facility.id), eq(hospitalProfileByYear.year, year)))
       .where(and(...conditions))
       .orderBy(facility.name);
 

@@ -120,7 +120,7 @@ async function main() {
         set name=excluded.name, county=excluded.county, hsa=excluded.hsa, hpa=excluded.hpa, address=excluded.address, active=true
       `);
 
-      // profile upsert
+      // profile upsert (legacy 2024 table)
       await db.execute(sql`
         insert into hospital_profile_2024 (
           facility_id, year, hospital_type,
@@ -136,6 +136,43 @@ async function main() {
           ${cleanNum(r.ethnicity_hispanic)}, ${cleanNum(r.ethnicity_non_hispanic)}, ${cleanNum(r.ethnicity_unknown)}
         )
         on conflict (facility_id) do update set
+          hospital_type=excluded.hospital_type,
+          ms_con=excluded.ms_con,
+          icu_con=excluded.icu_con,
+          ped_con=excluded.ped_con,
+          obgyn_con=excluded.obgyn_con,
+          ltc_con=excluded.ltc_con,
+          ms_admissions=excluded.ms_admissions,
+          ms_patient_days=excluded.ms_patient_days,
+          ms_observation_days=excluded.ms_observation_days,
+          race_white=excluded.race_white,
+          race_black=excluded.race_black,
+          race_native_american=excluded.race_native_american,
+          race_asian=excluded.race_asian,
+          race_pacific_islander=excluded.race_pacific_islander,
+          race_unknown=excluded.race_unknown,
+          ethnicity_hispanic=excluded.ethnicity_hispanic,
+          ethnicity_non_hispanic=excluded.ethnicity_non_hispanic,
+          ethnicity_unknown=excluded.ethnicity_unknown,
+          updated_at=now()
+      `);
+
+      // upsert into unified by-year table
+      await db.execute(sql`
+        insert into hospital_profile_by_year (
+          facility_id, year, hospital_type,
+          ms_con, icu_con, ped_con, obgyn_con, ltc_con,
+          ms_admissions, ms_patient_days, ms_observation_days,
+          race_white, race_black, race_native_american, race_asian, race_pacific_islander, race_unknown,
+          ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown
+        ) values (
+          ${r.facility_id}, 2024, ${r.hospital_type ?? null},
+          ${cleanNum(r.ms_con)}, ${cleanNum(r.icu_con)}, ${cleanNum(r.ped_con)}, ${cleanNum(r.obgyn_con)}, ${cleanNum(r.ltc_con)},
+          ${cleanNum(r.ms_admissions)}, ${cleanNum(r.ms_patient_days)}, ${cleanNum(r.ms_observation_days)},
+          ${cleanNum(r.race_white)}, ${cleanNum(r.race_black)}, ${cleanNum(r.race_native_american)}, ${cleanNum(r.race_asian)}, ${cleanNum(r.race_pacific_islander)}, ${cleanNum(r.race_unknown)},
+          ${cleanNum(r.ethnicity_hispanic)}, ${cleanNum(r.ethnicity_non_hispanic)}, ${cleanNum(r.ethnicity_unknown)}
+        )
+        on conflict (facility_id, year) do update set
           hospital_type=excluded.hospital_type,
           ms_con=excluded.ms_con,
           icu_con=excluded.icu_con,
@@ -244,6 +281,49 @@ async function main() {
         ethnicity_unknown=excluded.ethnicity_unknown,
         updated_at=now()
     `);
+
+    // unified table by year
+    await db.execute(sql`
+      insert into hsa_summary_by_year (
+        hsa, year, total_hospitals, critical_access, acute_ltc, general, psychiatric, rehabilitation, childrens,
+        ms_con, icu_con, ped_con, obgyn_con, ltc_con,
+        ms_admissions, ms_patient_days, ms_observation_days,
+        race_white, race_black, race_native_american, race_asian, race_pacific_islander, race_unknown,
+        ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown
+      ) values (
+        ${hsa}, 2024, ${total}, ${critical}, ${acuteLtc}, ${general}, ${psych}, ${rehab}, ${childrens},
+        ${sum(group, "ms_con")}, ${sum(group, "icu_con")}, ${sum(group, "ped_con")}, ${sum(group, "obgyn_con")}, ${sum(group, "ltc_con")},
+        ${sum(group, "ms_admissions")}, ${sum(group, "ms_patient_days")}, ${sum(group, "ms_observation_days")},
+        ${race.white}, ${race.black}, ${race.native}, ${race.asian}, ${race.pi}, ${race.unknown},
+        ${eth.hispanic}, ${eth.nonHispanic}, ${eth.unknown}
+      )
+      on conflict (hsa, year) do update set
+        total_hospitals=excluded.total_hospitals,
+        critical_access=excluded.critical_access,
+        acute_ltc=excluded.acute_ltc,
+        general=excluded.general,
+        psychiatric=excluded.psychiatric,
+        rehabilitation=excluded.rehabilitation,
+        childrens=excluded.childrens,
+        ms_con=excluded.ms_con,
+        icu_con=excluded.icu_con,
+        ped_con=excluded.ped_con,
+        obgyn_con=excluded.obgyn_con,
+        ltc_con=excluded.ltc_con,
+        ms_admissions=excluded.ms_admissions,
+        ms_patient_days=excluded.ms_patient_days,
+        ms_observation_days=excluded.ms_observation_days,
+        race_white=excluded.race_white,
+        race_black=excluded.race_black,
+        race_native_american=excluded.race_native_american,
+        race_asian=excluded.race_asian,
+        race_pacific_islander=excluded.race_pacific_islander,
+        race_unknown=excluded.race_unknown,
+        ethnicity_hispanic=excluded.ethnicity_hispanic,
+        ethnicity_non_hispanic=excluded.ethnicity_non_hispanic,
+        ethnicity_unknown=excluded.ethnicity_unknown,
+        updated_at=now()
+    `);
   }
 
   async function upsertHpa(hpa: string, group: any[]) {
@@ -274,6 +354,49 @@ async function main() {
         ${eth.hispanic}, ${eth.nonHispanic}, ${eth.unknown}
       )
       on conflict (hpa) do update set
+        total_hospitals=excluded.total_hospitals,
+        critical_access=excluded.critical_access,
+        acute_ltc=excluded.acute_ltc,
+        general=excluded.general,
+        psychiatric=excluded.psychiatric,
+        rehabilitation=excluded.rehabilitation,
+        childrens=excluded.childrens,
+        ms_con=excluded.ms_con,
+        icu_con=excluded.icu_con,
+        ped_con=excluded.ped_con,
+        obgyn_con=excluded.obgyn_con,
+        ltc_con=excluded.ltc_con,
+        ms_admissions=excluded.ms_admissions,
+        ms_patient_days=excluded.ms_patient_days,
+        ms_observation_days=excluded.ms_observation_days,
+        race_white=excluded.race_white,
+        race_black=excluded.race_black,
+        race_native_american=excluded.race_native_american,
+        race_asian=excluded.race_asian,
+        race_pacific_islander=excluded.race_pacific_islander,
+        race_unknown=excluded.race_unknown,
+        ethnicity_hispanic=excluded.ethnicity_hispanic,
+        ethnicity_non_hispanic=excluded.ethnicity_non_hispanic,
+        ethnicity_unknown=excluded.ethnicity_unknown,
+        updated_at=now()
+    `);
+
+    // unified table by year
+    await db.execute(sql`
+      insert into hpa_summary_by_year (
+        hpa, year, total_hospitals, critical_access, acute_ltc, general, psychiatric, rehabilitation, childrens,
+        ms_con, icu_con, ped_con, obgyn_con, ltc_con,
+        ms_admissions, ms_patient_days, ms_observation_days,
+        race_white, race_black, race_native_american, race_asian, race_pacific_islander, race_unknown,
+        ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown
+      ) values (
+        ${hpa}, 2024, ${total}, ${critical}, ${acuteLtc}, ${general}, ${psych}, ${rehab}, ${childrens},
+        ${sum(group, "ms_con")}, ${sum(group, "icu_con")}, ${sum(group, "ped_con")}, ${sum(group, "obgyn_con")}, ${sum(group, "ltc_con")},
+        ${sum(group, "ms_admissions")}, ${sum(group, "ms_patient_days")}, ${sum(group, "ms_observation_days")},
+        ${race.white}, ${race.black}, ${race.native}, ${race.asian}, ${race.pi}, ${race.unknown},
+        ${eth.hispanic}, ${eth.nonHispanic}, ${eth.unknown}
+      )
+      on conflict (hpa, year) do update set
         total_hospitals=excluded.total_hospitals,
         critical_access=excluded.critical_access,
         acute_ltc=excluded.acute_ltc,

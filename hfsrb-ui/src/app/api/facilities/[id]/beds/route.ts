@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { sql } from "drizzle-orm";
 import { z } from "zod";
+import { requireUser } from "@/lib/auth";
 
 type Params = { params: { id: string } };
 
@@ -30,6 +31,8 @@ const BedPayload = z.object({
 export async function POST(req: Request, ctx: Params) {
   const id = ctx.params.id;
   try {
+    const user = await requireUser(req);
+    if (!user) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
     const body = await req.json();
     const data = BedPayload.parse(body);
     const today = new Date();

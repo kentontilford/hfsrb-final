@@ -54,6 +54,27 @@ export default function MapPage() {
       // Easy print
       (L as any).easyPrint({ exportOnly: true, title: 'Download map', filename: 'hospitals_map' }).addTo(map);
 
+      // Try to add HSA/HPA boundaries if present
+      async function addBoundaries() {
+        try {
+          const [hsaRes, hpaRes] = await Promise.all([
+            fetch('/geo/hsa.geojson'),
+            fetch('/geo/hpa.geojson'),
+          ]);
+          if (hsaRes.ok) {
+            const hsa = await hsaRes.json();
+            const hsaLayer = L.geoJSON(hsa, { style: { color: '#1f2937', weight: 1, fillOpacity: 0 } });
+            (L as any).control.layers(undefined, { 'HSA Boundaries': hsaLayer }).addTo(map);
+          }
+          if (hpaRes.ok) {
+            const hpa = await hpaRes.json();
+            const hpaLayer = L.geoJSON(hpa, { style: { color: '#059669', weight: 1, fillOpacity: 0 } });
+            (L as any).control.layers(undefined, { 'HPA Boundaries': hpaLayer }).addTo(map);
+          }
+        } catch {}
+      }
+      addBoundaries();
+
       await loadWithParams();
 
       // Wire form submit if present

@@ -8,6 +8,7 @@ import {
   numeric,
   date,
   primaryKey,
+  index,
 } from "drizzle-orm/pg-core";
 
 export const facility = pgTable("facility", {
@@ -22,7 +23,12 @@ export const facility = pgTable("facility", {
   lng: numeric("lng"),
   active: boolean("active").default(true),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
-});
+}, (t) => ({
+  byType: index("facility_by_type").on(t.type),
+  byHsa: index("facility_by_hsa").on(t.hsa),
+  byHpa: index("facility_by_hpa").on(t.hpa),
+  byName: index("facility_by_name").on(t.name),
+}));
 
 export const surveyEsrd2023 = pgTable("survey_esrd_2023", {
   facilityId: text("facility_id").references(() => facility.id, { onDelete: "cascade" }).notNull(),
@@ -66,7 +72,38 @@ export const hospitalProfile2024 = pgTable("hospital_profile_2024", {
   ethnicityNonHispanic: numeric("ethnicity_non_hispanic"),
   ethnicityUnknown: numeric("ethnicity_unknown"),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
-});
+}, (t) => ({
+  byType: index("hp2024_by_type").on(t.hospitalType),
+}));
+
+// Unified tables by year (forward-looking)
+export const hospitalProfileByYear = pgTable("hospital_profile_by_year", {
+  facilityId: text("facility_id").references(() => facility.id, { onDelete: "cascade" }).notNull(),
+  year: integer("year").notNull(),
+  hospitalType: text("hospital_type"),
+  msCon: integer("ms_con"),
+  icuCon: integer("icu_con"),
+  pedCon: integer("ped_con"),
+  obgynCon: integer("obgyn_con"),
+  ltcCon: integer("ltc_con"),
+  msAdmissions: integer("ms_admissions"),
+  msPatientDays: integer("ms_patient_days"),
+  msObservationDays: integer("ms_observation_days"),
+  raceWhite: numeric("race_white"),
+  raceBlack: numeric("race_black"),
+  raceNativeAmerican: numeric("race_native_american"),
+  raceAsian: numeric("race_asian"),
+  racePacificIslander: numeric("race_pacific_islander"),
+  raceUnknown: numeric("race_unknown"),
+  ethnicityHispanic: numeric("ethnicity_hispanic"),
+  ethnicityNonHispanic: numeric("ethnicity_non_hispanic"),
+  ethnicityUnknown: numeric("ethnicity_unknown"),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
+}, (t) => ({
+  pk: primaryKey({ columns: [t.facilityId, t.year] }),
+  byYear: index("hp_by_year").on(t.year),
+  byType: index("hp_by_type").on(t.hospitalType),
+}));
 
 // Pre-computed summaries
 export const hsaSummary2024 = pgTable("hsa_summary_2024", {
@@ -127,6 +164,72 @@ export const hpaSummary2024 = pgTable("hpa_summary_2024", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 });
 
+export const hsaSummaryByYear = pgTable("hsa_summary_by_year", {
+  hsa: text("hsa").notNull(),
+  year: integer("year").notNull(),
+  totalHospitals: integer("total_hospitals"),
+  criticalAccess: integer("critical_access"),
+  acuteLtc: integer("acute_ltc"),
+  general: integer("general"),
+  psychiatric: integer("psychiatric"),
+  rehabilitation: integer("rehabilitation"),
+  childrens: integer("childrens"),
+  msCon: integer("ms_con"),
+  icuCon: integer("icu_con"),
+  pedCon: integer("ped_con"),
+  obgynCon: integer("obgyn_con"),
+  ltcCon: integer("ltc_con"),
+  msAdmissions: integer("ms_admissions"),
+  msPatientDays: integer("ms_patient_days"),
+  msObservationDays: integer("ms_observation_days"),
+  raceWhite: numeric("race_white"),
+  raceBlack: numeric("race_black"),
+  raceNativeAmerican: numeric("race_native_american"),
+  raceAsian: numeric("race_asian"),
+  racePacificIslander: numeric("race_pacific_islander"),
+  raceUnknown: numeric("race_unknown"),
+  ethnicityHispanic: numeric("ethnicity_hispanic"),
+  ethnicityNonHispanic: numeric("ethnicity_non_hispanic"),
+  ethnicityUnknown: numeric("ethnicity_unknown"),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
+}, (t) => ({
+  pk: primaryKey({ columns: [t.hsa, t.year] }),
+  byYear: index("hsa_sum_by_year").on(t.year),
+}));
+
+export const hpaSummaryByYear = pgTable("hpa_summary_by_year", {
+  hpa: text("hpa").notNull(),
+  year: integer("year").notNull(),
+  totalHospitals: integer("total_hospitals"),
+  criticalAccess: integer("critical_access"),
+  acuteLtc: integer("acute_ltc"),
+  general: integer("general"),
+  psychiatric: integer("psychiatric"),
+  rehabilitation: integer("rehabilitation"),
+  childrens: integer("childrens"),
+  msCon: integer("ms_con"),
+  icuCon: integer("icu_con"),
+  pedCon: integer("ped_con"),
+  obgynCon: integer("obgyn_con"),
+  ltcCon: integer("ltc_con"),
+  msAdmissions: integer("ms_admissions"),
+  msPatientDays: integer("ms_patient_days"),
+  msObservationDays: integer("ms_observation_days"),
+  raceWhite: numeric("race_white"),
+  raceBlack: numeric("race_black"),
+  raceNativeAmerican: numeric("race_native_american"),
+  raceAsian: numeric("race_asian"),
+  racePacificIslander: numeric("race_pacific_islander"),
+  raceUnknown: numeric("race_unknown"),
+  ethnicityHispanic: numeric("ethnicity_hispanic"),
+  ethnicityNonHispanic: numeric("ethnicity_non_hispanic"),
+  ethnicityUnknown: numeric("ethnicity_unknown"),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
+}, (t) => ({
+  pk: primaryKey({ columns: [t.hpa, t.year] }),
+  byYear: index("hpa_sum_by_year").on(t.year),
+}));
+
 // Bed inventory tracker
 export const bedInventory = pgTable("bed_inventory", {
   id: integer("id").generatedAlwaysAsIdentity().primaryKey(),
@@ -135,4 +238,6 @@ export const bedInventory = pgTable("bed_inventory", {
   authorisedBeds: integer("authorised_beds").notNull(),
   effectiveDate: date("effective_date").notNull(),
   enteredAt: timestamp("entered_at", { withTimezone: true }).defaultNow(),
-});
+}, (t) => ({
+  byFacilityTypeDate: index("bed_by_facility_type_date").on(t.facilityId, t.bedType, t.effectiveDate),
+}));
