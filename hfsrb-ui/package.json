@@ -13,7 +13,8 @@
     "load:esrd2023": "tsx scripts/load_esrd_2023.ts",
     "load:hospital2024": "tsx scripts/load_hospital_profiles_2024.ts",
     "geocode:facilities": "tsx scripts/geocode_facilities.ts",
-    "check": "tsx scripts/check_summaries.ts"
+    "check": "tsx scripts/check_summaries.ts",
+    "etl:report": "tsx scripts/report_detectors.ts"
     ,
     "dev:db:up": "docker compose up -d",
     "dev:db:down": "docker compose down -v",
