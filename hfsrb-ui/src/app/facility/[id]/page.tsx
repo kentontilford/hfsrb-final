@@ -1,16 +1,24 @@
-type Props = { params: { id: string } };
+type Props = { params: { id: string }, searchParams?: { year?: string } };
 
-async function getFacility(id: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/facilities/${encodeURIComponent(id)}`, { cache: "no-store" });
+async function getFacility(id: string, year?: string) {
+  const qs = new URLSearchParams(); if (year) qs.set('year', year);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/facilities/${encodeURIComponent(id)}?${qs.toString()}`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load facility");
   return res.json();
 }
 
-export default async function FacilityDetail({ params }: Props) {
-  const f = await getFacility(params.id);
+export default async function FacilityDetail({ params, searchParams }: Props) {
+  const year = searchParams?.year || '2024';
+  const f = await getFacility(params.id, year);
   return (
     <div className="p-6 space-y-4">
       <h1 className="text-2xl font-semibold">{f.name}</h1>
+      <form method="get" className="flex gap-2 items-center">
+        <label className="text-sm">Year
+          <input name="year" className="border rounded px-2 py-1 ml-2 w-24" defaultValue={year} />
+        </label>
+        <button className="bg-blue-600 text-white px-3 py-1 rounded">Apply</button>
+      </form>
       <div>
         <a className="inline-block bg-blue-600 text-white px-3 py-1 rounded" href={`/facility/${encodeURIComponent(f.id)}/profile`}>Print View</a>
         <a className="inline-block bg-blue-600 text-white px-3 py-1 rounded ml-2" href={`/api/facilities/${encodeURIComponent(f.id)}/profile?format=pdf`}>Download PDF</a>
@@ -38,6 +46,11 @@ export default async function FacilityDetail({ params }: Props) {
         <div>MS Admissions: {f.msAdmissions ?? ""}</div>
         <div>MS Patient Days: {f.msPatientDays ?? ""}</div>
         <div>MS Observation Days: {f.msObservationDays ?? ""}</div>
+      </section>
+      <section className="border rounded p-3">
+        <h2 className="font-semibold mb-2">Payer Mix</h2>
+        {/* @ts-expect-error Async client import */}
+        { (await import("@/components/summary/PayerChart")).default({ s: f }) }
       </section>
       <section className="border rounded p-3">
         {/* Bed Inventory UI */}

@@ -97,6 +97,18 @@ async function main() {
   const rows = toJsonRows(wb, "Data");
   console.log(`Rows: ${rows.length}`);
   const detectors = detectColumns(rows);
+  const payers = detectPayers(rows);
+  // Detector report (compact)
+  function logDetector(title: string, det: Record<string, string[]>) {
+    const keys = Object.keys(det);
+    const parts = keys.map(k => `${k}=${det[k].length}`).join(', ');
+    console.log(`${title}: ${parts}`);
+  }
+  console.log('Detector summary');
+  logDetector('race.admissions', detectors.admissions as any);
+  logDetector('race.patientDays', detectors.patientDays as any);
+  logDetector('payer.admissions', payers.admissions as any);
+  logDetector('payer.patientDays', payers.patientDays as any);
 
   let ok = 0, bad = 0;
   for (const r0 of rows) {
@@ -120,6 +132,9 @@ async function main() {
         set name=excluded.name, county=excluded.county, hsa=excluded.hsa, hpa=excluded.hpa, address=excluded.address, active=true
       `);
 
+      // payer shares per row (if present)
+      const payerShare = computePayerRowShare(r0, payers);
+
       // profile upsert (legacy 2024 table)
       await db.execute(sql`
         insert into hospital_profile_2024 (
@@ -127,13 +142,15 @@ async function main() {
           ms_con, icu_con, ped_con, obgyn_con, ltc_con,
           ms_admissions, ms_patient_days, ms_observation_days,
           race_white, race_black, race_native_american, race_asian, race_pacific_islander, race_unknown,
-          ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown
+          ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown,
+          payer_medicare, payer_medicaid, payer_private, payer_other_public, payer_private_pay, payer_charity
         ) values (
           ${r.facility_id}, 2024, ${r.hospital_type ?? null},
           ${cleanNum(r.ms_con)}, ${cleanNum(r.icu_con)}, ${cleanNum(r.ped_con)}, ${cleanNum(r.obgyn_con)}, ${cleanNum(r.ltc_con)},
           ${cleanNum(r.ms_admissions)}, ${cleanNum(r.ms_patient_days)}, ${cleanNum(r.ms_observation_days)},
           ${cleanNum(r.race_white)}, ${cleanNum(r.race_black)}, ${cleanNum(r.race_native_american)}, ${cleanNum(r.race_asian)}, ${cleanNum(r.race_pacific_islander)}, ${cleanNum(r.race_unknown)},
-          ${cleanNum(r.ethnicity_hispanic)}, ${cleanNum(r.ethnicity_non_hispanic)}, ${cleanNum(r.ethnicity_unknown)}
+          ${cleanNum(r.ethnicity_hispanic)}, ${cleanNum(r.ethnicity_non_hispanic)}, ${cleanNum(r.ethnicity_unknown)},
+          ${payerShare?.medicare ?? null}, ${payerShare?.medicaid ?? null}, ${payerShare?.private ?? null}, ${payerShare?.otherPublic ?? null}, ${payerShare?.privatePay ?? null}, ${payerShare?.charity ?? null}
         )
         on conflict (facility_id) do update set
           hospital_type=excluded.hospital_type,
@@ -154,6 +171,12 @@ async function main() {
           ethnicity_hispanic=excluded.ethnicity_hispanic,
           ethnicity_non_hispanic=excluded.ethnicity_non_hispanic,
           ethnicity_unknown=excluded.ethnicity_unknown,
+          payer_medicare=excluded.payer_medicare,
+          payer_medicaid=excluded.payer_medicaid,
+          payer_private=excluded.payer_private,
+          payer_other_public=excluded.payer_other_public,
+          payer_private_pay=excluded.payer_private_pay,
+          payer_charity=excluded.payer_charity,
           updated_at=now()
       `);
 
@@ -164,13 +187,15 @@ async function main() {
           ms_con, icu_con, ped_con, obgyn_con, ltc_con,
           ms_admissions, ms_patient_days, ms_observation_days,
           race_white, race_black, race_native_american, race_asian, race_pacific_islander, race_unknown,
-          ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown
+          ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown,
+          payer_medicare, payer_medicaid, payer_private, payer_other_public, payer_private_pay, payer_charity
         ) values (
           ${r.facility_id}, 2024, ${r.hospital_type ?? null},
           ${cleanNum(r.ms_con)}, ${cleanNum(r.icu_con)}, ${cleanNum(r.ped_con)}, ${cleanNum(r.obgyn_con)}, ${cleanNum(r.ltc_con)},
           ${cleanNum(r.ms_admissions)}, ${cleanNum(r.ms_patient_days)}, ${cleanNum(r.ms_observation_days)},
           ${cleanNum(r.race_white)}, ${cleanNum(r.race_black)}, ${cleanNum(r.race_native_american)}, ${cleanNum(r.race_asian)}, ${cleanNum(r.race_pacific_islander)}, ${cleanNum(r.race_unknown)},
-          ${cleanNum(r.ethnicity_hispanic)}, ${cleanNum(r.ethnicity_non_hispanic)}, ${cleanNum(r.ethnicity_unknown)}
+          ${cleanNum(r.ethnicity_hispanic)}, ${cleanNum(r.ethnicity_non_hispanic)}, ${cleanNum(r.ethnicity_unknown)},
+          ${payerShare?.medicare ?? null}, ${payerShare?.medicaid ?? null}, ${payerShare?.private ?? null}, ${payerShare?.otherPublic ?? null}, ${payerShare?.privatePay ?? null}, ${payerShare?.charity ?? null}
         )
         on conflict (facility_id, year) do update set
           hospital_type=excluded.hospital_type,
@@ -191,6 +216,12 @@ async function main() {
           ethnicity_hispanic=excluded.ethnicity_hispanic,
           ethnicity_non_hispanic=excluded.ethnicity_non_hispanic,
           ethnicity_unknown=excluded.ethnicity_unknown,
+          payer_medicare=excluded.payer_medicare,
+          payer_medicaid=excluded.payer_medicaid,
+          payer_private=excluded.payer_private,
+          payer_other_public=excluded.payer_other_public,
+          payer_private_pay=excluded.payer_private_pay,
+          payer_charity=excluded.payer_charity,
           updated_at=now()
       `);
       ok++;
@@ -239,6 +270,7 @@ async function main() {
     // Race/Ethnicity weighted proportions
     const race = computeRace(group, detectors);
     const eth = computeEthnicity(group, detectors);
+    const pay = computePayerGroup(group, payers);
 
     await db.execute(sql`
       insert into hsa_summary_2024 (
@@ -246,13 +278,15 @@ async function main() {
         ms_con, icu_con, ped_con, obgyn_con, ltc_con,
         ms_admissions, ms_patient_days, ms_observation_days,
         race_white, race_black, race_native_american, race_asian, race_pacific_islander, race_unknown,
-        ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown
+        ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown,
+        payer_medicare, payer_medicaid, payer_private, payer_other_public, payer_private_pay, payer_charity
       ) values (
         ${hsa}, ${total}, ${critical}, ${acuteLtc}, ${general}, ${psych}, ${rehab}, ${childrens},
         ${sum(group, "ms_con")}, ${sum(group, "icu_con")}, ${sum(group, "ped_con")}, ${sum(group, "obgyn_con")}, ${sum(group, "ltc_con")},
         ${sum(group, "ms_admissions")}, ${sum(group, "ms_patient_days")}, ${sum(group, "ms_observation_days")},
         ${race.white}, ${race.black}, ${race.native}, ${race.asian}, ${race.pi}, ${race.unknown},
-        ${eth.hispanic}, ${eth.nonHispanic}, ${eth.unknown}
+        ${eth.hispanic}, ${eth.nonHispanic}, ${eth.unknown},
+        ${pay.medicare}, ${pay.medicaid}, ${pay.private}, ${pay.otherPublic}, ${pay.privatePay}, ${pay.charity}
       )
       on conflict (hsa) do update set
         total_hospitals=excluded.total_hospitals,
@@ -279,6 +313,12 @@ async function main() {
         ethnicity_hispanic=excluded.ethnicity_hispanic,
         ethnicity_non_hispanic=excluded.ethnicity_non_hispanic,
         ethnicity_unknown=excluded.ethnicity_unknown,
+        payer_medicare=excluded.payer_medicare,
+        payer_medicaid=excluded.payer_medicaid,
+        payer_private=excluded.payer_private,
+        payer_other_public=excluded.payer_other_public,
+        payer_private_pay=excluded.payer_private_pay,
+        payer_charity=excluded.payer_charity,
         updated_at=now()
     `);
 
@@ -339,19 +379,22 @@ async function main() {
     }).length;
     const race = computeRace(group, detectors);
     const eth = computeEthnicity(group, detectors);
+    const pay = computePayerGroup(group, payers);
     await db.execute(sql`
       insert into hpa_summary_2024 (
         hpa, total_hospitals, critical_access, acute_ltc, general, psychiatric, rehabilitation, childrens,
         ms_con, icu_con, ped_con, obgyn_con, ltc_con,
         ms_admissions, ms_patient_days, ms_observation_days,
         race_white, race_black, race_native_american, race_asian, race_pacific_islander, race_unknown,
-        ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown
+        ethnicity_hispanic, ethnicity_non_hispanic, ethnicity_unknown,
+        payer_medicare, payer_medicaid, payer_private, payer_other_public, payer_private_pay, payer_charity
       ) values (
         ${hpa}, ${total}, ${critical}, ${acuteLtc}, ${general}, ${psych}, ${rehab}, ${childrens},
         ${sum(group, "ms_con")}, ${sum(group, "icu_con")}, ${sum(group, "ped_con")}, ${sum(group, "obgyn_con")}, ${sum(group, "ltc_con")},
         ${sum(group, "ms_admissions")}, ${sum(group, "ms_patient_days")}, ${sum(group, "ms_observation_days")},
         ${race.white}, ${race.black}, ${race.native}, ${race.asian}, ${race.pi}, ${race.unknown},
-        ${eth.hispanic}, ${eth.nonHispanic}, ${eth.unknown}
+        ${eth.hispanic}, ${eth.nonHispanic}, ${eth.unknown},
+        ${pay.medicare}, ${pay.medicaid}, ${pay.private}, ${pay.otherPublic}, ${pay.privatePay}, ${pay.charity}
       )
       on conflict (hpa) do update set
         total_hospitals=excluded.total_hospitals,
@@ -378,6 +421,12 @@ async function main() {
         ethnicity_hispanic=excluded.ethnicity_hispanic,
         ethnicity_non_hispanic=excluded.ethnicity_non_hispanic,
         ethnicity_unknown=excluded.ethnicity_unknown,
+        payer_medicare=excluded.payer_medicare,
+        payer_medicaid=excluded.payer_medicaid,
+        payer_private=excluded.payer_private,
+        payer_other_public=excluded.payer_other_public,
+        payer_private_pay=excluded.payer_private_pay,
+        payer_charity=excluded.payer_charity,
         updated_at=now()
     `);
 
@@ -574,6 +623,71 @@ function computeEthnicity(group: any[], detectors: Detectors) {
   const grand = his + non + unk;
   if (grand <= 0) return { hispanic: null, nonHispanic: null, unknown: null };
   return { hispanic: his / grand, nonHispanic: non / grand, unknown: unk / grand };
+}
+
+// Payer detection/aggregation
+type PayerDetectors = {
+  admissions: Record<string, string[]>;
+  patientDays: Record<string, string[]>;
+}
+
+function detectPayers(rows: any[]): PayerDetectors {
+  const keys = new Set<string>();
+  for (const r of rows) for (const k of Object.keys(r)) keys.add(k);
+  const all = Array.from(keys);
+  const cats: Record<string,string[]> = {
+    medicare: ["medicare"],
+    medicaid: ["medicaid"],
+    private: ["private"],
+    otherPublic: ["other public", "other_public", "otherpublic"],
+    privatePay: ["private pay", "self pay", "self-pay"],
+    charity: ["charity"],
+  };
+  const isAdmissions = (k: string) => /admissions?/i.test(k) && /payer|payor/i.test(k);
+  const isPatientDays = (k: string) => /(patient\s*days|inpatient\s*days)/i.test(k) && /payer|payor/i.test(k);
+  function find(cols: string[], tokens: string[]) {
+    return cols.filter(c => tokens.some(t => c.toLowerCase().includes(t)));
+  }
+  const admissions: any = {};
+  const patientDays: any = {};
+  for (const k of Object.keys(cats)) {
+    admissions[k] = find(all, cats[k]).filter(isAdmissions);
+    patientDays[k] = find(all, cats[k]).filter(isPatientDays);
+  }
+  return { admissions, patientDays };
+}
+
+function computePayerRowShare(row: any, pdet: PayerDetectors) {
+  // sum row counts by category, prefer admissions
+  const use = Object.values(pdet.admissions).some(v => v.length) ? pdet.admissions : pdet.patientDays;
+  const cats = ["medicare","medicaid","private","otherPublic","privatePay","charity"] as const;
+  const sums: Record<string, number> = {};
+  let total = 0;
+  for (const c of cats) { const { sum } = sumRow(row, use[c] || []); sums[c] = sum; total += sum; }
+  if (total <= 0) return null;
+  const r: any = {};
+  for (const c of cats) r[c] = sums[c] / total;
+  return r as { medicare:number; medicaid:number; private:number; otherPublic:number; privatePay:number; charity:number };
+}
+
+function computePayerGroup(group: any[], pdet: PayerDetectors) {
+  const use = Object.values(pdet.admissions).some(v => v.length) ? pdet.admissions : pdet.patientDays;
+  const cats = ["medicare","medicaid","private","otherPublic","privatePay","charity"] as const;
+  const totals: Record<string, number> = {};
+  let grand = 0;
+  for (const c of cats) {
+    const { sum } = sumGroup(group, use[c] || []);
+    totals[c] = sum; grand += sum;
+  }
+  if (grand <= 0) return { medicare: null, medicaid: null, private: null, otherPublic: null, privatePay: null, charity: null };
+  return {
+    medicare: totals.medicare / grand,
+    medicaid: totals.medicaid / grand,
+    private: totals.private / grand,
+    otherPublic: totals.otherPublic / grand,
+    privatePay: totals.privatePay / grand,
+    charity: totals.charity / grand,
+  };
 }
 
 main().catch(e => { console.error(e); process.exit(1); });

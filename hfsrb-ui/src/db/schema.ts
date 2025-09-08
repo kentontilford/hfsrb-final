@@ -71,6 +71,13 @@ export const hospitalProfile2024 = pgTable("hospital_profile_2024", {
   ethnicityHispanic: numeric("ethnicity_hispanic"),
   ethnicityNonHispanic: numeric("ethnicity_non_hispanic"),
   ethnicityUnknown: numeric("ethnicity_unknown"),
+  // payer mix (fractions 0..1)
+  payerMedicare: numeric("payer_medicare"),
+  payerMedicaid: numeric("payer_medicaid"),
+  payerPrivate: numeric("payer_private"),
+  payerOtherPublic: numeric("payer_other_public"),
+  payerPrivatePay: numeric("payer_private_pay"),
+  payerCharity: numeric("payer_charity"),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 }, (t) => ({
   byType: index("hp2024_by_type").on(t.hospitalType),
@@ -98,6 +105,12 @@ export const hospitalProfileByYear = pgTable("hospital_profile_by_year", {
   ethnicityHispanic: numeric("ethnicity_hispanic"),
   ethnicityNonHispanic: numeric("ethnicity_non_hispanic"),
   ethnicityUnknown: numeric("ethnicity_unknown"),
+  payerMedicare: numeric("payer_medicare"),
+  payerMedicaid: numeric("payer_medicaid"),
+  payerPrivate: numeric("payer_private"),
+  payerOtherPublic: numeric("payer_other_public"),
+  payerPrivatePay: numeric("payer_private_pay"),
+  payerCharity: numeric("payer_charity"),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 }, (t) => ({
   pk: primaryKey({ columns: [t.facilityId, t.year] }),
@@ -132,6 +145,12 @@ export const hsaSummary2024 = pgTable("hsa_summary_2024", {
   ethnicityHispanic: numeric("ethnicity_hispanic"),
   ethnicityNonHispanic: numeric("ethnicity_non_hispanic"),
   ethnicityUnknown: numeric("ethnicity_unknown"),
+  payerMedicare: numeric("payer_medicare"),
+  payerMedicaid: numeric("payer_medicaid"),
+  payerPrivate: numeric("payer_private"),
+  payerOtherPublic: numeric("payer_other_public"),
+  payerPrivatePay: numeric("payer_private_pay"),
+  payerCharity: numeric("payer_charity"),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 });
 
@@ -161,6 +180,12 @@ export const hpaSummary2024 = pgTable("hpa_summary_2024", {
   ethnicityHispanic: numeric("ethnicity_hispanic"),
   ethnicityNonHispanic: numeric("ethnicity_non_hispanic"),
   ethnicityUnknown: numeric("ethnicity_unknown"),
+  payerMedicare: numeric("payer_medicare"),
+  payerMedicaid: numeric("payer_medicaid"),
+  payerPrivate: numeric("payer_private"),
+  payerOtherPublic: numeric("payer_other_public"),
+  payerPrivatePay: numeric("payer_private_pay"),
+  payerCharity: numeric("payer_charity"),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 });
 
@@ -191,6 +216,12 @@ export const hsaSummaryByYear = pgTable("hsa_summary_by_year", {
   ethnicityHispanic: numeric("ethnicity_hispanic"),
   ethnicityNonHispanic: numeric("ethnicity_non_hispanic"),
   ethnicityUnknown: numeric("ethnicity_unknown"),
+  payerMedicare: numeric("payer_medicare"),
+  payerMedicaid: numeric("payer_medicaid"),
+  payerPrivate: numeric("payer_private"),
+  payerOtherPublic: numeric("payer_other_public"),
+  payerPrivatePay: numeric("payer_private_pay"),
+  payerCharity: numeric("payer_charity"),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 }, (t) => ({
   pk: primaryKey({ columns: [t.hsa, t.year] }),
@@ -224,6 +255,12 @@ export const hpaSummaryByYear = pgTable("hpa_summary_by_year", {
   ethnicityHispanic: numeric("ethnicity_hispanic"),
   ethnicityNonHispanic: numeric("ethnicity_non_hispanic"),
   ethnicityUnknown: numeric("ethnicity_unknown"),
+  payerMedicare: numeric("payer_medicare"),
+  payerMedicaid: numeric("payer_medicaid"),
+  payerPrivate: numeric("payer_private"),
+  payerOtherPublic: numeric("payer_other_public"),
+  payerPrivatePay: numeric("payer_private_pay"),
+  payerCharity: numeric("payer_charity"),
   updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
 }, (t) => ({
   pk: primaryKey({ columns: [t.hpa, t.year] }),
