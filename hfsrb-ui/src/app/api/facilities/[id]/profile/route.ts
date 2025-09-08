@@ -1,0 +1,31 @@
+import { NextResponse } from "next/server";
+import { chromium } from "playwright";
+
+type Params = { params: { id: string } };
+
+export async function GET(req: Request, ctx: Params) {
+  const { searchParams, origin } = new URL(req.url);
+  const fmt = (searchParams.get("format") || "pdf").toLowerCase();
+  if (fmt !== "pdf") {
+    return NextResponse.json({ error: "Only format=pdf is supported" }, { status: 400 });
+  }
+  const base = origin;
+  const url = `${base}/facility/${encodeURIComponent(ctx.params.id)}/profile?print=1`;
+  try {
+    const browser = await chromium.launch({ args: ["--no-sandbox", "--disable-dev-shm-usage"] });
+    const page = await browser.newPage();
+    await page.goto(url, { waitUntil: "networkidle" });
+    const pdf = await page.pdf({ format: "Letter", printBackground: true, margin: { top: "0.5in", bottom: "0.5in", left: "0.5in", right: "0.5in" } });
+    await browser.close();
+    return new NextResponse(pdf, {
+      status: 200,
+      headers: new Headers({
+        "Content-Type": "application/pdf",
+        "Content-Disposition": `attachment; filename=facility_${ctx.params.id}.pdf`
+      })
+    });
+  } catch (e: any) {
+    return NextResponse.json({ error: e.message ?? String(e), hint: "Ensure Playwright is installed: npx playwright install chromium" }, { status: 500 });
+  }
+}
+

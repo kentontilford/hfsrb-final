@@ -1,0 +1,12 @@
+node_modules
+pnpm-lock.yaml
+.next/cache
+.next/trace
+.git
+drizzle
+.vscode
+*.log
+**/.DS_Store
+tmp
+coverage
+

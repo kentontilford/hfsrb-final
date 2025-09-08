@@ -1,0 +1,56 @@
+{
+  "name": "hfsrb-ui",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "drizzle:generate": "dotenv -e .env.local -- drizzle-kit generate",
+    "drizzle:push": "dotenv -e .env.local -- drizzle-kit push",
+    "load:esrd2023": "tsx scripts/load_esrd_2023.ts",
+    "load:hospital2024": "tsx scripts/load_hospital_profiles_2024.ts",
+    "geocode:facilities": "tsx scripts/geocode_facilities.ts",
+    "check": "tsx scripts/check_summaries.ts"
+    ,
+    "dev:db:up": "docker compose up -d",
+    "dev:db:down": "docker compose down -v",
+    "dev:db:logs": "docker compose logs -f db",
+    "dev:db:psql": "docker compose exec -T db psql -U postgres -d postgres",
+    "drizzle:generate:local": "DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres drizzle-kit generate",
+    "drizzle:push:local": "DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres drizzle-kit push"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.2",
+    "@tanstack/react-table": "^8.21.3",
+    "chart.js": "^4.5.0",
+    "drizzle-orm": "^0.44.5",
+    "next": "14.2.32",
+    "pg": "^8.16.3",
+    "react": "^18",
+    "react-chartjs-2": "^5.3.0",
+    "react-dom": "^18",
+    "zod": "^4.1.5",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.35.0",
+    "@next/eslint-plugin-next": "^15.5.2",
+    "@types/node": "^20.19.13",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "dotenv-cli": "^10.0.0",
+    "drizzle-kit": "^0.31.4",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5",
+    "typescript-eslint": "^8.43.0",
+    "playwright": "^1.47.2"
+  }
+}

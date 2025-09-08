@@ -1,0 +1,221 @@
+{
+  "id": "b51a8227-3abe-4bfc-a5ec-13f825b689cb",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.facility": {
+      "name": "facility",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "county": {
+          "name": "county",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hsa": {
+          "name": "hsa",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "hpa": {
+          "name": "hpa",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "address": {
+          "name": "address",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "active": {
+          "name": "active",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.survey_esrd_2023": {
+      "name": "survey_esrd_2023",
+      "schema": "",
+      "columns": {
+        "facility_id": {
+          "name": "facility_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "year": {
+          "name": "year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 2023
+        },
+        "stations": {
+          "name": "stations",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "shifts": {
+          "name": "shifts",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "patients_total": {
+          "name": "patients_total",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "incenter_treatments": {
+          "name": "incenter_treatments",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fte_total": {
+          "name": "fte_total",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "payer_medicare": {
+          "name": "payer_medicare",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "payer_medicaid": {
+          "name": "payer_medicaid",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "payer_private": {
+          "name": "payer_private",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "revenue_total": {
+          "name": "revenue_total",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "race_white": {
+          "name": "race_white",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "race_black": {
+          "name": "race_black",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "race_asian": {
+          "name": "race_asian",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "race_hispanic": {
+          "name": "race_hispanic",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "survey_esrd_2023_facility_id_facility_id_fk": {
+          "name": "survey_esrd_2023_facility_id_facility_id_fk",
+          "tableFrom": "survey_esrd_2023",
+          "tableTo": "facility",
+          "columnsFrom": [
+            "facility_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "survey_esrd_2023_facility_id_year_pk": {
+          "name": "survey_esrd_2023_facility_id_year_pk",
+          "columns": [
+            "facility_id",
+            "year"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
