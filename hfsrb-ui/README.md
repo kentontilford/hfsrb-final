@@ -39,7 +39,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 If you want a local database for ETL and testing:
 
-1. Start containers (Postgres + Adminer):
+1. Start containers (Postgres + Adminer) — two options:
+
+Option A (Windows PowerShell using Docker Desktop):
+
+```
+docker compose -f docker-compose.db.yml up -d
+```
+
+Option B (WSL/Linux, Docker daemon running):
 
 ```
 pnpm dev:db:up
@@ -61,3 +69,9 @@ pnpm dev:db:down
 ```
 
 To keep using your remote database for the app, leave `.env.local` as-is and only use the `:local` drizzle scripts for schema changes against the local container.
+
+Windows + WSL2 note: If you run the DB via Docker Desktop in Windows (Option A), you can connect from WSL using `localhost:5432`. Set in `hfsrb-ui/.env.local`:
+
+```
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres
+```
