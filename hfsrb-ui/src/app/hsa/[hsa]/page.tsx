@@ -1,4 +1,5 @@
 type Props = { params: { hsa: string } };
+export const dynamic = 'force-dynamic';
 
 import { headers } from "next/headers";
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+export const dynamic = 'force-dynamic';
 import { headers } from "next/headers";
 
 async function getFacilities(params: { hsa?: string; q?: string; hospital_type?: string; year?: string }) {

@@ -1,4 +1,5 @@
 import { headers } from "next/headers";
+export const dynamic = 'force-dynamic';
 type Props = { params: { hpa: string } };
 
 async function getSummary(hpa: string, year?: string) {
