@@ -13,12 +13,12 @@ async function getSummary(hpa: string, year?: string) {
   return res.json();
 }
 
-import dynamic from "next/dynamic";
-const AuthorizedBedsChart = dynamic(() => import("@/components/summary/AuthorizedBedsChart"), { ssr: false });
-const OccupancyGauge = dynamic(() => import("@/components/summary/OccupancyGauge"), { ssr: false });
-const RaceChart = dynamic(() => import("@/components/summary/RaceChart"), { ssr: false });
-const EthnicityChart = dynamic(() => import("@/components/summary/EthnicityChart"), { ssr: false });
-const PayerChart = dynamic(() => import("@/components/summary/PayerChart"), { ssr: false });
+import NextDynamic from "next/dynamic";
+const AuthorizedBedsChart = NextDynamic(() => import("@/components/summary/AuthorizedBedsChart"), { ssr: false });
+const OccupancyGauge = NextDynamic(() => import("@/components/summary/OccupancyGauge"), { ssr: false });
+const RaceChart = NextDynamic(() => import("@/components/summary/RaceChart"), { ssr: false });
+const EthnicityChart = NextDynamic(() => import("@/components/summary/EthnicityChart"), { ssr: false });
+const PayerChart = NextDynamic(() => import("@/components/summary/PayerChart"), { ssr: false });
 
 export default async function HPAPage({ params, searchParams }: { params: { hpa: string }, searchParams?: { year?: string } }) {
   const year = searchParams?.year || '2024';

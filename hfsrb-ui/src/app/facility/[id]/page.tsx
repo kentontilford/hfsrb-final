@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
-import dynamic from "next/dynamic";
-const PayerChart = dynamic(() => import("@/components/summary/PayerChart"), { ssr: false });
-const BedInventory = dynamic(() => import("@/components/facility/BedInventory"), { ssr: false });
+import NextDynamic from "next/dynamic";
+const PayerChart = NextDynamic(() => import("@/components/summary/PayerChart"), { ssr: false });
+const BedInventory = NextDynamic(() => import("@/components/facility/BedInventory"), { ssr: false });
 export const dynamic = 'force-dynamic';
 type Props = { params: { id: string }, searchParams?: { year?: string } };
 
