@@ -6,6 +6,9 @@ on:
       year:
         description: "Build year filter (optional; leave blank for all)"
         required: false
+  push:
+    tags:
+      - 'v*'
 
 permissions:
   contents: read
@@ -67,4 +70,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
