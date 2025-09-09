@@ -17,7 +17,10 @@ export async function GET(req: Request, ctx: Params) {
     await page.goto(url, { waitUntil: "networkidle" });
     const pdf = await page.pdf({ format: "Letter", printBackground: true, margin: { top: "0.5in", bottom: "0.5in", left: "0.5in", right: "0.5in" } });
     await browser.close();
-    return new NextResponse(pdf, {
+    // Normalize Buffer -> ArrayBuffer for web Response types
+    const u8 = pdf instanceof Uint8Array ? pdf : new Uint8Array(pdf as any);
+    const ab = u8.buffer.slice(u8.byteOffset, u8.byteOffset + u8.byteLength);
+    return new NextResponse(ab as any, {
       status: 200,
       headers: new Headers({
         "Content-Type": "application/pdf",
@@ -28,4 +31,3 @@ export async function GET(req: Request, ctx: Params) {
     return NextResponse.json({ error: e.message ?? String(e), hint: "Ensure Playwright is installed: npx playwright install chromium" }, { status: 500 });
   }
 }
-
