@@ -1,5 +1,7 @@
 import { headers } from "next/headers";
 import dynamic from "next/dynamic";
+const PayerChart = dynamic(() => import("@/components/summary/PayerChart"), { ssr: false });
+const BedInventory = dynamic(() => import("@/components/facility/BedInventory"), { ssr: false });
 type Props = { params: { id: string }, searchParams?: { year?: string } };
 
 async function getFacility(id: string, year?: string) {
@@ -55,10 +57,10 @@ export default async function FacilityDetail({ params, searchParams }: Props) {
       </section>
       <section className="border rounded p-3">
         <h2 className="font-semibold mb-2">Payer Mix</h2>
-        { dynamic(() => import("@/components/summary/PayerChart"), { ssr: false })({ s: f }) }
+        <PayerChart s={f} />
       </section>
       <section className="border rounded p-3">
-        { dynamic(() => import("@/components/facility/BedInventory"), { ssr: false })({ facilityId: params.id }) }
+        <BedInventory facilityId={params.id} />
       </section>
     </div>
   );
