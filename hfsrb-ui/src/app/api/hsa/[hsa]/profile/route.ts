@@ -15,7 +15,7 @@ export async function GET(req: Request, ctx: { params: { hsa: string } }) {
       executablePath,
     });
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: "networkidle" });
+    await page.goto(url, { waitUntil: "networkidle0" });
     const pdf = await page.pdf({ format: "Letter", printBackground: true, margin: { top: "0.5in", bottom: "0.5in", left: "0.5in", right: "0.5in" } });
     await browser.close();
     const u8 = pdf instanceof Uint8Array ? pdf : new Uint8Array(pdf as any);
