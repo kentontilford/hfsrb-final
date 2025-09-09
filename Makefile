@@ -39,6 +39,8 @@ normalize:
 	$(PY) scripts/normalize_hospital_ids.py
 	$(PY) scripts/set_hospital_variant.py
 	$(PY) scripts/set_ltc_variant.py
+	$(PY) scripts/normalize_astc_enums.py
+	$(PY) scripts/normalize_common_fields.py
 
 mappings: ingestion-schemas
 	$(PY) scripts/apply_mappings.py --year 2024 --type Hospital --validate --ingestion
@@ -112,3 +114,14 @@ publish-pdf: build-info dashboard-data profiles-puppeteer-all
 	@echo "Site prepared under out/site with PDFs (if generated)."
 
 site-pdf: publish-pdf
+geo:
+	$(PY) scripts/build_hsa_hpa_geo.py
+
+geo-counties:
+	bash scripts/fetch_il_counties.sh
+
+geo-csv:
+	$(PY) scripts/generate_hsa_hpa_csv_from_geojson.py
+
+geo-chicago:
+	bash scripts/fetch_chicago_community_areas.sh

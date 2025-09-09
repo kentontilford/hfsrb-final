@@ -123,7 +123,7 @@
       });
     }
     function fmtRow(r){
-      const link = `./out/profiles/${r.year}/${r.type}/${r.slug}.html`;
+      const link = `../out/profiles/${r.year}/${r.type}/${r.slug}.html`;
       return `<div class=\"card\"><div><strong>${r.name}</strong> <small>• ${r.type} • ${r.city||''} ${r.zip||''} • ${r.year}</small></div><div><a class=\"btn\" href=\"${link}\" target=\"_blank\">Open Profile</a></div></div>`;
     }
     (async function(){

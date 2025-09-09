@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { and, eq, isNotNull } from "drizzle-orm";
+import { and, eq, isNotNull, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { facility, hospitalProfile2024 } from "@/db/schema";
 
@@ -29,32 +29,74 @@ export async function GET(req: Request) {
     if (hsa) conditions.push(eq(facility.hsa, hsa));
     if (hpa) conditions.push(eq(facility.hpa, hpa));
 
-    const rows = await db
-      .select({
-        id: facility.id,
-        name: facility.name,
-        hsa: facility.hsa,
-        hpa: facility.hpa,
-        lat: facility.lat,
-        lng: facility.lng,
-        msCon: hospitalProfile2024.msCon,
-        icuCon: hospitalProfile2024.icuCon,
-      })
-      .from(facility)
-      .leftJoin(hospitalProfile2024, eq(hospitalProfile2024.facilityId, facility.id))
-      .where(and(...conditions));
-
-    let filtered = rows;
+    let filtered: any[];
+    // If PostGIS geom is available and origin params provided, use DB-side filter
     if (originLat && originLng && maxKm) {
-      const o = { lat: Number(originLat), lng: Number(originLng) };
-      const max = Number(maxKm);
-      filtered = rows.filter(r => {
-        const lat = Number(r.lat);
-        const lng = Number(r.lng);
-        if (!Number.isFinite(lat) || !Number.isFinite(lng)) return false;
-        const d = haversineKm(o, { lat, lng });
-        return d <= max;
-      });
+      const latNum = Number(originLat);
+      const lngNum = Number(originLng);
+      const maxMeters = Number(maxKm) * 1000;
+      try {
+        const result = await db.execute(sql<{
+          id: string; name: string; hsa: string | null; hpa: string | null;
+          lat: number | null; lng: number | null; msCon: number | null; icuCon: number | null;
+        }>`
+          SELECT f.id, f.name, f.hsa, f.hpa, f.lat, f.lng,
+                 hp.ms_con as "msCon", hp.icu_con as "icuCon"
+          FROM facility f
+          LEFT JOIN hospital_profile_2024 hp ON hp.facility_id = f.id
+          WHERE f.type = 'Hospital'
+            AND f.lat IS NOT NULL AND f.lng IS NOT NULL
+            AND (
+              (SELECT EXISTS (
+                SELECT 1 FROM information_schema.columns c
+                WHERE c.table_name='facility' AND c.column_name='geom'
+              )) = false
+              OR ST_DWithin(f.geom, ST_SetSRID(ST_MakePoint(${lngNum}, ${latNum}), 4326)::geography, ${maxMeters})
+            )
+        `);
+        filtered = result.rows as any[];
+      } catch {
+        // Fallback to in-memory Haversine if PostGIS not available
+        const rows = await db
+          .select({
+            id: facility.id,
+            name: facility.name,
+            hsa: facility.hsa,
+            hpa: facility.hpa,
+            lat: facility.lat,
+            lng: facility.lng,
+            msCon: hospitalProfile2024.msCon,
+            icuCon: hospitalProfile2024.icuCon,
+          })
+          .from(facility)
+          .leftJoin(hospitalProfile2024, eq(hospitalProfile2024.facilityId, facility.id))
+          .where(and(...conditions));
+        const o = { lat: latNum, lng: lngNum };
+        const max = Number(maxKm);
+        filtered = rows.filter(r => {
+          const lat = Number(r.lat);
+          const lng = Number(r.lng);
+          if (!Number.isFinite(lat) || !Number.isFinite(lng)) return false;
+          const d = haversineKm(o, { lat, lng });
+          return d <= max;
+        });
+      }
+    } else {
+      const rows = await db
+        .select({
+          id: facility.id,
+          name: facility.name,
+          hsa: facility.hsa,
+          hpa: facility.hpa,
+          lat: facility.lat,
+          lng: facility.lng,
+          msCon: hospitalProfile2024.msCon,
+          icuCon: hospitalProfile2024.icuCon,
+        })
+        .from(facility)
+        .leftJoin(hospitalProfile2024, eq(hospitalProfile2024.facilityId, facility.id))
+        .where(and(...conditions));
+      filtered = rows as any[];
     }
 
     const features = filtered.map((r: any) => ({
@@ -75,4 +117,3 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: e.message ?? String(e) }, { status: 500 });
   }
 }
-

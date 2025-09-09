@@ -2,18 +2,18 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body { font-family: Aptos, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--fg); background: var(--bg); }
-header { padding: 14px 16px; border-bottom: 1px solid var(--border); }
+header { padding: 12px 14px; border-bottom: 1px solid var(--border); }
 h1 { margin: 0 0 4px; font-size: 20px; }
 .sub { color: var(--muted); font-size: 13px; }
-main { display: grid; grid-template-columns: 280px 1fr 420px; gap: 16px; padding: 14px 16px; }
+main { display: grid; grid-template-columns: 280px 1fr 420px; gap: 14px; padding: 12px 14px; }
 @media (max-width: 1200px) { main { grid-template-columns: 280px 1fr; } .detail { grid-column: 1 / -1; }}
-.controls label { display: block; font-size: 12px; color: #333; margin: 8px 0; }
+.controls label { display: block; font-size: 12px; color: #333; margin: 6px 0; }
 .controls select, .controls input { width: 100%; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; }
 .list { list-style: none; margin: 0; padding: 0; }
-.list li { padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; background: var(--card); }
+.list li { padding: 9px 11px; border: 1px solid var(--border); border-radius: 8px; margin: 6px 0; cursor: pointer; background: var(--card); }
 .list .name { font-weight: 600; }
 .list .meta { color: var(--muted); font-size: 12px; }
-.detail { position: relative; border: 1px solid var(--border); border-radius: 8px; padding: 12px; background: var(--card); }
+.detail { position: relative; border: 1px solid var(--border); border-radius: 8px; padding: 10px; background: var(--card); }
 .detail .close { position: absolute; right: 8px; top: 8px; border: none; background: transparent; font-size: 20px; cursor: pointer; }
 .detail.fullscreen { position: fixed !important; left: 0 !important; top: 0 !important; right: 0 !important; bottom: 0 !important; width: 100vw !important; height: 100vh !important; z-index: 9999; border-radius: 0; margin: 0 !important; padding: 16px; overflow: auto; background: var(--bg); grid-column: 1 / -1 !important; }
 /* Removed overlay approach; using .detail.fullscreen instead */
@@ -22,14 +22,14 @@ body.no-scroll { overflow: hidden; }
 .card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
 th { font-weight: 600; color: #222; }
 table { margin-bottom: 8px; }
-.links a, .links button { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: #f8f9fb; color: #222; text-decoration: none; }
+.links a, .links button { padding: 5px 9px; border: 1px solid var(--border); border-radius: 6px; background: #f8f9fb; color: #222; text-decoration: none; }
 .links button { cursor: pointer; }
 .card h3 button.tiny { margin-left: 8px; font-size: 11px; padding: 3px 8px; border: 1px solid var(--border); border-radius: 6px; background: #f1f2f5; cursor: pointer; }
 .export-all { display:flex; justify-content:flex-end; margin: 6px 0; }
 .export-all button { font-size: 12px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: #f8f9fb; cursor: pointer; }
 
 /* Full-screen toolbar */
-.fsbar { display: none; position: sticky; top: 0; z-index: 1001; background: rgba(255,255,255,0.96); backdrop-filter: blur(2px); border-bottom: 1px solid var(--border); padding: 8px 12px; margin: -8px -8px 8px -8px; display: flex; gap: 8px; align-items: center; }
+.fsbar { display: none; position: sticky; top: 0; z-index: 1001; background: rgba(255,255,255,0.96); backdrop-filter: blur(2px); border-bottom: 1px solid var(--border); padding: 8px 10px; margin: -8px -8px 8px -8px; display: flex; gap: 8px; align-items: center; }
 .detail.fullscreen .fsbar { display: flex; }
 .fsbar button, .fsbar a { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; background: #f8f9fb; color: #222; text-decoration: none; font-size: 12px; }
 .fsbar .spacer { flex: 1; }

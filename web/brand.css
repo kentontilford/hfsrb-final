@@ -19,7 +19,7 @@ h3 { color: var(--accent); }
 
 /* Branding helpers */
 .brand { display:flex; align-items:center; gap:10px; }
-.brand-logo { height: 24px; width: auto; display:inline-block; }
+.brand-logo { height: 22px; width: auto; display:inline-block; }
 @media (max-width: 520px){ .brand-logo { height: 20px; } }
 @media print { .brand-logo { display:none !important; } }
 
@@ -31,8 +31,8 @@ h3 { color: var(--accent); }
 .chips:empty { display: none; }
 
 /* Text link button */
-.btn.link { background: transparent; border-color: transparent; padding: 4px 0; color: var(--accent); }
-.btn.link:hover { text-decoration: underline; box-shadow: none; }
+.btn.link { background: transparent; border-color: transparent; padding: 2px 0; color: var(--accent); font-size: 12px; opacity: 0.9; }
+.btn.link:hover { text-decoration: underline; box-shadow: none; opacity: 1; }
 
 @media (max-width: 560px){ .btn.primary{ width:100%; } }
-.rule{ height:1px; background: var(--border); margin:8px 0 10px; }
+.rule{ height:1px; background: var(--border); margin:6px 0 8px; }

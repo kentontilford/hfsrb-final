@@ -5,304 +5,660 @@
   "properties": {
     "license_number": {
       "type": "string",
-      "description": "Facility License Number (Section/Page: Sec I p.2)"
+      "description": "Facility License Number (Section/Page: Sec I p.2)",
+      "x_label": "Facility License Number",
+      "x_section": "Facility",
+      "x_order": 1,
+      "x_section_order": 1,
+      "x_required": true
     },
     "facility_name": {
       "type": "string",
-      "description": "Facility Name (Section/Page: Sec I p.2)"
+      "description": "Facility Name (Section/Page: Sec I p.2)",
+      "x_label": "Facility Name",
+      "x_section": "Facility",
+      "x_order": 2,
+      "x_section_order": 1,
+      "x_required": true
     },
     "address_line1": {
       "type": "string",
-      "description": "Facility Address (Section/Page: Sec I p.2)"
+      "description": "Facility Address (Section/Page: Sec I p.2)",
+      "x_label": "Facility Address",
+      "x_section": "Facility",
+      "x_order": 3,
+      "x_section_order": 1,
+      "x_required": true
     },
     "address_city": {
       "type": "string",
-      "description": "Facility City (Section/Page: Sec I p.2)"
+      "description": "Facility City (Section/Page: Sec I p.2)",
+      "x_label": "Facility City",
+      "x_section": "Facility",
+      "x_order": 4,
+      "x_section_order": 1,
+      "x_required": true
     },
     "address_zip": {
       "type": "string",
       "pattern": "^\\d{5}(-\\d{4})?$",
-      "description": "Facility Zip Code (Section/Page: Sec I p.2)"
+      "description": "Facility Zip Code (Section/Page: Sec I p.2)",
+      "x_label": "Facility Zip Code",
+      "x_section": "Facility",
+      "x_order": 5,
+      "x_section_order": 1,
+      "x_required": true
     },
     "fein": {
       "type": "string",
       "pattern": "^\\d{2}-\\d{7}$",
-      "description": "Facility FEIN Number (Section/Page: Sec I p.2)"
+      "description": "Facility FEIN Number (Section/Page: Sec I p.2)",
+      "x_label": "Facility FEIN Number",
+      "x_section": "Facility",
+      "x_order": 6,
+      "x_section_order": 1,
+      "x_required": true
     },
     "is_life_care": {
       "type": "boolean",
-      "description": "Life Care Facility (Section/Page: Sec I p.2)"
+      "description": "Life Care Facility (Section/Page: Sec I p.2)",
+      "x_label": "Life Care Facility",
+      "x_section": "Facility",
+      "x_order": 7,
+      "x_section_order": 1
     },
     "is_ccrc": {
       "type": "boolean",
-      "description": "Continuing Care Retirement Community (Section/Page: Sec I p.2)"
+      "description": "Continuing Care Retirement Community (Section/Page: Sec I p.2)",
+      "x_label": "Continuing Care Retirement Community",
+      "x_section": "Facility",
+      "x_order": 8,
+      "x_section_order": 1
     },
     "admission_restrictions": {
       "type": "array",
-      "description": "Admission Restrictions (Section/Page: Sec I p.2) Multi-select; include None Applicable"
+      "description": "Admission Restrictions (Section/Page: Sec I p.2) Multi-select; include None Applicable",
+      "x_label": "Admission Restrictions",
+      "x_section": "Admissions",
+      "x_order": 9,
+      "x_section_order": 2,
+      "x_required": true
     },
     "reg_agent_name": {
       "type": "string",
-      "description": "Registered Agent Name (Section/Page: Sec I p.2) Required if ownership requires RA"
+      "description": "Registered Agent Name (Section/Page: Sec I p.2) Required if ownership requires RA",
+      "x_label": "Registered Agent Name",
+      "x_section": "Reg Agent",
+      "x_order": 10,
+      "x_section_order": 3
     },
     "reg_agent_address": {
       "type": "string",
-      "description": "Registered Agent Street Address (Section/Page: Sec I p.2)"
+      "description": "Registered Agent Street Address (Section/Page: Sec I p.2)",
+      "x_label": "Registered Agent Street Address",
+      "x_section": "Reg Agent",
+      "x_order": 11,
+      "x_section_order": 3
     },
     "reg_agent_city_state_zip": {
       "type": "string",
-      "description": "Registered Agent City, State, Zip (Section/Page: Sec I p.2)"
+      "description": "Registered Agent City, State, Zip (Section/Page: Sec I p.2)",
+      "x_label": "Registered Agent City, State, Zip",
+      "x_section": "Reg Agent",
+      "x_order": 12,
+      "x_section_order": 3
     },
     "reg_agent_phone": {
       "type": "string",
       "pattern": "^\\(\\d{3}\\) \\d{3}-\\d{4}(\\.\\d+)?$",
-      "description": "Registered Agent Telephone Number (Section/Page: Sec I p.2)"
+      "description": "Registered Agent Telephone Number (Section/Page: Sec I p.2)",
+      "x_label": "Registered Agent Telephone Number",
+      "x_section": "Reg Agent",
+      "x_order": 13,
+      "x_section_order": 3
     },
     "fte_admin": {
       "type": "number",
-      "description": "Administrators (FTEs) (Section/Page: Sec I p.3)"
+      "description": "Administrators (FTEs) (Section/Page: Sec I p.3)",
+      "x_label": "Administrators (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 14,
+      "x_section_order": 4,
+      "x_required": true
     },
     "fte_physicians": {
       "type": "number",
-      "description": "Physicians (FTEs) (Section/Page: Sec I p.3)"
+      "description": "Physicians (FTEs) (Section/Page: Sec I p.3)",
+      "x_label": "Physicians (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 15,
+      "x_section_order": 4,
+      "x_required": true
     },
     "fte_don": {
       "type": "number",
-      "description": "Director of Nursing (FTEs) (Section/Page: Sec I p.3)"
+      "description": "Director of Nursing (FTEs) (Section/Page: Sec I p.3)",
+      "x_label": "Director of Nursing (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 16,
+      "x_section_order": 4,
+      "x_required": true
     },
     "fte_rn": {
       "type": "number",
-      "description": "Registered Nurses (FTEs) (Section/Page: Sec I p.3)"
+      "description": "Registered Nurses (FTEs) (Section/Page: Sec I p.3)",
+      "x_label": "Registered Nurses (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 17,
+      "x_section_order": 4,
+      "x_required": true
     },
     "fte_lpn": {
       "type": "number",
-      "description": "LPNs (FTEs) (Section/Page: Sec I p.3)"
+      "description": "LPNs (FTEs) (Section/Page: Sec I p.3)",
+      "x_label": "LPNs (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 18,
+      "x_section_order": 4,
+      "x_required": true
     },
     "fte_cert_aides": {
       "type": "number",
-      "description": "Certified Aides (FTEs) (Section/Page: Sec I p.3)"
+      "description": "Certified Aides (FTEs) (Section/Page: Sec I p.3)",
+      "x_label": "Certified Aides (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 19,
+      "x_section_order": 4,
+      "x_required": true
     },
     "fte_other_health": {
       "type": "number",
-      "description": "Other Healthcare Personnel (FTEs) (Section/Page: Sec I p.3)"
+      "description": "Other Healthcare Personnel (FTEs) (Section/Page: Sec I p.3)",
+      "x_label": "Other Healthcare Personnel (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 20,
+      "x_section_order": 4,
+      "x_required": true
     },
     "fte_other_nonhealth": {
       "type": "number",
-      "description": "Other Non-Health Personnel (FTEs) (Section/Page: Sec I p.3)"
+      "description": "Other Non-Health Personnel (FTEs) (Section/Page: Sec I p.3)",
+      "x_label": "Other Non-Health Personnel (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 21,
+      "x_section_order": 4,
+      "x_required": true
     },
     "fte_total": {
       "type": "number",
-      "description": "TOTALS (FTEs) (Section/Page: Sec I p.3) Auto-calculated"
+      "description": "TOTALS (FTEs) (Section/Page: Sec I p.3) Auto-calculated",
+      "x_label": "TOTALS (FTEs)",
+      "x_section": "Staffing",
+      "x_order": 22,
+      "x_section_order": 4
     },
     "workweek_hours": {
       "type": "integer",
-      "description": "Typical work week hours (full-time) (Section/Page: Sec I p.3)"
+      "description": "Typical work week hours (full-time) (Section/Page: Sec I p.3)",
+      "x_label": "Typical work week hours (full-time)",
+      "x_section": "Staffing",
+      "x_order": 23,
+      "x_section_order": 4,
+      "x_required": true
     },
     "census_jan1": {
       "type": "integer",
-      "description": "Patients in facility on Jan 1, 2023 (Section/Page: Sec I p.3)"
+      "description": "Patients in facility on Jan 1, 2023 (Section/Page: Sec I p.3)",
+      "x_label": "Patients in facility on Jan 1, 2023",
+      "x_section": "Census",
+      "x_order": 24,
+      "x_section_order": 5,
+      "x_required": true
     },
     "admissions_initial": {
       "type": "integer",
-      "description": "Initial admissions during 2023 (Section/Page: Sec I p.3)"
+      "description": "Initial admissions during 2023 (Section/Page: Sec I p.3)",
+      "x_label": "Initial admissions during 2023",
+      "x_section": "Admissions",
+      "x_order": 25,
+      "x_section_order": 2,
+      "x_required": true
     },
     "discharges_permanent": {
       "type": "integer",
-      "description": "Permanent discharges during 2023 (Section/Page: Sec I p.3)"
+      "description": "Permanent discharges during 2023 (Section/Page: Sec I p.3)",
+      "x_label": "Permanent discharges during 2023",
+      "x_section": "Discharges",
+      "x_order": 26,
+      "x_section_order": 6,
+      "x_required": true
     },
     "census_dec31": {
       "type": "integer",
-      "description": "Patients in facility on Dec 31, 2023 (Section/Page: Sec I p.3) Calculated per instructions"
+      "description": "Patients in facility on Dec 31, 2023 (Section/Page: Sec I p.3) Calculated per instructions",
+      "x_label": "Patients in facility on Dec 31, 2023",
+      "x_section": "Census",
+      "x_order": 27,
+      "x_section_order": 5
     },
     "beds_licensed_nursing": {
       "type": "integer",
-      "description": "Licensed Beds — Nursing (12/31/2023) (Section/Page: Sec I p.4)"
+      "description": "Licensed Beds — Nursing (12/31/2023) (Section/Page: Sec I p.4)",
+      "x_label": "Licensed Beds — Nursing (12/31/2023)",
+      "x_section": "Beds",
+      "x_order": 28,
+      "x_section_order": 7,
+      "x_required": true
     },
     "beds_licensed_sheltered": {
       "type": "integer",
-      "description": "Licensed Beds — Sheltered (12/31/2023) (Section/Page: Sec I p.4)"
+      "description": "Licensed Beds — Sheltered (12/31/2023) (Section/Page: Sec I p.4)",
+      "x_label": "Licensed Beds — Sheltered (12/31/2023)",
+      "x_section": "Beds",
+      "x_order": 29,
+      "x_section_order": 7,
+      "x_required": true
     },
     "beds_setup_nursing": {
       "type": "integer",
-      "description": "Beds Set Up — Nursing (12/31/2023) (Section/Page: Sec I p.4)"
+      "description": "Beds Set Up — Nursing (12/31/2023) (Section/Page: Sec I p.4)",
+      "x_label": "Beds Set Up — Nursing (12/31/2023)",
+      "x_section": "Beds",
+      "x_order": 30,
+      "x_section_order": 7,
+      "x_required": true
     },
     "beds_setup_sheltered": {
       "type": "integer",
-      "description": "Beds Set Up — Sheltered (12/31/2023) (Section/Page: Sec I p.4)"
+      "description": "Beds Set Up — Sheltered (12/31/2023) (Section/Page: Sec I p.4)",
+      "x_label": "Beds Set Up — Sheltered (12/31/2023)",
+      "x_section": "Beds",
+      "x_order": 31,
+      "x_section_order": 7,
+      "x_required": true
     },
     "beds_peak_setup_nursing": {
       "type": "integer",
-      "description": "Highest One-Day Beds Set Up — Nursing (Section/Page: Sec I p.4)"
+      "description": "Highest One-Day Beds Set Up — Nursing (Section/Page: Sec I p.4)",
+      "x_label": "Highest One-Day Beds Set Up — Nursing",
+      "x_section": "Beds",
+      "x_order": 32,
+      "x_section_order": 7,
+      "x_required": true
     },
     "beds_peak_setup_sheltered": {
       "type": "integer",
-      "description": "Highest One-Day Beds Set Up — Sheltered (Section/Page: Sec I p.4)"
+      "description": "Highest One-Day Beds Set Up — Sheltered (Section/Page: Sec I p.4)",
+      "x_label": "Highest One-Day Beds Set Up — Sheltered",
+      "x_section": "Beds",
+      "x_order": 33,
+      "x_section_order": 7,
+      "x_required": true
     },
     "beds_peak_occupied_nursing": {
       "type": "integer",
-      "description": "Highest One-Day Beds Occupied — Nursing (Section/Page: Sec I p.4)"
+      "description": "Highest One-Day Beds Occupied — Nursing (Section/Page: Sec I p.4)",
+      "x_label": "Highest One-Day Beds Occupied — Nursing",
+      "x_section": "Beds",
+      "x_order": 34,
+      "x_section_order": 7,
+      "x_required": true
     },
     "beds_peak_occupied_sheltered": {
       "type": "integer",
-      "description": "Highest One-Day Beds Occupied — Sheltered (Section/Page: Sec I p.4)"
+      "description": "Highest One-Day Beds Occupied — Sheltered (Section/Page: Sec I p.4)",
+      "x_label": "Highest One-Day Beds Occupied — Sheltered",
+      "x_section": "Beds",
+      "x_order": 35,
+      "x_section_order": 7,
+      "x_required": true
     },
     "beds_occupied_nursing": {
       "type": "integer",
-      "description": "Beds Occupied — Nursing (12/31/2023) (Section/Page: Sec I p.4)"
+      "description": "Beds Occupied — Nursing (12/31/2023) (Section/Page: Sec I p.4)",
+      "x_label": "Beds Occupied — Nursing (12/31/2023)",
+      "x_section": "Beds",
+      "x_order": 36,
+      "x_section_order": 7,
+      "x_required": true
     },
     "beds_occupied_sheltered": {
       "type": "integer",
-      "description": "Beds Occupied — Sheltered (12/31/2023) (Section/Page: Sec I p.4)"
+      "description": "Beds Occupied — Sheltered (12/31/2023) (Section/Page: Sec I p.4)",
+      "x_label": "Beds Occupied — Sheltered (12/31/2023)",
+      "x_section": "Beds",
+      "x_order": 37,
+      "x_section_order": 7,
+      "x_required": true
     },
     "days_total_nursing": {
       "type": "integer",
-      "description": "TOTAL PATIENT DAYS OF CARE 2023 — Nursing (Section/Page: Sec I p.4)"
+      "description": "TOTAL PATIENT DAYS OF CARE 2023 — Nursing (Section/Page: Sec I p.4)",
+      "x_label": "TOTAL PATIENT DAYS OF CARE 2023 — Nursing",
+      "x_section": "Patient Days",
+      "x_order": 38,
+      "x_section_order": 8,
+      "x_required": true
     },
     "days_total_sheltered": {
       "type": "integer",
-      "description": "TOTAL PATIENT DAYS OF CARE 2023 — Sheltered (Section/Page: Sec I p.4)"
+      "description": "TOTAL PATIENT DAYS OF CARE 2023 — Sheltered (Section/Page: Sec I p.4)",
+      "x_label": "TOTAL PATIENT DAYS OF CARE 2023 — Sheltered",
+      "x_section": "Patient Days",
+      "x_order": 39,
+      "x_section_order": 8,
+      "x_required": true
     },
     "residents_age_sex_*": {
       "type": "integer",
-      "description": "Residents by Age/Sex — as of Dec 31 (Section/Page: Sec I p.4) Male/Female by listed age bands"
+      "description": "Residents by Age/Sex — as of Dec 31 (Section/Page: Sec I p.4) Male/Female by listed age bands",
+      "x_label": "Residents by Age/Sex — as of Dec 31",
+      "x_section": "Residents",
+      "x_order": 40,
+      "x_section_order": 9,
+      "x_required": true
     },
     "residents_race_*": {
       "type": "integer",
-      "description": "Residents by Racial Group — as of Dec 31 (Section/Page: Sec I p.5) Categories per form"
+      "description": "Residents by Racial Group — as of Dec 31 (Section/Page: Sec I p.5) Categories per form",
+      "x_label": "Residents by Racial Group — as of Dec 31",
+      "x_section": "Residents",
+      "x_order": 41,
+      "x_section_order": 9,
+      "x_required": true
     },
     "residents_eth_*": {
       "type": "integer",
-      "description": "Residents by Ethnicity — as of Dec 31 (Section/Page: Sec I p.5)"
+      "description": "Residents by Ethnicity — as of Dec 31 (Section/Page: Sec I p.5)",
+      "x_label": "Residents by Ethnicity — as of Dec 31",
+      "x_section": "Residents",
+      "x_order": 42,
+      "x_section_order": 9,
+      "x_required": true
     },
     "residents_pay_*": {
       "type": "integer",
-      "description": "Residents by Primary Payment — as of Dec 31 (Section/Page: Sec I p.5) Includes Charity Care"
+      "description": "Residents by Primary Payment — as of Dec 31 (Section/Page: Sec I p.5) Includes Charity Care",
+      "x_label": "Residents by Primary Payment — as of Dec 31",
+      "x_section": "Residents",
+      "x_order": 43,
+      "x_section_order": 9,
+      "x_required": true
     },
     "rate_private_room": {
       "type": "number",
-      "description": "Private Payment Daily Room Rate — Private Room (Section/Page: Sec I p.5)"
+      "description": "Private Payment Daily Room Rate — Private Room (Section/Page: Sec I p.5)",
+      "x_label": "Private Payment Daily Room Rate — Private Room",
+      "x_section": "Rates",
+      "x_order": 44,
+      "x_section_order": 10,
+      "x_required": true
     },
     "rate_shared_room": {
       "type": "number",
-      "description": "Private Payment Daily Room Rate — Shared Room (Section/Page: Sec I p.5)"
+      "description": "Private Payment Daily Room Rate — Shared Room (Section/Page: Sec I p.5)",
+      "x_label": "Private Payment Daily Room Rate — Shared Room",
+      "x_section": "Rates",
+      "x_order": 45,
+      "x_section_order": 10,
+      "x_required": true
     },
     "residents_icd10_group_*": {
       "type": "integer",
-      "description": "Residents by Primary Diagnosis (ICD-10 CM group) (Section/Page: Sec I p.6) One field per code group listed"
+      "description": "Residents by Primary Diagnosis (ICD-10 CM group) (Section/Page: Sec I p.6) One field per code group listed",
+      "x_label": "Residents by Primary Diagnosis (ICD-10 CM group)",
+      "x_section": "Residents",
+      "x_order": 46,
+      "x_section_order": 9,
+      "x_required": true
     },
     "residents_mentally_ill": {
       "type": "integer",
-      "description": "Residents diagnosed as Mentally Ill (F01-F69) (Section/Page: Sec I p.6)"
+      "description": "Residents diagnosed as Mentally Ill (F01-F69) (Section/Page: Sec I p.6)",
+      "x_label": "Residents diagnosed as Mentally Ill (F01-F69)",
+      "x_section": "Residents",
+      "x_order": 47,
+      "x_section_order": 9,
+      "x_required": true
     },
     "residents_identified_offenders": {
       "type": "integer",
-      "description": "Residents categorized as Identified Offenders (Section/Page: Sec I p.6) per 210 ILCS 45/2-201.5"
+      "description": "Residents categorized as Identified Offenders (Section/Page: Sec I p.6) per 210 ILCS 45/2-201.5",
+      "x_label": "Residents categorized as Identified Offenders",
+      "x_section": "Residents",
+      "x_order": 48,
+      "x_section_order": 9,
+      "x_required": true
     },
     "fy_start": {
       "type": "string",
       "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/(19|20)\\d{2}$",
-      "description": "Fiscal Year Starting Date (Section/Page: Sec II p.7)"
+      "description": "Fiscal Year Starting Date (Section/Page: Sec II p.7)",
+      "x_label": "Fiscal Year Starting Date",
+      "x_section": "Finance",
+      "x_order": 49,
+      "x_section_order": 11,
+      "x_required": true
     },
     "fy_end": {
       "type": "string",
       "pattern": "^(0[1-9]|1[0-2])/(0[1-9]|[12]\\d|3[01])/(19|20)\\d{2}$",
-      "description": "Fiscal Year Ending Date (Section/Page: Sec II p.7)"
+      "description": "Fiscal Year Ending Date (Section/Page: Sec II p.7)",
+      "x_label": "Fiscal Year Ending Date",
+      "x_section": "Finance",
+      "x_order": 50,
+      "x_section_order": 11,
+      "x_required": true
     },
     "finance_source": {
       "type": "string",
-      "description": "Financial Data Source (Section/Page: Sec II p.7)"
+      "description": "Financial Data Source (Section/Page: Sec II p.7)",
+      "x_label": "Financial Data Source",
+      "x_section": "Finance",
+      "x_order": 51,
+      "x_section_order": 11,
+      "x_required": true
     },
     "capex_total": {
       "type": "number",
-      "description": "Total Capital Expenditures (Section/Page: Sec II p.7)"
+      "description": "Total Capital Expenditures (Section/Page: Sec II p.7)",
+      "x_label": "Total Capital Expenditures",
+      "x_section": "Finance",
+      "x_order": 52,
+      "x_section_order": 11,
+      "x_required": true
     },
     "project_desc": {
       "type": "string",
-      "description": "Project/Expenditure Description (> $350k) (Section/Page: Sec II p.7)"
+      "description": "Project/Expenditure Description (> $350k) (Section/Page: Sec II p.7)",
+      "x_label": "Project/Expenditure Description (> $350k)",
+      "x_section": "Finance",
+      "x_order": 53,
+      "x_section_order": 11
     },
     "project_amount": {
       "type": "number",
-      "description": "Amount Obligated (Section/Page: Sec II p.7)"
+      "description": "Amount Obligated (Section/Page: Sec II p.7)",
+      "x_label": "Amount Obligated",
+      "x_section": "Finance",
+      "x_order": 54,
+      "x_section_order": 11
     },
     "project_financing": {
       "type": "string",
-      "description": "Method of Financing (Section/Page: Sec II p.7)"
+      "description": "Method of Financing (Section/Page: Sec II p.7)",
+      "x_label": "Method of Financing",
+      "x_section": "Finance",
+      "x_order": 55,
+      "x_section_order": 11
     },
     "project_con": {
       "type": "string",
-      "description": "CON Project Number (Section/Page: Sec II p.7) If applicable"
+      "description": "CON Project Number (Section/Page: Sec II p.7) If applicable",
+      "x_label": "CON Project Number",
+      "x_section": "Finance",
+      "x_order": 56,
+      "x_section_order": 11
     },
     "rev_medicare": {
       "type": "number",
-      "description": "Net Revenue — Medicare (Section/Page: Sec II p.8) Include MMAI in Medicare"
+      "description": "Net Revenue — Medicare (Section/Page: Sec II p.8) Include MMAI in Medicare",
+      "x_label": "Net Revenue — Medicare",
+      "x_section": "Finance",
+      "x_order": 57,
+      "x_section_order": 11,
+      "x_required": true
     },
     "rev_medicaid": {
       "type": "number",
-      "description": "Net Revenue — Medicaid (Section/Page: Sec II p.8) Include Medicaid Managed Care"
+      "description": "Net Revenue — Medicaid (Section/Page: Sec II p.8) Include Medicaid Managed Care",
+      "x_label": "Net Revenue — Medicaid",
+      "x_section": "Finance",
+      "x_order": 58,
+      "x_section_order": 11,
+      "x_required": true
     },
     "rev_other_public": {
       "type": "number",
-      "description": "Net Revenue — Other Public Payment (Section/Page: Sec II p.8) Per definition on form"
+      "description": "Net Revenue — Other Public Payment (Section/Page: Sec II p.8) Per definition on form",
+      "x_label": "Net Revenue — Other Public Payment",
+      "x_section": "Finance",
+      "x_order": 59,
+      "x_section_order": 11,
+      "x_required": true
     },
     "rev_private_ins": {
       "type": "number",
-      "description": "Net Revenue — Private Insurance (Section/Page: Sec II p.8)"
+      "description": "Net Revenue — Private Insurance (Section/Page: Sec II p.8)",
+      "x_label": "Net Revenue — Private Insurance",
+      "x_section": "Finance",
+      "x_order": 60,
+      "x_section_order": 11,
+      "x_required": true
     },
     "rev_private_pay": {
       "type": "number",
-      "description": "Net Revenue — Private Payment (Section/Page: Sec II p.8)"
+      "description": "Net Revenue — Private Payment (Section/Page: Sec II p.8)",
+      "x_label": "Net Revenue — Private Payment",
+      "x_section": "Finance",
+      "x_order": 61,
+      "x_section_order": 11,
+      "x_required": true
     },
     "rev_total": {
       "type": "number",
-      "description": "TOTALS (Section/Page: Sec II p.8) Auto-calculated"
+      "description": "TOTALS (Section/Page: Sec II p.8) Auto-calculated",
+      "x_label": "TOTALS",
+      "x_section": "Finance",
+      "x_order": 62,
+      "x_section_order": 11
     },
     "charity_actual_cost": {
       "type": "number",
-      "description": "Actual Cost of Charity Care Services (Section/Page: Sec II p.8) Report cost, not charges"
+      "description": "Actual Cost of Charity Care Services (Section/Page: Sec II p.8) Report cost, not charges",
+      "x_label": "Actual Cost of Charity Care Services",
+      "x_section": "Finance",
+      "x_order": 63,
+      "x_section_order": 11,
+      "x_required": true
     },
     "pol_pat_influenza": {
       "type": "boolean",
-      "description": "Written policy — patient influenza vaccine (Section/Page: Sec III p.9)"
+      "description": "Written policy — patient influenza vaccine (Section/Page: Sec III p.9)",
+      "x_label": "Written policy — patient influenza vaccine",
+      "x_section": "Immunization",
+      "x_order": 64,
+      "x_section_order": 12,
+      "x_required": true
     },
     "pol_pat_pneumo": {
       "type": "boolean",
-      "description": "Written policy — patient pneumococcal vaccine (Section/Page: Sec III p.9)"
+      "description": "Written policy — patient pneumococcal vaccine (Section/Page: Sec III p.9)",
+      "x_label": "Written policy — patient pneumococcal vaccine",
+      "x_section": "Immunization",
+      "x_order": 65,
+      "x_section_order": 12,
+      "x_required": true
     },
     "pol_staff_influenza": {
       "type": "boolean",
-      "description": "Written policy — staff influenza vaccine (Section/Page: Sec III p.9)"
+      "description": "Written policy — staff influenza vaccine (Section/Page: Sec III p.9)",
+      "x_label": "Written policy — staff influenza vaccine",
+      "x_section": "Immunization",
+      "x_order": 66,
+      "x_section_order": 12,
+      "x_required": true
     },
     "pol_staff_pneumo": {
       "type": "boolean",
-      "description": "Written policy — staff pneumococcal vaccine (Section/Page: Sec III p.9)"
+      "description": "Written policy — staff pneumococcal vaccine (Section/Page: Sec III p.9)",
+      "x_label": "Written policy — staff pneumococcal vaccine",
+      "x_section": "Immunization",
+      "x_order": 67,
+      "x_section_order": 12,
+      "x_required": true
     },
     "pol_antivirals": {
       "type": "boolean",
-      "description": "Policy — use of amantadine/rimantadine in outbreak (Section/Page: Sec III p.9)"
+      "description": "Policy — use of amantadine/rimantadine in outbreak (Section/Page: Sec III p.9)",
+      "x_label": "Policy — use of amantadine/rimantadine in outbreak",
+      "x_section": "Immunization",
+      "x_order": 68,
+      "x_section_order": 12,
+      "x_required": true
     },
     "vac_pat_influenza": {
       "type": "integer",
-      "description": "Patients receiving influenza vaccine (Oct 2023–Jan 2024) (Section/Page: Sec III p.9)"
+      "description": "Patients receiving influenza vaccine (Oct 2023–Jan 2024) (Section/Page: Sec III p.9)",
+      "x_label": "Patients receiving influenza vaccine (Oct 2023–Jan 2024)",
+      "x_section": "Immunization",
+      "x_order": 69,
+      "x_section_order": 12,
+      "x_required": true
     },
     "vac_pat_pneumo": {
       "type": "integer",
-      "description": "Patients with pneumococcal vaccine (2017–2023) (Section/Page: Sec III p.9)"
+      "description": "Patients with pneumococcal vaccine (2017–2023) (Section/Page: Sec III p.9)",
+      "x_label": "Patients with pneumococcal vaccine (2017–2023)",
+      "x_section": "Immunization",
+      "x_order": 70,
+      "x_section_order": 12,
+      "x_required": true
     },
     "em_requests": {
       "type": "integer",
-      "description": "Electronic Monitoring requests (2023) (Section/Page: Sec III p.10)"
+      "description": "Electronic Monitoring requests (2023) (Section/Page: Sec III p.10)",
+      "x_label": "Electronic Monitoring requests (2023)",
+      "x_section": "Electronic Monitoring",
+      "x_order": 71,
+      "x_section_order": 13,
+      "x_required": true
     },
     "em_approved": {
       "type": "integer",
-      "description": "Electronic Monitoring requests approved (Section/Page: Sec III p.10)"
+      "description": "Electronic Monitoring requests approved (Section/Page: Sec III p.10)",
+      "x_label": "Electronic Monitoring requests approved",
+      "x_section": "Electronic Monitoring",
+      "x_order": 72,
+      "x_section_order": 13,
+      "x_required": true
     },
     "em_denied": {
       "type": "integer",
-      "description": "Electronic Monitoring requests denied (Section/Page: Sec III p.10)"
+      "description": "Electronic Monitoring requests denied (Section/Page: Sec III p.10)",
+      "x_label": "Electronic Monitoring requests denied",
+      "x_section": "Electronic Monitoring",
+      "x_order": 73,
+      "x_section_order": 13,
+      "x_required": true
     },
     "oas_*": {
       "type": "integer",
-      "description": "Outpatient/Community-Based Services — avg daily clients (Section/Page: Sec III p.11) One field per service line listed"
+      "description": "Outpatient/Community-Based Services — avg daily clients (Section/Page: Sec III p.11) One field per service line listed",
+      "x_label": "Outpatient/Community-Based Services — avg daily clients",
+      "x_section": "Older Adult Services",
+      "x_order": 74,
+      "x_section_order": 14
     }
   },
   "required": [

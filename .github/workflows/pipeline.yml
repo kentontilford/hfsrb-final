@@ -1,0 +1,39 @@
+name: Data Pipeline (ingestion check)
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'data/**'
+      - 'Makefile'
+      - '.github/workflows/pipeline.yml'
+  pull_request:
+    paths:
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'data/**'
+      - 'Makefile'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run pipeline (HTML only)
+        run: |
+          make publish
+
