@@ -1,7 +1,12 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 
 async function getFacility(id: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/facilities/${encodeURIComponent(id)}`, { cache: "no-store" });
+  const hdrs = headers();
+  const host = hdrs.get('x-forwarded-host') || hdrs.get('host') || 'localhost:3000';
+  const proto = hdrs.get('x-forwarded-proto') || (process.env.NODE_ENV === 'production' ? 'https' : 'http');
+  const base = process.env.NEXT_PUBLIC_BASE_URL || `${proto}://${host}`;
+  const res = await fetch(`${base}/api/facilities/${encodeURIComponent(id)}`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load facility");
   return res.json();
 }
@@ -80,4 +85,3 @@ export default async function FacilityProfilePage({ params, searchParams }: { pa
     </html>
   );
 }
-

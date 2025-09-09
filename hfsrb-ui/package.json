@@ -10,8 +10,9 @@
     "lint:fix": "eslint . --fix",
     "drizzle:generate": "dotenv -e .env.local -- drizzle-kit generate",
     "drizzle:push": "dotenv -e .env.local -- drizzle-kit push",
-    "load:esrd2023": "tsx scripts/load_esrd_2023.ts",
-    "load:hospital2024": "tsx scripts/load_hospital_profiles_2024.ts",
+    "load:esrd2023": "dotenv -e .env.local -- tsx scripts/load_esrd_2023.ts",
+    "load:hospital2024": "dotenv -e .env.local -- tsx scripts/load_hospital_profiles_2024.ts",
+    "load:hospital2024:json": "dotenv -e .env.local -- tsx scripts/load_hospital_2024_from_json.ts",
     "geocode:facilities": "tsx scripts/geocode_facilities.ts",
     "check": "tsx scripts/check_summaries.ts",
     "etl:report": "tsx scripts/report_detectors.ts"
@@ -24,7 +25,6 @@
     "drizzle:push:local": "DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres drizzle-kit push"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.57.2",
     "@tanstack/react-table": "^8.21.3",
     "chart.js": "^4.5.0",
     "drizzle-orm": "^0.44.5",

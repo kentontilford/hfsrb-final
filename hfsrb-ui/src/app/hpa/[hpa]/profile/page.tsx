@@ -1,5 +1,11 @@
+import { headers } from "next/headers";
+
 async function getSummary(hpa: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/hpa/${encodeURIComponent(hpa)}`, { cache: "no-store" });
+  const hdrs = headers();
+  const host = hdrs.get('x-forwarded-host') || hdrs.get('host') || 'localhost:3000';
+  const proto = hdrs.get('x-forwarded-proto') || (process.env.NODE_ENV === 'production' ? 'https' : 'http');
+  const base = process.env.NEXT_PUBLIC_BASE_URL || `${proto}://${host}`;
+  const res = await fetch(`${base}/api/hpa/${encodeURIComponent(hpa)}`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load HPA summary");
   return res.json();
 }
@@ -44,4 +50,3 @@ export default async function HPAPrint({ params }: { params: { hpa: string } }) 
     </body></html>
   );
 }
-

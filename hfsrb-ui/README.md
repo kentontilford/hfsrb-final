@@ -37,6 +37,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Local Postgres (docker-compose)
 
+Stack: Next.js 14 on Vercel, Neon Postgres via Drizzle ORM. Admin-only POST uses a static bearer token (no Supabase required).
+
+Env vars (Vercel + local .env.local):
+- DATABASE_URL: Neon pooled connection string with sslmode=require
+- ADMIN_TOKEN: random secret for admin-only POST (send Authorization: Bearer <token>)
+- NEXT_PUBLIC_BASE_URL: optional base URL for server-side fetches (defaults to relative)
+
 If you want a local database for ETL and testing:
 
 1. Start containers (Postgres + Adminer) — two options:
@@ -74,4 +81,13 @@ Windows + WSL2 note: If you run the DB via Docker Desktop in Windows (Option A),
 
 ```
 DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres
+
+Data loaders
+- ESRD 2023 from repo JSON: `pnpm load:esrd2023`
+- Hospitals 2024 from Excel workbook: `DATA_XLSM=/abs/path/to/2024.xlsm pnpm load:hospital2024`
+- Hospitals 2024 from repo JSON: `pnpm load:hospital2024:json`
+
+Auth for admin POST (bed inventory)
+- Set `ADMIN_TOKEN` in environment.
+- Send `Authorization: Bearer <ADMIN_TOKEN>` when calling POST /api/facilities/[id]/beds
 ```

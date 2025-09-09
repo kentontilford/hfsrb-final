@@ -1,8 +1,14 @@
 type Props = { params: { hsa: string } };
 
+import { headers } from "next/headers";
+
 async function getSummary(hsa: string, year?: string) {
   const qs = new URLSearchParams(); if (year) qs.set('year', year);
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/hsa/${encodeURIComponent(hsa)}?${qs.toString()}`, { cache: "no-store" });
+  const hdrs = headers();
+  const host = hdrs.get('x-forwarded-host') || hdrs.get('host') || 'localhost:3000';
+  const proto = hdrs.get('x-forwarded-proto') || (process.env.NODE_ENV === 'production' ? 'https' : 'http');
+  const base = process.env.NEXT_PUBLIC_BASE_URL || `${proto}://${host}`;
+  const res = await fetch(`${base}/api/hsa/${encodeURIComponent(hsa)}?${qs.toString()}`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load HSA summary");
   return res.json();
 }

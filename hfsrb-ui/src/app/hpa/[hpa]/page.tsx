@@ -1,8 +1,13 @@
+import { headers } from "next/headers";
 type Props = { params: { hpa: string } };
 
 async function getSummary(hpa: string, year?: string) {
   const qs = new URLSearchParams(); if (year) qs.set('year', year);
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/hpa/${encodeURIComponent(hpa)}?${qs.toString()}`, { cache: "no-store" });
+  const hdrs = headers();
+  const host = hdrs.get('x-forwarded-host') || hdrs.get('host') || 'localhost:3000';
+  const proto = hdrs.get('x-forwarded-proto') || (process.env.NODE_ENV === 'production' ? 'https' : 'http');
+  const base = process.env.NEXT_PUBLIC_BASE_URL || `${proto}://${host}`;
+  const res = await fetch(`${base}/api/hpa/${encodeURIComponent(hpa)}?${qs.toString()}`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load HPA summary");
   return res.json();
 }

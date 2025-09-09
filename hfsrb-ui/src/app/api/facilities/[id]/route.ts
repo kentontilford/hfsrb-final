@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { facility, hospitalProfileByYear, hospitalProfile2024 } from "@/db/schema";
 
 type Params = { params: { id: string } };

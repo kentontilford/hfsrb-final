@@ -1,8 +1,14 @@
+import { headers } from "next/headers";
+import dynamic from "next/dynamic";
 type Props = { params: { id: string }, searchParams?: { year?: string } };
 
 async function getFacility(id: string, year?: string) {
   const qs = new URLSearchParams(); if (year) qs.set('year', year);
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/facilities/${encodeURIComponent(id)}?${qs.toString()}`, { cache: "no-store" });
+  const hdrs = headers();
+  const host = hdrs.get('x-forwarded-host') || hdrs.get('host') || 'localhost:3000';
+  const proto = hdrs.get('x-forwarded-proto') || (process.env.NODE_ENV === 'production' ? 'https' : 'http');
+  const base = process.env.NEXT_PUBLIC_BASE_URL || `${proto}://${host}`;
+  const res = await fetch(`${base}/api/facilities/${encodeURIComponent(id)}?${qs.toString()}`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load facility");
   return res.json();
 }
@@ -49,13 +55,10 @@ export default async function FacilityDetail({ params, searchParams }: Props) {
       </section>
       <section className="border rounded p-3">
         <h2 className="font-semibold mb-2">Payer Mix</h2>
-        {/* @ts-expect-error Async client import */}
-        { (await import("@/components/summary/PayerChart")).default({ s: f }) }
+        { dynamic(() => import("@/components/summary/PayerChart"), { ssr: false })({ s: f }) }
       </section>
       <section className="border rounded p-3">
-        {/* Bed Inventory UI */}
-        {/* @ts-expect-error Async Server/Client interop for dynamic import */}
-        { (await import("@/components/facility/BedInventory")).default({ facilityId: params.id }) }
+        { dynamic(() => import("@/components/facility/BedInventory"), { ssr: false })({ facilityId: params.id }) }
       </section>
     </div>
   );

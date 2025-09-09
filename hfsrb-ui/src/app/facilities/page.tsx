@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 
 async function getFacilities(params: { hsa?: string; q?: string; hospital_type?: string; year?: string }) {
   const qs = new URLSearchParams();
@@ -6,7 +7,11 @@ async function getFacilities(params: { hsa?: string; q?: string; hospital_type?:
   if (params.q) qs.set("q", params.q);
   if (params.hospital_type) qs.set("hospital_type", params.hospital_type);
   if (params.year) qs.set("year", params.year);
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/facilities?${qs.toString()}`, { cache: "no-store" });
+  const hdrs = headers();
+  const host = hdrs.get('x-forwarded-host') || hdrs.get('host') || 'localhost:3000';
+  const proto = hdrs.get('x-forwarded-proto') || (process.env.NODE_ENV === 'production' ? 'https' : 'http');
+  const base = process.env.NEXT_PUBLIC_BASE_URL || `${proto}://${host}`;
+  const res = await fetch(`${base}/api/facilities?${qs.toString()}`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load facilities");
   return res.json();
 }

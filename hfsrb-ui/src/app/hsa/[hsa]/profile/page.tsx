@@ -1,5 +1,11 @@
+import { headers } from "next/headers";
+
 async function getSummary(hsa: string) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/hsa/${encodeURIComponent(hsa)}`, { cache: "no-store" });
+  const hdrs = headers();
+  const host = hdrs.get('x-forwarded-host') || hdrs.get('host') || 'localhost:3000';
+  const proto = hdrs.get('x-forwarded-proto') || (process.env.NODE_ENV === 'production' ? 'https' : 'http');
+  const base = process.env.NEXT_PUBLIC_BASE_URL || `${proto}://${host}`;
+  const res = await fetch(`${base}/api/hsa/${encodeURIComponent(hsa)}`, { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load HSA summary");
   return res.json();
 }
@@ -44,4 +50,3 @@ export default async function HSAPrint({ params }: { params: { hsa: string } }) 
     </body></html>
   );
 }
-
