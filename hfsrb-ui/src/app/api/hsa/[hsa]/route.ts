@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 import { and, eq } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { hsaSummaryByYear, hsaSummary2024 } from "@/db/schema";
