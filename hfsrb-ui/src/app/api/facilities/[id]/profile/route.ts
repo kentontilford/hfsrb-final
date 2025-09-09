@@ -36,6 +36,7 @@ export async function GET(req: Request, ctx: Params) {
       })
     });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message ?? String(e), hint: "Ensure Playwright is installed: npx playwright install chromium" }, { status: 500 });
+    console.error(`/api/facilities/${ctx.params.id}/profile error:`, e);
+    return NextResponse.json({ error: e.message ?? String(e), stack: e?.stack }, { status: 500 });
   }
 }

@@ -22,6 +22,7 @@ export async function GET(req: Request, ctx: { params: { hpa: string } }) {
     const ab = u8.buffer.slice(u8.byteOffset, u8.byteOffset + u8.byteLength);
     return new NextResponse(ab as any, { status: 200, headers: new Headers({ "Content-Type": "application/pdf", "Content-Disposition": `attachment; filename=hpa_${ctx.params.hpa}.pdf` }) });
   } catch (e: any) {
-    return NextResponse.json({ error: e.message ?? String(e) }, { status: 500 });
+    console.error(`/api/hpa/${ctx.params.hpa}/profile error:`, e);
+    return NextResponse.json({ error: e.message ?? String(e), stack: e?.stack }, { status: 500 });
   }
 }

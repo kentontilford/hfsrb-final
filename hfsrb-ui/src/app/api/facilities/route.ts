@@ -33,6 +33,7 @@ export async function GET(req: Request) {
 
     return NextResponse.json(rows);
   } catch (e: any) {
-    return NextResponse.json({ error: e.message ?? String(e) }, { status: 500 });
+    console.error("/api/facilities error:", e);
+    return NextResponse.json({ error: e.message ?? String(e), stack: e?.stack }, { status: 500 });
   }
 }

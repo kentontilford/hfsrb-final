@@ -17,6 +17,7 @@ export async function GET(req: Request, ctx: Params) {
     if (!row) return NextResponse.json({ error: "Not found" }, { status: 404 });
     return NextResponse.json(row);
   } catch (e: any) {
-    return NextResponse.json({ error: e.message ?? String(e) }, { status: 500 });
+    console.error(`/api/hpa/${ctx.params.hpa} error:`, e);
+    return NextResponse.json({ error: e.message ?? String(e), stack: e?.stack }, { status: 500 });
   }
 }
