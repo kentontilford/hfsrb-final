@@ -1,11 +1,19 @@
 import { NextResponse } from "next/server";
-import { chromium } from "playwright";
+import chromium from "@sparticuz/chromium";
+import puppeteer from "puppeteer-core";
+export const runtime = 'nodejs';
 
 export async function GET(req: Request, ctx: { params: { hpa: string } }) {
   const { origin } = new URL(req.url);
   const url = `${origin}/hpa/${encodeURIComponent(ctx.params.hpa)}/profile`;
   try {
-    const browser = await chromium.launch({ args: ["--no-sandbox", "--disable-dev-shm-usage"] });
+    const executablePath = await chromium.executablePath();
+    const browser = await puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      headless: chromium.headless,
+      executablePath,
+    });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "networkidle" });
     const pdf = await page.pdf({ format: "Letter", printBackground: true, margin: { top: "0.5in", bottom: "0.5in", left: "0.5in", right: "0.5in" } });
